@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <base href="https://vuejs-fr.github.io/vuejs.org/">
+        <base href="http://localhost:4000/">
         <title>vue.js</title>
         <meta charset="utf-8">
         <meta name="description" content="Vue.js - Créer rapidement et intuitivement des interfaces intéractives MVVM organisées.">
@@ -11,12 +11,12 @@
         <meta property="og:type" content="article">
         <meta property="og:title" content="vue.js">
         <meta property="og:description" content="Vue.js - Créer rapidement et intuitivement des interfaces intéractives MVVM organisées.">
-        <meta property="og:image" content="https:///images/logo.png">
+        <meta property="og:image" content="https://vuejs.org/images/logo.png">
 
         <meta name="twitter:card" content="summary">
         <meta name="twitter:title" content="vue.js">
         <meta name="twitter:description" content="Vue.js - Créer rapidement et intuitivement des interfaces intéractives MVVM organisées.">
-        <meta name="twitter:image" content="https:///images/logo.png">
+        <meta name="twitter:image" content="https://vuejs.org/images/logo.png">
 
         <link rel="icon" href="./images/logo.png" type="image/x-icon">
 
@@ -193,255 +193,10 @@
     
     <p class="tip"><strong>Cette page est en cours de traduction française. Revenez une autre fois pour lire une traduction achevée ou <a href="https://github.com/vuejs-fr/vuejs.org" target="_blank" rel="external">participez à la traduction française ici</a>.</strong></p>
 
-<h2 id="Global-Config"><a href="#Global-Config" class="headerlink" title="Global Config"></a>Global Config</h2><p><code>Vue.config</code> is an object containing Vue’s global configurations. You can modify its properties listed below before bootstrapping your application:</p>
-<h3 id="silent"><a href="#silent" class="headerlink" title="silent"></a>silent</h3><ul>
-<li><p><strong>Type:</strong> <code>boolean</code></p>
-</li>
-<li><p><strong>Default:</strong> <code>false</code></p>
-</li>
-<li><p><strong>Usage:</strong></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">Vue.config.silent = <span class="literal">true</span></div></pre></td></tr></table></figure>
-<p>Suppress all Vue logs and warnings.</p>
-</li>
-</ul>
-<h3 id="optionMergeStrategies"><a href="#optionMergeStrategies" class="headerlink" title="optionMergeStrategies"></a>optionMergeStrategies</h3><ul>
-<li><p><strong>Type:</strong> <code>{ [key: string]: Function }</code></p>
-</li>
-<li><p><strong>Default:</strong> <code>{}</code></p>
-</li>
-<li><p><strong>Usage:</strong></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">Vue.config.optionMergeStrategies._my_option = <span class="function"><span class="keyword">function</span> (<span class="params">parent, child, vm</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> child + <span class="number">1</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">const</span> Profile = Vue.extend(&#123;</div><div class="line">  <span class="attr">_my_option</span>: <span class="number">1</span></div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="comment">// Profile.options._my_option = 2</span></div></pre></td></tr></table></figure>
-<p>Define custom merging strategies for options.</p>
-<p>The merge strategy receives the value of that option defined on the parent and child instances as the first and second arguments, respectively. The context Vue instance is passed as the third argument.</p>
-</li>
-<li><p><strong>See also:</strong> <a href="../guide/mixins.html#Custom-Option-Merge-Strategies">Custom Option Merging Strategies</a></p>
-</li>
-</ul>
-<h3 id="devtools"><a href="#devtools" class="headerlink" title="devtools"></a>devtools</h3><ul>
-<li><p><strong>Type:</strong> <code>boolean</code></p>
-</li>
-<li><p><strong>Default:</strong> <code>true</code> (<code>false</code> in production builds)</p>
-</li>
-<li><p><strong>Usage:</strong></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// make sure to set this synchronously immediately after loading Vue</span></div><div class="line">Vue.config.devtools = <span class="literal">true</span></div></pre></td></tr></table></figure>
-<p>Configure whether to allow <a href="https://github.com/vuejs/vue-devtools" target="_blank" rel="external">vue-devtools</a> inspection. This option’s default value is <code>true</code> in development builds and <code>false</code> in production builds. You can set it to <code>true</code> to enable inspection for production builds.</p>
-</li>
-</ul>
-<h3 id="errorHandler"><a href="#errorHandler" class="headerlink" title="errorHandler"></a>errorHandler</h3><ul>
-<li><p><strong>Type:</strong> <code>Function</code></p>
-</li>
-<li><p><strong>Default:</strong> Error is thrown in place</p>
-</li>
-<li><p><strong>Usage:</strong></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">Vue.config.errorHandler = <span class="function"><span class="keyword">function</span> (<span class="params">err, vm</span>) </span>&#123;</div><div class="line">  <span class="comment">// handle error</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>Assign a handler for uncaught errors during component render and watchers. The handler gets called with the error and the Vue instance.</p>
-<blockquote>
-<p><a href="https://sentry.io" target="_blank" rel="external">Sentry</a>, an error tracking service, provides <a href="https://sentry.io/for/vue/" target="_blank" rel="external">official integration</a> using this option.</p>
-</blockquote>
-</li>
-</ul>
-<h3 id="ignoredElements"><a href="#ignoredElements" class="headerlink" title="ignoredElements"></a>ignoredElements</h3><ul>
-<li><p><strong>Type:</strong> <code>Array&lt;string&gt;</code></p>
-</li>
-<li><p><strong>Default:</strong> <code>[]</code></p>
-</li>
-<li><p><strong>Usage:</strong></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">Vue.config.ignoredElements = [</div><div class="line">  <span class="string">'my-custom-web-component'</span>, <span class="string">'another-web-component'</span></div><div class="line">]</div></pre></td></tr></table></figure>
-<p>Make Vue ignore custom elements defined outside of Vue (e.g., using the Web Components APIs). Otherwise, it will throw a warning about an <code>Unknown custom element</code>, assuming that you forgot to register a global component or misspelled a component name.</p>
-</li>
-</ul>
-<h3 id="keyCodes"><a href="#keyCodes" class="headerlink" title="keyCodes"></a>keyCodes</h3><ul>
-<li><p><strong>Type:</strong> <code>{ [key: string]: number | Array&lt;number&gt; }</code></p>
-</li>
-<li><p><strong>Default:</strong> <code>{}</code></p>
-</li>
-<li><p><strong>Usage:</strong></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">Vue.config.keyCodes = &#123;</div><div class="line">  <span class="attr">v</span>: <span class="number">86</span>,</div><div class="line">  <span class="attr">f1</span>: <span class="number">112</span>,</div><div class="line">  <span class="attr">mediaPlayPause</span>: <span class="number">179</span>,</div><div class="line">  <span class="attr">up</span>: [<span class="number">38</span>, <span class="number">87</span>]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>Define custom key alias(es) for v-on.</p>
-</li>
-</ul>
-<h2 id="Global-API"><a href="#Global-API" class="headerlink" title="Global API"></a>Global API</h2><h3 id="Vue-extend">Vue.extend( options )</h3>
+<h2 id="Global-Config"><a href="#Global-Config" class="headerlink" title="Global Config"></a>Global Config</h2><p class="tip"><strong>Cette page est en cours de traduction française. Revenez une autre fois pour lire une traduction achevée ou <a href="https://github.com/vuejs-fr/vuejs.org" target="_blank" rel="external">participez à la traduction française ici</a>.</strong></p><code>Vue.config</code> is an object containing Vue’s global configurations. You can modify its properties listed below before bootstrapping your application:<br><br>### silent<br><br>- <strong>Type:</strong> <code>boolean</code><br><br>- <strong>Default:</strong> <code>false</code><br><br>- <strong>Usage:</strong><br><br>  <figure class="highlight js"><table><tr><td class="code"><pre><div class="line">Vue.config.silent = <span class="literal">true</span></div></pre></td></tr></table></figure><br><br>  Suppress all Vue logs and warnings.<br><br>### optionMergeStrategies<br><br>- <strong>Type:</strong> <code>{ [key: string]: Function }</code><br><br>- <strong>Default:</strong> <code>{}</code><br><br>- <strong>Usage:</strong><br><br>  <figure class="highlight js"><table><tr><td class="code"><pre><div class="line">Vue.config.optionMergeStrategies._my_option = <span class="function"><span class="keyword">function</span> (<span class="params">parent, child, vm</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> child + <span class="number">1</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">const</span> Profile = Vue.extend(&#123;</div><div class="line">  <span class="attr">_my_option</span>: <span class="number">1</span></div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="comment">// Profile.options._my_option = 2</span></div></pre></td></tr></table></figure><br><br>  Define custom merging strategies for options.<br><br>  The merge strategy receives the value of that option defined on the parent and child instances as the first and second arguments, respectively. The context Vue instance is passed as the third argument.<br><br>- <strong>See also:</strong> <a href="../guide/mixins.html#Custom-Option-Merge-Strategies">Custom Option Merging Strategies</a><br><br>### devtools<br><br>- <strong>Type:</strong> <code>boolean</code><br><br>- <strong>Default:</strong> <code>true</code> (<code>false</code> in production builds)<br><br>- <strong>Usage:</strong><br><br>  <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// make sure to set this synchronously immediately after loading Vue</span></div><div class="line">Vue.config.devtools = <span class="literal">true</span></div></pre></td></tr></table></figure><br><br>  Configure whether to allow <a href="https://github.com/vuejs/vue-devtools" target="_blank" rel="external">vue-devtools</a> inspection. This option’s default value is <code>true</code> in development builds and <code>false</code> in production builds. You can set it to <code>true</code> to enable inspection for production builds.<br><br>### errorHandler<br><br>- <strong>Type:</strong> <code>Function</code><br><br>- <strong>Default:</strong> Error is thrown in place<br><br>- <strong>Usage:</strong><br><br>  <figure class="highlight js"><table><tr><td class="code"><pre><div class="line">Vue.config.errorHandler = <span class="function"><span class="keyword">function</span> (<span class="params">err, vm</span>) </span>&#123;</div><div class="line">  <span class="comment">// handle error</span></div><div class="line">&#125;</div></pre></td></tr></table></figure><br><br>  Assign a handler for uncaught errors during component render and watchers. The handler gets called with the error and the Vue instance.<br><br>  &gt; <a href="https://sentry.io" target="_blank" rel="external">Sentry</a>, an error tracking service, provides <a href="https://sentry.io/for/vue/" target="_blank" rel="external">official integration</a> using this option.<br><br>### ignoredElements<br><br>- <strong>Type:</strong> <code>Array&lt;string&gt;</code><br><br>- <strong>Default:</strong> <code>[]</code><br><br>- <strong>Usage:</strong><br><br>  <figure class="highlight js"><table><tr><td class="code"><pre><div class="line">Vue.config.ignoredElements = [</div><div class="line">  <span class="string">'my-custom-web-component'</span>, <span class="string">'another-web-component'</span></div><div class="line">]</div></pre></td></tr></table></figure><br><br>  Make Vue ignore custom elements defined outside of Vue (e.g., using the Web Components APIs). Otherwise, it will throw a warning about an <code>Unknown custom element</code>, assuming that you forgot to register a global component or misspelled a component name.<br><br>### keyCodes<br><br>- <strong>Type:</strong> <code>{ [key: string]: number | Array&lt;number&gt; }</code><br><br>- <strong>Default:</strong> <code>{}</code><br><br>- <strong>Usage:</strong><br><br>  <figure class="highlight js"><table><tr><td class="code"><pre><div class="line">Vue.config.keyCodes = &#123;</div><div class="line">  <span class="attr">v</span>: <span class="number">86</span>,</div><div class="line">  <span class="attr">f1</span>: <span class="number">112</span>,</div><div class="line">  <span class="attr">mediaPlayPause</span>: <span class="number">179</span>,</div><div class="line">  <span class="attr">up</span>: [<span class="number">38</span>, <span class="number">87</span>]</div><div class="line">&#125;</div></pre></td></tr></table></figure><br><br>  Define custom key alias(es) for v-on.<br><br>## Global API<br><br><h3 id="Vue-extend">Vue.extend( options )</h3><br><br>- <strong>Arguments:</strong><br>  - <code>{Object} options</code><br><br>- <strong>Usage:</strong><br><br>  Create a “subclass” of the base Vue constructor. The argument should be an object containing component options.<br><br>  The special case to note here is the <code>data</code> option - it must be a function when used with <code>Vue.extend()</code>.<br><br>  <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"mount-point"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure><br><br>  <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// create constructor</span></div><div class="line"><span class="keyword">var</span> Profile = Vue.extend(&#123;</div><div class="line">  <span class="attr">template</span>: <span class="string">'&lt;p&gt;&#123;&#123;firstName&#125;&#125; &#123;&#123;lastName&#125;&#125; aka &#123;&#123;alias&#125;&#125;&lt;/p&gt;'</span>,</div><div class="line">  <span class="attr">data</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">      <span class="attr">firstName</span>: <span class="string">'Walter'</span>,</div><div class="line">      <span class="attr">lastName</span>: <span class="string">'White'</span>,</div><div class="line">      <span class="attr">alias</span>: <span class="string">'Heisenberg'</span></div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line"><span class="comment">// create an instance of Profile and mount it on an element</span></div><div class="line"><span class="keyword">new</span> Profile().$mount(<span class="string">'#mount-point'</span>)</div></pre></td></tr></table></figure><br><br>  Will result in:<br><br>  <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Walter White aka Heisenberg<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div></pre></td></tr></table></figure><br><br>- <strong>See also:</strong> <a href="../guide/components.html">Components</a><br><br><h3 id="Vue-nextTick">Vue.nextTick( [callback, context] )</h3><br><br>- <strong>Arguments:</strong><br>  - <code>{Function} [callback]</code><br>  - <code>{Object} [context]</code><br><br>- <strong>Usage:</strong><br><br>  Defer the callback to be executed after the next DOM update cycle. Use it immediately after you’ve changed some data to wait for the DOM update.<br><br>  <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// modify data</span></div><div class="line">vm.msg = <span class="string">'Hello'</span></div><div class="line"><span class="comment">// DOM not updated yet</span></div><div class="line">Vue.nextTick(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="comment">// DOM updated</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure><br><br>  &gt; New in 2.1.0: returns a Promise if no callback is provided and Promise is supported in the execution environment.<br><br>- <strong>See also:</strong> <a href="../guide/reactivity.html#Async-Update-Queue">Async Update Queue</a><br><br><h3 id="Vue-set">Vue.set( object, key, value )</h3><br><br>- <strong>Arguments:</strong><br>  - <code>{Object} object</code><br>  - <code>{string} key</code><br>  - <code>{any} value</code><br><br>- <strong>Returns:</strong> the set value.<br><br>- <strong>Usage:</strong><br><br>  Set a property on an object. If the object is reactive, ensure the property is created as a reactive property and trigger view updates. This is primarily used to get around the limitation that Vue cannot detect property additions.<br><br>  <strong>Note the object cannot be a Vue instance, or the root data object of a Vue instance.</strong><br><br>- <strong>See also:</strong> <a href="../guide/reactivity.html">Reactivity in Depth</a><br><br><h3 id="Vue-delete">Vue.delete( object, key )</h3><br><br>- <strong>Arguments:</strong><br>  - <code>{Object} object</code><br>  - <code>{string} key</code><br><br>- <strong>Usage:</strong><br><br>  Delete a property on an object. If the object is reactive, ensure the deletion triggers view updates. This is primarily used to get around the limitation that Vue cannot detect property deletions, but you should rarely need to use it.<br><br>  <strong>Note the object cannot be a Vue instance, or the root data object of a Vue instance.</strong><br><br>- <strong>See also:</strong> <a href="../guide/reactivity.html">Reactivity in Depth</a><br><br><h3 id="Vue-directive">Vue.directive( id, [definition] )</h3><br><br>- <strong>Arguments:</strong><br>  - <code>{string} id</code><br>  - <code>{Function | Object} [definition]</code><br><br>- <strong>Usage:</strong><br><br>  Register or retrieve a global directive.<br><br>  <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// register</span></div><div class="line">Vue.directive(<span class="string">'my-directive'</span>, &#123;</div><div class="line">  <span class="attr">bind</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;,</div><div class="line">  <span class="attr">inserted</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;,</div><div class="line">  <span class="attr">update</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;,</div><div class="line">  <span class="attr">componentUpdated</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;,</div><div class="line">  <span class="attr">unbind</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="comment">// register (simple function directive)</span></div><div class="line">Vue.directive(<span class="string">'my-directive'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="comment">// this will be called as `bind` and `update`</span></div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="comment">// getter, return the directive definition if registered</span></div><div class="line"><span class="keyword">var</span> myDirective = Vue.directive(<span class="string">'my-directive'</span>)</div></pre></td></tr></table></figure><br><br>- <strong>See also:</strong> <a href="../guide/custom-directive.html">Custom Directives</a><br><br><h3 id="Vue-filter">Vue.filter( id, [definition] )</h3><br><br>- <strong>Arguments:</strong><br>  - <code>{string} id</code><br>  - <code>{Function} [definition]</code><br><br>- <strong>Usage:</strong><br><br>  Register or retrieve a global filter.<br><br>  <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// register</span></div><div class="line">Vue.filter(<span class="string">'my-filter'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">value</span>) </span>&#123;</div><div class="line">  <span class="comment">// return processed value</span></div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="comment">// getter, return the filter if registered</span></div><div class="line"><span class="keyword">var</span> myFilter = Vue.filter(<span class="string">'my-filter'</span>)</div></pre></td></tr></table></figure><br><br><h3 id="Vue-component">Vue.component( id, [definition] )</h3><br><br>- <strong>Arguments:</strong><br>  - <code>{string} id</code><br>  - <code>{Function | Object} [definition]</code><br><br>- <strong>Usage:</strong><br><br>  Register or retrieve a global component. Registration also automatically sets the component’s <code>name</code> with the given <code>id</code>.<br><br>  <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// register an extended constructor</span></div><div class="line">Vue.component(<span class="string">'my-component'</span>, Vue.extend(&#123; <span class="comment">/* ... */</span> &#125;))</div><div class="line"></div><div class="line"><span class="comment">// register an options object (automatically call Vue.extend)</span></div><div class="line">Vue.component(<span class="string">'my-component'</span>, &#123; <span class="comment">/* ... */</span> &#125;)</div><div class="line"></div><div class="line"><span class="comment">// retrieve a registered component (always return constructor)</span></div><div class="line"><span class="keyword">var</span> MyComponent = Vue.component(<span class="string">'my-component'</span>)</div></pre></td></tr></table></figure><br><br>- <strong>See also:</strong> <a href="../guide/components.html">Components</a><br><br><h3 id="Vue-use">Vue.use( plugin )</h3><br><br>- <strong>Arguments:</strong><br>  - <code>{Object | Function} plugin</code><br><br>- <strong>Usage:</strong><br><br>  Install a Vue.js plugin. If the plugin is an Object, it must expose an <code>install</code> method. If it is a function itself, it will be treated as the install method. The install method will be called with Vue as the argument.<br><br>  When this method is called on the same plugin multiple times, the plugin will be installed only once.<br><br>- <strong>See also:</strong> <a href="../guide/plugins.html">Plugins</a><br><br><h3 id="Vue-mixin">Vue.mixin( mixin )</h3><br><br>- <strong>Arguments:</strong><br>  - <code>{Object} mixin</code><br><br>- <strong>Usage:</strong><br><br>  Apply a mixin globally, which affects every Vue instance created afterwards. This can be used by plugin authors to inject custom behavior into components. <strong>Not recommended in application code</strong>.<br><br>- <strong>See also:</strong> <a href="../guide/mixins.html#Global-Mixin">Global Mixins</a><br><br><h3 id="Vue-compile">Vue.compile( template )</h3><br><br>- <strong>Arguments:</strong><br>  - <code>{string} template</code><br><br>- <strong>Usage:</strong><br><br>  Compiles a template string into a render function. <strong>Only available in the standalone build.</strong><br><br>  <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> res = Vue.compile(<span class="string">'&lt;div&gt;&lt;span&gt;&#123;&#123; msg &#125;&#125;&lt;/span&gt;&lt;/div&gt;'</span>)</div><div class="line"></div><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">  <span class="attr">data</span>: &#123;</div><div class="line">    <span class="attr">msg</span>: <span class="string">'hello'</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">render</span>: res.render,</div><div class="line">  <span class="attr">staticRenderFns</span>: res.staticRenderFns</div><div class="line">&#125;)</div></pre></td></tr></table></figure><br><br>- <strong>See also:</strong> <a href="../guide/render-function.html">Render Functions</a><br><br>## Options / Data<br><br>### data<br><br>- <strong>Type:</strong> <code>Object | Function</code><br><br>- <strong>Restriction:</strong> Only accepts <code>Function</code> when used in a component definition.<br><br>- <strong>Details:</strong><br><br>  The data object for the Vue instance. Vue will recursively convert its properties into getter/setters to make it “reactive”. <strong>The object must be plain</strong>: native objects such as browser API objects and prototype properties are ignored. A rule of thumb is that data should just be data - it is not recommended to observe objects with its own stateful behavior.<br><br>  Once observed, you can no longer add reactive properties to the root data object. It is therefore recommended to declare all root-level reactive properties upfront, before creating the instance.<br><br>  After the instance is created, the original data object can be accessed as <code>vm.$data</code>. The Vue instance also proxies all the properties found on the data object, so <code>vm.a</code> will be equivalent to <code>vm.$data.a</code>.<br><br>  Properties that start with <code>_</code> or <code>$</code> will <strong>not</strong> be proxied on the Vue instance because they may conflict with Vue’s internal properties and API methods. You will have to access them as <code>vm.$data._property</code>.<br><br>  When defining a <strong>component</strong>, <code>data</code> must be declared as a function that returns the initial data object, because there will be many instances created using the same definition. If we still use a plain object for <code>data</code>, that same object will be <strong>shared by reference</strong> across all instances created! By providing a <code>data</code> function, every time a new instance is created, we can simply call it to return a fresh copy of the initial data.<br><br>  If required, a deep clone of the original object can be obtained by passing <code>vm.$data</code> through <code>JSON.parse(JSON.stringify(...))</code>.<br><br>- <strong>Example:</strong><br><br>  <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> data = &#123; <span class="attr">a</span>: <span class="number">1</span> &#125;</div><div class="line"></div><div class="line"><span class="comment">// direct instance creation</span></div><div class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</div><div class="line">  <span class="attr">data</span>: data</div><div class="line">&#125;)</div><div class="line">vm.a <span class="comment">// -&gt; 1</span></div><div class="line">vm.$data === data <span class="comment">// -&gt; true</span></div><div class="line"></div><div class="line"><span class="comment">// must use function when in Vue.extend()</span></div><div class="line"><span class="keyword">var</span> Component = Vue.extend(&#123;</div><div class="line">  <span class="attr">data</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> &#123; <span class="attr">a</span>: <span class="number">1</span> &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure><br><br>  <p class="tip">Note that <strong>you should not use an arrow function with the <code>data</code> property</strong> (e.g. <code>data: () =&gt; { return { a: this.myProp }}</code>). The reason is arrow functions bind the parent context, so <code>this</code> will not be the Vue instance as you expect and <code>this.myProp</code> will be undefined.</p>
 
 <ul>
-<li><p><strong>Arguments:</strong></p>
-<ul>
-<li><code>{Object} options</code></li>
-</ul>
-</li>
-<li><p><strong>Usage:</strong></p>
-<p>Create a “subclass” of the base Vue constructor. The argument should be an object containing component options.</p>
-<p>The special case to note here is the <code>data</code> option - it must be a function when used with <code>Vue.extend()</code>.</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"mount-point"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// create constructor</span></div><div class="line"><span class="keyword">var</span> Profile = Vue.extend(&#123;</div><div class="line">  <span class="attr">template</span>: <span class="string">'&lt;p&gt;&#123;&#123;firstName&#125;&#125; &#123;&#123;lastName&#125;&#125; aka &#123;&#123;alias&#125;&#125;&lt;/p&gt;'</span>,</div><div class="line">  <span class="attr">data</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">      <span class="attr">firstName</span>: <span class="string">'Walter'</span>,</div><div class="line">      <span class="attr">lastName</span>: <span class="string">'White'</span>,</div><div class="line">      <span class="attr">alias</span>: <span class="string">'Heisenberg'</span></div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line"><span class="comment">// create an instance of Profile and mount it on an element</span></div><div class="line"><span class="keyword">new</span> Profile().$mount(<span class="string">'#mount-point'</span>)</div></pre></td></tr></table></figure>
-<p>Will result in:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Walter White aka Heisenberg<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div></pre></td></tr></table></figure>
-</li>
-<li><p><strong>See also:</strong> <a href="../guide/components.html">Components</a></p>
-</li>
-</ul>
-<h3 id="Vue-nextTick">Vue.nextTick( [callback, context] )</h3>
-
-<ul>
-<li><p><strong>Arguments:</strong></p>
-<ul>
-<li><code>{Function} [callback]</code></li>
-<li><code>{Object} [context]</code></li>
-</ul>
-</li>
-<li><p><strong>Usage:</strong></p>
-<p>Defer the callback to be executed after the next DOM update cycle. Use it immediately after you’ve changed some data to wait for the DOM update.</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// modify data</span></div><div class="line">vm.msg = <span class="string">'Hello'</span></div><div class="line"><span class="comment">// DOM not updated yet</span></div><div class="line">Vue.nextTick(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="comment">// DOM updated</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<blockquote>
-<p>New in 2.1.0: returns a Promise if no callback is provided and Promise is supported in the execution environment.</p>
-</blockquote>
-</li>
-<li><p><strong>See also:</strong> <a href="../guide/reactivity.html#Async-Update-Queue">Async Update Queue</a></p>
-</li>
-</ul>
-<h3 id="Vue-set">Vue.set( object, key, value )</h3>
-
-<ul>
-<li><p><strong>Arguments:</strong></p>
-<ul>
-<li><code>{Object} object</code></li>
-<li><code>{string} key</code></li>
-<li><code>{any} value</code></li>
-</ul>
-</li>
-<li><p><strong>Returns:</strong> the set value.</p>
-</li>
-<li><p><strong>Usage:</strong></p>
-<p>Set a property on an object. If the object is reactive, ensure the property is created as a reactive property and trigger view updates. This is primarily used to get around the limitation that Vue cannot detect property additions.</p>
-<p><strong>Note the object cannot be a Vue instance, or the root data object of a Vue instance.</strong></p>
-</li>
-<li><p><strong>See also:</strong> <a href="../guide/reactivity.html">Reactivity in Depth</a></p>
-</li>
-</ul>
-<h3 id="Vue-delete">Vue.delete( object, key )</h3>
-
-<ul>
-<li><p><strong>Arguments:</strong></p>
-<ul>
-<li><code>{Object} object</code></li>
-<li><code>{string} key</code></li>
-</ul>
-</li>
-<li><p><strong>Usage:</strong></p>
-<p>Delete a property on an object. If the object is reactive, ensure the deletion triggers view updates. This is primarily used to get around the limitation that Vue cannot detect property deletions, but you should rarely need to use it.</p>
-<p><strong>Note the object cannot be a Vue instance, or the root data object of a Vue instance.</strong></p>
-</li>
-<li><p><strong>See also:</strong> <a href="../guide/reactivity.html">Reactivity in Depth</a></p>
-</li>
-</ul>
-<h3 id="Vue-directive">Vue.directive( id, [definition] )</h3>
-
-<ul>
-<li><p><strong>Arguments:</strong></p>
-<ul>
-<li><code>{string} id</code></li>
-<li><code>{Function | Object} [definition]</code></li>
-</ul>
-</li>
-<li><p><strong>Usage:</strong></p>
-<p>Register or retrieve a global directive.</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// register</span></div><div class="line">Vue.directive(<span class="string">'my-directive'</span>, &#123;</div><div class="line">  <span class="attr">bind</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;,</div><div class="line">  <span class="attr">inserted</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;,</div><div class="line">  <span class="attr">update</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;,</div><div class="line">  <span class="attr">componentUpdated</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;,</div><div class="line">  <span class="attr">unbind</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="comment">// register (simple function directive)</span></div><div class="line">Vue.directive(<span class="string">'my-directive'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="comment">// this will be called as `bind` and `update`</span></div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="comment">// getter, return the directive definition if registered</span></div><div class="line"><span class="keyword">var</span> myDirective = Vue.directive(<span class="string">'my-directive'</span>)</div></pre></td></tr></table></figure>
-</li>
-<li><p><strong>See also:</strong> <a href="../guide/custom-directive.html">Custom Directives</a></p>
-</li>
-</ul>
-<h3 id="Vue-filter">Vue.filter( id, [definition] )</h3>
-
-<ul>
-<li><p><strong>Arguments:</strong></p>
-<ul>
-<li><code>{string} id</code></li>
-<li><code>{Function} [definition]</code></li>
-</ul>
-</li>
-<li><p><strong>Usage:</strong></p>
-<p>Register or retrieve a global filter.</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// register</span></div><div class="line">Vue.filter(<span class="string">'my-filter'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">value</span>) </span>&#123;</div><div class="line">  <span class="comment">// return processed value</span></div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="comment">// getter, return the filter if registered</span></div><div class="line"><span class="keyword">var</span> myFilter = Vue.filter(<span class="string">'my-filter'</span>)</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="Vue-component">Vue.component( id, [definition] )</h3>
-
-<ul>
-<li><p><strong>Arguments:</strong></p>
-<ul>
-<li><code>{string} id</code></li>
-<li><code>{Function | Object} [definition]</code></li>
-</ul>
-</li>
-<li><p><strong>Usage:</strong></p>
-<p>Register or retrieve a global component. Registration also automatically sets the component’s <code>name</code> with the given <code>id</code>.</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// register an extended constructor</span></div><div class="line">Vue.component(<span class="string">'my-component'</span>, Vue.extend(&#123; <span class="comment">/* ... */</span> &#125;))</div><div class="line"></div><div class="line"><span class="comment">// register an options object (automatically call Vue.extend)</span></div><div class="line">Vue.component(<span class="string">'my-component'</span>, &#123; <span class="comment">/* ... */</span> &#125;)</div><div class="line"></div><div class="line"><span class="comment">// retrieve a registered component (always return constructor)</span></div><div class="line"><span class="keyword">var</span> MyComponent = Vue.component(<span class="string">'my-component'</span>)</div></pre></td></tr></table></figure>
-</li>
-<li><p><strong>See also:</strong> <a href="../guide/components.html">Components</a></p>
-</li>
-</ul>
-<h3 id="Vue-use">Vue.use( plugin )</h3>
-
-<ul>
-<li><p><strong>Arguments:</strong></p>
-<ul>
-<li><code>{Object | Function} plugin</code></li>
-</ul>
-</li>
-<li><p><strong>Usage:</strong></p>
-<p>Install a Vue.js plugin. If the plugin is an Object, it must expose an <code>install</code> method. If it is a function itself, it will be treated as the install method. The install method will be called with Vue as the argument.</p>
-<p>When this method is called on the same plugin multiple times, the plugin will be installed only once.</p>
-</li>
-<li><p><strong>See also:</strong> <a href="../guide/plugins.html">Plugins</a></p>
-</li>
-</ul>
-<h3 id="Vue-mixin">Vue.mixin( mixin )</h3>
-
-<ul>
-<li><p><strong>Arguments:</strong></p>
-<ul>
-<li><code>{Object} mixin</code></li>
-</ul>
-</li>
-<li><p><strong>Usage:</strong></p>
-<p>Apply a mixin globally, which affects every Vue instance created afterwards. This can be used by plugin authors to inject custom behavior into components. <strong>Not recommended in application code</strong>.</p>
-</li>
-<li><p><strong>See also:</strong> <a href="../guide/mixins.html#Global-Mixin">Global Mixins</a></p>
-</li>
-</ul>
-<h3 id="Vue-compile">Vue.compile( template )</h3>
-
-<ul>
-<li><p><strong>Arguments:</strong></p>
-<ul>
-<li><code>{string} template</code></li>
-</ul>
-</li>
-<li><p><strong>Usage:</strong></p>
-<p>Compiles a template string into a render function. <strong>Only available in the standalone build.</strong></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> res = Vue.compile(<span class="string">'&lt;div&gt;&lt;span&gt;&#123;&#123; msg &#125;&#125;&lt;/span&gt;&lt;/div&gt;'</span>)</div><div class="line"></div><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">  <span class="attr">data</span>: &#123;</div><div class="line">    <span class="attr">msg</span>: <span class="string">'hello'</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">render</span>: res.render,</div><div class="line">  <span class="attr">staticRenderFns</span>: res.staticRenderFns</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-</li>
-<li><p><strong>See also:</strong> <a href="../guide/render-function.html">Render Functions</a></p>
-</li>
-</ul>
-<h2 id="Options-Data"><a href="#Options-Data" class="headerlink" title="Options / Data"></a>Options / Data</h2><h3 id="data"><a href="#data" class="headerlink" title="data"></a>data</h3><ul>
-<li><p><strong>Type:</strong> <code>Object | Function</code></p>
-</li>
-<li><p><strong>Restriction:</strong> Only accepts <code>Function</code> when used in a component definition.</p>
-</li>
-<li><p><strong>Details:</strong></p>
-<p>The data object for the Vue instance. Vue will recursively convert its properties into getter/setters to make it “reactive”. <strong>The object must be plain</strong>: native objects such as browser API objects and prototype properties are ignored. A rule of thumb is that data should just be data - it is not recommended to observe objects with its own stateful behavior.</p>
-<p>Once observed, you can no longer add reactive properties to the root data object. It is therefore recommended to declare all root-level reactive properties upfront, before creating the instance.</p>
-<p>After the instance is created, the original data object can be accessed as <code>vm.$data</code>. The Vue instance also proxies all the properties found on the data object, so <code>vm.a</code> will be equivalent to <code>vm.$data.a</code>.</p>
-<p>Properties that start with <code>_</code> or <code>$</code> will <strong>not</strong> be proxied on the Vue instance because they may conflict with Vue’s internal properties and API methods. You will have to access them as <code>vm.$data._property</code>.</p>
-<p>When defining a <strong>component</strong>, <code>data</code> must be declared as a function that returns the initial data object, because there will be many instances created using the same definition. If we still use a plain object for <code>data</code>, that same object will be <strong>shared by reference</strong> across all instances created! By providing a <code>data</code> function, every time a new instance is created, we can simply call it to return a fresh copy of the initial data.</p>
-<p>If required, a deep clone of the original object can be obtained by passing <code>vm.$data</code> through <code>JSON.parse(JSON.stringify(...))</code>.</p>
-</li>
-<li><p><strong>Example:</strong></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> data = &#123; <span class="attr">a</span>: <span class="number">1</span> &#125;</div><div class="line"></div><div class="line"><span class="comment">// direct instance creation</span></div><div class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</div><div class="line">  <span class="attr">data</span>: data</div><div class="line">&#125;)</div><div class="line">vm.a <span class="comment">// -&gt; 1</span></div><div class="line">vm.$data === data <span class="comment">// -&gt; true</span></div><div class="line"></div><div class="line"><span class="comment">// must use function when in Vue.extend()</span></div><div class="line"><span class="keyword">var</span> Component = Vue.extend(&#123;</div><div class="line">  <span class="attr">data</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> &#123; <span class="attr">a</span>: <span class="number">1</span> &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<p class="tip">Note that <strong>you should not use an arrow function with the <code>data</code> property</strong> (e.g. <code>data: () =&gt; { return { a: this.myProp }}</code>). The reason is arrow functions bind the parent context, so <code>this</code> will not be the Vue instance as you expect and <code>this.myProp</code> will be undefined.</p>
-</li>
-<li><p><strong>See also:</strong> <a href="../guide/reactivity.html">Reactivity in Depth</a></p>
-</li>
+<li><strong>See also:</strong> <a href="../guide/reactivity.html">Reactivity in Depth</a></li>
 </ul>
 <h3 id="props"><a href="#props" class="headerlink" title="props"></a>props</h3><ul>
 <li><p><strong>Type:</strong> <code>Array&lt;string&gt; | Object</code></p>
@@ -1484,7 +1239,7 @@
           m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
           })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-          ga('create', 'UA-46852172-1', '');
+          ga('create', 'UA-46852172-1', 'vuejs.org');
           ga('send', 'pageview');
         </script>
 

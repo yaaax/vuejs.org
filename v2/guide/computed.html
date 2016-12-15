@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <base href="https://vuejs-fr.github.io/vuejs.org/">
+        <base href="http://localhost:4000/">
         <title>Computed Properties and Watchers - vue.js</title>
         <meta charset="utf-8">
         <meta name="description" content="Vue.js - Créer rapidement et intuitivement des interfaces intéractives MVVM organisées.">
@@ -11,12 +11,12 @@
         <meta property="og:type" content="article">
         <meta property="og:title" content="Computed Properties and Watchers - vue.js">
         <meta property="og:description" content="Vue.js - Créer rapidement et intuitivement des interfaces intéractives MVVM organisées.">
-        <meta property="og:image" content="https:///images/logo.png">
+        <meta property="og:image" content="https://vuejs.org/images/logo.png">
 
         <meta name="twitter:card" content="summary">
         <meta name="twitter:title" content="Computed Properties and Watchers - vue.js">
         <meta name="twitter:description" content="Vue.js - Créer rapidement et intuitivement des interfaces intéractives MVVM organisées.">
-        <meta name="twitter:image" content="https:///images/logo.png">
+        <meta name="twitter:image" content="https://vuejs.org/images/logo.png">
 
         <link rel="icon" href="./images/logo.png" type="image/x-icon">
 
@@ -563,7 +563,7 @@
     
     <p class="tip"><strong>Cette page est en cours de traduction française. Revenez une autre fois pour lire une traduction achevée ou <a href="https://github.com/vuejs-fr/vuejs.org" target="_blank" rel="external">participez à la traduction française ici</a>.</strong></p>
 
-<h2 id="Computed-Properties"><a href="#Computed-Properties" class="headerlink" title="Computed Properties"></a>Computed Properties</h2><p>In-template expressions are very convenient, but they are really only meant for simple operations. Putting too much logic into your templates can make them bloated and hard to maintain. For example:</p>
+<h2 id="Computed-Properties"><a href="#Computed-Properties" class="headerlink" title="Computed Properties"></a>Computed Properties</h2><p></p><p class="tip"><strong>Cette page est en cours de traduction française. Revenez une autre fois pour lire une traduction achevée ou <a href="https://github.com/vuejs-fr/vuejs.org" target="_blank" rel="external">participez à la traduction française ici</a>.</strong></p>In-template expressions are very convenient, but they are really only meant for simple operations. Putting too much logic into your templates can make them bloated and hard to maintain. For example:<p></p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"example"</span>&gt;</span></div><div class="line">  &#123;&#123; message.split('').reverse().join('') &#125;&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>At this point, the template is no longer simple and declarative. You have to look at it for a second before realizing that it displays <code>message</code> in reverse. The problem is made worse when you want to include the reversed message in your template more than once.</p>
 <p>That’s why for any complex logic, you should use a <strong>computed property</strong>.</p>
@@ -697,7 +697,7 @@ var watchExampleVM = new Vue({
           m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
           })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-          ga('create', 'UA-46852172-1', '');
+          ga('create', 'UA-46852172-1', 'vuejs.org');
           ga('send', 'pageview');
         </script>
 

@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <base href="https://vuejs-fr.github.io/vuejs.org/">
+        <base href="http://localhost:4000/">
         <title>Event Handling - vue.js</title>
         <meta charset="utf-8">
         <meta name="description" content="Vue.js - Créer rapidement et intuitivement des interfaces intéractives MVVM organisées.">
@@ -11,12 +11,12 @@
         <meta property="og:type" content="article">
         <meta property="og:title" content="Event Handling - vue.js">
         <meta property="og:description" content="Vue.js - Créer rapidement et intuitivement des interfaces intéractives MVVM organisées.">
-        <meta property="og:image" content="https:///images/logo.png">
+        <meta property="og:image" content="https://vuejs.org/images/logo.png">
 
         <meta name="twitter:card" content="summary">
         <meta name="twitter:title" content="Event Handling - vue.js">
         <meta name="twitter:description" content="Vue.js - Créer rapidement et intuitivement des interfaces intéractives MVVM organisées.">
-        <meta name="twitter:image" content="https:///images/logo.png">
+        <meta name="twitter:image" content="https://vuejs.org/images/logo.png">
 
         <link rel="icon" href="./images/logo.png" type="image/x-icon">
 
@@ -563,7 +563,7 @@
     
     <p class="tip"><strong>Cette page est en cours de traduction française. Revenez une autre fois pour lire une traduction achevée ou <a href="https://github.com/vuejs-fr/vuejs.org" target="_blank" rel="external">participez à la traduction française ici</a>.</strong></p>
 
-<h2 id="Listening-to-Events"><a href="#Listening-to-Events" class="headerlink" title="Listening to Events"></a>Listening to Events</h2><p>We can use the <code>v-on</code> directive to listen to DOM events and run some JavaScript when they’re triggered.</p>
+<h2 id="Listening-to-Events"><a href="#Listening-to-Events" class="headerlink" title="Listening to Events"></a>Listening to Events</h2><p></p><p class="tip"><strong>Cette page est en cours de traduction française. Revenez une autre fois pour lire une traduction achevée ou <a href="https://github.com/vuejs-fr/vuejs.org" target="_blank" rel="external">participez à la traduction française ici</a>.</strong></p>We can use the <code>v-on</code> directive to listen to DOM events and run some JavaScript when they’re triggered.<p></p>
 <p>For example:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"example-1"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">v-on:click</span>=<span class="string">"counter += 1"</span>&gt;</span>Add 1<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>The button above has been clicked &#123;&#123; counter &#125;&#125; times.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> example1 = <span class="keyword">new</span> Vue(&#123;</div><div class="line">  <span class="attr">el</span>: <span class="string">'#example-1'</span>,</div><div class="line">  <span class="attr">data</span>: &#123;</div><div class="line">    <span class="attr">counter</span>: <span class="number">0</span></div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
@@ -719,7 +719,7 @@ new Vue({
           m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
           })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-          ga('create', 'UA-46852172-1', '');
+          ga('create', 'UA-46852172-1', 'vuejs.org');
           ga('send', 'pageview');
         </script>
 
