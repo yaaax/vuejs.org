@@ -2,18 +2,18 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>L'instance de Vue - Vue.js</title>
+        <title>L'instance de Vue — Vue.js</title>
         <meta charset="utf-8">
         <meta name="description" content="Vue.js - Créer rapidement et intuitivement des interfaces intéractives MVVM organisées.">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
         <meta property="og:type" content="article">
-        <meta property="og:title" content="L'instance de Vue - vue.js">
+        <meta property="og:title" content="L'instance de Vue — Vue.js">
         <meta property="og:description" content="Vue.js - Créer rapidement et intuitivement des interfaces intéractives MVVM organisées.">
         <meta property="og:image" content="https://vuejs.org/images/logo.png">
 
         <meta name="twitter:card" content="summary">
-        <meta name="twitter:title" content="L'instance de Vue - vue.js">
+        <meta name="twitter:title" content="L'instance de Vue — Vue.js">
         <meta name="twitter:description" content="Vue.js - Créer rapidement et intuitivement des interfaces intéractives MVVM organisées.">
         <meta name="twitter:image" content="https://vuejs.org/images/logo.png">
 
@@ -253,7 +253,7 @@
                 
                 
                 <li>
-                    <a href="/v2/guide/class-and-style.html" class="sidebar-link">Class and Style Bindings</a>
+                    <a href="/v2/guide/class-and-style.html" class="sidebar-link">Liaisons de classes et de styles</a>
                 </li>
             
                 
@@ -411,7 +411,7 @@
                 
                 
                 <li>
-                    <a href="/v2/guide/single-file-components.html" class="sidebar-link">Single File Components</a>
+                    <a href="/v2/guide/single-file-components.html" class="sidebar-link">Les composants monofichiers</a>
                 </li>
             
                 
@@ -435,7 +435,7 @@
                 
                 
                 <li>
-                    <a href="/v2/guide/routing.html" class="sidebar-link">Routing</a>
+                    <a href="/v2/guide/routing.html" class="sidebar-link">Routage</a>
                 </li>
             
                 
@@ -577,13 +577,13 @@
 <p>Quand vous créez une instance de Vue, vous devez passer un <strong>objet d’options</strong> qui contient les options pour les données, le template, l’element de montage, les méthodes, les fonctions de retour du cycle de vie etc… La liste des options peut être trouvée <a href="../api">dans la documentation de l’API</a>.</p>
 <p>Le constructeur de <code>Vue</code> peut être étendu pour créer des <strong>constructeurs de composants</strong> réutilisables avec des options prédéfinies.</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> MyComponent = Vue.extend(&#123;</div><div class="line">  <span class="comment">// options d'extension</span></div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="comment">// toutes les instances de `MyComponent` sont créées avec</span></div><div class="line"><span class="comment">// les options d'extension prédéfinies</span></div><div class="line"><span class="keyword">var</span> myComponentInstance = <span class="keyword">new</span> MyComponent()</div></pre></td></tr></table></figure>
-<p>Bien qu’il soit possible de créer des instances étendues de manière impérative, la plupart du temps il est recommandé de les composer de manière déclarative dans les templates en tant qu’éléments personnalisés. Nous parlerons du <a href="components.html">système de composants</a> en détail plus loin.<br>Pour le moment, vous avez juste besoin de savoir que tous les composants de Vue sont fondamentalement des instances de Vue étendues. </p>
+<p>Bien qu’il soit possible de créer des instances étendues de manière impérative, la plupart du temps il est recommandé de les composer de manière déclarative dans les templates en tant qu’éléments personnalisés. Nous parlerons du <a href="components.html">système de composants</a> en détail plus loin. Pour le moment, vous avez juste besoin de savoir que tous les composants de Vue sont fondamentalement des instances de Vue étendues. </p>
 <h2 id="Proprietes-et-methodes"><a href="#Proprietes-et-methodes" class="headerlink" title="Propriétés et méthodes"></a>Propriétés et méthodes</h2><p>Chaque instance de vue <strong>“proxifie”</strong> toutes les propriétés contenues dans son objet <code>data</code></p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> data = &#123; <span class="attr">a</span>: <span class="number">1</span> &#125;</div><div class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</div><div class="line">  <span class="attr">data</span>: data</div><div class="line">&#125;)</div><div class="line"></div><div class="line">vm.a === data.a <span class="comment">// -&gt; true</span></div><div class="line"></div><div class="line"><span class="comment">// assigner la propriété affecte également la donnée originale</span></div><div class="line">vm.a = <span class="number">2</span></div><div class="line">data.a <span class="comment">// -&gt; 2</span></div><div class="line"></div><div class="line"><span class="comment">// ... et vice-versa</span></div><div class="line">data.a = <span class="number">3</span></div><div class="line">vm.a <span class="comment">// -&gt; 3</span></div></pre></td></tr></table></figure>
 <p>Soulignons que seuls ces propriétés proxifiées sont <strong>réactives</strong>. Si vous attachez une nouvelle propriété à l’instance après sa création, elle ne déclenchera aucune mise à jour de la vue. Nous parlerons plus loin du système de réactivité en détail.</p>
 <p>En plus des propriétés de data, les instances de Vue exposent de nombreuses méthodes et propriétés utiles. Ces propriétés et méthodes sont préfixées par <code>$</code> pour les différencier des propriétés proxifiées de data. Par exemple :</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> data = &#123; <span class="attr">a</span>: <span class="number">1</span> &#125;</div><div class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</div><div class="line">  <span class="attr">el</span>: <span class="string">'#example'</span>,</div><div class="line">  <span class="attr">data</span>: data</div><div class="line">&#125;)</div><div class="line"></div><div class="line">vm.$data === data <span class="comment">// -&gt; true</span></div><div class="line">vm.$el === <span class="built_in">document</span>.getElementById(<span class="string">'example'</span>) <span class="comment">// -&gt; true</span></div><div class="line"></div><div class="line"><span class="comment">// $watch est une méthode de l'instance</span></div><div class="line">vm.$watch(<span class="string">'a'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">newVal, oldVal</span>) </span>&#123;</div><div class="line">  <span class="comment">// cette fonction de retour sera appelée quand `vm.a` changera</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<p class="tip"><br>N’utilisez pas les <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Fonctions/Fonctions_fl%C3%A9ch%C3%A9es" target="_blank" rel="external">fonctions fléchées</a> sur une propriété ou fonction de retour d’une instance  (par exemple <code>vm.$watch(&#39;a&#39;, newVal =&gt; this.myMethod())</code>). Comme les fonctions fléchées sont liées au contexte parent, <code>this</code> ne sera pas l’instance de Vue comme vous pourriez vous y attendre et <code>this.myMethod</code> sera indéfini.<br></p>
+<p class="tip">N’utilisez pas les <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Fonctions/Fonctions_fl%C3%A9ch%C3%A9es" target="_blank" rel="external">fonctions fléchées</a> sur une propriété ou fonction de retour d’une instance  (par exemple <code>vm.$watch(&#39;a&#39;, newVal =&gt; this.myMethod())</code>). Comme les fonctions fléchées sont liées au contexte parent, <code>this</code> ne sera pas l’instance de Vue comme vous pourriez vous y attendre et <code>this.myMethod</code> sera indéfini.</p>
 
 <p>Consultez <a href="../api">l’API</a> pour une liste complète des propriétés et méthodes d’une instance. </p>
 <h2 id="Les-hooks-de-cycle-de-vie-d’une-instance"><a href="#Les-hooks-de-cycle-de-vie-d’une-instance" class="headerlink" title="Les hooks de cycle de vie d’une instance"></a>Les hooks de cycle de vie d’une instance</h2><p>Chaque instance de vue traverse une série d’étapes d’initialisation au moment de sa création - par exemple, elle doit mettre en place l’observation des données, compiler le template, monter l’instance sur le DOM et mettre à jour le DOM quand les données changent. En cours de route, elle va aussi invoquer des <strong>hooks de cycle de vie</strong>, qui nous donnent l’opportunité d’exécuter une logique personnalisée. Par exemple, le hook <code>created</code> est appelé une fois l’instance créée.</p>

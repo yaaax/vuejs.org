@@ -2,18 +2,18 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Routing - Vue.js</title>
+        <title>Routage — Vue.js</title>
         <meta charset="utf-8">
         <meta name="description" content="Vue.js - Créer rapidement et intuitivement des interfaces intéractives MVVM organisées.">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
         <meta property="og:type" content="article">
-        <meta property="og:title" content="Routing - vue.js">
+        <meta property="og:title" content="Routage — Vue.js">
         <meta property="og:description" content="Vue.js - Créer rapidement et intuitivement des interfaces intéractives MVVM organisées.">
         <meta property="og:image" content="https://vuejs.org/images/logo.png">
 
         <meta name="twitter:card" content="summary">
-        <meta name="twitter:title" content="Routing - vue.js">
+        <meta name="twitter:title" content="Routage — Vue.js">
         <meta name="twitter:description" content="Vue.js - Créer rapidement et intuitivement des interfaces intéractives MVVM organisées.">
         <meta name="twitter:image" content="https://vuejs.org/images/logo.png">
 
@@ -253,7 +253,7 @@
                 
                 
                 <li>
-                    <a href="/v2/guide/class-and-style.html" class="sidebar-link">Class and Style Bindings</a>
+                    <a href="/v2/guide/class-and-style.html" class="sidebar-link">Liaisons de classes et de styles</a>
                 </li>
             
                 
@@ -411,7 +411,7 @@
                 
                 
                 <li>
-                    <a href="/v2/guide/single-file-components.html" class="sidebar-link">Single File Components</a>
+                    <a href="/v2/guide/single-file-components.html" class="sidebar-link">Les composants monofichiers</a>
                 </li>
             
                 
@@ -435,7 +435,7 @@
                 
                 
                 <li>
-                    <a href="/v2/guide/routing.html" class="sidebar-link current">Routing</a>
+                    <a href="/v2/guide/routing.html" class="sidebar-link current">Routage</a>
                 </li>
             
                 
@@ -569,13 +569,13 @@
 
     
     
-      <h1>Routing</h1>
+      <h1>Routage</h1>
     
-    <h2 id="Official-Router"><a href="#Official-Router" class="headerlink" title="Official Router"></a>Official Router</h2><p></p><p class="tip"><strong>Cette page est en cours de traduction française. Revenez une autre fois pour lire une traduction achevée ou <a href="https://github.com/vuejs-fr/vuejs.org" target="_blank" rel="external">participez à la traduction française ici</a>.</strong></p>For most Single Page Applications, it’s recommended to use the officially-supported <a href="https://github.com/vuejs/vue-router" target="_blank" rel="external">vue-router library</a>. For more details, see vue-router’s <a href="http://vuejs.github.io/vue-router/" target="_blank" rel="external">documentation</a>.<p></p>
-<h2 id="Simple-Routing-From-Scratch"><a href="#Simple-Routing-From-Scratch" class="headerlink" title="Simple Routing From Scratch"></a>Simple Routing From Scratch</h2><p>If you just need very simple routing and do not wish to involve a full-featured router library, you can do so by dynamically rendering a page-level component like this:</p>
+    <h2 id="Routeur-officiel"><a href="#Routeur-officiel" class="headerlink" title="Routeur officiel"></a>Routeur officiel</h2><p>Pour la plupart des applications monopages, il est recommandé d’utiliser la bibliothèque officiellement supportée <a href="https://github.com/vuejs/vue-router" target="_blank" rel="external">vue-router</a>. Pour plus de détails, voir la <a href="http://vuejs.github.io/vue-router/" target="_blank" rel="external">documentation de vue-router</a>.</p>
+<h2 id="Du-routage-simple-en-partant-de-zero"><a href="#Du-routage-simple-en-partant-de-zero" class="headerlink" title="Du routage simple en partant de zéro"></a>Du routage simple en partant de zéro</h2><p>Si vous avez simplement besoin d’un routage très simple et ne souhaitez pas ajouter une bibliothèque riche en fonctionnalités, vous pouvez le faire en déclenchant dynamiquement le rendu d’un composant de page de cette manière :</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">const</span> NotFound = &#123; <span class="attr">template</span>: <span class="string">'&lt;p&gt;Page not found&lt;/p&gt;'</span> &#125;</div><div class="line"><span class="keyword">const</span> Home = &#123; <span class="attr">template</span>: <span class="string">'&lt;p&gt;home page&lt;/p&gt;'</span> &#125;</div><div class="line"><span class="keyword">const</span> About = &#123; <span class="attr">template</span>: <span class="string">'&lt;p&gt;about page&lt;/p&gt;'</span> &#125;</div><div class="line"></div><div class="line"><span class="keyword">const</span> routes = &#123;</div><div class="line">  <span class="string">'/'</span>: Home,</div><div class="line">  <span class="string">'/about'</span>: About</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">  <span class="attr">el</span>: <span class="string">'#app'</span>,</div><div class="line">  <span class="attr">data</span>: &#123;</div><div class="line">    <span class="attr">currentRoute</span>: <span class="built_in">window</span>.location.pathname</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">computed</span>: &#123;</div><div class="line">    ViewComponent () &#123;</div><div class="line">      <span class="keyword">return</span> routes[<span class="keyword">this</span>.currentRoute] || NotFound</div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">  render (h) &#123; <span class="keyword">return</span> h(<span class="keyword">this</span>.ViewComponent) &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<p>Combined with the HTML5 History API, you can build a very basic but fully-functional client-side router. To see that in practice, check out <a href="https://github.com/chrisvfritz/vue-2.0-simple-routing-example" target="_blank" rel="external">this example app</a>.</p>
-<h2 id="Integrating-3rd-Party-Routers"><a href="#Integrating-3rd-Party-Routers" class="headerlink" title="Integrating 3rd-Party Routers"></a>Integrating 3rd-Party Routers</h2><p>If there’s a 3rd-party router you prefer to use, such as <a href="https://github.com/visionmedia/page.js" target="_blank" rel="external">Page.js</a> or <a href="https://github.com/flatiron/director" target="_blank" rel="external">Director</a>, integration is <a href="https://github.com/chrisvfritz/vue-2.0-simple-routing-example/compare/master...pagejs" target="_blank" rel="external">similarly easy</a>. Here’s a <a href="https://github.com/chrisvfritz/vue-2.0-simple-routing-example/tree/pagejs" target="_blank" rel="external">complete example</a> using Page.js.</p>
+<p>Combiné à l’API HTML5 History, vous pouvez construire un routeur client basique mais parfaitement fonctionnel.<br>Pour en voir une démonstration, faites un checkout <a href="https://github.com/chrisvfritz/vue-2.0-simple-routing-example" target="_blank" rel="external">de cette application d’exemple</a>.</p>
+<h2 id="Integrer-des-routeurs-tierce-partie"><a href="#Integrer-des-routeurs-tierce-partie" class="headerlink" title="Intégrer des routeurs tierce-partie"></a>Intégrer des routeurs tierce-partie</h2><p>S’il y a un routeur tierce-partie que vous préférez utiliser, tel que <a href="https://github.com/visionmedia/page.js" target="_blank" rel="external">Page.js</a> ou <a href="https://github.com/flatiron/director" target="_blank" rel="external">Director</a>,  l’intégration est <a href="https://github.com/chrisvfritz/vue-2.0-simple-routing-example/compare/master...pagejs" target="_blank" rel="external">tout aussi simple</a>. Voici <a href="https://github.com/chrisvfritz/vue-2.0-simple-routing-example/tree/pagejs" target="_blank" rel="external">un exemple complet</a> qui utilise Page.js.</p>
 
     
       <div class="guide-links">
