@@ -576,10 +576,10 @@
 <h2 id="Standalone"><a href="#Standalone" class="headerlink" title="Standalone"></a>Standalone</h2><p>Il suffit de télécharger et de l’inclure avec une balise script. <code>Vue</code> sera déclaré comme une variable globale.</p>
 <p class="tip">N’utilisez pas la version minifiée pendant le développement car vous ne bénéficieriez alors pas des avertissements pour les erreurs courantes !</p>
 
-<div id="downloads"><br><a class="button" href="./js/vue.js" download="">Version de développement</a><span class="light info">Avec tous les avertissements et le mode de débogage</span><br><br><a class="button" href="./js/vue.min.js" download="">Version de production</a><span class="light info">Avertissements retirés, 25.75ko min+gzip</span><br></div>
+<div id="downloads"><br><a class="button" href="./js/vue.js" download="">Version de développement</a><span class="light info">Avec tous les avertissements et le mode de débogage</span><br><br><a class="button" href="./js/vue.min.js" download="">Version de production</a><span class="light info">Avertissements retirés, 25.86ko min+gzip</span><br></div>
 
 <h3 id="CDN"><a href="#CDN" class="headerlink" title="CDN"></a>CDN</h3><p>Recommandé: <a href="https://unpkg.com/vue/dist/vue.js" target="_blank" rel="external">unpkg</a>, qui reflète la dernière version aussitôt qu’elle est publiée sur NPM. Vous pouvez également parcourir la source du package NPM sur <a href="https://unpkg.com/vue/" target="_blank" rel="external">unpkg.com/vue/</a>.</p>
-<p>Également disponible sur <a href="//cdn.jsdelivr.net/vue/2.1.8/vue.js">jsdelivr</a> ou <a href="//cdnjs.cloudflare.com/ajax/libs/vue/2.1.8/vue.js">cdnjs</a>, mais ces deux services mettent du temps à se synchroniser ce qui signifie que la dernière version peut ne pas être encore disponible.</p>
+<p>Également disponible sur <a href="//cdn.jsdelivr.net/vue/2.1.10/vue.js">jsdelivr</a> ou <a href="//cdnjs.cloudflare.com/ajax/libs/vue/2.1.10/vue.js">cdnjs</a>, mais ces deux services mettent du temps à se synchroniser ce qui signifie que la dernière version peut ne pas être encore disponible.</p>
 <h2 id="NPM"><a href="#NPM" class="headerlink" title="NPM"></a>NPM</h2><p>NPM est la méthode d’installation recommandée lors du développement d’applications à grande échelle avec Vue. Il s’associe bien avec des empaqueteurs de modules comme <a href="http://webpack.github.io/" target="_blank" rel="external">Webpack</a> ou <a href="http://browserify.org/" target="_blank" rel="external">Browserify</a>. Vue fournit également des outils d’accompagnement pour la rédaction de <a href="single-file-components.html">Composants Mono-fichier</a>.</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><div class="line"><span class="comment"># latest stable</span></div><div class="line">$ npm install vue</div></pre></td></tr></table></figure>
 <h3 id="Standalone-vs-Runtime"><a href="#Standalone-vs-Runtime" class="headerlink" title="Standalone vs. Runtime"></a>Standalone vs. Runtime</h3><p>Il y a deux builds disponibles le build standalone et le build runtime. La différence vient du fait que le premier inclut le <strong>compilateur de template</strong> alors que le second ne l’inclut pas.</p>
@@ -587,7 +587,7 @@
 <ul>
 <li><p>Le build standalone inclut le compilateur et supporte l’option <code>template</code>. <strong>Il s’appuie également sur les APIs navigateurs, ce qui signifie que vous ne pouvez pas l’utiliser pour du rendu côté serveur.</strong></p>
 </li>
-<li><p>Le build runtime n’inclut pas le compitateur de template, et ne supporte pas l’option <code>template</code>. Vous pouvez seulement utiliser l’option <code>render</code> quand vous utilisez le build runtime, mais il fonctionne avec des composants monofichiers, car les templates de composants monofichiers sont pré-compilés dans <code>render</code> pendant l’étape de build. Le build runtime est à peu près 30% plus léger que le build standalone, l’amenant seulement à 17.87ko min+gzip.</p>
+<li><p>Le build runtime n’inclut pas le compitateur de template, et ne supporte pas l’option <code>template</code>. Vous pouvez seulement utiliser l’option <code>render</code> quand vous utilisez le build runtime, mais il fonctionne avec des composants monofichiers, car les templates de composants monofichiers sont pré-compilés dans <code>render</code> pendant l’étape de build. Le build runtime est à peu près 30% plus léger que le build standalone, l’amenant seulement à 18.01ko min+gzip.</p>
 </li>
 </ul>
 <p>Par défaut, c’est le build <strong>runtime</strong> qui est exporté par le package NPM. Pour utiliser le build standalone, il faut ajouter l’alias suivant dans la configuration Webpack :</p>
@@ -628,7 +628,8 @@
             <script src="/js/smooth-scroll.min.js"></script>
         
 
-        <!-- main custom script for sidebars, version selects etc. -->
+        <!-- main custom script for sidebars, version selects etc. -->        
+        <script src="/js/css.escape.js"></script>
         <script src="/js/common.js"></script>
 
         <!-- search -->
