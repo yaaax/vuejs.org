@@ -228,37 +228,36 @@
     
       <h1>Introduction</h1>
     
-    <h2 id="WORK-IN-PROGRESS"><a href="#WORK-IN-PROGRESS" class="headerlink" title="WORK IN PROGRESS"></a>WORK IN PROGRESS</h2><p class="tip"><strong>Cette page est en cours de traduction française. Revenez une autre fois pour lire une traduction achevée ou <a href="https://github.com/vuejs-fr/vuejs.org" target="_blank" rel="external">participez à la traduction française ici</a>.</strong></p><p class="tip">This cookbook is still in its very early stages. At this point, we will not be linking to it from anywhere else. Pages may be removed or reorganized at any time. Even the goals and overall format are still in flux.</p>
-
-<h2 id="The-Cookbook-vs-the-Guide"><a href="#The-Cookbook-vs-the-Guide" class="headerlink" title="The Cookbook vs the Guide"></a>The Cookbook vs the Guide</h2><p>How is the cookbook different from the guide? Why is this necessary?</p>
+    <h2 id="TRAVAIL-EN-COURS"><a href="#TRAVAIL-EN-COURS" class="headerlink" title="TRAVAIL EN COURS"></a>TRAVAIL EN COURS</h2><p>Ce livre de recettes (<em>cookbook</em>) en est encore à ses tout débuts. À ce stade, nous ne mettrons nulle part un lien vers celui-ci. Des pages peuvent être supprimées ou réorganisées à tout moment. Même les objectifs et le format global sont encore en mouvement.</p><p></p>
+<h2 id="Le-cookbook-versus-le-guide"><a href="#Le-cookbook-versus-le-guide" class="headerlink" title="Le cookbook versus le guide"></a>Le <em>cookbook</em> versus le guide</h2><p>En quoi le <em>cookbook</em> est-il différent du guide ? Pourquoi est-ce nécessaire ?</p>
 <ul>
-<li><p><strong>Greater Focus</strong>: In the guide, we’re essentially telling a story. Each section builds on and assumes knowledge from each previous section. In the cookbook, each recipe can and should stand on its own. This means recipes can focus on one specific aspect of Vue, rather than having to give a general overview.</p>
+<li><p><strong>Plus focalisé</strong> : Dans le guide, nous racontons essentiellement une histoire. Chaque section se construit sur la base des précédentes et présume la connaissance de celles-ci. Dans le <em>cookbook</em>, chaque recette peut et devrait se suffire à elle-même. Cela signifie que les recettes peuvent se focaliser sur un aspect spécifique de Vue, plutôt que d’avoir à donner un aperçu global.</p>
 </li>
-<li><p><strong>Greater Depth</strong>: To avoid making the guide too long, we try to include only the simplest possible examples to help you understand each feature. Then we move on. In the cookbook, we can include more complex examples, combining features in interesting ways. Each recipe can also be as long and detailed as it needs to be, in order to fully explore its niche.</p>
+<li><p><strong>Plus de profondeur</strong> : Pour éviter de rendre le guide trop long, nous essayons d’inclure seulement les exemples les plus simples possibles pour vous aider à comprendre chaque fonctionnalité. Puis nous passons à autre chose. Dans le <em>cookbook</em>, nous pouvons inclure des exemples plus complexes, combinant les fonctionnalités de façon intéressante. Chaque recette peut être aussi longue et détaillée que besoin, afin de pleinement explorer son sujet.</p>
 </li>
-<li><p><strong>Teaching JavaScript</strong>: In the guide, we assume at least intermediate familiarity with ES5 JavaScript. For example, we won’t explain how <code>Array.prototype.filter</code> works in a computed property that filters a list. In the cookbook however, essential JavaScript features (including ES6/2015+) can be explored and explained in the context of how they help us build better Vue applications.</p>
+<li><p><strong>Enseigner JavaScript</strong> : Dans le guide, nous supposons que le lecteur est au moins moyennement familier avec la norme ES5 de JavaScript. Par exemple, nous n’expliquerons pas comment <code>Array.prototype.filter</code> fonctionne au sein d’une propriété calculée qui filtre une liste. Dans le <em>cookbook</em> en revanche, des fonctionnalités essentielles de JavaScript (y-compris ES6/2015+) peuvent être explorées et expliquées pour montrer comment elles nous aident à construire de meilleures applications Vue.</p>
 </li>
-<li><p><strong>Exploring the Ecosystem</strong>: For advanced features, we assume some ecosystem knowledge. For example, if you want to use single-file components in Webpack, we don’t explain how to configure the non-Vue parts of the Webpack config. In the cookbook, we have the space to explore these ecosystem libraries in more depth - at least to the extent that is universally useful for Vue developers.</p>
+<li><p><strong>Explorer l’écosystème</strong> : Pour les fonctionnalités avancées, nous supposons que le lecteur a quelques connaissances sur l’écosystème. Par exemple, si vous voulez utiliser des composants monofichiers avec Webpack, nous n’expliquerons pas comment configurer les parties qui ne concernent pas Vue dans la configuration de Webpack. Dans le <em>cookbook</em>, nous avons l’espace suffisant pour explorer plus en profondeur ces bibliothèques de l’écosystème - au moins dans la mesure où cela est universellement utile aux développeurs Vue.</p>
 </li>
 </ul>
-<h2 id="Guidelines-for-Recipes"><a href="#Guidelines-for-Recipes" class="headerlink" title="Guidelines for Recipes"></a>Guidelines for Recipes</h2><p>Recipes should generally:</p>
+<h2 id="Lignes-directrices-pour-les-recettes"><a href="#Lignes-directrices-pour-les-recettes" class="headerlink" title="Lignes directrices pour les recettes"></a>Lignes directrices pour les recettes</h2><p>Les recettes doivent généralement :</p>
 <blockquote>
 <ol>
-<li><p>Solve a specific, common problem</p>
+<li><p>Résoudre un problème spécifique et commun</p>
 </li>
-<li><p>Start with the simplest possible example</p>
+<li><p>Commencer avec l’exemple le plus simple possible</p>
 </li>
-<li><p>Introduce complexities one at a time</p>
+<li><p>Introduire une complexité à la fois</p>
 </li>
-<li><p>Link to other docs, rather than re-explaining concepts</p>
+<li><p>Comporter des liens vers d’autres sections de la documentation, plutôt que de réexpliquer les concepts</p>
 </li>
-<li><p>Describe the problem, rather than assuming familiarity</p>
+<li><p>Décrire le problème plutôt que de supposer que le lecteur est familier avec</p>
 </li>
-<li><p>Explain the process, rather than just the end result</p>
+<li><p>Expliquer le processus au delà du simple résultat final</p>
 </li>
-<li><p>Explain the pros and cons of your strategy, including when it is and isn’t appropriate</p>
+<li><p>Expliquer le pour et le contre de votre approche, en indiquant dans quels cas elle est apropriée ou non</p>
 </li>
-<li><p>Mention alternative solutions, if relevant, but leave in-depth explorations to a separate recipe</p>
+<li><p>Mentionner des solutions alternatives si c’est pertinent, mais garder les explications en profondeur pour une autre recette.</p>
 </li>
 </ol>
 </blockquote>
