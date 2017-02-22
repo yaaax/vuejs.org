@@ -229,7 +229,7 @@
                 
                 
                 <li>
-                    <a href="/v2/guide/syntax.html" class="sidebar-link">Template Syntax</a>
+                    <a href="/v2/guide/syntax.html" class="sidebar-link">Syntaxe de template</a>
                 </li>
             
                 
@@ -241,7 +241,7 @@
                 
                 
                 <li>
-                    <a href="/v2/guide/computed.html" class="sidebar-link">Computed Properties and Watchers</a>
+                    <a href="/v2/guide/computed.html" class="sidebar-link">Propriétés calculées et observateurs</a>
                 </li>
             
                 
@@ -574,7 +574,7 @@
     <p>Un besoin classique de la liaison de données est la manipulation de la liste des classes d’un élément, ainsi que ses styles en ligne. Puisque ce sont tous deux des attributs, il est possible d’utiliser <code>v-bind</code>  pour les gérer : Il faut simplement générer une chaîne de caractère avec nos expressions. Cependant la concaténation de chaîne de caractères est fastidieuse, et source d’erreur. Pour cette raison, Vue fournit des améliorations spécifiques quand <code>v-bind</code> est utilisé avec <code>class</code> et <code>style</code>. En plus des chaînes de caractères, l’expression peut évaluer des objets ou des tableaux.</p>
 <h2 id="Liaison-de-Classes-HTML"><a href="#Liaison-de-Classes-HTML" class="headerlink" title="Liaison de Classes HTML"></a>Liaison de Classes HTML</h2><h3 id="Syntaxe-Objet"><a href="#Syntaxe-Objet" class="headerlink" title="Syntaxe Objet"></a>Syntaxe Objet</h3><p>Il est possible de passer un objet à <code>v-bind:class</code> pour permuter les classes automatiquement :</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-bind:class</span>=<span class="string">"&#123; active: isActive &#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>La syntaxe ci-dessus signifie que la classe <code>active</code> sera présente si la propriété <code>isActive</code> est <a href="https://developer.mozilla.org/fr/docs/Glossaire/Truthy" target="_blank" rel="external">évaluée à vrai</a>.</p>
+<p>La syntaxe ci-dessus signifie que la classe <code>active</code> sera présente si la propriété <code>isActive</code> est <a href="https://developer.mozilla.org/fr/docs/Glossaire/Truthy" target="_blank" rel="external">considérée comme vrai</a>.</p>
 <p>Vous pouvez permuter plusieurs classes en ayant plus de champs dans l’objet. De plus, la directive <code>v-bind:class</code> peut aussi coexister avec l’attribut <code>class</code>. Donc, avec le template suivant :</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"static"</span></span></div><div class="line">     <span class="attr">v-bind:class</span>=<span class="string">"&#123; active: isActive, 'text-danger': hasError &#125;"</span>&gt;</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>Et les données suivantes :</p>
@@ -618,7 +618,7 @@
 <p>C’est souvent une bonne idée de lier directement un objet de style, pour que le template soit plus propre :</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-bind:style</span>=<span class="string">"styleObject"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line">data: &#123;</div><div class="line">  <span class="attr">styleObject</span>: &#123;</div><div class="line">    <span class="attr">color</span>: <span class="string">'red'</span>,</div><div class="line">    <span class="attr">fontSize</span>: <span class="string">'13px'</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>Encore une fois, la syntaxe objet est souvent utilisée en conjonction avec des propriétées calculées retournant des objets.</p>
+<p>Encore une fois, la syntaxe objet est souvent utilisée en conjonction avec des propriétés calculées retournant des objets.</p>
 <h3 id="Syntaxe-tableau"><a href="#Syntaxe-tableau" class="headerlink" title="Syntaxe tableau"></a>Syntaxe tableau</h3><p>La syntaxe tableau pour <code>v-bind:style</code> permet d’appliquer plusieurs objets de style à un même élément.</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-bind:style</span>=<span class="string">"[baseStyles, overridingStyles]"</span>&gt;</span></div></pre></td></tr></table></figure>
 <h3 id="Prefixage-automatique"><a href="#Prefixage-automatique" class="headerlink" title="Préfixage automatique"></a>Préfixage automatique</h3><p>Quand vous utilisez une propriété CSS qui nécessite un préfixe vendeur dans <code>v-bind:style</code>, par exemple <code>transform</code>, Vue le détectera automatiquement, et ajoutera les préfixes appropriés aux styles appliqués.</p>
@@ -626,7 +626,7 @@
     
       <div class="guide-links">
         
-          <span>← <a href="/v2/guide/computed.html">Computed Properties and Watchers</a></span>
+          <span>← <a href="/v2/guide/computed.html">Propriétés calculées et observateurs</a></span>
         
         
           <span style="float:right"><a href="/v2/guide/conditional.html">Conditional Rendering</a> →</span>

@@ -229,7 +229,7 @@
                 
                 
                 <li>
-                    <a href="/v2/guide/syntax.html" class="sidebar-link">Template Syntax</a>
+                    <a href="/v2/guide/syntax.html" class="sidebar-link">Syntaxe de template</a>
                 </li>
             
                 
@@ -241,7 +241,7 @@
                 
                 
                 <li>
-                    <a href="/v2/guide/computed.html" class="sidebar-link">Computed Properties and Watchers</a>
+                    <a href="/v2/guide/computed.html" class="sidebar-link">Propriétés calculées et observateurs</a>
                 </li>
             
                 
@@ -587,7 +587,7 @@
 <ul>
 <li><p>Le <em>build standalone</em> inclut le compilateur et supporte l’option <code>template</code>. <strong>Il s’appuie également sur les APIs navigateurs, ce qui signifie que vous ne pouvez pas l’utiliser pour du rendu côté serveur.</strong></p>
 </li>
-<li><p>Le <em>build runtime</em> n’inclut pas le compitateur de template, et ne supporte pas l’option <code>template</code>. Vous pouvez seulement utiliser l’option <code>render</code> quand vous utilisez le build runtime, mais il fonctionne avec des composants mono-fichier, car les templates de composants mono-fichier sont pré-compilés dans <code>render</code> pendant l’étape de <em>build</em>. Le <em>build runtime</em> est à peu près 30% plus léger que le <em>build standalone</em>, l’amenant seulement à 18.01ko min+gzip.</p>
+<li><p>Le <em>build runtime</em> n’inclut pas le compilateur de template, et ne supporte pas l’option <code>template</code>. Vous pouvez seulement utiliser l’option <code>render</code> quand vous utilisez le build runtime, mais il fonctionne avec des composants mono-fichier, car les templates de composants mono-fichier sont pré-compilés dans <code>render</code> pendant l’étape de <em>build</em>. Le <em>build runtime</em> est à peu près 30% plus léger que le <em>build standalone</em>, l’amenant seulement à 18.01ko min+gzip.</p>
 </li>
 </ul>
 <p>Par défaut, c’est le <em>build <strong>runtime</strong></em> qui est exporté par le package NPM. Pour utiliser le <em>build standalone</em>, il faut ajouter l’alias suivant dans la configuration Webpack :</p>
