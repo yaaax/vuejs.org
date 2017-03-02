@@ -692,8 +692,9 @@ ul.demo li {
   line-height: 1.4em;
 }
 .content.api ul ul,
-.content.api ul p {
-  margin: 0.6em 0;
+.content.api ul p:not(.tip) {
+  padding-bottom: 0;
+  margin: 1.2em 0;
 }
 .content a.button {
   font-size: 0.9em;
@@ -778,32 +779,37 @@ ul.demo li {
 .content blockquote p {
   font-weight: 600;
   margin-left: 0;
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
 .content iframe {
   margin: 1em 0;
 }
 .content > table {
-  border: 2px solid $white;
+  border-spacing: 0;
+  border-collapse: collapse;
   margin: 1.2em auto;
-  padding: 1em;
+  padding: 0;
+  display: block;
+  overflow-x: auto;
 }
 .content > table td,
 .content > table th {
-  line-height: 1.6em;
-  padding: 0.5em 1.4em;
+  line-height: 1.5em;
+  padding: 0.4em 0.8em;
   border: none;
-}
-.content > table td {
-  background-color: #fcfcfc;
+  border: 1px solid #ddd;
 }
 .content > table th {
-  background-color: #42b983;
-  color: #fff;
-  padding-top: 0.85em;
-  padding-bottom: 0.85em;
+  font-weight: bold;
   text-align: left;
 }
-.content > table tbody code {
+.content > table th,
+.content > table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+.content > table th code,
+.content > table tr:nth-child(2n) code {
   background-color: #efefef;
 }
 .content p.tip {
