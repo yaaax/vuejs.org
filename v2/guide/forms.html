@@ -572,7 +572,7 @@
       <h1>Liaisons sur les champs de formulaire</h1>
     
     <h2 id="Usage-basique"><a href="#Usage-basique" class="headerlink" title="Usage basique"></a>Usage basique</h2><p>Vous pouvez utiliser la directive <code>v-model</code> pour créer une liaison de données bidirectionnelle sur les champs de formulaire (input, select ou textarea). Elle choisira automatiquement la bonne manière de mettre à jour l’élément en fonction du type de champ. Bien qu’un peu magique, <code>v-model</code> est essentiellement du sucre syntaxique pour mettre à jour les données lors des évènements de saisie utilisateur sur les champs, ainsi que quelques traitements spéciaux pour certains cas particuliers.</p>
-<p class="tip"><code>v-model</code> ne prend pas en compte la valeur initiale (attribut “value”) fournie pour un champ. Elle traitera toujours les données de l’instance de vue comme la source de vérité.</p>
+<p class="tip"><code>v-model</code> ne prend pas en compte la valeur initiale des attributs <code>value</code>, <code>checked</code> ou <code>selected</code> fournis par un champ. Elle traitera toujours les données de l’instance de vue comme la source de vérité. Vous devez déclarer la valeur initiale dans votre JavaScript, dans l’option <code>data</code> de votre composant.</p>
 
 <p class="tip" id="vmodel-ime-tip">Pour les langues qui requièrent une <a href="https://fr.wikipedia.org/wiki/M%C3%A9thode_d%27entr%C3%A9e" target="_blank" rel="external">méthode de saisie (IME)</a> (chinois, japonais, coréen etc…), vous remarquerez que <code>v-model</code> ne sera pas mise à jour durant l’exécution de la méthode de saisie.</p>
 
@@ -671,10 +671,12 @@ new Vue({
 </script>
 
 <h3 id="Select"><a href="#Select" class="headerlink" title="Select"></a>Select</h3><p>Select à choix unique :</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">v-model</span>=<span class="string">"selected"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">option</span>&gt;</span>A<span class="tag">&lt;/<span class="name">option</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">option</span>&gt;</span>B<span class="tag">&lt;/<span class="name">option</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">option</span>&gt;</span>C<span class="tag">&lt;/<span class="name">option</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">span</span>&gt;</span>Sélectionné : &#123;&#123; selected &#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">v-model</span>=<span class="string">"selected"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">option</span> <span class="attr">disabled</span> <span class="attr">value</span>=<span class="string">""</span>&gt;</span>Sélectionner :<span class="tag">&lt;/<span class="name">option</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">option</span>&gt;</span>A<span class="tag">&lt;/<span class="name">option</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">option</span>&gt;</span>B<span class="tag">&lt;/<span class="name">option</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">option</span>&gt;</span>C<span class="tag">&lt;/<span class="name">option</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">span</span>&gt;</span>Sélectionné : &#123;&#123; selected &#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">  <span class="attr">el</span>: <span class="string">'...'</span>,</div><div class="line">  <span class="attr">data</span>: &#123;</div><div class="line">    <span class="attr">selected</span>: <span class="string">''</span></div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 
 <div id="example-5" class="demo">
   <select v-model="selected">
+    <option disabled value="">Please select one</option>
     <option>A</option>
     <option>B</option>
     <option>C</option>
@@ -685,10 +687,12 @@ new Vue({
 new Vue({
   el: '#example-5',
   data: {
-    selected: null
+    selected: ''
   }
 })
 </script>
+
+<p class="tip">Si la valeur initiale de votre expression dans <code>v-model</code> ne correspond à aucune des options, l’élément <code>&lt;select&gt;</code> va faire le rendu dans un état « non sélectionné ». Sur iOS cela va conduire l’utilisateur à ne pas pouvoir sélectionner le premier élément car aucun événement <code>change</code> n’est déclenché dans ce cas. Il est cependant recommandé de fournir une option désactivée avec une valeur vide comme dans l’exemple ci-dessous.</p>
 
 <p>Select à choix multiples (lié à un tableau) :</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">v-model</span>=<span class="string">"selected"</span> <span class="attr">multiple</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">option</span>&gt;</span>A<span class="tag">&lt;/<span class="name">option</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">option</span>&gt;</span>B<span class="tag">&lt;/<span class="name">option</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">option</span>&gt;</span>C<span class="tag">&lt;/<span class="name">option</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">span</span>&gt;</span>Sélectionné(s) : &#123;&#123; selected &#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div></pre></td></tr></table></figure>
