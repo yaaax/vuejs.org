@@ -98,6 +98,10 @@
   </ul>
 </li>
 
+<li>
+  <a href="https://vue.threadless.com" target="_blank" class="nav-link shop">Shop</a>
+  <span class="new-label">NEW!</span>
+</li>
 
   </ul>
 </div>
@@ -156,14 +160,17 @@
   </ul>
 </li>
 
+<li>
+  <a href="https://vue.threadless.com" target="_blank" class="nav-link shop">Shop</a>
+  <span class="new-label">NEW!</span>
+</li>
 
     </ul>
     <div class="list">
         <div class="main-sponsor">
-            <span>Sponsorisé par</span><br>
-            <a href="http://www.thedifferenceengine.io/" target="_blank"
-                style="background-color: #f3f3f3; padding: 10px 0">
-                <img src="/images/tde.png">
+            <span>Sponsor de platine</span><br>
+            <a href="https://stdlib.com" target="_blank" class="logo">
+                <img src="/images/stdlib.png">
             </a>
         </div>
         <a class="become-backer" href="/support-vuejs">
@@ -752,7 +759,7 @@ new Vue({
 </ol>
 <p>Pour contourner la première limitation, les deux exemples suivants accomplissent la même chose que <code>vm.items[indexOfItem] = newValue</code>, mais vont également déclencher des mises à jour de l’état dans le système de réactivité :</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// Vue.set</span></div><div class="line">Vue.set(example1.items, indexOfItem, newValue)</div></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// Array.prototype.splice`</span></div><div class="line">example1.items.splice(indexOfItem, <span class="number">1</span>, newValue)</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// Array.prototype.splice</span></div><div class="line">example1.items.splice(indexOfItem, <span class="number">1</span>, newValue)</div></pre></td></tr></table></figure>
 <p>Pour gérer la seconde limitation, vous pouvez également utiliser <code>splice</code> :</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line">example1.items.splice(newLength)</div></pre></td></tr></table></figure>
 <h2 id="Affichage-de-resultats-filtres-tries"><a href="#Affichage-de-resultats-filtres-tries" class="headerlink" title="Affichage de résultats filtrés/triés"></a>Affichage de résultats filtrés/triés</h2><p>Parfois nous voulons afficher une version filtrée ou triée d’un tableau sans pour autant modifier ou réassigner les données d’origine. Dans ce cas, vous pouvez créer une propriété calculée qui retourne le tableau filtré ou trié.</p>
