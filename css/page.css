@@ -1164,3 +1164,67 @@ ul.demo li {
   transform: translate(-50%, -50%);
   width: 100%;
 }
+.composition {
+  position: relative;
+  max-width: 300px;
+  margin: 0 auto;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+}
+.composition--parent,
+.composition--child {
+  z-index: 2;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+}
+.composition--parent {
+  background-color: #e06666;
+}
+.composition--child {
+  background-color: #8e7cc3;
+}
+.composition--events,
+.composition--props {
+  color: #34495e;
+  z-index: 2;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+}
+.composition--events {
+  top: 46.5%;
+  left: 11%;
+  width: 30.5%;
+  height: 20%;
+}
+.composition--props {
+  top: 46.5%;
+  left: 87%;
+  width: 25%;
+  height: 20%;
+}
+.composition--parent {
+  top: 18%;
+  left: 51%;
+  width: 24%;
+  height: 20%;
+}
+.composition--child {
+  top: 71%;
+  left: 51%;
+  width: 25%;
+  height: 20%;
+}
+.composition--parent span,
+.composition--child span,
+.composition--events span,
+.composition--props span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+}
