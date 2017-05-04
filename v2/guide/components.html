@@ -95,6 +95,7 @@
     <li><a href="https://jp.vuejs.org/" class="nav-link" target="_blank">日本語</a></li>
     <li><a href="https://ru.vuejs.org/" class="nav-link" target="_blank">Русский</a></li>
     <li><a href="https://kr.vuejs.org/" class="nav-link" target="_blank">한국어</a></li>
+    <li><a href="https://www.vuejs.org/" class="nav-link" target="_blank">English</a></li>
     <li><a href="https://br.vuejs.org/" class="nav-link" target="_blank">Português</a></li>
   </ul>
 </li>
@@ -157,6 +158,7 @@
     <li><a href="https://jp.vuejs.org/" class="nav-link" target="_blank">日本語</a></li>
     <li><a href="https://ru.vuejs.org/" class="nav-link" target="_blank">Русский</a></li>
     <li><a href="https://kr.vuejs.org/" class="nav-link" target="_blank">한국어</a></li>
+    <li><a href="https://www.vuejs.org/" class="nav-link" target="_blank">English</a></li>
     <li><a href="https://br.vuejs.org/" class="nav-link" target="_blank">Português</a></li>
   </ul>
 </li>
@@ -180,7 +182,7 @@
             Guide
             
                 <select class="version-select">
-                    <option value="SELF" selected>2.0</option>
+                    <option value="SELF" selected>2.x</option>
                     <option value="v1">1.0</option>
                     <option value="012">0.12</option>
                     <option value="011">0.11</option>
@@ -346,7 +348,7 @@
                 
                 
                 <li>
-                    <a href="/v2/guide/transitions.html" class="sidebar-link">Transition Effects</a>
+                    <a href="/v2/guide/transitions.html" class="sidebar-link">Transition Effects (En)</a>
                 </li>
             
                 
@@ -358,7 +360,7 @@
                 
                 
                 <li>
-                    <a href="/v2/guide/transitioning-state.html" class="sidebar-link">Transitioning State</a>
+                    <a href="/v2/guide/transitioning-state.html" class="sidebar-link">Transitioning State (En)</a>
                 </li>
             
                 
@@ -370,7 +372,7 @@
                 
                 
                 <li>
-                    <a href="/v2/guide/render-function.html" class="sidebar-link">Render Functions</a>
+                    <a href="/v2/guide/render-function.html" class="sidebar-link">Render Functions (En)</a>
                 </li>
             
                 
@@ -382,7 +384,7 @@
                 
                 
                 <li>
-                    <a href="/v2/guide/custom-directive.html" class="sidebar-link">Custom Directives</a>
+                    <a href="/v2/guide/custom-directive.html" class="sidebar-link">Custom Directives (En)</a>
                 </li>
             
                 
@@ -406,7 +408,7 @@
                 
                 
                 <li>
-                    <a href="/v2/guide/plugins.html" class="sidebar-link">Plugins</a>
+                    <a href="/v2/guide/plugins.html" class="sidebar-link">Plugins (En)</a>
                 </li>
             
                 
@@ -430,7 +432,7 @@
                 
                 
                 <li>
-                    <a href="/v2/guide/deployment.html" class="sidebar-link">Production Deployment Tips</a>
+                    <a href="/v2/guide/deployment.html" class="sidebar-link">Production Deployment Tips (En)</a>
                 </li>
             
                 
@@ -454,7 +456,7 @@
                 
                 
                 <li>
-                    <a href="/v2/guide/state-management.html" class="sidebar-link">State Management</a>
+                    <a href="/v2/guide/state-management.html" class="sidebar-link">State Management (En)</a>
                 </li>
             
                 
@@ -466,7 +468,7 @@
                 
                 
                 <li>
-                    <a href="/v2/guide/unit-testing.html" class="sidebar-link">Unit Testing</a>
+                    <a href="/v2/guide/unit-testing.html" class="sidebar-link">Unit Testing (En)</a>
                 </li>
             
                 
@@ -490,7 +492,7 @@
                 
                 
                 <li>
-                    <a href="/v2/guide/typescript.html" class="sidebar-link">TypeScript Support</a>
+                    <a href="/v2/guide/typescript.html" class="sidebar-link">TypeScript Support (En)</a>
                 </li>
             
                 
@@ -504,7 +506,7 @@
                 
                 
                 <li>
-                    <a href="/v2/guide/migration.html" class="sidebar-link">Migration from Vue 1.x</a>
+                    <a href="/v2/guide/migration.html" class="sidebar-link">Migration from Vue 1.x (En)</a>
                 </li>
             
                 
@@ -516,7 +518,7 @@
                 
                 
                 <li>
-                    <a href="/v2/guide/migration-vue-router.html" class="sidebar-link">Migration from Vue Router 0.7.x</a>
+                    <a href="/v2/guide/migration-vue-router.html" class="sidebar-link">Migration from Vue Router 0.7.x (En)</a>
                 </li>
             
                 
@@ -528,7 +530,7 @@
                 
                 
                 <li>
-                    <a href="/v2/guide/migration-vuex.html" class="sidebar-link">Migration from Vuex 0.6.x to 1.0</a>
+                    <a href="/v2/guide/migration-vuex.html" class="sidebar-link">Migration from Vuex 0.6.x to 1.0 (En)</a>
                 </li>
             
                 
@@ -554,7 +556,7 @@
                 
                 
                 <li>
-                    <a href="/v2/guide/join.html" class="sidebar-link">Join the Vue.js Community!</a>
+                    <a href="/v2/guide/join.html" class="sidebar-link">Join the Vue.js Community! (En)</a>
                 </li>
             
             
@@ -808,6 +810,18 @@ new Vue({
 <p>Dans cet exemple, il est important de noter que le composant enfant est toujours complètement découplé de ce qui se passe en dehors de celui-ci. Tout ce qu’il fait, c’est rapporter des informations sur sa propre activité, juste au cas où le composant parent écouterait.</p>
 <h4 id="Lier-des-evenements-natifs-aux-composants"><a href="#Lier-des-evenements-natifs-aux-composants" class="headerlink" title="Lier des événements natifs aux composants"></a>Lier des événements natifs aux composants</h4><p>Il y a des fois où vous souhaitez écouter un événement natif sur l’élément racine d’un composant. Dans ce cas, vous devez utiliser le modificateur <code>.native</code> sur <code>v-on</code>. Par exemple :</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">my-component</span> <span class="attr">v-on:click.native</span>=<span class="string">"doTheThing"</span>&gt;</span><span class="tag">&lt;/<span class="name">my-component</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="Modificateur-sync"><a href="#Modificateur-sync" class="headerlink" title="Modificateur .sync"></a>Modificateur <code>.sync</code></h3><blockquote>
+<p>2.3.0+</p>
+</blockquote>
+<p>Dans certains cas, nous pourrions avoir besoin d’une « liaison bidirectionnelle » pour une prop. En fait, dans Vue 1.x, c’est exactement ce que le modificateur <code>.sync</code> permettait. Quand un composant enfant mute une prop qui a <code>.sync</code>, la valeur est remontée au parent. C’est pratique, cependant cela peut conduire a des soucis de maintenance sur le long terme car cela brise l’assemption du flux de donnée unidirectionnelle : le code qui mute dans des props enfants affecte l’état du parent.</p>
+<p>C’est pour cela que nous avions retiré le modificateur <code>.sync</code> dans la version 2.0. Cependant, nous trouvons tout de même qu’il existe des cas où celle-ci est très utile, nottament pour les composants réutilisables. Ce dont nous avions besoin était <strong>de rendre le code d’un enfant qui affecte l’état d’un parent plus cohérent et explicite.</strong></p>
+<p>Dans la 2.3 nous réintroduisons donc le modificateur <code>.sync</code> pour les props, mais cette fois, ce n’est qu’un sucre syntaxique pour étendre automatiquement un écouteur <code>v-on</code> additionnel :</p>
+<p>Ce qui suit</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">comp</span> <span class="attr">:foo.sync</span>=<span class="string">"bar"</span>&gt;</span><span class="tag">&lt;/<span class="name">comp</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>est le raccourci de :</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">comp</span> <span class="attr">:foo</span>=<span class="string">"bar"</span> @<span class="attr">update:foo</span>=<span class="string">"val =&gt; bar = val"</span>&gt;</span><span class="tag">&lt;/<span class="name">comp</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>Pour un composant enfant qui met à jour la valeur de <code>foo</code>, il faut explicitement emettre un évènement au lieu de muter la prop :</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">this</span>.$emit(<span class="string">'update:foo'</span>, newValue)</div></pre></td></tr></table></figure>
 <h3 id="Composants-de-champ-de-formulaire-utilisant-les-evenements-personnalises"><a href="#Composants-de-champ-de-formulaire-utilisant-les-evenements-personnalises" class="headerlink" title="Composants de champ de formulaire utilisant les événements personnalisés"></a>Composants de champ de formulaire utilisant les événements personnalisés</h3><p>Les événements personnalisés peuvent aussi être utilisés pour créer des champs personnalisés qui fonctionnent avec <code>v-model</code>. Rappelez-vous :</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">v-model</span>=<span class="string">"something"</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>est juste du sucre syntaxique pour :</p>
@@ -962,6 +976,12 @@ new Vue({
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">  <span class="comment">// ...</span></div><div class="line">  components: &#123;</div><div class="line">    <span class="string">'my-component'</span>: <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">import</span>(<span class="string">'./my-async-component'</span>)</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <p class="tip">Si vous êtes un utilisateur de <strong>Browserify</strong> et que vous souhaitez utiliser ldes composants asynchrones, son créateur a malheureusement <a href="https://github.com/substack/node-browserify/issues/58#issuecomment-21978224" target="_blank" rel="external">été clair</a> sur le fait que le chargement asynchrone « n’est pas quelque chose que Browserify supportera un jour. ». Officiellement, du moins. La communauté Browserify a trouvé <a href="https://github.com/vuejs/vuejs.org/issues/620" target="_blank" rel="external">plusieurs solutions de contournement</a>, qui peuvent être utiles pour des applications complexes déjà existantes. Pour tous les autres scénarios, nous vous recommandons simplement d’utiliser Webpack pour un support de première classe des composants asynchrones, intégré par défaut.</p>
 
+<h3 id="Composants-asynchrones-avances"><a href="#Composants-asynchrones-avances" class="headerlink" title="Composants asynchrones avancés"></a>Composants asynchrones avancés</h3><blockquote>
+<p>Nouveau en 2.3.0</p>
+</blockquote>
+<p>Introduit avec la 2.3, le générateur de composant asynchrone peut aussi retourner un objet au format suivant :</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">const</span> AsyncComp = <span class="function"><span class="params">()</span> =&gt;</span> (&#123;</div><div class="line">  <span class="comment">// Le composant a charger. Il peut être une Promesse (« Promise »)</span></div><div class="line">  component: <span class="keyword">import</span>(<span class="string">'./MyComp.vue'</span>),</div><div class="line">  <span class="comment">// Un composant a utiliser pendant que le composant asynchrone se charge</span></div><div class="line">  loading: LoadingComp,</div><div class="line">  <span class="comment">// Un composant a utiliser en cas d'échec de chargement du composant</span></div><div class="line">  error: ErrorComp,</div><div class="line">  <span class="comment">// Délai avant de montrer le composant de chargement (loading). Par défaut à : 200ms.</span></div><div class="line">  delay: <span class="number">200</span>,</div><div class="line">  <span class="comment">// Le composant d'erreur est affiché si la limite d'attente</span></div><div class="line">  <span class="comment">// fixée est dépassée. Par défaut à : Infinity.</span></div><div class="line">  timeout: <span class="number">3000</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>Notez qu’en utilisant cela en tant que composant de <code>vue-router</code>, ces propriétés vont être ignorées car les composants asynchrones sont résolue avant que la navigation n’intervienne. Vous pouvez utiliser <code>vue-router</code> 2.4.0+ si vous souhaitez utiliser la syntaxe ci-dessus pour des composants de route.</p>
 <h3 id="Conventions-de-nommage-d’un-composant"><a href="#Conventions-de-nommage-d’un-composant" class="headerlink" title="Conventions de nommage d’un composant"></a>Conventions de nommage d’un composant</h3><p>Quand vous inscrivez un composant (ou des props), vous pouvez utiliser la kebab-case, camelCase, ou TitleCase. Vue n’en tient pas rigueur.</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// dans une définition de composant</span></div><div class="line">components: &#123;</div><div class="line">  <span class="comment">// inscription utilisant la kebab-case</span></div><div class="line">  <span class="string">'kebab-cased-component'</span>: &#123; <span class="comment">/* ... */</span> &#125;,</div><div class="line">  <span class="comment">// inscription utilisant la camelCase</span></div><div class="line">  <span class="string">'camelCasedComponent'</span>: &#123; <span class="comment">/* ... */</span> &#125;,</div><div class="line">  <span class="comment">// inscription utilisant la TitleCase</span></div><div class="line">  <span class="string">'TitleCasedComponent'</span>: &#123; <span class="comment">/* ... */</span> &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>À l’intérieur des templates HTML cependant, vous devez utiliser les équivalences kebab-case :</p>
