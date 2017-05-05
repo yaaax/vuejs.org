@@ -589,8 +589,11 @@ ul.demo li {
 .sidebar ul {
   list-style-type: none;
   margin: 0;
-  line-height: 1.8em;
+  line-height: 1.5em;
   padding-left: 1em;
+}
+.sidebar li {
+  margin-bottom: 0.5em;
 }
 .sidebar .version-select {
   vertical-align: middle;
