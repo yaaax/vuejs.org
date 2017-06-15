@@ -707,7 +707,7 @@ new Vue({
 <p><code>v-if</code> est également <strong>paresseux</strong> : si la condition est fausse sur le rendu initial, il ne fera rien (la structure conditionnelle sera rendue quand la condition sera vraie pour la première fois).</p>
 <p>En comparaison, <code>v-show</code> est beaucoup plus simple (l’élément est toujours rendu indépendamment de la condition initiale, avec juste une simple permutation basée sur du CSS).</p>
 <p>D’une manière générale, <code>v-if</code> a des coûts à la permutations plus élevés alors que <code>v-show</code> a des coûts au rendu initial plus élevés. Donc préférez <code>v-show</code> si vous avez besoin de permuter quelque chose très souvent et préférez <code>v-if</code> si la condition ne change probablement pas à l’exécution.</p>
-<h2 id="v-if-avec-v-for"><a href="#v-if-avec-v-for" class="headerlink" title="v-if avec v-for"></a><code>v-if</code> avec <code>v-for</code></h2><p>Lorsqu’il est conjointement utilisé avec <code>v-for</code>, <code>v-for</code> a une priorité plus élevée que <code>v-if</code>. Consultez le <a href="../guide/list.html#V-for-and-v-if">guide du rendu de liste</a> pour plus de détails.</p>
+<h2 id="v-if-avec-v-for"><a href="#v-if-avec-v-for" class="headerlink" title="v-if avec v-for"></a><code>v-if</code> avec <code>v-for</code></h2><p>Lorsqu’il est conjointement utilisé avec <code>v-for</code>, <code>v-for</code> a une priorité plus élevée que <code>v-if</code>. Consultez le <a href="../guide/list.html#v-for-avec-v-if">guide du rendu de liste</a> pour plus de détails.</p>
 
     
       <div class="guide-links">
