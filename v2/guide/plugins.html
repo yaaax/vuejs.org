@@ -2,18 +2,18 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Plugins (En) — Vue.js</title>
+        <title>Plugins — Vue.js</title>
         <meta charset="utf-8">
         <meta name="description" content="Vue.js - Créer rapidement et intuitivement des interfaces intéractives MVVM organisées.">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
         <meta property="og:type" content="article">
-        <meta property="og:title" content="Plugins (En) — Vue.js">
+        <meta property="og:title" content="Plugins — Vue.js">
         <meta property="og:description" content="Vue.js - Créer rapidement et intuitivement des interfaces intéractives MVVM organisées.">
         <meta property="og:image" content="https://vuejs.org//images/logo.png">
 
         <meta name="twitter:card" content="summary">
-        <meta name="twitter:title" content="Plugins (En) — Vue.js">
+        <meta name="twitter:title" content="Plugins — Vue.js">
         <meta name="twitter:description" content="Vue.js - Créer rapidement et intuitivement des interfaces intéractives MVVM organisées.">
         <meta name="twitter:image" content="https://vuejs.org/images/logo.png">
 
@@ -428,7 +428,7 @@
         
         
         <li>
-            <a href="/v2/guide/plugins.html" class="sidebar-link current">Plugins (En)</a>
+            <a href="/v2/guide/plugins.html" class="sidebar-link current">Plugins</a>
         </li>
     
         
@@ -452,7 +452,7 @@
         
         
         <li>
-            <a href="/v2/guide/deployment.html" class="sidebar-link">Production Deployment Tips (En)</a>
+            <a href="/v2/guide/deployment.html" class="sidebar-link">Astuces de déploiement en production</a>
         </li>
     
         
@@ -615,32 +615,31 @@
       
     
     
-      <h1>Plugins (En)</h1>
+      <h1>Plugins</h1>
     
-    <h2 id="Writing-a-Plugin"><a href="#Writing-a-Plugin" class="headerlink" title="Writing a Plugin"></a>Writing a Plugin</h2><p class="tip"><strong>Cette page est en cours de traduction française. Revenez une autre fois pour lire une traduction achevée ou <a href="https://github.com/vuejs-fr/vuejs.org" target="_blank" rel="external">participez à la traduction française ici</a>.</strong></p><p>Plugins usually add global-level functionality to Vue. There is no strictly defined scope for a plugin - there are typically several types of plugins you can write:</p>
-
+    <h2 id="Ecrire-un-plugin"><a href="#Ecrire-un-plugin" class="headerlink" title="Écrire un plugin"></a>Écrire un plugin</h2><p>Les plugins sont habituellement ajoutés au niveau des fonctionnalités globales de Vue. Il y a un cadre strictement défini pour un plugin et il y a divers types de plugins que vous pouvez écrire pour :</p>
 <ol>
-<li><p>Add some global methods or properties. e.g. <a href="https://github.com/karol-f/vue-custom-element" target="_blank" rel="external">vue-custom-element</a></p>
+<li><p>Ajouter plusieurs méthodes globales ou propriétés. Par ex. <a href="https://github.com/karol-f/vue-custom-element" target="_blank" rel="external">vue-custom-element</a></p>
 </li>
-<li><p>Add one or more global assets: directives/filters/transitions etc. e.g. <a href="https://github.com/vuejs/vue-touch" target="_blank" rel="external">vue-touch</a></p>
+<li><p>Ajouter une ou plusieurs ressource global : directives, filters, transitions, etc. Par ex. <a href="https://github.com/vuejs/vue-touch" target="_blank" rel="external">vue-touch</a></p>
 </li>
-<li><p>Add some component options by global mixin. e.g. <a href="https://github.com/vuejs/vuex" target="_blank" rel="external">vuex</a></p>
+<li><p>Ajouter plusieurs options de composant avec un mixin global. Par ex. <a href="https://github.com/vuejs/vuex" target="_blank" rel="external">vuex</a></p>
 </li>
-<li><p>Add some Vue instance methods by attaching them to Vue.prototype.</p>
+<li><p>Ajouter des méthodes d’instance de Vue en les reliant au prototype de Vue.</p>
 </li>
-<li><p>A library that provides an API of its own, while at the same time injecting some combination of the above. e.g. <a href="https://github.com/vuejs/vue-router" target="_blank" rel="external">vue-router</a></p>
+<li><p>Fournir une bibliothèque avec sa propre API, qui injecte en même temps certains éléments précédemment cités. Par ex. <a href="https://github.com/vuejs/vue-router" target="_blank" rel="external">vue-router</a></p>
 </li>
 </ol>
-<p>A Vue.js plugin should expose an <code>install</code> method. The method will be called with the <code>Vue</code> constructor as the first argument, along with possible options:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">MyPlugin.install = <span class="function"><span class="keyword">function</span> (<span class="params">Vue, options</span>) </span>&#123;</div><div class="line">  <span class="comment">// 1. add global method or property</span></div><div class="line">  Vue.myGlobalMethod = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">// something logic ...</span></div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="comment">// 2. add a global asset</span></div><div class="line">  Vue.directive(<span class="string">'my-directive'</span>, &#123;</div><div class="line">    bind (el, binding, vnode, oldVnode) &#123;</div><div class="line">      <span class="comment">// something logic ...</span></div><div class="line">    &#125;</div><div class="line">    ...</div><div class="line">  &#125;)</div><div class="line"></div><div class="line">  <span class="comment">// 3. inject some component options</span></div><div class="line">  Vue.mixin(&#123;</div><div class="line">    <span class="attr">created</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="comment">// something logic ...</span></div><div class="line">    &#125;</div><div class="line">    ...</div><div class="line">  &#125;)</div><div class="line"></div><div class="line">  <span class="comment">// 4. add an instance method</span></div><div class="line">  Vue.prototype.$myMethod = <span class="function"><span class="keyword">function</span> (<span class="params">options</span>) </span>&#123;</div><div class="line">    <span class="comment">// something logic ...</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="Using-a-Plugin"><a href="#Using-a-Plugin" class="headerlink" title="Using a Plugin"></a>Using a Plugin</h2><p>Use plugins by calling the <code>Vue.use()</code> global method:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// calls `MyPlugin.install(Vue)`</span></div><div class="line">Vue.use(MyPlugin)</div></pre></td></tr></table></figure>
-<p>You can optionally pass in some options:</p>
+<p>Un plugin Vue.js doit exposer une méthode <code>install</code>. Cette méthode sera appelée avec le constructeur de <code>Vue</code> en tant que premier argument, avec les options possibles suivantes :</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">MyPlugin.install = <span class="function"><span class="keyword">function</span> (<span class="params">Vue, options</span>) </span>&#123;</div><div class="line">  <span class="comment">// 1. ajouter une méthode globale ou une propriété</span></div><div class="line">  Vue.myGlobalMethod = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">// de la logique de code...</span></div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="comment">// 2. ajouter une ressource global</span></div><div class="line">  Vue.directive(<span class="string">'my-directive'</span>, &#123;</div><div class="line">    bind (el, binding, vnode, oldVnode) &#123;</div><div class="line">      <span class="comment">// de la logique de code...</span></div><div class="line">    &#125;</div><div class="line">    ...</div><div class="line">  &#125;)</div><div class="line"></div><div class="line">  <span class="comment">// 3. injecter des options de composant</span></div><div class="line">  Vue.mixin(&#123;</div><div class="line">    <span class="attr">created</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="comment">// de la logique de code...</span></div><div class="line">    &#125;</div><div class="line">    ...</div><div class="line">  &#125;)</div><div class="line"></div><div class="line">  <span class="comment">// 4. ajouter une méthode d'instance</span></div><div class="line">  Vue.prototype.$myMethod = <span class="function"><span class="keyword">function</span> (<span class="params">options</span>) </span>&#123;</div><div class="line">    <span class="comment">// de la logique de code...</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Utiliser-un-plugin"><a href="#Utiliser-un-plugin" class="headerlink" title="Utiliser un plugin"></a>Utiliser un plugin</h2><p>Utiliser un plugin en appelant la méthode globale <code>Vue.use()</code> :</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// appel `MyPlugin.install(Vue)`</span></div><div class="line">Vue.use(MyPlugin)</div></pre></td></tr></table></figure>
+<p>Vous pouvez optionnellement passer certaines options :</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line">Vue.use(MyPlugin, &#123; <span class="attr">someOption</span>: <span class="literal">true</span> &#125;)</div></pre></td></tr></table></figure>
-<p><code>Vue.use</code> automatically prevents you from using the same plugin more than once, so calling it multiple times on the same plugin will install the plugin only once.</p>
-<p>Some plugins provided by Vue.js official plugins such as <code>vue-router</code> automatically calls <code>Vue.use()</code> if <code>Vue</code> is available as a global variable. However in a module environment such as CommonJS, you always need to call <code>Vue.use()</code> explicitly:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// When using CommonJS via Browserify or webpack</span></div><div class="line"><span class="keyword">var</span> Vue = <span class="built_in">require</span>(<span class="string">'vue'</span>)</div><div class="line"><span class="keyword">var</span> VueRouter = <span class="built_in">require</span>(<span class="string">'vue-router'</span>)</div><div class="line"></div><div class="line"><span class="comment">// Don't forget to call this</span></div><div class="line">Vue.use(VueRouter)</div></pre></td></tr></table></figure>
-<p>Checkout <a href="https://github.com/vuejs/awesome-vue#components--libraries" target="_blank" rel="external">awesome-vue</a> for a huge collection of community-contributed plugins and libraries.</p>
+<p><code>Vue.use</code> empêchera automatiquement l’utilisation du même plugin plusieurs fois. Ainsi appeler de multiple fois le même plugin ne l’installera qu’une fois.</p>
+<p>Certains plugins fournis officiellement par Vue.js comme <code>vue-router</code> appelle automatiquement <code>Vue.use()</code> si <code>Vue</code> est disponible en tant que variable globale. Cependant, dans un environnement modulaire comme avec CommonJS, vous devrez toujours manuellement appeler <code>Vue.use()</code> :</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// En utilisant CommonJS depuis Browserify ou webpack</span></div><div class="line"><span class="keyword">var</span> Vue = <span class="built_in">require</span>(<span class="string">'vue'</span>)</div><div class="line"><span class="keyword">var</span> VueRouter = <span class="built_in">require</span>(<span class="string">'vue-router'</span>)</div><div class="line"></div><div class="line"><span class="comment">// N'oubliez pas de l'appeler</span></div><div class="line">Vue.use(VueRouter)</div></pre></td></tr></table></figure>
+<p>Consultez <a href="https://github.com/vuejs/awesome-vue#components--libraries" target="_blank" rel="external">awesome-vue</a> pour une large collection de plugin et bibliothèque fournis par la contribution de la communauté.</p>
 
     
       <div class="guide-links">

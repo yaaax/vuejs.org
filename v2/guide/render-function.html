@@ -428,7 +428,7 @@
         
         
         <li>
-            <a href="/v2/guide/plugins.html" class="sidebar-link">Plugins (En)</a>
+            <a href="/v2/guide/plugins.html" class="sidebar-link">Plugins</a>
         </li>
     
         
@@ -452,7 +452,7 @@
         
         
         <li>
-            <a href="/v2/guide/deployment.html" class="sidebar-link">Production Deployment Tips (En)</a>
+            <a href="/v2/guide/deployment.html" class="sidebar-link">Astuces de déploiement en production</a>
         </li>
     
         
@@ -709,7 +709,7 @@
 <p>Et accéder aux slots de portée en tant que fonctions qui retournent des VNodes via <a href="../api/#vm-scopedSlots"><code>this.$scopedSlots</code></a> :</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line">render: <span class="function"><span class="keyword">function</span> (<span class="params">createElement</span>) </span>&#123;</div><div class="line">  <span class="comment">// `&lt;div&gt;&lt;slot :text="msg"&gt;&lt;/slot&gt;&lt;/div&gt;`</span></div><div class="line">  <span class="keyword">return</span> createElement(<span class="string">'div'</span>, [</div><div class="line">    <span class="keyword">this</span>.$scopedSlots.default(&#123;</div><div class="line">      <span class="attr">text</span>: <span class="keyword">this</span>.msg</div><div class="line">    &#125;)</div><div class="line">  ])</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>Pour passer des slots internes à un composant enfant en utilisant des fonctions de rendu, utilisez la propriété <code>scopedSlots</code> dans les données du VNode :</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">render (createElement) &#123;</div><div class="line">  <span class="keyword">return</span> createElement(<span class="string">'div'</span>, [</div><div class="line">    createElement(<span class="string">'child'</span>, &#123;</div><div class="line">      <span class="comment">// passer `scopedSlots` dans l'objet de données</span></div><div class="line">      <span class="comment">// in the form of &#123; name: props =&gt; VNode | Array&lt;VNode&gt; &#125;</span></div><div class="line">      scopedSlots: &#123;</div><div class="line">        <span class="attr">default</span>: <span class="function"><span class="keyword">function</span> (<span class="params">props</span>) </span>&#123;</div><div class="line">          <span class="keyword">return</span> createElement(<span class="string">'span'</span>, props.text)</div><div class="line">        &#125;</div><div class="line">      &#125;</div><div class="line">    &#125;)</div><div class="line">  ])</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">render (createElement) &#123;</div><div class="line">  <span class="keyword">return</span> createElement(<span class="string">'div'</span>, [</div><div class="line">    createElement(<span class="string">'child'</span>, &#123;</div><div class="line">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</div><div class="line">      // passer `scopedSlots` dans l'objet de données</div><div class="line">=======</div><div class="line">      // pass `scopedSlots` in the data object</div><div class="line">&gt;&gt;&gt;&gt;&gt;&gt;&gt; upstream/master</div><div class="line">      // in the form of &#123; name: props =&gt; VNode | Array&lt;VNode&gt; &#125;</div><div class="line">      scopedSlots: &#123;</div><div class="line">        default: function (props) &#123;</div><div class="line">          return createElement('span', props.text)</div><div class="line">        &#125;</div><div class="line">      &#125;</div><div class="line">    &#125;)</div><div class="line">  ])</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h2 id="JSX"><a href="#JSX" class="headerlink" title="JSX"></a>JSX</h2><p>Si vous écrivez beaucoup de fonctions <code>render</code>, cela pourra vous sembler fatiguant d’écrire des choses comme ça :</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line">createElement(</div><div class="line">  <span class="string">'anchored-heading'</span>, &#123;</div><div class="line">    <span class="attr">props</span>: &#123;</div><div class="line">      <span class="attr">level</span>: <span class="number">1</span></div><div class="line">    &#125;</div><div class="line">  &#125;, [</div><div class="line">    createElement(<span class="string">'span'</span>, <span class="string">'Hello'</span>),</div><div class="line">    <span class="string">' world!'</span></div><div class="line">  ]</div><div class="line">)</div></pre></td></tr></table></figure>
 <p>Et d’autant plus quand la version template est vraiment simple en comparaison :</p>

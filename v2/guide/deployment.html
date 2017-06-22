@@ -2,18 +2,18 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Production Deployment Tips (En) — Vue.js</title>
+        <title>Astuces de déploiement en production — Vue.js</title>
         <meta charset="utf-8">
         <meta name="description" content="Vue.js - Créer rapidement et intuitivement des interfaces intéractives MVVM organisées.">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
         <meta property="og:type" content="article">
-        <meta property="og:title" content="Production Deployment Tips (En) — Vue.js">
+        <meta property="og:title" content="Astuces de déploiement en production — Vue.js">
         <meta property="og:description" content="Vue.js - Créer rapidement et intuitivement des interfaces intéractives MVVM organisées.">
         <meta property="og:image" content="https://vuejs.org//images/logo.png">
 
         <meta name="twitter:card" content="summary">
-        <meta name="twitter:title" content="Production Deployment Tips (En) — Vue.js">
+        <meta name="twitter:title" content="Astuces de déploiement en production — Vue.js">
         <meta name="twitter:description" content="Vue.js - Créer rapidement et intuitivement des interfaces intéractives MVVM organisées.">
         <meta name="twitter:image" content="https://vuejs.org/images/logo.png">
 
@@ -428,7 +428,7 @@
         
         
         <li>
-            <a href="/v2/guide/plugins.html" class="sidebar-link">Plugins (En)</a>
+            <a href="/v2/guide/plugins.html" class="sidebar-link">Plugins</a>
         </li>
     
         
@@ -452,7 +452,7 @@
         
         
         <li>
-            <a href="/v2/guide/deployment.html" class="sidebar-link current">Production Deployment Tips (En)</a>
+            <a href="/v2/guide/deployment.html" class="sidebar-link current">Astuces de déploiement en production</a>
         </li>
     
         
@@ -615,34 +615,33 @@
       
     
     
-      <h1>Production Deployment Tips (En)</h1>
+      <h1>Astuces de déploiement en production</h1>
     
-    <h2 id="Turn-on-Production-Mode"><a href="#Turn-on-Production-Mode" class="headerlink" title="Turn on Production Mode"></a>Turn on Production Mode</h2><p class="tip"><strong>Cette page est en cours de traduction française. Revenez une autre fois pour lire une traduction achevée ou <a href="https://github.com/vuejs-fr/vuejs.org" target="_blank" rel="external">participez à la traduction française ici</a>.</strong></p><p>During development, Vue provides a lot of warnings to help you with common errors and pitfalls. However, these warning strings become useless in production and bloat your app’s payload size. In addition, some of these warning checks have small runtime costs that can be avoided in production mode.</p>
-
-<h3 id="Without-Build-Tools"><a href="#Without-Build-Tools" class="headerlink" title="Without Build Tools"></a>Without Build Tools</h3><p>If you are using the full build, i.e. directly including Vue via a script tag without a build tool, make sure to use the minified version (<code>vue.min.js</code>) for production. Both versions can be found in the <a href="installation.html#Direct-lt-script-gt-Include">Installation guide</a>.</p>
-<h3 id="With-Build-Tools"><a href="#With-Build-Tools" class="headerlink" title="With Build Tools"></a>With Build Tools</h3><p>When using a build tool like webpack or Browserify, the production mode will be determined by <code>process.env.NODE_ENV</code> inside Vue’s source code, and it will be in development mode by default. Both build tools provide ways to overwrite this variable to enable Vue’s production mode, and warnings will be stripped by minifiers during the build. All <code>vue-cli</code> templates have these pre-configured for you, but it would be beneficial to know how it is done:</p>
-<h4 id="webpack"><a href="#webpack" class="headerlink" title="webpack"></a>webpack</h4><p>Use webpack’s <a href="https://webpack.js.org/plugins/define-plugin/" target="_blank" rel="external">DefinePlugin</a> to indicate a production environment, so that warning blocks can be automatically dropped by UglifyJS during minification. Example config:</p>
+    <h2 id="Passer-en-mode-production"><a href="#Passer-en-mode-production" class="headerlink" title="Passer en mode production"></a>Passer en mode production</h2><p>Pendant le développement, Vue fournit beaucoup d’avertissements pour vous aider avec les erreurs usuelles et les pièges. Ces messages d’avertissement deviennent cependant inutiles en production et gonflent la taille de votre application en production. De plus, certains de ces avertissements ont un léger coût d’exécution qui peut être évité en mode production.</p>
+<h3 id="Sans-outils-de-build"><a href="#Sans-outils-de-build" class="headerlink" title="Sans outils de build"></a>Sans outils de build</h3><p>Si vous utilisez la version complète, c.-à-d. en incluant directement Vue via une balise script sans outil de build, assurez-vous d’utiliser la version minifiée (<code>vue.min.js</code>) pour la production. Ces deux versions peuvent être trouvées dans le <a href="installation.html#Inclusion-directe-lt-script-gt">guide d’installation</a>.</p>
+<h3 id="Avec-outils-de-build"><a href="#Avec-outils-de-build" class="headerlink" title="Avec outils de build"></a>Avec outils de build</h3><p>Quand vous utilisez un outil de build comme webpack ou Browserify, le mode production sera déterminé par la valeur de <code>process.env.NODE_ENV</code> utilisée dans le code source de Vue et sera en mode développement par défaut. Ces deux outils fournissent des moyens de surcharger cette variable pour activer le mode production de Vue et les avertissements seront retirés par le minificateur pendant le build. Tous les templates <code>vue-cli</code> sont pré-configurés pour vous, mais il peut être utile de savoir comment cela fonctionne :</p>
+<h4 id="webpack"><a href="#webpack" class="headerlink" title="webpack"></a>webpack</h4><p>Utiliser le plugin <a href="https://webpack.js.org/plugins/define-plugin/" target="_blank" rel="external">DefinePlugin</a> de webpack pour indiquer un environnement de production, ainsi les blocs d’avertissements seront ignorés par UglifyJS pendant la minification. Un exemple de configuration :</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>)</div><div class="line"></div><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">  <span class="comment">// ...</span></div><div class="line">  plugins: [</div><div class="line">    <span class="comment">// ...</span></div><div class="line">    <span class="keyword">new</span> webpack.DefinePlugin(&#123;</div><div class="line">      <span class="string">'process.env'</span>: &#123;</div><div class="line">        <span class="attr">NODE_ENV</span>: <span class="string">'"production"'</span></div><div class="line">      &#125;</div><div class="line">    &#125;)</div><div class="line">  ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h4 id="Browserify"><a href="#Browserify" class="headerlink" title="Browserify"></a>Browserify</h4><ul>
-<li><p>Run your bundling command with the actual <code>NODE_ENV</code> environment variable set to <code>&quot;production&quot;</code>. This tells <code>vueify</code> to avoid including hot-reload and development related code.</p>
+<li><p>Lancer votre commande d’empaquetage avec la variable d’environnement <code>NODE_ENV</code> assignée à <code>&quot;production&quot;</code>. Cela indique à <code>vueify</code> d’éviter d’inclure le code utilisé pour le rechargement à chaud ou lié au développement.</p>
 </li>
-<li><p>Apply a global <a href="https://github.com/hughsk/envify" target="_blank" rel="external">envify</a> transform to your bundle. This allows the minifier to strip out all the warnings in Vue’s source code wrapped in env variable conditional blocks. For example:</p>
+<li><p>Appliquer une transformation <a href="https://github.com/hughsk/envify" target="_blank" rel="external">envify</a> globale à votre paquetage (« bundle »). Cela permet au minificateur de retirer tous les avertissements dans le code source de Vue qui sont entourés d’une instruction conditionnelle sur la variable <code>env</code>. Par exemple :</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">NODE_ENV=production browserify -g envify <span class="_">-e</span> main.js | uglifyjs -c -m &gt; build.js</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<h4 id="Rollup"><a href="#Rollup" class="headerlink" title="Rollup"></a>Rollup</h4><p>Use <a href="https://github.com/rollup/rollup-plugin-replace" target="_blank" rel="external">rollup-plugin-replace</a>:</p>
+<h4 id="Rollup"><a href="#Rollup" class="headerlink" title="Rollup"></a>Rollup</h4><p>Utiliser le plugin <a href="https://github.com/rollup/rollup-plugin-replace" target="_blank" rel="external">rollup-plugin-replace</a>:</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">const</span> replace = <span class="built_in">require</span>(<span class="string">'rollup-plugin-replace'</span>)</div><div class="line"></div><div class="line">rollup(&#123;</div><div class="line">  <span class="comment">// ...</span></div><div class="line">  plugins: [</div><div class="line">    replace(&#123;</div><div class="line">      <span class="string">'process.env.NODE_ENV'</span>: <span class="built_in">JSON</span>.stringify( <span class="string">'production'</span> )</div><div class="line">    &#125;)</div><div class="line">  ]</div><div class="line">&#125;).then(...)</div></pre></td></tr></table></figure>
-<h2 id="Pre-Compiling-Templates"><a href="#Pre-Compiling-Templates" class="headerlink" title="Pre-Compiling Templates"></a>Pre-Compiling Templates</h2><p>When using in-DOM templates or in-JavaScript template strings, the template-to-render-function compilation is performed on the fly. This is usually fast enough in most cases, but is best avoided if your application is performance-sensitive.</p>
-<p>The easiest way to pre-compile templates is using <a href="single-file-components.html">Single-File Components</a> - the associated build setups automatically performs pre-compilation for you, so the built code contains the already compiled render functions instead of raw template strings.</p>
-<p>If you are using webpack, and prefer separating JavaScript and template files, you can use <a href="https://github.com/ktsn/vue-template-loader" target="_blank" rel="external">vue-template-loader</a>, which also transforms the template files into JavaScript render functions during the build step.</p>
-<h2 id="Extracting-Component-CSS"><a href="#Extracting-Component-CSS" class="headerlink" title="Extracting Component CSS"></a>Extracting Component CSS</h2><p>When using Single-File Components, the CSS inside components are injected dynamically as <code>&lt;style&gt;</code> tags via JavaScript. This has a small runtime cost, and if you are using server-side rendering it will cause a “flash of unstyled content”. Extracting the CSS across all components into the same file will avoid these issues, and also result in better CSS minification and caching.</p>
-<p>Refer to the respective build tool documentations to see how it’s done:</p>
+<h2 id="Templates-pre-compiles"><a href="#Templates-pre-compiles" class="headerlink" title="Templates pré-compilés"></a>Templates pré-compilés</h2><p>Quand vous utilisez des templates dans le DOM ou dans des chaînes de caractères en JavaScript, une compilation des templates vers les fonctions de rendu est exécutée à la volée. C’est habituellement assez rapide dans la plupart des cas, mais il vaut mieux l’éviter si la performance de vos applications est quelque chose de critique.</p>
+<p>La manière la plus simple de pré-compiler les templates est d’utiliser les <a href="single-file-components.html">composants monofichiers</a>. Les outils de build associés effectuent la pré-compilation pour vous, afin que le code produit contienne les fonctions de rendu déjà compilées au lieu des templates en chaînes de caractères à l’état brut.</p>
+<p>Si vous utilisez webpack, et préférez séparer le JavaScript des fichiers de template, vous pouvez utiliser <a href="https://github.com/ktsn/vue-template-loader" target="_blank" rel="external">vue-template-loader</a>, qui transforme également les fichiers de template en fonctions de rendu pendant la phase de build.</p>
+<h2 id="Extraire-le-CSS-des-composants"><a href="#Extraire-le-CSS-des-composants" class="headerlink" title="Extraire le CSS des composants"></a>Extraire le CSS des composants</h2><p>Lors de l’utilisation de composants monofichiers, le CSS à l’intérieur des composants est injecté dynamiquement sous la forme de balises <code>&lt;style&gt;</code> via JavaScript. Ceci a un léger coût d’exécution, et si vous utilisez du rendu côté serveur, cela causera le phénomène de FOUC (« Flash Of Unstyled Content »). Extraire le CSS depuis tous les composants dans le même fichier évite ces problèmes et amène à une meilleure minification et mise en cache du CSS.</p>
+<p>Référez-vous aux documentations respectives des outils de build pour voir comment cela est fait :</p>
 <ul>
-<li><a href="http://vue-loader.vuejs.org/en/configurations/extract-css.html" target="_blank" rel="external">webpack + vue-loader</a> (the <code>vue-cli</code> webpack template has this pre-configured)</li>
+<li><a href="http://vue-loader.vuejs.org/en/configurations/extract-css.html" target="_blank" rel="external">webpack + vue-loader</a> (le template webpack <code>vue-cli</code> a cela pré-configuré)</li>
 <li><a href="https://github.com/vuejs/vueify#css-extraction" target="_blank" rel="external">Browserify + vueify</a></li>
 <li><a href="https://github.com/znck/rollup-plugin-vue#options" target="_blank" rel="external">Rollup + rollup-plugin-vue</a></li>
 </ul>
-<h2 id="Tracking-Runtime-Errors"><a href="#Tracking-Runtime-Errors" class="headerlink" title="Tracking Runtime Errors"></a>Tracking Runtime Errors</h2><p>If a runtime error occurs during a component’s render, it will be passed to the global <code>Vue.config.errorHandler</code> config function if it has been set. It might be a good idea to leverage this hook together with an error-tracking service like <a href="https://sentry.io" target="_blank" rel="external">Sentry</a>, which provides <a href="https://sentry.io/for/vue/" target="_blank" rel="external">an official integration</a> for Vue.</p>
+<h2 id="Suivre-les-erreurs-d’execution"><a href="#Suivre-les-erreurs-d’execution" class="headerlink" title="Suivre les erreurs d’exécution"></a>Suivre les erreurs d’exécution</h2><p>Si une erreur d’exécution est levée pendant le rendu d’un composant, elle sera passée à la fonction de configuration globale <code>Vue.config.errorHandler</code> si elle a été affectée. C’est toujours une bonne idée de coupler ce hook avec un service de suivi d’erreur comme <a href="https://sentry.io" target="_blank" rel="external">Sentry</a>, qui fournit <a href="https://sentry.io/for/vue/" target="_blank" rel="external">une intégration officielle</a> pour Vue.</p>
 
     
       <div class="guide-links">
