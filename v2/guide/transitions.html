@@ -1407,8 +1407,8 @@ new Vue({
   Fade In: <input type="range" v-model="fadeInDuration" min="0" v-bind:max="maxFadeDuration">
   Fade Out: <input type="range" v-model="fadeOutDuration" min="0" v-bind:max="maxFadeDuration">
   <transition v-bind:css="false" v-on:before-enter="beforeEnter" v-on:enter="enter" v-on:leave="leave">
-    <p v-if="show">bonjour/p>
-  </p></transition>
+    <p v-if="show">bonjour</p>
+  </transition>
   <button v-on:click="stop = true">Arrêtez ça !</button>
 </div>
 <script>
@@ -1458,7 +1458,7 @@ new Vue({
 })
 </script>
 
-<p>Finalement, le meilleur moyen de créer des transitions dynamiques, c’est par le biais de composants qui acceptent des props pour changer la nature de ou des transitions à utiliser. Cela peut sembler mielleux, mais la seule limite est votre imagination.</p>
+<p>Finalement, le meilleur moyen de créer des transitions dynamiques, c’est par le biais de composants qui acceptent des props pour changer la nature des transitions à utiliser. Cela peut sembler mielleux, mais la seule limite est votre imagination.</p>
 
     
       <div class="guide-links">
