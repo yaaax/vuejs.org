@@ -512,7 +512,7 @@
         
         
         <li>
-            <a href="/v2/guide/typescript.html" class="sidebar-link">TypeScript Support (En)</a>
+            <a href="/v2/guide/typescript.html" class="sidebar-link">Support de TypeScript</a>
         </li>
     
         
@@ -1074,7 +1074,7 @@ new Vue({
 <h4 id="Replacing-the-capitalize-Filter"><a href="#Replacing-the-capitalize-Filter" class="headerlink" title="Replacing the capitalize Filter"></a>Replacing the <code>capitalize</code> Filter</h4><figure class="highlight js"><table><tr><td class="code"><pre><div class="line">text[<span class="number">0</span>].toUpperCase() + text.slice(<span class="number">1</span>)</div></pre></td></tr></table></figure>
 <h4 id="Replacing-the-uppercase-Filter"><a href="#Replacing-the-uppercase-Filter" class="headerlink" title="Replacing the uppercase Filter"></a>Replacing the <code>uppercase</code> Filter</h4><figure class="highlight js"><table><tr><td class="code"><pre><div class="line">text.toUpperCase()</div></pre></td></tr></table></figure>
 <h4 id="Replacing-the-lowercase-Filter"><a href="#Replacing-the-lowercase-Filter" class="headerlink" title="Replacing the lowercase Filter"></a>Replacing the <code>lowercase</code> Filter</h4><figure class="highlight js"><table><tr><td class="code"><pre><div class="line">text.toLowerCase()</div></pre></td></tr></table></figure>
-<h4 id="Replacing-the-pluralize-Filter"><a href="#Replacing-the-pluralize-Filter" class="headerlink" title="Replacing the pluralize Filter"></a>Replacing the <code>pluralize</code> Filter</h4><p>The <a href="https://www.npmjs.com/package/pluralize" target="_blank" rel="external">pluralize</a> package on NPM serves this purpose nicely, but if you only want to pluralize a specific word or want to have special output for cases like <code>0</code>, then you can also easily define your own pluralize functions. For example:</p>
+<h4 id="Replacing-the-pluralize-Filter"><a href="#Replacing-the-pluralize-Filter" class="headerlink" title="Replacing the pluralize Filter"></a>Replacing the <code>pluralize</code> Filter</h4><p>The <a href="https://www.npmjs.com/package/pluralize" target="_blank" rel="external">pluralize</a> package on npm serves this purpose nicely, but if you only want to pluralize a specific word or want to have special output for cases like <code>0</code>, then you can also easily define your own pluralize functions. For example:</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">pluralizeKnife</span> (<span class="params">count</span>) </span>&#123;</div><div class="line">  <span class="keyword">if</span> (count === <span class="number">0</span>) &#123;</div><div class="line">    <span class="keyword">return</span> <span class="string">'no knives'</span></div><div class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (count === <span class="number">1</span>) &#123;</div><div class="line">    <span class="keyword">return</span> <span class="string">'1 knife'</span></div><div class="line">  &#125; <span class="keyword">else</span> &#123;</div><div class="line">    <span class="keyword">return</span> count + <span class="string">'knives'</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h4 id="Replacing-the-currency-Filter"><a href="#Replacing-the-currency-Filter" class="headerlink" title="Replacing the currency Filter"></a>Replacing the <code>currency</code> Filter</h4><p>For a very naive implementation, you could just do something like this:</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="string">'$'</span> + price.toFixed(<span class="number">2</span>)</div></pre></td></tr></table></figure>
@@ -1352,7 +1352,7 @@ new Vue({
     
       <div class="guide-links">
         
-          <span>← <a href="/v2/guide/typescript.html">TypeScript Support (En)</a></span>
+          <span>← <a href="/v2/guide/typescript.html">Support de TypeScript</a></span>
         
         
           <span style="float:right"><a href="/v2/guide/migration-vue-router.html">Migration from Vue Router 0.7.x (En)</a> →</span>
