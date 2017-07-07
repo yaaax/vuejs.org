@@ -42,6 +42,8 @@
         <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Roboto Mono' rel='stylesheet' type='text/css'>
         <link href='//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js' rel='stylesheet' type='text/css'>
 
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
         <!-- main page styles -->
         <link rel="stylesheet" href="/css/page.css">
 
@@ -579,6 +581,18 @@
             <a href="/v2/guide/join.html" class="sidebar-link">Rejoignez la communauté Vue.js !</a>
         </li>
     
+        
+        
+            
+            
+            
+            
+        
+        
+        <li>
+            <a href="/v2/guide/team.html" class="sidebar-link">Meet the Team (EN)</a>
+        </li>
+    
     
 </ul>
 
@@ -674,7 +688,7 @@
 <p>C’est pourquoi nous offrons un <a href="https://github.com/vuejs-templates/webpack" target="_blank" rel="external">template webpack</a> qui peut être mis en place en en quelques minutes, tout en vous donnant accès à des fonctionnalités avancées comme le rechargement de module à chaud, l’analyse syntaxique, l’extraction CSS et bien plus.</p>
 <h3 id="Liaison-de-donnees"><a href="#Liaison-de-donnees" class="headerlink" title="Liaison de données"></a>Liaison de données</h3><p>AngularJS utilise la liaison de données bidirectionnelle entre les <em>scopes</em>, tandis que Vue impose un flux de données unidirectionnel entre les composants. Cela rend le flux de données plus facile à appréhender dans des applications non triviales.</p>
 <h3 id="Directives-vs-Composants"><a href="#Directives-vs-Composants" class="headerlink" title="Directives vs Composants"></a>Directives vs Composants</h3><p>Vue fait une distinction plus claire entre directives et composants. Les directives sont conçues pour encapsuler uniquement des manipulations du DOM, tandis que les composants sont des unités indépendantes ayant leur propre vue et logique de données. Avec AngularJS, il y a beaucoup de confusion entre les deux.</p>
-<h3 id="Performance-1"><a href="#Performance-1" class="headerlink" title="Performance"></a>Performance</h3><p>Vue a de meilleures performances et il est bien plus optimisé car il n’utilise pas le <em>dirty checking</em>. AngularJS devient lent quand il y a un grand nombre d’observateurs, car chaque fois que quelque-chose change change dans le <em>scope</em>, tous les observateurs ont besoin d’être réévalués. De plus, le <em>digest cycle</em> peut avoir besoin de s’exécuter plusieurs fois pour se « stabiliser » si un observateur déclenche une autre mutation. Les utilisateurs d’AngularJS ont parfois recours à des techniques ésotériques pour contourner le <em>digest cycle</em>, et dans certaines situations, il n’y a simplement aucun moyen pour optimiser un <em>scope</em> avec beaucoup d’observateurs.</p>
+<h3 id="Performance-1"><a href="#Performance-1" class="headerlink" title="Performance"></a>Performance</h3><p>Vue a de meilleures performances et il est bien plus optimisé car il n’utilise pas le <em>dirty checking</em>. AngularJS devient lent quand il y a un grand nombre d’observateurs, car chaque fois que quelque-chose change dans le <em>scope</em>, tous les observateurs ont besoin d’être réévalués. De plus, le <em>digest cycle</em> peut avoir besoin de s’exécuter plusieurs fois pour se « stabiliser » si un observateur déclenche une autre mutation. Les utilisateurs d’AngularJS ont parfois recours à des techniques ésotériques pour contourner le <em>digest cycle</em>, et dans certaines situations, il n’y a simplement aucun moyen pour optimiser un <em>scope</em> avec beaucoup d’observateurs.</p>
 <p>Vue ne souffre pas de tout ça car il utilise un système transparent de suivi de dépendances avec mise en file d’attente asynchrone — tous les changements se déclenchent indépendamment à moins qu’ils aient des relations de dépendance explicites.</p>
 <p>Il est intéressant de noter qu’il y a quelques similitudes dans la manière dont Angular et Vue corrigent ces problèmes propres à AngularJS.</p>
 <h2 id="Angular-Plus-connu-sous-le-nom-de-Angular-2"><a href="#Angular-Plus-connu-sous-le-nom-de-Angular-2" class="headerlink" title="Angular (Plus connu sous le nom de Angular 2)"></a>Angular (Plus connu sous le nom de Angular 2)</h2><p>Nous avons une section dédiée pour le nouvel Angular car c’est vraiment un framework complètement différent de AngularJS. Par exemple, il comporte un système de composants de première classe, beaucoup de détails d’implémentation ont été complètement ré-écrits, et l’API a également changé assez drastiquement.</p>

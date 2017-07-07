@@ -42,6 +42,8 @@
         <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Roboto Mono' rel='stylesheet' type='text/css'>
         <link href='//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js' rel='stylesheet' type='text/css'>
 
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
         <!-- main page styles -->
         <link rel="stylesheet" href="/css/page.css">
 
@@ -1629,8 +1631,8 @@
 <h3 id="keep-alive"><a href="#keep-alive" class="headerlink" title="keep-alive"></a>keep-alive</h3><ul>
 <li><p><strong>Props:</strong></p>
 <ul>
-<li><code>include</code> - string or RegExp. Only components matched by this will be cached.</li>
-<li><code>exclude</code> - string or RegExp. Any component matched by this will not be cached.</li>
+<li><code>include</code> - string or RegExp or Array. Only components matched by this will be cached.</li>
+<li><code>exclude</code> - string or RegExp or Array. Any component matched by this will not be cached.</li>
 </ul>
 </li>
 <li><p><strong>Utilisation :</strong></p>
@@ -1649,8 +1651,8 @@
 <blockquote>
 <p>New in 2.1.0</p>
 </blockquote>
-<p>The <code>include</code> and <code>exclude</code> props allow components to be conditionally cached. Both props can either be a comma-delimited string or a RegExp:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- comma-delimited string --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">keep-alive</span> <span class="attr">include</span>=<span class="string">"a,b"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">"view"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">keep-alive</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- regex (use v-bind) --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">keep-alive</span> <span class="attr">:include</span>=<span class="string">"/a|b/"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">"view"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">keep-alive</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>The <code>include</code> and <code>exclude</code> props allow components to be conditionally cached. Both props can be a comma-delimited string, a RegExp or an Array:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- comma-delimited string --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">keep-alive</span> <span class="attr">include</span>=<span class="string">"a,b"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">"view"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">keep-alive</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- regex (use v-bind) --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">keep-alive</span> <span class="attr">:include</span>=<span class="string">"/a|b/"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">"view"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">keep-alive</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- Array (use v-bind) --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">keep-alive</span> <span class="attr">:include</span>=<span class="string">"['a', 'b']"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">"view"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">keep-alive</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>The match is first checked on the component’s own <code>name</code> option, then its local registration name (the key in the parent’s <code>components</code> option) if the <code>name</code> option is not available. Anonymous components cannot be matched against.</p>
 <p class="tip"><code>&lt;keep-alive&gt;</code> does not work with functional components because they do not have instances to be cached.</p>
 </li>

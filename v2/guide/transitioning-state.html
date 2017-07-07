@@ -42,6 +42,8 @@
         <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Roboto Mono' rel='stylesheet' type='text/css'>
         <link href='//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js' rel='stylesheet' type='text/css'>
 
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
         <!-- main page styles -->
         <link rel="stylesheet" href="/css/page.css">
 
@@ -579,6 +581,18 @@
             <a href="/v2/guide/join.html" class="sidebar-link">Rejoignez la communauté Vue.js !</a>
         </li>
     
+        
+        
+            
+            
+            
+            
+        
+        
+        <li>
+            <a href="/v2/guide/team.html" class="sidebar-link">Meet the Team (EN)</a>
+        </li>
+    
     
 </ul>
 
@@ -616,7 +630,7 @@
 <p>Tous ces éléments sont déjà stockés sous forme de nombres bruts, ou peuvent être convertis en nombres. Dès lors, nous pouvons animer ces modifications de l’état à l’aide de bibliothèques tierces vers un état intermédiaire, en combinaison avec la réactivité de Vue et les systèmes de composants.</p>
 <h2 id="Animation-de-l’etat-avec-des-observateurs"><a href="#Animation-de-l’etat-avec-des-observateurs" class="headerlink" title="Animation de l’état avec des observateurs"></a>Animation de l’état avec des observateurs</h2><p>Les observateurs nous permettent d’animer les changements de toute propriété numérique dans une autre propriété. Cela peut paraître compliqué dans l’abstrait, donc plongeons-nous dans un exemple en utilisant <a href="https://github.com/tweenjs/tween.js" target="_blank" rel="external">Tween.js</a>:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://unpkg.com/tween.js@16.3.4"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"animated-number-demo"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">v-model.number</span>=<span class="string">"number"</span> <span class="attr">type</span>=<span class="string">"number"</span> <span class="attr">step</span>=<span class="string">"20"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123; animatedNumber &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">  <span class="attr">el</span>: <span class="string">'#animated-number-demo'</span>,</div><div class="line">  <span class="attr">data</span>: &#123;</div><div class="line">    <span class="attr">number</span>: <span class="number">0</span>,</div><div class="line">    <span class="attr">animatedNumber</span>: <span class="number">0</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">watch</span>: &#123;</div><div class="line">    <span class="attr">number</span>: <span class="function"><span class="keyword">function</span>(<span class="params">newValue, oldValue</span>) </span>&#123;</div><div class="line">      <span class="keyword">var</span> vm = <span class="keyword">this</span></div><div class="line">      <span class="keyword">var</span> animationFrame</div><div class="line">      <span class="function"><span class="keyword">function</span> <span class="title">animate</span> (<span class="params">time</span>) </span>&#123;</div><div class="line">        TWEEN.update(time)</div><div class="line">        animationFrame = requestAnimationFrame(animate)</div><div class="line">      &#125;</div><div class="line">      <span class="keyword">new</span> TWEEN.Tween(&#123; <span class="attr">tweeningNumber</span>: oldValue &#125;)</div><div class="line">        .easing(TWEEN.Easing.Quadratic.Out)</div><div class="line">        .to(&#123; <span class="attr">tweeningNumber</span>: newValue &#125;, <span class="number">500</span>)</div><div class="line">        .onUpdate(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">          vm.animatedNumber = <span class="keyword">this</span>.tweeningNumber.toFixed(<span class="number">0</span>)</div><div class="line">        &#125;)</div><div class="line">        .onComplete(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">          cancelAnimationFrame(animationFrame)</div><div class="line">        &#125;)</div><div class="line">        .start()</div><div class="line">      animationFrame = requestAnimationFrame(animate)</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">  <span class="attr">el</span>: <span class="string">'#animated-number-demo'</span>,</div><div class="line">  <span class="attr">data</span>: &#123;</div><div class="line">    <span class="attr">number</span>: <span class="number">0</span>,</div><div class="line">    <span class="attr">animatedNumber</span>: <span class="number">0</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">watch</span>: &#123;</div><div class="line">    <span class="attr">number</span>: <span class="function"><span class="keyword">function</span>(<span class="params">newValue, oldValue</span>) </span>&#123;</div><div class="line">      <span class="keyword">var</span> vm = <span class="keyword">this</span></div><div class="line">      <span class="function"><span class="keyword">function</span> <span class="title">animate</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">if</span> (TWEEN.update()) &#123;</div><div class="line">          requestAnimationFrame(animate)</div><div class="line">        &#125;</div><div class="line">      &#125;</div><div class="line"></div><div class="line">      <span class="keyword">new</span> TWEEN.Tween(&#123; <span class="attr">tweeningNumber</span>: oldValue &#125;)</div><div class="line">        .easing(TWEEN.Easing.Quadratic.Out)</div><div class="line">        .to(&#123; <span class="attr">tweeningNumber</span>: newValue &#125;, <span class="number">500</span>)</div><div class="line">        .onUpdate(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">          vm.animatedNumber = <span class="keyword">this</span>.tweeningNumber.toFixed(<span class="number">0</span>)</div><div class="line">        &#125;)</div><div class="line">        .start()</div><div class="line"></div><div class="line">      animate()</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 
 <script src="https://unpkg.com/tween.js@16.3.4"></script>
 <div id="animated-number-demo" class="demo">
@@ -633,22 +647,21 @@ new Vue({
   watch: {
     number: function(newValue, oldValue) {
       var vm = this
-      var animationFrame
-      function animate (time) {
-        TWEEN.update(time)
-        animationFrame = requestAnimationFrame(animate)
+      function animate () {
+        if (TWEEN.update()) {
+          requestAnimationFrame(animate)
+        }
       }
+
       new TWEEN.Tween({ tweeningNumber: oldValue })
         .easing(TWEEN.Easing.Quadratic.Out)
         .to({ tweeningNumber: newValue }, 500)
         .onUpdate(function () {
           vm.animatedNumber = this.tweeningNumber.toFixed(0)
         })
-        .onComplete(function () {
-          cancelAnimationFrame(animationFrame)
-        })
         .start()
-      animationFrame = requestAnimationFrame(animate)
+
+      animate()
     }
   }
 })

@@ -2,18 +2,18 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Installation — Vue.js</title>
+        <title>Meet the Team (EN) — Vue.js</title>
         <meta charset="utf-8">
         <meta name="description" content="Vue.js - Créer rapidement et intuitivement des interfaces intéractives MVVM organisées.">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
         <meta property="og:type" content="article">
-        <meta property="og:title" content="Installation — Vue.js">
+        <meta property="og:title" content="Meet the Team (EN) — Vue.js">
         <meta property="og:description" content="Vue.js - Créer rapidement et intuitivement des interfaces intéractives MVVM organisées.">
         <meta property="og:image" content="https://vuejs.org//images/logo.png">
 
         <meta name="twitter:card" content="summary">
-        <meta name="twitter:title" content="Installation — Vue.js">
+        <meta name="twitter:title" content="Meet the Team (EN) — Vue.js">
         <meta name="twitter:description" content="Vue.js - Créer rapidement et intuitivement des interfaces intéractives MVVM organisées.">
         <meta name="twitter:image" content="https://vuejs.org/images/logo.png">
 
@@ -224,7 +224,7 @@
         
         
         <li>
-            <a href="/v2/guide/installation.html" class="sidebar-link current">Installation</a>
+            <a href="/v2/guide/installation.html" class="sidebar-link">Installation</a>
         </li>
     
         
@@ -590,7 +590,7 @@
         
         
         <li>
-            <a href="/v2/guide/team.html" class="sidebar-link">Meet the Team (EN)</a>
+            <a href="/v2/guide/team.html" class="sidebar-link current">Meet the Team (EN)</a>
         </li>
     
     
@@ -600,7 +600,7 @@
 </div>
 
 
-<div class="content guide with-sidebar installation-guide">
+<div class="content guide with-sidebar team-guide">
     
       
         <div id="ad">
@@ -618,111 +618,538 @@
       
     
     
-      <h1>Installation</h1>
+      <h1>Meet the Team (EN)</h1>
     
-    <h3 id="Compatibilite"><a href="#Compatibilite" class="headerlink" title="Compatibilité"></a>Compatibilité</h3><p>Vue <strong>ne</strong> supporte <strong>pas</strong> IE8 et les versions antérieures, car il utilise des fonctionnalités ECMAScript 5 qui ne peuvent pas être émulées sur IE8. Cela dit, Vue supporte tous les <a href="http://caniuse.com/#feat=es5" target="_blank" rel="external">navigateurs compatibles ECMAScript 5</a>.</p>
-<h3 id="Notes-de-version"><a href="#Notes-de-version" class="headerlink" title="Notes de version"></a>Notes de version</h3><p>Les notes de version détaillées pour chaque version sont disponibles sur <a href="https://github.com/vuejs/vue/releases" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Inclusion-directe-lt-script-gt"><a href="#Inclusion-directe-lt-script-gt" class="headerlink" title="Inclusion directe &lt;script&gt;"></a>Inclusion directe <code>&lt;script&gt;</code></h2><p>Il suffit de télécharger et de l’inclure avec une balise script. <code>Vue</code> sera déclaré comme une variable globale.</p>
-<p class="tip">N’utilisez pas la version minifiée pendant le développement. Vous ne bénéficieriez alors pas des avertissements pour les erreurs courantes !</p>
+    
+<script id="vuer-profile-template" type="text/template">
+  <div class="vuer">
+    <div class="avatar">
+      <img v-if="profile.github"
+        :src="'https://github.com/' + profile.github + '.png'"
+        :alt="profile.name" width=80 height=80>
+    </div>
+    <div class="profile">
+      <h3>
+        {{ profile.name }}
+        <sup v-if="profile.title" v-html="profile.title"></sup>
+      </h3>
+      <dl>
+        <template v-if="profile.reposOfficial">
+          <dt>Core focus</dt>
+          <dd>
+            <ul>
+              <li v-for="repo in profile.reposOfficial">
+                <a :href="githubUrl('vuejs', repo)" target=_blank>{{ repo }}</a>
+              </li>
+            </ul>
+          </dd>
+        </template>
+        <template v-if="profile.github && profile.reposPersonal">
+          <dt>Ecosystem</dt>
+          <dd>
+            <ul>
+              <li v-for="repo in profile.reposPersonal">
+                <a :href="githubUrl(profile.github, repo)" target=_blank>{{ repo }}</a>
+              </li>
+            </ul>
+          </dd>
+        </template>
+        <template v-if="profile.work">
+          <dt>
+            <i class="fa fa-briefcase"></i>
+          </dt>
+          <dd v-html="workHtml"></dd>
+        </template>
+        <template v-if="profile.links">
+          <dt>
+            <i class="fa fa-link"></i>
+          </dt>
+          <dd>
+            <ul>
+              <li v-for="link in profile.links">
+                <a :href="link" target=_blank>{{ minimizeLink(link) }}</a>
+              </li>
+            </ul>
+          </dd>
+        </template>
+        <footer v-if="profile.github || profile.twitter" class="social">
+          <a class=github v-if="profile.github" :href="githubUrl(profile.github)">
+            <i class="fa fa-github"></i>
+          </a>
+          <a class=twitter v-if="profile.twitter" :href="'https://twitter.com/' + profile.twitter">
+            <i class="fa fa-twitter"></i>
+          </a>
+        </footer>
+      </dl>
+    </div>
+  </div>
+</script>
 
-<div id="downloads"><br><a class="button" href="../../js/vue.js" download="">Version de développement</a><span class="light info">Avec tous les avertissements et le mode de débogage</span><br><br><a class="button" href="../../js/vue.min.js" download="">Version de production</a><span class="light info">Avertissements retirés, 28.03ko min+gzip</span><br></div>
+<div id="team-members">
+  <div class="team">
+    <h2 id="the-core-team">The Core Team</h2>
 
-<h3 id="CDN"><a href="#CDN" class="headerlink" title="CDN"></a>CDN</h3><p>Recommandé : <a href="https://unpkg.com/vue" target="_blank" rel="external">https://unpkg.com/vue</a>, qui reflète la dernière version aussitôt qu’elle est publiée sur npm. Vous pouvez également parcourir la source du package npm sur <a href="https://unpkg.com/vue/" target="_blank" rel="external">https://unpkg.com/vue/</a>.</p>
-<p>Également disponible sur <a href="//cdn.jsdelivr.net/vue/latest/vue.js">jsDelivr</a> ou <a href="//cdnjs.cloudflare.com/ajax/libs/vue/2.3.0/vue.js">cdnjs</a>, mais ces deux services mettent du temps à se synchroniser ce qui signifie que la dernière version peut ne pas être encore disponible.</p>
-<h2 id="npm"><a href="#npm" class="headerlink" title="npm"></a>npm</h2><p>npm est la méthode d’installation recommandée lors du développement de grosses applications avec Vue. Il s’associe bien avec des empaqueteurs de modules comme <a href="https://webpack.js.org/" target="_blank" rel="external">webpack</a> ou <a href="http://browserify.org/" target="_blank" rel="external">Browserify</a>. Vue fournit également des outils d’accompagnement pour la rédaction de <a href="single-file-components.html">Composants Mono-fichier</a>.</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line"><span class="comment"># dernière version stable</span></div><div class="line">$ npm install vue</div></pre></td></tr></table></figure>
-<h2 id="CLI"><a href="#CLI" class="headerlink" title="CLI"></a>CLI</h2><p>Vue.js offre une <a href="https://github.com/vuejs/vue-cli" target="_blank" rel="external">CLI</a> (interface en ligne de commande) officielle pour mettre rapidement en place les bases d’une application monopage ambitieuse. Il offre une série de <em>builds</em> pré-configurés pour un <em>workflow frontend</em> moderne. Cela ne prend que quelques minutes pour commencer et lancer des rechargements à chaud, de l’analyse syntaxique à la sauvegarde, et des <em>builds</em> prêts pour la production :</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line"><span class="comment"># installer vue-cli</span></div><div class="line">$ npm install --global vue-cli</div><div class="line"><span class="comment"># créer un nouveau projet en utilisant le template "webpack"</span></div><div class="line">$ vue init webpack my-project</div><div class="line"><span class="comment"># installer les dépendances et c'est parti !</span></div><div class="line">$ <span class="built_in">cd</span> my-project</div><div class="line">$ npm install</div><div class="line">$ npm run dev</div></pre></td></tr></table></figure>
-<p class="tip">Utiliser la CLI nécessite des connaissances préalables en Node.js et les outils de <em>build</em> associés. Si vous êtes nouveau sur Vue ou les outils de <em>build front-end</em>, nous vous recommandons fortement de parcourir <a href="./">le guide</a> sans aucun outil de <em>build</em> avant d’utiliser l’interface CLI.</p>
+    <p>
+      The development of Vue and its ecosystem is guided by an international team, some of whom have chosen to be featured below.
+    </p>
 
-<h2 id="Explication-des-differents-builds"><a href="#Explication-des-differents-builds" class="headerlink" title="Explication des différents builds"></a>Explication des différents <em>builds</em></h2><p>Dans le <a href="https://unpkg.com/vue@latest/dist/" target="_blank" rel="external">dossier <code>dist/</code> du package npm</a> vous trouverrez plusieurs <em>builds</em> différents de Vue.js. Voici un aperçu des différences entre chacun d’eux :</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>UMD</th>
-<th>CommonJS</th>
-<th>ES Module</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Full</strong></td>
-<td>vue.js</td>
-<td>vue.common.js</td>
-<td>vue.esm.js</td>
-</tr>
-<tr>
-<td><strong>Runtime-only</strong></td>
-<td>vue.runtime.js</td>
-<td>vue.runtime.common.js</td>
-<td>vue.runtime.esm.js</td>
-</tr>
-<tr>
-<td><strong>Full (production)</strong></td>
-<td>vue.min.js</td>
-<td>-</td>
-<td>-</td>
-</tr>
-<tr>
-<td><strong>Runtime-only (production)</strong></td>
-<td>vue.runtime.min.js</td>
-<td>-</td>
-<td>-</td>
-</tr>
-</tbody>
-</table>
-<h3 id="Termes"><a href="#Termes" class="headerlink" title="Termes"></a>Termes</h3><ul>
-<li><p><strong>Full</strong>: des <em>builds</em> qui contiennent la partie Compiler ainsi que la version Runtime.</p>
-</li>
-<li><p><strong>Compiler</strong>: le code qui est responsable de la compilation des chaînes de caractère de template en des fonctions de rendu en JavaScript.</p>
-</li>
-<li><p><strong>Runtime</strong>: le code qui est responsable de la création des instances de Vue, de faire le rendu et les modifications du DOM virtuel. C’est à dire tout, sauf ce que fait la partie Compiler.</p>
-</li>
-<li><p><strong><a href="https://github.com/umdjs/umd" target="_blank" rel="external">UMD</a></strong>: Les <em>builds</em> UMD peuvent être utilisés directement dans un navigateur directement avec la balise <code>&lt;script&gt;</code>. Le fichier par défaut du CDN Unpkg à l’adresse <a href="https://unpkg.com/vue" target="_blank" rel="external">https://unpkg.com/vue</a> est le <em>build</em> UMD Runtime + Compiler (<code>vue.js</code>).</p>
-</li>
-<li><p><strong><a href="http://wiki.commonjs.org/wiki/Modules/1.1" target="_blank" rel="external">CommonJS</a></strong>: Les <em>builds</em> CommonJS sont prévus pour une utilisation avec les vieux outils de <em>bundle</em> comme <a href="http://browserify.org/" target="_blank" rel="external">browserify</a> ou <a href="https://webpack.github.io" target="_blank" rel="external">webpack 1</a>. Le fichier par défaut pour ces outils (<code>pkg.main</code>) est le <em>build</em> CommonJS Runtime (<code>vue.runtime.common.js</code>).</p>
-</li>
-<li><p><strong><a href="http://exploringjs.com/es6/ch_modules.html" target="_blank" rel="external">ES Module</a></strong>: Les <em>builds</em> ES module sont prévus pour une utilisation avec les outils de <em>bundle</em> modernes comme <a href="https://webpack.js.org" target="_blank" rel="external">webpack 2</a> ou <a href="http://rollupjs.org/" target="_blank" rel="external">rollup</a>. Le fichier par défaut pour ces outils (<code>pkg.module</code>) est le <em>build</em> ES Module Runtime (<code>vue.runtime.esm.js</code>).</p>
-</li>
-</ul>
-<h3 id="Runtime-Compiler-vs-Runtime-seul"><a href="#Runtime-Compiler-vs-Runtime-seul" class="headerlink" title="Runtime + Compiler vs. Runtime seul"></a>Runtime + Compiler vs. Runtime seul</h3><p>Si vous avez besoin de compiler des templates en temps réel (ex. : passer une chaîne de caractère à l’option <code>template</code>, ou monter un élément en vous servant de sa représentation HTML dans le DOM comme template) vous aurez besoin du compilateur et donc du <em>build</em> Full :</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// ceci a besoin d'un compilateur</span></div><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">  <span class="attr">template</span>: <span class="string">`&lt;div&gt;&#123;&#123; hi &#125;&#125;&lt;/div&gt;`</span></div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="comment">// ceci n'en a pas besoin</span></div><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">  render (h) &#123;</div><div class="line">    <span class="keyword">return</span> h(<span class="string">'div'</span>, <span class="keyword">this</span>.hi)</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<p>En utilisant <code>vue-loader</code> ou <code>vueify</code>, les templates à l’intérieur des fichiers <code>*.vue</code> sont pré-compilés en JavaScript pendant l’étape de <em>build</em>. Vous n’avez donc pas réellement besoin du compilateur dans le <em>bundle</em> final et pouvez dans ce cas utiliser la version du <em>build</em> Runtime.</p>
-<p>Puisque le <em>build</em> Runtime est approximativement 30% plus léger que son homologue le <em>build</em> Full, vous devriez l’utiliser autant que possible. Si vous souhaitez toujours utiliser le <em>build</em> Full à la place, vous avez besoin de configurer un alias dans votre outil de <em>bundle</em> :</p>
-<h4 id="webpack"><a href="#webpack" class="headerlink" title="webpack"></a>webpack</h4><figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">  <span class="comment">// ...</span></div><div class="line">  resolve: &#123;</div><div class="line">    <span class="attr">alias</span>: &#123;</div><div class="line">      <span class="string">'vue$'</span>: <span class="string">'vue/dist/vue.esm.js'</span> <span class="comment">// 'vue/dist/vue.common.js' pour webpack 1</span></div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="Rollup"><a href="#Rollup" class="headerlink" title="Rollup"></a>Rollup</h4><figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">const</span> alias = <span class="built_in">require</span>(<span class="string">'rollup-plugin-alias'</span>)</div><div class="line"></div><div class="line">rollup(&#123;</div><div class="line">  <span class="comment">// ...</span></div><div class="line">  plugins: [</div><div class="line">    alias(&#123;</div><div class="line">      <span class="string">'vue'</span>: <span class="string">'vue/dist/vue.esm.js'</span></div><div class="line">    &#125;)</div><div class="line">  ]</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<h4 id="Browserify"><a href="#Browserify" class="headerlink" title="Browserify"></a>Browserify</h4><p>Ajoutez au fichier <code>package.json</code> de votre projet :</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="comment">// ...</span></div><div class="line">  <span class="string">"browser"</span>: &#123;</div><div class="line">    <span class="string">"vue"</span>: <span class="string">"vue/dist/vue.common.js"</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="Mode-developement-vs-mode-production"><a href="#Mode-developement-vs-mode-production" class="headerlink" title="Mode dévelopement vs. mode production"></a>Mode dévelopement vs. mode production</h3><p>Les modes développement et production sont écrits en dur dans les <em>builds</em> UMD : les fichiers non minifiés sont pour le développement, et les fichier minifiés sont pour la production.</p>
-<p>Les <em>builds</em> CommonJS et ES Module sont prévus pour les outils de <em>bundle</em>, donc nous ne fournissons pas de version minifié pour eux. Vous aurez à votre charge de minifier le <em>bundle</em> final vous-même.</p>
-<p>Les <em>builds</em> CommonJS et ES Module contiennent une utilisation de <code>process.env.NODE_ENV</code> pour déterminer le mode qu’ils doivent suivre. Vous devriez utiliser une configuration d’outil de <em>bundle</em> appropriée pour remplacer ces d’environnements afin de contrôler lequel des modes Vue exécutera. Remplacer <code>process.env.NODE_ENV</code> avec une chaîne de caractère littérale permet aux outils de minification comme UglifyJS de complètement retirer les pends de code réservés au développement, réduisant ainsi la taille du fichier final.</p>
-<h4 id="webpack-1"><a href="#webpack-1" class="headerlink" title="webpack"></a>webpack</h4><p>Utiliser la fonction <a href="https://webpack.js.org/plugins/define-plugin/" target="_blank" rel="external">DefinePlugin</a> de webpack :</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>)</div><div class="line"></div><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">  <span class="comment">// ...</span></div><div class="line">  plugins: [</div><div class="line">    <span class="comment">// ...</span></div><div class="line">    <span class="keyword">new</span> webpack.DefinePlugin(&#123;</div><div class="line">      <span class="string">'process.env'</span>: &#123;</div><div class="line">        <span class="attr">NODE_ENV</span>: <span class="built_in">JSON</span>.stringify(<span class="string">'production'</span>)</div><div class="line">      &#125;</div><div class="line">    &#125;)</div><div class="line">  ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="Rollup-1"><a href="#Rollup-1" class="headerlink" title="Rollup"></a>Rollup</h4><p>Utilisez le <a href="https://github.com/rollup/rollup-plugin-replace" target="_blank" rel="external">rollup-plugin-replace</a> :</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">const</span> replace = <span class="built_in">require</span>(<span class="string">'rollup-plugin-replace'</span>)</div><div class="line"></div><div class="line">rollup(&#123;</div><div class="line">  <span class="comment">// ...</span></div><div class="line">  plugins: [</div><div class="line">    replace(&#123;</div><div class="line">      <span class="string">'process.env.NODE_ENV'</span>: <span class="built_in">JSON</span>.stringify(<span class="string">'production'</span>)</div><div class="line">    &#125;)</div><div class="line">  ]</div><div class="line">&#125;).then(...)</div></pre></td></tr></table></figure>
-<h4 id="Browserify-1"><a href="#Browserify-1" class="headerlink" title="Browserify"></a>Browserify</h4><p>Appliquez une transformation <a href="https://github.com/hughsk/envify" target="_blank" rel="external">envify</a> globale à votre <em>bundle</em>.</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">NODE_ENV=production browserify -g envify <span class="_">-e</span> main.js | uglifyjs -c -m &gt; build.js</div></pre></td></tr></table></figure>
-<p>Référez vous également aux <a href="deployment.html">conseils de déploiment en production</a>.</p>
-<h3 id="Environnements-CSP"><a href="#Environnements-CSP" class="headerlink" title="Environnements CSP"></a>Environnements CSP</h3><p>Certains environnements, tels que les Applications de Google Chrome, font respecter la politique de sécurité de contenu (<em>Content Security Policy</em> - CSP), qui ne permet pas l’utilisation de <code>new Function()</code> pour évaluer les expressions. Le <em>build complet</em> a besoin de cette fonctionnalité pour compiler les templates, elle n’est donc pas utilisable dans ces environnements.</p>
-<p>D’un autre côté, le <em>build runtime</em> respecte pleinement les CSP. Quand vous utilisez le <em>build runtime</em> avec <a href="https://github.com/vuejs-templates/webpack-simple" target="_blank" rel="external">webpack + vue-loader</a> ou <a href="https://github.com/vuejs-templates/browserify-simple" target="_blank" rel="external">Browserify + vueify</a>, vos templates vont être pré-compilés dans les fonctions <code>render</code> qui fonctionnent parfaitement dans des environnements CSP.</p>
-<h2 id="Build-de-developpement"><a href="#Build-de-developpement" class="headerlink" title="Build de développement"></a>Build de développement</h2><p><strong>Important</strong>: les fichiers générés dans le dossier <code>/dist</code> sur GitHub sont seulement vérifiés lors des releases. Pour utiliser la dernière version du code source de Vue sur GitHub, vous aurez à lancer le <em>build</em> vous-même !</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">git <span class="built_in">clone</span> https://github.com/vuejs/vue.git node_modules/vue</div><div class="line"><span class="built_in">cd</span> node_modules/vue</div><div class="line">npm install</div><div class="line">npm run build</div></pre></td></tr></table></figure>
-<h2 id="Bower"><a href="#Bower" class="headerlink" title="Bower"></a>Bower</h2><p>Seulement les <em>builds</em> UMD sont disponibles depuis Bower.</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line"><span class="comment"># dernière version stable</span></div><div class="line">$ bower install vue</div></pre></td></tr></table></figure>
-<h2 id="Chargeurs-de-module-AMD"><a href="#Chargeurs-de-module-AMD" class="headerlink" title="Chargeurs de module AMD"></a>Chargeurs de module AMD</h2><p>Les versions <em>standalone</em> ou installées via Bower sont encapsulées selon UMD ce qui permet de directement les utiliser sous forme de module AMD.</p>
+    <vuer-profile v-for="profile in team" :key="profile.github" :profile="profile"></vuer-profile>
+  </div>
+
+  <div class="team">
+    <h2 id="community-partners">Community Partners</h2>
+
+    <p>
+      Some members of the Vue community have so enriched it, that they deserve special mention. We've developed a more intimate relationship with these key partners, often coordinating with them on upcoming features and news.
+    </p>
+
+    <vuer-profile v-for="profile in partners" :key="profile.github" :profile="profile"></vuer-profile>
+  </div>
+</div>
+
+<script>
+(function () {
+  var team = [{
+    name: 'Evan You',
+    title: 'Benevolent Dictator For Life',
+    github: 'yyx990803',
+    twitter: 'youyuxi',
+    work: {
+      role: 'Creator',
+      org: 'Vue.js'
+    },
+    reposOfficial: [
+      'vuejs/*', 'vuejs-templates/*'
+    ],
+    links: [
+      'https://www.patreon.com/evanyou'
+    ]
+  }]
+
+  team = team.concat(shuffle([
+    {
+      name: 'Chris Fritz',
+      title: 'Good Word Putter-Togetherer',
+      github: 'chrisvfritz',
+      twitter: 'chrisvfritz',
+      work: {
+        role: 'Educator & Consultant'
+      },
+      reposOfficial: [
+        'vuejs.org', 'vue-migration-helper'
+      ],
+      reposPersonal: [
+        'vue-2.0-simple-routing-example', 'vue-ssr-demo-simple'
+      ]
+    },
+    {
+      name: 'Eduardo',
+      title: 'Real-Time Rerouter',
+      github: 'posva',
+      twitter: 'posva',
+      work: {
+        role: 'Lead Instructor',
+        org: 'IronHack',
+        orgUrl: 'https://www.ironhack.com/'
+      },
+      reposOfficial: [
+        'vuefire', 'vue-router'
+      ],
+      reposPersonal: [
+        'vuexfire', 'vue-mdc', 'vue-motion'
+      ],
+      links: [
+        'https://www.codementor.io/posva'
+      ]
+    },
+    {
+      name: 'Jinjiang',
+      title: 'Mobile Extrapolator',
+      github: 'jinjiang',
+      twitter: 'zhaojinjiang',
+      work: {
+        org: 'Alibaba',
+        orgUrl: 'https://www.alibaba.com/'
+      },
+      reposOfficial: [
+        'cn.vuejs.org'
+      ],
+      reposPersonal: [
+        'apache/incubator-weex'
+      ]
+    },
+    {
+      name: 'EGOIST',
+      title: 'Build Tool Simplificator',
+      github: 'egoist',
+      twitter: 'rem_rin_rin',
+      reposOfficial: [
+        'vue-cli'
+      ],
+      reposPersonal: [
+        'poi', 'ream', 'vue-play'
+      ]
+    },
+    {
+      name: 'Katashin',
+      title: 'One of a Type State Manager',
+      work: {
+        org: 'oRo Co., Ltd.',
+        orgUrl: 'https://www.oro.com'
+      },
+      github: 'ktsn',
+      twitter: 'ktsn',
+      reposOfficial: [
+        'vuex', 'vue-class-component'
+      ]
+    },
+    {
+      name: 'Kazupon',
+      title: 'Validated Internationalizing Missionary',
+      github: 'kazupon',
+      twitter: 'kazu_pon',
+      work: {
+        role: 'CTO & Full Stack Developer'
+      },
+      reposOfficial: [
+        'vuejs.org', 'jp.vuejs.org'
+      ],
+      reposPersonal: [
+        'vue-i18n', 'vue-i18n-loader', 'vue-validator'
+      ],
+      links: [
+        'https://cuusoo.com', 'http://frapwings.jp'
+      ]
+    },
+    {
+      name: 'Rahul Kadyan',
+      title: 'Ecosystem Glue Chemist',
+      work: {
+        role: 'Software Engineer',
+        org: 'Myntra',
+        orgUrl: 'https://www.myntra.com/'
+      },
+      github: 'znck',
+      twitter: 'znck0',
+      reposOfficial: [
+        'rollup-plugin-vue', 'vue-issue-helper'
+      ],
+      reposPersonal: [
+        'vue-keynote', 'bootstrap-for-vue', 'vue-interop'
+      ],
+      links: [
+        'https://znck.me', 'https://www.codementor.io/znck'
+      ]
+    },
+    {
+      name: 'Alan Song',
+      title: 'Regent of Routing',
+      work: {
+        role: 'Cofounder',
+        org: 'Futurenda',
+        orgUrl: 'https://www.futurenda.com/'
+      },
+      github: 'fnlctrl',
+      reposOfficial: [
+        'vue-router'
+      ]
+    },
+    {
+      name: 'Blake Newman',
+      title: 'Performance Specializer & Code Deleter',
+      work: {
+        role: 'Software Engineer',
+        org: 'Attest',
+        orgUrl: 'https://www.askattest.com/'
+      },
+      github: 'blake-newman',
+      twitter: 'blake-newman',
+      reposOfficial: [
+        'vuex', 'vue-router', 'vue-loader'
+      ]
+    },
+    {
+      name: 'Phan An',
+      title: 'Backend Designer & Process Poet',
+      github: 'phanan',
+      twitter: 'notphanan',
+      reposOfficial: [
+        'vuejs.org'
+      ],
+      reposPersonal: [
+        'vuequery', 'vue-google-signin-button'
+      ],
+      links: [
+        'https://phanan.net/'
+      ]
+    },
+    {
+      name: 'Linusborg',
+      title: 'Hive-Mind Community Wrangler (Probably a Bot)',
+      github: 'LinusBorg',
+      twitter: 'Linus_Borg',
+      reposOfficial: [
+        'vuejs/*', 'vuejs-templates/*', 'vue-touch'
+      ],
+      reposPersonal: [
+        'portal-vue'
+      ],
+      links: [
+        'https://forum.vuejs.org/'
+      ]
+    },
+    {
+      name: 'Denis Karabaza',
+      title: 'Director of Directives (Emoji-Human Hybrid)',
+      github: 'simplesmiler',
+      twitter: 'simplesmiler',
+      work: {
+        role: 'Software Engineer',
+        org: 'Neolant',
+        orgUrl: 'http://neolant.ru/'
+      },
+      reposPersonal: [
+        'vue-focus', 'vue-clickaway'
+      ],
+      links: [
+        'mailto:denis.karabaza@gmail.com'
+      ]
+    },
+    {
+      name: 'Guillaume Chau',
+      title: 'Client-Server Astronaut',
+      github: 'Akryum',
+      twitter: 'Akryum',
+      reposOfficial: [
+        'vue-curated'
+      ],
+      reposPersonal: [
+        'vue-apollo', 'vue-meteor', 'vue-virtual-scroller'
+      ]
+    },
+    {
+      name: 'Edd Yerburgh',
+      title: 'Testatron Alpha 9000',
+      github: 'eddyerburgh',
+      twitter: 'EddYerburgh',
+      work: {
+        role: 'Full Stack Developer'
+      },
+      reposOfficial: [
+        'vue-test-utils'
+      ],
+      reposPersonal: [
+        'avoriaz'
+      ],
+      links: [
+        'https://www.eddyerburgh.me'
+      ]
+    },
+    {
+      name: 'defcc',
+      title: 'Details Deity & Bug Surgeon',
+      github: 'defcc',
+      work: {
+        org: 'zbj.com',
+        orgUrl: 'http://www.zbj.com/'
+      },
+      reposOfficial: [
+        'vue', 'vuejs.org', 'cn.vuejs.org'
+      ],
+      reposPersonal: [
+        'weexteam/weex-vue-framework', 'into-vue'
+      ]
+    }
+  ]))
+
+  var partners = [
+    {
+      name: 'Sebastien Chopin',
+      title: '#1 Nuxt Brother',
+      github: 'Atinux',
+      twitter: 'Atinux',
+      work: {
+        org: 'Orion',
+        orgUrl: 'https://orion.sh'
+      },
+      reposPersonal: [
+        'nuxt/*', 'nuxt-community/*'
+      ]
+    },
+    {
+      name: 'Alexandre Chopin',
+      title: '#1 Nuxt Brother',
+      github: 'alexchopin',
+      twitter: 'ChopinAlexandre',
+      work: {
+        org: 'Orion',
+        orgUrl: 'https://orion.sh'
+      },
+      reposPersonal: [
+        'nuxt/*', 'nuxt-community/*', 'vue-flexboxgrid'
+      ]
+    },
+    {
+      name: 'Khary Sharpe',
+      title: 'Viral Newscaster',
+      github: 'kharysharpe',
+      twitter: 'kharysharpe',
+      links: [
+        'https://twitter.com/VueJsNews',
+        'http://www.kharysharpe.com/'
+      ]
+    },
+    {
+      name: 'Damian Dulisz',
+      title: 'Dark Mage of Plugins, News, and Confs',
+      github: 'shentao',
+      twitter: 'DamianDulisz',
+      work: {
+        role: 'Senior Frontend Developer',
+        org: 'Monterail',
+        orgUrl: 'https://www.monterail.com/'
+      },
+      reposPersonal: [
+        'monterail/vue-multiselect', 'monterail/vue-newsletter', 'monterail/vuelidate'
+      ]
+    }, {
+      name: 'Alex Kyriakidis',
+      title: 'Vueducator Extraordinaire',
+      github: 'hootlex',
+      twitter: 'hootlex',
+      work: {
+        role: 'Consultant / Author'
+      },
+      reposPersonal: [
+        'vuejs-paginator', 'vuedo/vuedo', 'the-majesty-of-vuejs-2'
+      ],
+      links: [
+        'https://vuejsfeed.com/', 'https://vueschool.io/'
+      ]
+    },
+    {
+      name: 'Pooya Parsa',
+      title: 'Nuxtification Modularizer',
+      github: 'pi0',
+      twitter: '_pi0_',
+      work: {
+        role: 'Technical Advisor',
+        org: 'Fandogh (AUT University)',
+        orgUrl: 'https://fandogh.org'
+      },
+      reposPersonal: [
+        'nuxt/nuxt.js', 'nuxt-community/modules', 'bootstrap-vue/bootstrap-vue'
+      ]
+    },
+    {
+      name: 'Yi Yang',
+      title: 'Interface Elementologist',
+      github: 'Leopoldthecoder',
+      work: {
+        org: 'ele.me',
+        orgUrl: 'https://www.ele.me',
+      },
+      reposPersonal: [
+        'elemefe/element', 'elemefe/mint-ui'
+      ]
+    }
+  ]
+
+  Vue.component('vuer-profile', {
+    template: '#vuer-profile-template',
+    props: {
+      profile: Object
+    },
+    computed: {
+      workHtml: function () {
+        var work = this.profile.work
+        var html = ''
+        if (work.orgUrl) {
+          html += '<a href="' + work.orgUrl + '" target="_blank">'
+          if (work.org) {
+            html += work.org
+          } else {
+            this.minimizeLink(work.orgUrl)
+          }
+          html += '</a>'
+        } else if (work.org) {
+          html += work.org
+        }
+        if (work.role) {
+          if (html.length > 0) {
+            html = work.role + ' @ ' + html
+          } else {
+            html = work.role
+          }
+        }
+        return html
+      }
+    },
+    methods: {
+      minimizeLink: function (link) {
+        return link
+          .replace(/^https?:\/\/(www\.)?/, '')
+          .replace(/\/$/, '')
+          .replace(/^mailto:/, '')
+      },
+      /**
+       * Generate a GitHub URL using a repo and a handle.
+       */
+      githubUrl: function (handle, repo) {
+        if (repo && repo.indexOf('/') !== -1) {
+          // If the repo name has a slash, it must be an organization repo.
+          // In such a case, we discard the (personal) handle.
+          return (
+            'https://github.com/' +
+            repo.replace(/\/\*$/, '')
+          )
+        }
+        return 'https://github.com/' + handle + '/' + (repo || '')
+      }
+    }
+  })
+
+  new Vue({
+    el: '#team-members',
+    data: {
+      team: team,
+      partners: shuffle(partners)
+    }
+  })
+
+  /**
+  * Shuffles array in place.
+  * @param {Array} a items The array containing the items.
+  */
+  function shuffle (a) {
+    a = a.concat([])
+    if (window.location.hostname === 'localhost') {
+      return a
+    }
+    var j, x, i
+    for (i = a.length; i; i--) {
+      j = Math.floor(Math.random() * i)
+      x = a[i - 1]
+      a[i - 1] = a[j]
+      a[j] = x
+    }
+    return a
+  }
+})()
+</script>
+
 
     
       <div class="guide-links">
         
+          <span>← <a href="/v2/guide/join.html">Rejoignez la communauté Vue.js !</a></span>
         
-          <span style="float:right"><a href="/v2/guide/index.html">Introduction</a> →</span>
         
       </div>
     
     <div class="footer">
       Une erreur dans cette page ? Envie de contribuer à la traduction ?
-      <a href="https://github.com/vuejs-fr/vuejs.org/blob/master/src/v2/guide/installation.md" target="_blank">
+      <a href="https://github.com/vuejs-fr/vuejs.org/blob/master/src/v2/guide/team.md" target="_blank">
         Éditez cette page sur Github !
       </a>
     </div>
