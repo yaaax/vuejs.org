@@ -4,17 +4,17 @@
     <head>
         <title>État de transition — Vue.js</title>
         <meta charset="utf-8">
-        <meta name="description" content="Vue.js - Créer rapidement et intuitivement des interfaces intéractives MVVM organisées.">
+        <meta name="description" content="Vue.js - Le Framework JavaScript Évolutif">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
         <meta property="og:type" content="article">
         <meta property="og:title" content="État de transition — Vue.js">
-        <meta property="og:description" content="Vue.js - Créer rapidement et intuitivement des interfaces intéractives MVVM organisées.">
+        <meta property="og:description" content="Vue.js - Le Framework JavaScript Évolutif">
         <meta property="og:image" content="https://vuejs.org//images/logo.png">
 
         <meta name="twitter:card" content="summary">
         <meta name="twitter:title" content="État de transition — Vue.js">
-        <meta name="twitter:description" content="Vue.js - Créer rapidement et intuitivement des interfaces intéractives MVVM organisées.">
+        <meta name="twitter:description" content="Vue.js - Le Framework JavaScript Évolutif">
         <meta name="twitter:image" content="https://vuejs.org/images/logo.png">
 
         <link rel="apple-touch-icon" sizes="57x57" href="/images/icons/apple-icon-57x57.png">
@@ -103,6 +103,7 @@
     <li><h4>Liste de ressources</h4></li>
     <li><ul>
       <li><a href="https://github.com/vuejs" class="nav-link" target="_blank">Dépôt officiel</a></li>
+      <li><a href="https://curated.vuejs.org/" class="nav-link" target="_blank">Curation Vue</a></li>
       <li><a href="https://github.com/vuejs/awesome-vue" class="nav-link" target="_blank">Awesome Vue</a></li>
     </ul></li>
   </ul>
@@ -134,8 +135,9 @@
                 
                     
     <div class="sidebar">
-    <ul class="main-menu">
-        <li>
+    <div class="sidebar-inner">
+        <ul class="main-menu">
+            <li>
   <form id="search-form">
     <input type="text" id="search-query-sidebar" class="search-query st-default-search-input">
   </form>
@@ -166,6 +168,7 @@
     <li><h4>Liste de ressources</h4></li>
     <li><ul>
       <li><a href="https://github.com/vuejs" class="nav-link" target="_blank">Dépôt officiel</a></li>
+      <li><a href="https://curated.vuejs.org/" class="nav-link" target="_blank">Curation Vue</a></li>
       <li><a href="https://github.com/vuejs/awesome-vue" class="nav-link" target="_blank">Awesome Vue</a></li>
     </ul></li>
   </ul>
@@ -189,29 +192,29 @@
   <a href="https://vue.threadless.com" target="_blank" class="nav-link shop">Boutique</a>
 </li>
 
-    </ul>
-    <div class="list">
-        <div class="main-sponsor">
-            <span>Sponsor de platine</span><br>
-            <a href="https://stdlib.com" target="_blank" class="logo">
-                <img src="/images/stdlib.png">
+        </ul>
+        <div class="list">
+            <div class="main-sponsor">
+                <span>Sponsor de platine</span><br>
+                <a href="https://stdlib.com" target="_blank" class="logo">
+                    <img src="/images/stdlib.png">
+                </a>
+            </div>
+            <a class="become-backer" href="/support-vuejs">
+                Apporter son soutien
             </a>
-        </div>
-        <a class="become-backer" href="/support-vuejs">
-            Apporter son soutien
-        </a>
-        <h2>
-            Guide
-            
-                <select class="version-select">
-                    <option value="SELF" selected>2.x</option>
-                    <option value="v1">1.0</option>
-                    <option value="012">0.12</option>
-                    <option value="011">0.11</option>
-                </select>
-            
-        </h2>
-        <ul class="menu-root">
+            <h2>
+                Guide
+                
+                    <select class="version-select">
+                        <option value="SELF" selected>2.x</option>
+                        <option value="v1">1.0</option>
+                        <option value="012">0.12</option>
+                        <option value="011">0.11</option>
+                    </select>
+                
+            </h2>
+            <ul class="menu-root">
     
         
         
@@ -596,6 +599,7 @@
     
 </ul>
 
+        </div>
     </div>
 </div>
 
@@ -669,7 +673,7 @@ new Vue({
 
 <p>Lorsque vous mettez à jour le nombre, la modification est animée en dessous de l’input. Cela fait une belle démonstration, mais qu’en est-il de quelque-chose qui n’est pas directement stocké comme un nombre, comme n’importe quelle couleur CSS valide par exemple ? Voici comment nous pourrions accomplir cela avec l’ajout de <a href="https://github.com/brehaut/color-js" target="_blank" rel="external">Color.js</a>:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://unpkg.com/tween.js@16.3.4"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://unpkg.com/color-js@1.0.3/color.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"example-7"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">input</span></span></div><div class="line">    <span class="attr">v-model</span>=<span class="string">"colorQuery"</span></div><div class="line">    <span class="attr">v-on:keyup.enter</span>=<span class="string">"updateColor"</span></div><div class="line">    <span class="attr">placeholder</span>=<span class="string">"Entrer une couleur"</span></div><div class="line">  &gt;</div><div class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">v-on:click</span>=<span class="string">"updateColor"</span>&gt;</span>Mettre à jour<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>Aperçu :<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">span</span></span></div><div class="line">    <span class="attr">v-bind:style</span>=<span class="string">"&#123; backgroundColor: tweenedCSSColor &#125;"</span></div><div class="line">    <span class="attr">class</span>=<span class="string">"example-7-color-preview"</span></div><div class="line">  &gt;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123; tweenedCSSColor &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> Color = net.brehaut.Color</div><div class="line"></div><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">  <span class="attr">el</span>: <span class="string">'#example-7'</span>,</div><div class="line">  <span class="attr">data</span>: &#123;</div><div class="line">    <span class="attr">colorQuery</span>: <span class="string">''</span>,</div><div class="line">    <span class="attr">color</span>: &#123;</div><div class="line">      <span class="attr">red</span>: <span class="number">0</span>,</div><div class="line">      <span class="attr">green</span>: <span class="number">0</span>,</div><div class="line">      <span class="attr">blue</span>: <span class="number">0</span>,</div><div class="line">      <span class="attr">alpha</span>: <span class="number">1</span></div><div class="line">    &#125;,</div><div class="line">    <span class="attr">tweenedColor</span>: &#123;&#125;</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">created</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">this</span>.tweenedColor = <span class="built_in">Object</span>.assign(&#123;&#125;, <span class="keyword">this</span>.color)</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">watch</span>: &#123;</div><div class="line">    <span class="attr">color</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="keyword">var</span> animationFrame</div><div class="line">      <span class="function"><span class="keyword">function</span> <span class="title">animate</span> (<span class="params">time</span>) </span>&#123;</div><div class="line">        TWEEN.update(time)</div><div class="line">        animationFrame = requestAnimationFrame(animate)</div><div class="line">      &#125;</div><div class="line">      <span class="keyword">new</span> TWEEN.Tween(<span class="keyword">this</span>.tweenedColor)</div><div class="line">        .to(<span class="keyword">this</span>.color, <span class="number">750</span>)</div><div class="line">        .onComplete(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">          cancelAnimationFrame(animationFrame)</div><div class="line">        &#125;)</div><div class="line">        .start()</div><div class="line">      animationFrame = requestAnimationFrame(animate)</div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">computed</span>: &#123;</div><div class="line">    <span class="attr">tweenedCSSColor</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="keyword">return</span> <span class="keyword">new</span> Color(&#123;</div><div class="line">        <span class="attr">red</span>: <span class="keyword">this</span>.tweenedColor.red,</div><div class="line">        <span class="attr">green</span>: <span class="keyword">this</span>.tweenedColor.green,</div><div class="line">        <span class="attr">blue</span>: <span class="keyword">this</span>.tweenedColor.blue,</div><div class="line">        <span class="attr">alpha</span>: <span class="keyword">this</span>.tweenedColor.alpha</div><div class="line">      &#125;).toCSS()</div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">methods</span>: &#123;</div><div class="line">    <span class="attr">updateColor</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="keyword">this</span>.color = <span class="keyword">new</span> Color(<span class="keyword">this</span>.colorQuery).toRGB()</div><div class="line">      <span class="keyword">this</span>.colorQuery = <span class="string">''</span></div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> Color = net.brehaut.Color</div><div class="line"></div><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">  <span class="attr">el</span>: <span class="string">'#example-7'</span>,</div><div class="line">  <span class="attr">data</span>: &#123;</div><div class="line">    <span class="attr">colorQuery</span>: <span class="string">''</span>,</div><div class="line">    <span class="attr">color</span>: &#123;</div><div class="line">      <span class="attr">red</span>: <span class="number">0</span>,</div><div class="line">      <span class="attr">green</span>: <span class="number">0</span>,</div><div class="line">      <span class="attr">blue</span>: <span class="number">0</span>,</div><div class="line">      <span class="attr">alpha</span>: <span class="number">1</span></div><div class="line">    &#125;,</div><div class="line">    <span class="attr">tweenedColor</span>: &#123;&#125;</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">created</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">this</span>.tweenedColor = <span class="built_in">Object</span>.assign(&#123;&#125;, <span class="keyword">this</span>.color)</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">watch</span>: &#123;</div><div class="line">    <span class="attr">color</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="function"><span class="keyword">function</span> <span class="title">animate</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">if</span> (TWEEN.update()) &#123;</div><div class="line">          requestAnimationFrame(animate)</div><div class="line">        &#125;</div><div class="line">      &#125;</div><div class="line">      </div><div class="line">      <span class="keyword">new</span> TWEEN.Tween(<span class="keyword">this</span>.tweenedColor)</div><div class="line">        .to(<span class="keyword">this</span>.color, <span class="number">750</span>)</div><div class="line">        .start()</div><div class="line">      </div><div class="line">      animate()</div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">computed</span>: &#123;</div><div class="line">    <span class="attr">tweenedCSSColor</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="keyword">return</span> <span class="keyword">new</span> Color(&#123;</div><div class="line">        <span class="attr">red</span>: <span class="keyword">this</span>.tweenedColor.red,</div><div class="line">        <span class="attr">green</span>: <span class="keyword">this</span>.tweenedColor.green,</div><div class="line">        <span class="attr">blue</span>: <span class="keyword">this</span>.tweenedColor.blue,</div><div class="line">        <span class="attr">alpha</span>: <span class="keyword">this</span>.tweenedColor.alpha</div><div class="line">      &#125;).toCSS()</div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">methods</span>: &#123;</div><div class="line">    <span class="attr">updateColor</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="keyword">this</span>.color = <span class="keyword">new</span> Color(<span class="keyword">this</span>.colorQuery).toRGB()</div><div class="line">      <span class="keyword">this</span>.colorQuery = <span class="string">''</span></div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <figure class="highlight css"><table><tr><td class="code"><pre><div class="line"><span class="selector-class">.example-7-color-preview</span> &#123;</div><div class="line">  <span class="attribute">display</span>: inline-block;</div><div class="line">  <span class="attribute">width</span>: <span class="number">50px</span>;</div><div class="line">  <span class="attribute">height</span>: <span class="number">50px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
 <script src="https://unpkg.com/tween.js@16.3.4"></script>
@@ -700,18 +704,17 @@ new Vue({
   },
   watch: {
     color: function () {
-      var animationFrame
-      function animate (time) {
-        TWEEN.update(time)
-        animationFrame = requestAnimationFrame(animate)
+      function animate () {
+        if (TWEEN.update()) {
+          requestAnimationFrame(animate)
+        }
       }
+      
       new TWEEN.Tween(this.tweenedColor)
         .to(this.color, 750)
-        .onComplete(function () {
-          cancelAnimationFrame(animationFrame)
-        })
         .start()
-      animationFrame = requestAnimationFrame(animate)
+      
+      animate()
     }
   },
   computed: {
@@ -856,7 +859,7 @@ function generatePoints (stats) {
 <p>Consulter <a href="https://jsfiddle.net/chrisvfritz/65gLu2b6/" target="_blank" rel="external">ce fiddle</a> pour voir le code complet derrière la démo ci-dessus.</p>
 <h2 id="Organisation-des-transitions-dans-les-composants"><a href="#Organisation-des-transitions-dans-les-composants" class="headerlink" title="Organisation des transitions dans les composants"></a>Organisation des transitions dans les composants</h2><p>La gestion de nombreuses transitions d’états peut augmenter rapidement la complexité d’une instance ou d’un composant Vue. Heureusement, de nombreuses animations peuvent être extraites dans des composants enfants dédiés. Faisons cela avec l’entier animé de notre exemple précédent :</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://unpkg.com/tween.js@16.3.4"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"example-8"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">v-model.number</span>=<span class="string">"firstNumber"</span> <span class="attr">type</span>=<span class="string">"number"</span> <span class="attr">step</span>=<span class="string">"20"</span>&gt;</span> +</div><div class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">v-model.number</span>=<span class="string">"secondNumber"</span> <span class="attr">type</span>=<span class="string">"number"</span> <span class="attr">step</span>=<span class="string">"20"</span>&gt;</span> =</div><div class="line">  &#123;&#123; result &#125;&#125;</div><div class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">animated-integer</span> <span class="attr">v-bind:value</span>=<span class="string">"firstNumber"</span>&gt;</span><span class="tag">&lt;/<span class="name">animated-integer</span>&gt;</span> +</div><div class="line">    <span class="tag">&lt;<span class="name">animated-integer</span> <span class="attr">v-bind:value</span>=<span class="string">"secondNumber"</span>&gt;</span><span class="tag">&lt;/<span class="name">animated-integer</span>&gt;</span> =</div><div class="line">    <span class="tag">&lt;<span class="name">animated-integer</span> <span class="attr">v-bind:value</span>=<span class="string">"result"</span>&gt;</span><span class="tag">&lt;/<span class="name">animated-integer</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// Cette logique d'interpolation complexe peut maintenant être réutilisée entre</span></div><div class="line"><span class="comment">// les entiers que nous souhaitons animer dans notre application.</span></div><div class="line"><span class="comment">// Les composants offrent également une interface propre pour configurer</span></div><div class="line"><span class="comment">// des transitions plus dynamiques et des stratégies complexes</span></div><div class="line"><span class="comment">// de transition.</span></div><div class="line">Vue.component(<span class="string">'animated-integer'</span>, &#123;</div><div class="line">  <span class="attr">template</span>: <span class="string">'&lt;span&gt;&#123;&#123; tweeningValue &#125;&#125;&lt;/span&gt;'</span>,</div><div class="line">  <span class="attr">props</span>: &#123;</div><div class="line">    <span class="attr">value</span>: &#123;</div><div class="line">      <span class="attr">type</span>: <span class="built_in">Number</span>,</div><div class="line">      <span class="attr">required</span>: <span class="literal">true</span></div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">data</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">      <span class="attr">tweeningValue</span>: <span class="number">0</span></div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">watch</span>: &#123;</div><div class="line">    <span class="attr">value</span>: <span class="function"><span class="keyword">function</span> (<span class="params">newValue, oldValue</span>) </span>&#123;</div><div class="line">      <span class="keyword">this</span>.tween(oldValue, newValue)</div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">mounted</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">this</span>.tween(<span class="number">0</span>, <span class="keyword">this</span>.value)</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">methods</span>: &#123;</div><div class="line">    <span class="attr">tween</span>: <span class="function"><span class="keyword">function</span> (<span class="params">startValue, endValue</span>) </span>&#123;</div><div class="line">      <span class="keyword">var</span> vm = <span class="keyword">this</span></div><div class="line">      <span class="keyword">var</span> animationFrame</div><div class="line">      <span class="function"><span class="keyword">function</span> <span class="title">animate</span> (<span class="params">time</span>) </span>&#123;</div><div class="line">        TWEEN.update(time)</div><div class="line">        animationFrame = requestAnimationFrame(animate)</div><div class="line">      &#125;</div><div class="line">      <span class="keyword">new</span> TWEEN.Tween(&#123; <span class="attr">tweeningValue</span>: startValue &#125;)</div><div class="line">        .to(&#123; <span class="attr">tweeningValue</span>: endValue &#125;, <span class="number">500</span>)</div><div class="line">        .onUpdate(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">          vm.tweeningValue = <span class="keyword">this</span>.tweeningValue.toFixed(<span class="number">0</span>)</div><div class="line">        &#125;)</div><div class="line">        .onComplete(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">          cancelAnimationFrame(animationFrame)</div><div class="line">        &#125;)</div><div class="line">        .start()</div><div class="line">      animationFrame = requestAnimationFrame(animate)</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="comment">// Toute la complexité a été supprimée de l'instance principale de Vue !</span></div><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">  <span class="attr">el</span>: <span class="string">'#example-8'</span>,</div><div class="line">  <span class="attr">data</span>: &#123;</div><div class="line">    <span class="attr">firstNumber</span>: <span class="number">20</span>,</div><div class="line">    <span class="attr">secondNumber</span>: <span class="number">40</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">computed</span>: &#123;</div><div class="line">    <span class="attr">result</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="keyword">return</span> <span class="keyword">this</span>.firstNumber + <span class="keyword">this</span>.secondNumber</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// Cette logique d'interpolation complexe peut maintenant être réutilisée entre</span></div><div class="line"><span class="comment">// les entiers que nous souhaitons animer dans notre application.</span></div><div class="line"><span class="comment">// Les composants offrent également une interface propre pour configurer</span></div><div class="line"><span class="comment">// des transitions plus dynamiques et des stratégies complexes</span></div><div class="line"><span class="comment">// de transition.</span></div><div class="line">Vue.component(<span class="string">'animated-integer'</span>, &#123;</div><div class="line">  <span class="attr">template</span>: <span class="string">'&lt;span&gt;&#123;&#123; tweeningValue &#125;&#125;&lt;/span&gt;'</span>,</div><div class="line">  <span class="attr">props</span>: &#123;</div><div class="line">    <span class="attr">value</span>: &#123;</div><div class="line">      <span class="attr">type</span>: <span class="built_in">Number</span>,</div><div class="line">      <span class="attr">required</span>: <span class="literal">true</span></div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">data</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">      <span class="attr">tweeningValue</span>: <span class="number">0</span></div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">watch</span>: &#123;</div><div class="line">    <span class="attr">value</span>: <span class="function"><span class="keyword">function</span> (<span class="params">newValue, oldValue</span>) </span>&#123;</div><div class="line">      <span class="keyword">this</span>.tween(oldValue, newValue)</div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">mounted</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">this</span>.tween(<span class="number">0</span>, <span class="keyword">this</span>.value)</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">methods</span>: &#123;</div><div class="line">    <span class="attr">tween</span>: <span class="function"><span class="keyword">function</span> (<span class="params">startValue, endValue</span>) </span>&#123;</div><div class="line">      <span class="keyword">var</span> vm = <span class="keyword">this</span></div><div class="line">      <span class="function"><span class="keyword">function</span> <span class="title">animate</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">if</span> (TWEEN.update()) &#123;</div><div class="line">          requestAnimationFrame(animate)</div><div class="line">        &#125;</div><div class="line">      &#125;</div><div class="line">      </div><div class="line">      <span class="keyword">new</span> TWEEN.Tween(&#123; <span class="attr">tweeningValue</span>: startValue &#125;)</div><div class="line">        .to(&#123; <span class="attr">tweeningValue</span>: endValue &#125;, <span class="number">500</span>)</div><div class="line">        .onUpdate(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">          vm.tweeningValue = <span class="keyword">this</span>.tweeningValue.toFixed(<span class="number">0</span>)</div><div class="line">        &#125;)</div><div class="line">        .start()</div><div class="line">      </div><div class="line">      animate()</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="comment">// Toute la complexité a été supprimée de l'instance principale de Vue !</span></div><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">  <span class="attr">el</span>: <span class="string">'#example-8'</span>,</div><div class="line">  <span class="attr">data</span>: &#123;</div><div class="line">    <span class="attr">firstNumber</span>: <span class="number">20</span>,</div><div class="line">    <span class="attr">secondNumber</span>: <span class="number">40</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">computed</span>: &#123;</div><div class="line">    <span class="attr">result</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="keyword">return</span> <span class="keyword">this</span>.firstNumber + <span class="keyword">this</span>.secondNumber</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 
 <script src="https://unpkg.com/tween.js@16.3.4"></script>
 <div id="example-8" class="demo">
@@ -894,21 +897,20 @@ Vue.component('animated-integer', {
   methods: {
     tween: function (startValue, endValue) {
       var vm = this
-      var animationFrame
-      function animate (time) {
-        TWEEN.update(time)
-        animationFrame = requestAnimationFrame(animate)
+      function animate () {
+        if (TWEEN.update()) {
+          requestAnimationFrame(animate)
+        }
       }
+      
       new TWEEN.Tween({ tweeningValue: startValue })
         .to({ tweeningValue: endValue }, 500)
         .onUpdate(function () {
           vm.tweeningValue = this.tweeningValue.toFixed(0)
         })
-        .onComplete(function () {
-          cancelAnimationFrame(animationFrame)
-        })
         .start()
-      animationFrame = requestAnimationFrame(animate)
+      
+      animate()
     }
   }
 })
