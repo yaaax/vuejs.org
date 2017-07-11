@@ -2,18 +2,18 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Meet the Team (EN) — Vue.js</title>
+        <title>Rencontrer l'équipe — Vue.js</title>
         <meta charset="utf-8">
         <meta name="description" content="Vue.js - Le Framework JavaScript Évolutif">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
         <meta property="og:type" content="article">
-        <meta property="og:title" content="Meet the Team (EN) — Vue.js">
+        <meta property="og:title" content="Rencontrer l'équipe — Vue.js">
         <meta property="og:description" content="Vue.js - Le Framework JavaScript Évolutif">
         <meta property="og:image" content="https://vuejs.org//images/logo.png">
 
         <meta name="twitter:card" content="summary">
-        <meta name="twitter:title" content="Meet the Team (EN) — Vue.js">
+        <meta name="twitter:title" content="Rencontrer l'équipe — Vue.js">
         <meta name="twitter:description" content="Vue.js - Le Framework JavaScript Évolutif">
         <meta name="twitter:image" content="https://vuejs.org/images/logo.png">
 
@@ -593,7 +593,7 @@
         
         
         <li>
-            <a href="/v2/guide/team.html" class="sidebar-link current">Meet the Team (EN)</a>
+            <a href="/v2/guide/team.html" class="sidebar-link current">Rencontrer l'équipe</a>
         </li>
     
     
@@ -622,7 +622,7 @@
       
     
     
-      <h1>Meet the Team (EN)</h1>
+      <h1>Rencontrer l'équipe</h1>
     
     
 <script id="vuer-profile-template" type="text/template">
@@ -639,20 +639,20 @@
       </h3>
       <dl>
         <template v-if="profile.reposOfficial">
-          <dt>Core focus</dt>
+          <dt>Cœur de Vue</dt>
           <dd>
             <ul>
-              <li v-for="repo in profile.reposOfficial">
+              <li v-for="dépôt à profile.reposOfficial">
                 <a :href="githubUrl('vuejs', repo)" target=_blank>{{ repo }}</a>
               </li>
             </ul>
           </dd>
         </template>
         <template v-if="profile.github && profile.reposPersonal">
-          <dt>Ecosystem</dt>
+          <dt>Écosystème</dt>
           <dd>
             <ul>
-              <li v-for="repo in profile.reposPersonal">
+              <li v-for="dépôt à profile.reposPersonal">
                 <a :href="githubUrl(profile.github, repo)" target=_blank>{{ repo }}</a>
               </li>
             </ul>
@@ -661,7 +661,7 @@
         <template v-if="profile.work">
           <dt>
             <i class="fa fa-briefcase"></i>
-            <span class="sr-only">Work</span>
+            <span class="sr-only">Travail</span>
           </dt>
           <dd v-html="workHtml"></dd>
         </template>
@@ -671,20 +671,20 @@
             <span class="sr-only">Distance</span>
           </dt>
           <dd>
-            About
+            À propos
             <span
               v-if="profile.distanceInKm <= 150"
-              :title="profile.name + ' is close enough to commute to your location.'"
+              :title="profile.name + ' est assez proche pour que vous puissiez vous rencontrer.'"
               class="user-match"
-            >{{ textDistance }} away</span>
-            <template v-else>{{ textDistance }} away</template>
-            in {{ profile.city }}
+            >{{ textDistance }} de</span>
+            <template v-else>{{ textDistance }} de</template>
+            à {{ profile.city }}
           </dd>
         </span>
         <template v-else-if="profile.city">
           <dt>
             <i class="fa fa-map-marker"></i>
-            <span class="sr-only">City</span>
+            <span class="sr-only">Ville</span>
           </dt>
           <dd>
             {{ profile.city }}
@@ -693,14 +693,14 @@
         <template v-if="profile.languages">
           <dt>
             <i class="fa fa-globe"></i>
-            <span class="sr-only">Languages</span>
+            <span class="sr-only">Langues</span>
           </dt>
           <dd v-html="languageListHtml" class="language-list"></dd>
         </template>
         <template v-if="profile.links">
           <dt>
             <i class="fa fa-link"></i>
-            <span class="sr-only">Links</span>
+            <span class="sr-only">Liens</span>
           </dt>
           <dd>
             <ul>
@@ -713,7 +713,7 @@
         <footer v-if="profile.github || profile.twitter" class="social">
           <a class=github v-if="profile.github" :href="githubUrl(profile.github)">
             <i class="fa fa-github"></i>
-            <span class="sr-only">Github</span>
+            <span class="sr-only">GitHub</span>
           </a>
           <a class=twitter v-if="profile.twitter" :href="'https://twitter.com/' + profile.twitter">
             <i class="fa fa-twitter"></i>
@@ -729,26 +729,26 @@
   <div class="team">
 
     <h2 id="the-core-team">
-      The Core Team
+      Équipe principale
       <button v-if="geolocationSupported && !userPosition" @click="getUserPosition" :disabled="isSorting" class="sort-by-distance-button">
         <i v-if="isSorting" class="fa fa-refresh rotating-clockwise"></i>
         <template v-else="">
           <i class="fa fa-map-marker"></i>
-          <span>find near me</span>
+          <span>qui est près de moi</span>
         </template>
       </button>
     </h2>
 
     <p v-if="errorGettingLocation" class="tip">
-      Failed to get your location.
+      N'a pas trouver de lieu.
     </p>
 
     <p>
-      The development of Vue and its ecosystem is guided by an international team, some of whom have chosen to be featured below.
+      Le développement de Vue et son écosystème est assuré par une équipe internationale. Certains d'entre eux ont choisi d'apparaître ci-dessous.
     </p>
 
     <p v-if="userPosition" class="success">
-      The core team has been sorted by their distance from you.
+      L'équipe principale a été triée en fonction de la distance qui vous sépare.
     </p>
 
     <vuer-profile v-for="profile in sortedTeam" :key="profile.github" :profile="profile"></vuer-profile>
@@ -756,26 +756,26 @@
 
   <div class="team">
     <h2 id="community-partners">
-      Community Partners
+      Partenaires de la communauté
       <button v-if="geolocationSupported && !userPosition" @click="getUserPosition" :disabled="isSorting" class="sort-by-distance-button">
         <i v-if="isSorting" class="fa fa-refresh rotating-clockwise"></i>
         <template v-else="">
           <i class="fa fa-map-marker"></i>
-          <span>find near me</span>
+          <span>qui est près de moi</span>
         </template>
       </button>
     </h2>
 
     <p v-if="errorGettingLocation" class="tip">
-      Failed to get your location.
+      N'a pas trouver de lieu.
     </p>
 
     <p>
-      Some members of the Vue community have so enriched it, that they deserve special mention. We've developed a more intimate relationship with these key partners, often coordinating with them on upcoming features and news.
+      Certains membres de la communauté Vue l'ont tellement enrichie, qu'ils méritent une mention spéciale. Nous avons développé une relation plus intime avec ces partenaires clés, en nous coordonnant souvent sur les nouvelles fonctionnalités et les nouveautés.
     </p>
 
     <p v-if="userPosition" class="success">
-      The community partners have been sorted by their distance from you.
+      Les partenaires de la communauté ont été triés en fonction de la distance qui vous sépare.
     </p>
 
     <vuer-profile v-for="profile in sortedPartners" :key="profile.github" :profile="profile"></vuer-profile>
@@ -1274,7 +1274,7 @@
                   'class="user-match" ' +
                   'title="' +
                     vm.profile.name +
-                    ' can give technical talks in your preferred language.' +
+                    ' peut discuter techniquement avec vous dans votre langue préférée.' +
                   '"' +
                 '\>' + language + '</span>'
               )
