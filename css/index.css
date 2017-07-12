@@ -268,7 +268,7 @@ a.button.white {
   display: none;
   box-sizing: border-box;
   max-height: calc(100vh - 61px);
-  overflow-y: scroll;
+  overflow-y: auto;
   position: absolute;
   top: 100%;
   right: -15px;
@@ -447,9 +447,6 @@ body.docs #nav {
   top: 61px;
   left: 0;
   bottom: 0;
-  padding: 40px 0 30px 60px;
-  width: 260px;
-  margin-right: 20px;
   overflow-x: hidden;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
@@ -465,7 +462,11 @@ body.docs #nav {
   padding-left: 1em;
 }
 .sidebar li {
-  margin-bottom: 0.5em;
+  margin-top: 0.5em;
+}
+.sidebar .sidebar-inner {
+  width: 260px;
+  padding: 40px 20px 60px 60px;
 }
 .sidebar .version-select {
   vertical-align: middle;
@@ -545,17 +546,22 @@ body.docs #nav {
 @media screen and (max-width: 900px) {
   .sidebar {
     position: fixed;
-    z-index: 8;
+    z-index: 10;
     background-color: #f9f9f9;
     height: 100%;
     top: 0;
     left: 0;
-    padding: 60px 30px 20px;
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
-    box-sizing: border-box;
     transition: all 0.4s cubic-bezier(0.4, 0, 0, 1);
     -webkit-transform: translate(-280px, 0);
     transform: translate(-280px, 0);
+  }
+  .sidebar .sidebar-inner {
+    padding: 50px 10px 10px 20px;
+    box-sizing: border-box;
+  }
+  .sidebar .sidebar-inner-index {
+    padding: 10px 10px 10px 20px;
   }
   .sidebar .search-query {
     width: 200px;
@@ -630,6 +636,8 @@ body {
   font-size: 1.05em;
   font-weight: 600;
   letter-spacing: 0.1em;
+  min-width: 8em;
+  text-align: center;
 }
 #hero .button:first-child {
   margin-right: 1em;
