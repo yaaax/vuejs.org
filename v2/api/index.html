@@ -85,8 +85,8 @@
   <ul class="nav-dropdown">
     <li><h4>Aide</h4></li>
     <li><ul>
-      <li style="text-align: left;padding: 0 24px 0 20px"><a style="display: inline-block;padding: 0;" href="http://forum.vuejs.org" class="nav-link" target="_blank">Forum</a> (<a style="display: inline-block;padding: 0;" href="https://forum.vuejs.org/c/french" class="nav-link" target="_blank">Fr</a>)</li>
-      <li style="text-align: left;padding: 0 24px 0 20px"><a style="display: inline-block;padding: 0;" href="https://gitter.im/vuejs/vue" class="nav-link" target="_blank">Chat</a> (<a style="display: inline-block;padding: 0;" href="https://gitter.im/vuejs-fr/vue" class="nav-link" target="_blank">Fr</a>)</li>
+      <li style="text-align: left;padding: 0 24px 0 20px"><a style="display: inline-block;padding: 0;" href="https://forum.vuejs.org/c/french" class="nav-link" target="_blank">Forum</a> | <a style="display: inline-block;padding: 0;" href="https://forum.vuejs.org/" class="nav-link" target="_blank">En</a></li>
+      <li style="text-align: left;padding: 0 24px 0 20px"><a style="display: inline-block;padding: 0;" href="https://gitter.im/vuejs-fr/vue" class="nav-link" target="_blank">Chat</a> | <a style="display: inline-block;padding: 0;" href="https://chat.vuejs.org/" class="nav-link" target="_blank">En</a></li>
       <li><a href="https://github.com/vuejs-templates" class="nav-link" target="_blank">Templates</a></li>
     </ul></li>
     <li><h4>Infos</h4></li>
@@ -150,8 +150,8 @@
   <ul class="nav-dropdown">
     <li><h4>Aide</h4></li>
     <li><ul>
-      <li style="text-align: left;padding: 0 24px 0 20px"><a style="display: inline-block;padding: 0;" href="http://forum.vuejs.org" class="nav-link" target="_blank">Forum</a> (<a style="display: inline-block;padding: 0;" href="https://forum.vuejs.org/c/french" class="nav-link" target="_blank">Fr</a>)</li>
-      <li style="text-align: left;padding: 0 24px 0 20px"><a style="display: inline-block;padding: 0;" href="https://gitter.im/vuejs/vue" class="nav-link" target="_blank">Chat</a> (<a style="display: inline-block;padding: 0;" href="https://gitter.im/vuejs-fr/vue" class="nav-link" target="_blank">Fr</a>)</li>
+      <li style="text-align: left;padding: 0 24px 0 20px"><a style="display: inline-block;padding: 0;" href="https://forum.vuejs.org/c/french" class="nav-link" target="_blank">Forum</a> | <a style="display: inline-block;padding: 0;" href="https://forum.vuejs.org/" class="nav-link" target="_blank">En</a></li>
+      <li style="text-align: left;padding: 0 24px 0 20px"><a style="display: inline-block;padding: 0;" href="https://gitter.im/vuejs-fr/vue" class="nav-link" target="_blank">Chat</a> | <a style="display: inline-block;padding: 0;" href="https://chat.vuejs.org/" class="nav-link" target="_blank">En</a></li>
       <li><a href="https://github.com/vuejs-templates" class="nav-link" target="_blank">Templates</a></li>
     </ul></li>
     <li><h4>Infos</h4></li>
@@ -294,8 +294,22 @@
 <p>Définit un gestionnaire pour les erreurs non interceptées pendant le rendu d’un composant et les appels aux observateurs. Ce gestionnaire sera appelé avec comme arguments l’erreur et l’instance de Vue associée.</p>
 <blockquote>
 <p>En 2.2.0, ce hook capture également les erreurs dans les hooks du cycle de vie des composants. De plus, quand ce hook est <code>undefined</code>, les erreurs capturées seront loguées avec <code>console.error</code> plutôt qu’avoir un crash de l’application.</p>
+<p>In 2.4.0 this hook also captures errors thrown inside Vue custom event handlers.</p>
 <p><a href="https://sentry.io" target="_blank" rel="external">Sentry</a>, un service de traçage d’erreur, fournit une <a href="https://sentry.io/for/vue/" target="_blank" rel="external">intégration officielle</a> utilisant cette option.</p>
 </blockquote>
+</li>
+</ul>
+<h3 id="warnHandler"><a href="#warnHandler" class="headerlink" title="warnHandler"></a>warnHandler</h3><blockquote>
+<p>New in 2.4.0</p>
+</blockquote>
+<ul>
+<li><p><strong>Type:</strong> <code>Function</code></p>
+</li>
+<li><p><strong>Default:</strong> <code>undefined</code></p>
+</li>
+<li><p><strong>Usage:</strong></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">Vue.config.warnHandler = <span class="function"><span class="keyword">function</span> (<span class="params">msg, vm, trace</span>) </span>&#123;</div><div class="line">  <span class="comment">// trace is the component hierarchy trace</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Assign a custom handler for runtime Vue warnings. Note this only works during development and is ignored in production.</p>
 </li>
 </ul>
 <h3 id="ignoredElements"><a href="#ignoredElements" class="headerlink" title="ignoredElements"></a>ignoredElements</h3><ul>
@@ -902,7 +916,7 @@
 <h3 id="delimiters"><a href="#delimiters" class="headerlink" title="delimiters"></a>delimiters</h3><ul>
 <li><p><strong>Type :</strong> <code>Array&lt;string&gt;</code></p>
 </li>
-<li><p><strong>default:</strong> <code>["{{", "}}"]</code></p>
+<li><p><strong>Default:</strong> <code>["{{", "}}"]</code></p>
 </li>
 <li><p><strong>Détails :</strong></p>
 <p>Change les délimiteurs d’interpolation de texte. <strong>Cette option est uniquement disponible en version complète.</strong></p>
@@ -934,6 +948,30 @@
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ma-checkbox</span> <span class="attr">v-model</span>=<span class="string">"foo"</span> <span class="attr">value</span>=<span class="string">"une certaine valeur"</span>&gt;</span><span class="tag">&lt;/<span class="name">ma-checkbox</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>Le code ci-dessus est équivalent à :</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ma-checkbox</span></span></div><div class="line">  <span class="attr">:checked</span>=<span class="string">"foo"</span></div><div class="line">  @<span class="attr">change</span>=<span class="string">"val =&gt; &#123; foo = val &#125;"</span></div><div class="line">  <span class="attr">value</span>=<span class="string">"une certaine valeur"</span>&gt;</div><div class="line"><span class="tag">&lt;/<span class="name">ma-checkbox</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="inheritAttrs"><a href="#inheritAttrs" class="headerlink" title="inheritAttrs"></a>inheritAttrs</h3><blockquote>
+<p>New in 2.4.0</p>
+</blockquote>
+<ul>
+<li><p><strong>Type:</strong> <code>boolean</code></p>
+</li>
+<li><p><strong>Default:</strong> <code>true</code></p>
+</li>
+<li><p><strong>Details:</strong></p>
+<p>By default, parent scope attribute bindings that are not recognized as props will “fallthrough” and be applied to the root element of the child component as normal HTML attributes. When authoring a component that wraps a target element or another component, this may not always be the desired behavior. By setting <code>inheritAttrs</code> to <code>false</code>, this default behavior can be disabled. The attributes are available via the <code>$attrs</code> instance property (also new in 2.4) and can be explicitly bound to a non-root element using <code>v-bind</code>.</p>
+</li>
+</ul>
+<h3 id="comments"><a href="#comments" class="headerlink" title="comments"></a>comments</h3><blockquote>
+<p>New in 2.4.0</p>
+</blockquote>
+<ul>
+<li><p><strong>Type:</strong> <code>boolean</code></p>
+</li>
+<li><p><strong>Default:</strong> <code>false</code></p>
+</li>
+<li><p><strong>Details:</strong></p>
+<p>When set to <code>true</code>, will preserve and render HTML comments found in templates. The default behavior is discarding them.</p>
 </li>
 </ul>
 <h2 id="Proprietes-d’instance"><a href="#Proprietes-d’instance" class="headerlink" title="Propriétés d’instance"></a>Propriétés d’instance</h2><h3 id="vm-data"><a href="#vm-data" class="headerlink" title="vm.$data"></a>vm.$data</h3><ul>
@@ -1068,13 +1106,31 @@
 <li><p><strong>Voir aussi :</strong> <a href="../guide/ssr.html">Rendu côté serveur</a></p>
 </li>
 </ul>
+<h3 id="vm-attrs"><a href="#vm-attrs" class="headerlink" title="vm.$attrs"></a>vm.$attrs</h3><ul>
+<li><p><strong>Type:</strong> <code>{ [key: string]: string }</code></p>
+</li>
+<li><p><strong>Read only</strong></p>
+</li>
+<li><p><strong>Details:</strong></p>
+<p>Contains parent-scope attribute bindings that are not recognized (and extracted) as props. When a component doesn’t have any declared props, this essentially contains all parent-scope bindings except for <code>class</code> and <code>style</code>, and can be passed down to an inner component via <code>v-bind=&quot;$attrs&quot;</code> - useful when creating higher-order components.</p>
+</li>
+</ul>
+<h3 id="vm-listeners"><a href="#vm-listeners" class="headerlink" title="vm.$listeners"></a>vm.$listeners</h3><ul>
+<li><p><strong>Type:</strong> <code>{ [key: string]: Function | Array&lt;Function&gt; }</code></p>
+</li>
+<li><p><strong>Read only</strong></p>
+</li>
+<li><p><strong>Details:</strong></p>
+<p>Contains parent-scope <code>v-on</code> event listeners (without <code>.native</code> modifiers). This can be passed down to an inner component via <code>v-on=&quot;$listeners&quot;</code> - useful when creating higher-order components.</p>
+</li>
+</ul>
 <h2 id="Methodes-et-donnees-d’instance"><a href="#Methodes-et-donnees-d’instance" class="headerlink" title="Méthodes et données d’instance"></a>Méthodes et données d’instance</h2><h3 id="vm-watch">vm.$watch( expOuFn, callback, [options] )</h3>
 
 <ul>
 <li><p><strong>Arguments :</strong></p>
 <ul>
-<li><code>{string | Function} expOuFn</code></li>
-<li><code>{Function} callback</code></li>
+<li><code>{string | Function} expOrFn</code></li>
+<li><code>{Function | Object} callback</code></li>
 <li><code>{Object} [options]</code><ul>
 <li><code>{boolean} deep</code></li>
 <li><code>{boolean} immediate</code></li>
@@ -1369,9 +1425,9 @@
 <h3 id="v-on"><a href="#v-on" class="headerlink" title="v-on"></a>v-on</h3><ul>
 <li><p><strong>Shorthand:</strong> <code>@</code></p>
 </li>
-<li><p><strong>Expects:</strong> <code>Function | Inline Statement</code></p>
+<li><p><strong>Expects:</strong> <code>Function | Inline Statement | Object</code></p>
 </li>
-<li><p><strong>Argument:</strong> <code>event (required)</code></p>
+<li><p><strong>Argument:</strong> <code>event</code></p>
 </li>
 <li><p><strong>Modifiers:</strong></p>
 <ul>
@@ -1390,11 +1446,12 @@
 </li>
 <li><p><strong>Utilisation :</strong></p>
 <p>Attaches an event listener to the element. The event type is denoted by the argument. The expression can either be a method name or an inline statement, or simply omitted when there are modifiers present.</p>
+<p>Starting in <code>2.4.0</code>, <code>v-on</code> also supports binding to an object of event/listener pairs without an argument. Note when using the object syntax, it does not support any modifiers.</p>
 <p>When used on a normal element, it listens to <strong>native DOM events</strong> only. When used on a custom element component, it also listens to <strong>custom events</strong> emitted on that child component.</p>
 <p>When listening to native DOM events, the method receives the native event as the only argument. If using inline statement, the statement has access to the special <code>$event</code> property: <code>v-on:click=&quot;handle(&#39;ok&#39;, $event)&quot;</code>.</p>
 </li>
 <li><p><strong>Exemple :</strong></p>
-<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- method handler --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">v-on:click</span>=<span class="string">"doThis"</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- inline statement --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">v-on:click</span>=<span class="string">"doThat('hello', $event)"</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- shorthand --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">"doThis"</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- stop propagation --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">button</span> @<span class="attr">click.stop</span>=<span class="string">"doThis"</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- prevent default --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">button</span> @<span class="attr">click.prevent</span>=<span class="string">"doThis"</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- prevent default without expression --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">form</span> @<span class="attr">submit.prevent</span>&gt;</span><span class="tag">&lt;/<span class="name">form</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- chain modifiers --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">button</span> @<span class="attr">click.stop.prevent</span>=<span class="string">"doThis"</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- key modifier using keyAlias --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">input</span> @<span class="attr">keyup.enter</span>=<span class="string">"onEnter"</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- key modifier using keyCode --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">input</span> @<span class="attr">keyup.13</span>=<span class="string">"onEnter"</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- the click event will be triggered at most once --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">v-on:click.once</span>=<span class="string">"doThis"</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- method handler --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">v-on:click</span>=<span class="string">"doThis"</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- object syntax (2.4.0+) --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">v-on</span>=<span class="string">"&#123; mousedown: doThis, mouseup: doThat &#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- inline statement --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">v-on:click</span>=<span class="string">"doThat('hello', $event)"</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- shorthand --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">"doThis"</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- stop propagation --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">button</span> @<span class="attr">click.stop</span>=<span class="string">"doThis"</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- prevent default --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">button</span> @<span class="attr">click.prevent</span>=<span class="string">"doThis"</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- prevent default without expression --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">form</span> @<span class="attr">submit.prevent</span>&gt;</span><span class="tag">&lt;/<span class="name">form</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- chain modifiers --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">button</span> @<span class="attr">click.stop.prevent</span>=<span class="string">"doThis"</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- key modifier using keyAlias --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">input</span> @<span class="attr">keyup.enter</span>=<span class="string">"onEnter"</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- key modifier using keyCode --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">input</span> @<span class="attr">keyup.13</span>=<span class="string">"onEnter"</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- the click event will be triggered at most once --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">v-on:click.once</span>=<span class="string">"doThis"</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>Listening to custom events on a child component (the handler is called when “my-event” is emitted on the child):</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">my-component</span> @<span class="attr">my-event</span>=<span class="string">"handleThis"</span>&gt;</span><span class="tag">&lt;/<span class="name">my-component</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- inline statement --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">my-component</span> @<span class="attr">my-event</span>=<span class="string">"handleThis(123, $event)"</span>&gt;</span><span class="tag">&lt;/<span class="name">my-component</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- native event on component --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">my-component</span> @<span class="attr">click.native</span>=<span class="string">"onClick"</span>&gt;</span><span class="tag">&lt;/<span class="name">my-component</span>&gt;</span></div></pre></td></tr></table></figure>
 </li>
