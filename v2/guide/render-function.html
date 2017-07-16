@@ -747,7 +747,7 @@
 <li><code>injections</code> : (2.3.0+) si vous utilisez l’option <a href="../api/#provide-inject"><code>inject</code></a>, cela va contenir les injections résolues.</li>
 </ul>
 <p>Après avoir ajouté <code>functional: true</code>, mettre à jour la fonction de rendu de notre composant de titres avec ancres va simplement nécessiter d’ajouter l’argument <code>context</code>, en remplaçant <code>this.$slots.default</code> par <code>context.children</code>, puis <code>this.level</code> par <code>context.props.level</code>.</p>
-<p>Puisque les composants fonctionnels ne sont que des fonctions, leur rendu est plus rapide. Cependant, cela signifie également que les composants fonctionnels n’apparaissent pas dans l’arbre des composants de l’outil de développement Vue.js de Chrome.</p>
+<p>Puisque les composants fonctionnels ne sont que des fonctions, leur rendu est plus rapide. Cependant, cela signifie également que les composants fonctionnels n’apparaissent pas dans l’arbre des composants de l’outil de développement <a href="https://github.com/vuejs/vue-devtools" target="_blank" rel="external">Vue devtools</a>.</p>
 <p>Ils sont également très utiles en tant que composants enveloppes. Par exemple, quand vous avez besoin de :</p>
 <ul>
 <li>Programmatiquement choisir un composant parmi plusieurs autres composants pour de la délégation ou</li>
