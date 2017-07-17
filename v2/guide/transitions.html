@@ -684,13 +684,13 @@ new Vue({
 </li>
 <li><p><code>v-enter-active</code>: C’est l’état actif pour <em>enter</em>. Il est appliqué pendant toute la phase <em>enter</em>. Il est ajouté avant que l’élément soit inséré, il est supprimé lorsque la transition/animation est terminée. Cette classe peut être utilisée pour définir la durée, le retard et la courbe d’accélération pour la transition entrante.</p>
 </li>
-<li><p><code>v-enter-to</code>: <strong>Seulement disponible pour les versions &gt;=2.1.8.</strong> C’est l’état de fin pour <em>enter</em>. Il est ajouté une fois que l’élément est inséré (au même moment que <code>v-enter</code> est supprimé), il est supprimé lorsque la transition/animation est terminée.</p>
+<li><p><code>v-enter-to</code>: <strong>Seulement disponible pour les versions 2.1.8+.</strong> C’est l’état de fin pour <em>enter</em>. Il est ajouté une fois que l’élément est inséré (au même moment que <code>v-enter</code> est supprimé), il est supprimé lorsque la transition/animation est terminée.</p>
 </li>
 <li><p><code>v-leave</code>: C’est l’état de départ pour <em>leave</em>. Il est ajouté dès qu’une transition sortante est déclenchée, il est supprimé après une frame.</p>
 </li>
 <li><p><code>v-leave-active</code>: C’est l’état actif pour <em>leave</em>. Il est appliqué pendant toute la phase <em>leave</em>. Il est ajouté dès qu’une transition sortante est déclenchée, il est supprimé lorsque la transition/animation est terminée. Cette classe peut être utilisée pour définir la durée, le retard et la courbe d’accélération pour la transition de sortie.</p>
 </li>
-<li><p><code>v-leave-to</code>: <strong>Seulement disponible pour les versions &gt;=2.1.8.</strong> C’est l’état de fin pour <em>leave</em>. Il est ajouté après que la transition sortante soit déclenchée (au même moment que <code>v-leave</code> est supprimé), il est supprimé lorsque la transition/animation est terminée.</p>
+<li><p><code>v-leave-to</code>: <strong>Seulement disponible pour les versions 2.1.8+.</strong> C’est l’état de fin pour <em>leave</em>. Il est ajouté après que la transition sortante soit déclenchée (au même moment que <code>v-leave</code> est supprimé), il est supprimé lorsque la transition/animation est terminée.</p>
 </li>
 </ol>
 <p><img src="/images/transition.png" alt="Diagramme de transition"></p>
@@ -794,10 +794,10 @@ new Vue({
 <ul>
 <li><code>enter-class</code></li>
 <li><code>enter-active-class</code></li>
-<li><code>enter-to-class</code> (&gt;= 2.1.8 uniquement)</li>
+<li><code>enter-to-class</code> (2.1.8+ uniquement)</li>
 <li><code>leave-class</code></li>
 <li><code>leave-active-class</code></li>
-<li><code>leave-to-class</code> (&gt;= 2.1.8 uniquement)</li>
+<li><code>leave-to-class</code> (2.1.8+ uniquement)</li>
 </ul>
 <p>Celles-ci remplacent les noms de classes habituelles. C’est surtout utile quand vous voulez combiner le système de transition de Vue avec une bibliothèque d’animation CSS existante, comme <a href="https://daneden.github.io/animate.css/" target="_blank" rel="external">Animate.css</a>.</p>
 <p>Voici un exemple :</p>
@@ -887,7 +887,7 @@ new Vue({
 <h2 id="Transitions-sur-le-rendu-initial"><a href="#Transitions-sur-le-rendu-initial" class="headerlink" title="Transitions sur le rendu initial"></a>Transitions sur le rendu initial</h2><p>Si vous souhaitez également appliquer une transition sur le rendu initial d’un nœud, vous pouvez ajouter l’attribut <code>appear</code> :</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">transition</span> <span class="attr">appear</span>&gt;</span></div><div class="line">  <span class="comment">&lt;!-- ... --&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">transition</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>Par défaut, cela utilisera les transitions spécifiées pour l’entrée et la sortie. Si vous le souhaitez, vous pouvez également spécifier des classes CSS personnalisées :</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">transition</span></span></div><div class="line">  <span class="attr">appear</span></div><div class="line">  <span class="attr">appear-class</span>=<span class="string">"custom-appear-class"</span></div><div class="line">  <span class="attr">appear-to-class</span>=<span class="string">"custom-appear-to-class"</span> (&gt;= 2.1.8 only)</div><div class="line">  appear-active-class="custom-appear-active-class"</div><div class="line">&gt;</div><div class="line">  <span class="comment">&lt;!-- ... --&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">transition</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">transition</span></span></div><div class="line">  <span class="attr">appear</span></div><div class="line">  <span class="attr">appear-class</span>=<span class="string">"custom-appear-class"</span></div><div class="line">  <span class="attr">appear-to-class</span>=<span class="string">"custom-appear-to-class"</span> (<span class="attr">2.1.8</span>+ <span class="attr">seulement</span>)</div><div class="line">  <span class="attr">appear-active-class</span>=<span class="string">"custom-appear-active-class"</span></div><div class="line">&gt;</div><div class="line">  <span class="comment">&lt;!-- ... --&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">transition</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>et des hooks JavaScript personnalisés :</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">transition</span></span></div><div class="line">  <span class="attr">appear</span></div><div class="line">  <span class="attr">v-on:before-appear</span>=<span class="string">"customBeforeAppearHook"</span></div><div class="line">  <span class="attr">v-on:appear</span>=<span class="string">"customAppearHook"</span></div><div class="line">  <span class="attr">v-on:after-appear</span>=<span class="string">"customAfterAppearHook"</span></div><div class="line">  <span class="attr">v-on:appear-cancelled</span>=<span class="string">"customAppearCancelledHook"</span></div><div class="line">&gt;</div><div class="line">  <span class="comment">&lt;!-- ... --&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">transition</span>&gt;</span></div></pre></td></tr></table></figure>
 <h2 id="Transition-entre-elements"><a href="#Transition-entre-elements" class="headerlink" title="Transition entre éléments"></a>Transition entre éléments</h2><p>Plus loin, nous parlons de <a href="#transition-entre-les-composants">transition entre les composants</a>, mais vous pouvez également faire une transition entre des éléments bruts en utilisant <code>v-if</code>/<code>v-else</code>.  L’une des transitions les plus courantes sur deux éléments est entre un conteneur de liste et un message décrivant une liste vide :</p>
