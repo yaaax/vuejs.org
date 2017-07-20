@@ -7,6 +7,14 @@
         <meta name="description" content="Vue.js - Le Framework JavaScript Évolutif">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
+        <link rel="alternate" hreflang="x-default" href="https://vuejs.org/v2/api/index.html">
+        <link rel="alternate" hreflang="zh" href="https://cn.vuejs.org/v2/api/index.html">
+        <link rel="alternate" hreflang="ja" href="https://jp.vuejs.org/v2/api/index.html">
+        <link rel="alternate" hreflang="ru" href="https://ru.vuejs.org/v2/api/index.html">
+        <link rel="alternate" hreflang="ko" href="https://kr.vuejs.org/v2/api/index.html">
+        <link rel="alternate" hreflang="pt-BR" href="https://br.vuejs.org/v2/api/index.html">
+        <link rel="alternate" hreflang="fr" href="https://fr.vuejs.org/v2/api/index.html">
+
         <meta property="og:type" content="article">
         <meta property="og:title" content="Vue.js">
         <meta property="og:description" content="Vue.js - Le Framework JavaScript Évolutif">
@@ -422,12 +430,12 @@
 <li><code>{Object | Array} cible</code></li>
 <li><code>{string | number} clé</code></li>
 </ul>
+<blockquote>
+<p>Fonctionne uniquement avec Array + index dans la 2.2.0+.</p>
+</blockquote>
 </li>
 <li><p><strong>Utilisation :</strong></p>
 <p>Supprime une propriété d’un objet cible. Si l’objet est réactif, cette méthode s’assure que la suppression déclenche les mises à jour de la vue. Ceci est principalement utilisé pour passer outre la limitation de Vue qui est de ne pas pouvoir détecter automatiquement la suppression de propriétés, mais vous devriez rarement en avoir besoin.</p>
-<blockquote>
-<p>Fonctionne aussi avec un <code>Array</code> + index en 2.2.0+.</p>
-</blockquote>
 <p class="tip">L’objet cible ne peut pas être une instance de Vue, ou l’objet de données à la racine d’une instance de Vue.</p>
 </li>
 <li><p><strong>Voir aussi :</strong> <a href="../guide/reactivity.html">Réactivité en détail</a></p>

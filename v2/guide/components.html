@@ -7,6 +7,14 @@
         <meta name="description" content="Vue.js - Le Framework JavaScript Évolutif">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
+        <link rel="alternate" hreflang="x-default" href="https://vuejs.org/v2/guide/components.html">
+        <link rel="alternate" hreflang="zh" href="https://cn.vuejs.org/v2/guide/components.html">
+        <link rel="alternate" hreflang="ja" href="https://jp.vuejs.org/v2/guide/components.html">
+        <link rel="alternate" hreflang="ru" href="https://ru.vuejs.org/v2/guide/components.html">
+        <link rel="alternate" hreflang="ko" href="https://kr.vuejs.org/v2/guide/components.html">
+        <link rel="alternate" hreflang="pt-BR" href="https://br.vuejs.org/v2/guide/components.html">
+        <link rel="alternate" hreflang="fr" href="https://fr.vuejs.org/v2/guide/components.html">
+
         <meta property="og:type" content="article">
         <meta property="og:title" content="Composants — Vue.js">
         <meta property="og:description" content="Vue.js - Le Framework JavaScript Évolutif">
@@ -818,7 +826,7 @@ new Vue({
 <li><code>form-control</code>, qui est la classe du composant dans ce template</li>
 <li><code>date-picker-theme-dark</code>, qui est la classe passée au composant depuis son parent</li>
 </ul>
-<p>Pour la plupard des attributs, la valeur fournie au composant va remplacer la valeur mise initialement dans le composant. Donc par exemple, passer <code>type=&quot;large&quot;</code> va remplacer <code>type=&quot;date&quot;</code> et probablement le rendre inutilisable ! Heureusement, les attributs <code>class</code> et <code>style</code> sont plus mâlin, aussi les deux valeurs sont mergées, fournissant la valeur finale suivante : `</p>
+<p>Pour la plupard des attributs, la valeur fournie au composant va remplacer la valeur mise initialement dans le composant. Donc par exemple, passer <code>type=&quot;large&quot;</code> va remplacer <code>type=&quot;date&quot;</code> et probablement le rendre inutilisable ! Heureusement, les attributs <code>class</code> et <code>style</code> sont plus mâlin, aussi les deux valeurs sont mergées, fournissant la valeur finale suivante : <code>form-control date-picker-theme-dark</code>.</p>
 <h2 id="Evenements-personnalises"><a href="#Evenements-personnalises" class="headerlink" title="Événements personnalisés"></a>Événements personnalisés</h2><p>Nous avons appris que le parent peut passer des données à l’enfant en utilisant les props, mais comment allons-nous informer le parent quand quelque-chose survient ? C’est là que le système d’événement personnalisé de Vue entre en jeu.</p>
 <h3 id="Utilisation-de-v-on-avec-les-evenements-personnalises"><a href="#Utilisation-de-v-on-avec-les-evenements-personnalises" class="headerlink" title="Utilisation de v-on avec les événements personnalisés"></a>Utilisation de <code>v-on</code> avec les événements personnalisés</h3><p>Chaque instance de Vue implémente une <a href="../api/#Instance-Methods-Events">interface d’événements</a>, cela signifie qu’elle peut :</p>
 <ul>
