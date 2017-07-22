@@ -301,14 +301,14 @@
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line">Vue.config.errorHandler = <span class="function"><span class="keyword">function</span> (<span class="params">err, vm, info</span>) </span>&#123;</div><div class="line">  <span class="comment">// gérer le cas d'erreur</span></div><div class="line">  <span class="comment">// `info` est une information spécifique à Vue sur l'erreur,</span></div><div class="line">  <span class="comment">// par exemple dans quel hook du cycle de vie l'erreur a été trouvée</span></div><div class="line">  <span class="comment">// Disponible uniquement en 2.2.0+</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>Définit un gestionnaire pour les erreurs non interceptées pendant le rendu d’un composant et les appels aux observateurs. Ce gestionnaire sera appelé avec comme arguments l’erreur et l’instance de Vue associée.</p>
 <blockquote>
-<p>En 2.2.0, ce hook capture également les erreurs dans les hooks du cycle de vie des composants. De plus, quand ce hook est <code>undefined</code>, les erreurs capturées seront loguées avec <code>console.error</code> plutôt qu’avoir un crash de l’application.</p>
-<p>In 2.4.0 this hook also captures errors thrown inside Vue custom event handlers.</p>
+<p>En 2.2.0+, ce hook capture également les erreurs dans les hooks du cycle de vie des composants. De plus, quand ce hook est <code>undefined</code>, les erreurs capturées seront loguées avec <code>console.error</code> plutôt qu’avoir un crash de l’application.</p>
+<p>In 2.4.0+ this hook also captures errors thrown inside Vue custom event handlers.</p>
 <p><a href="https://sentry.io" target="_blank" rel="external">Sentry</a>, un service de traçage d’erreur, fournit une <a href="https://sentry.io/for/vue/" target="_blank" rel="external">intégration officielle</a> utilisant cette option.</p>
 </blockquote>
 </li>
 </ul>
 <h3 id="warnHandler"><a href="#warnHandler" class="headerlink" title="warnHandler"></a>warnHandler</h3><blockquote>
-<p>New in 2.4.0</p>
+<p>New in 2.4.0+</p>
 </blockquote>
 <ul>
 <li><p><strong>Type:</strong> <code>Function</code></p>
@@ -342,19 +342,19 @@
 </li>
 </ul>
 <h3 id="performance"><a href="#performance" class="headerlink" title="performance"></a>performance</h3><blockquote>
-<p>Nouveau en 2.2.0</p>
+<p>Nouveau dans la 2.2.0+</p>
 </blockquote>
 <ul>
 <li><p><strong>Type :</strong> <code>boolean</code></p>
 </li>
-<li><p><strong>Par défaut :</strong> <code>false</code> (à partir de la 2.2.3)</p>
+<li><p><strong>Par défaut :</strong> <code>false</code> (à partir de la 2.2.3+)</p>
 </li>
 <li><p><strong>Utilisation :</strong></p>
 <p>Assignez ceci à <code>true</code> pour activer le suivi des performances pour l’initialisation, la compilation, le rendu et la mise à jour des composants dans la timeline des outils développeur des navigateurs. Fonctionne uniquement en mode développement et dans les navigateurs supportant l’API <a href="https://developer.mozilla.org/en-US/docs/Web/API/Performance/mark" target="_blank" rel="external">performance.mark</a>.</p>
 </li>
 </ul>
 <h3 id="productionTip"><a href="#productionTip" class="headerlink" title="productionTip"></a>productionTip</h3><blockquote>
-<p>Nouveau en 2.2.0</p>
+<p>Nouveau dans la 2.2.0+</p>
 </blockquote>
 <ul>
 <li><p><strong>Type :</strong> <code>boolean</code></p>
@@ -397,7 +397,7 @@
 <p>Reporte l’exécution du callback au prochain cycle de mise à jour du DOM. Utilisez-le immédiatement après avoir changé des données afin d’attendre la mise à jour du DOM.</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// modification de données</span></div><div class="line">vm.msg = <span class="string">'Salut'</span></div><div class="line"><span class="comment">// le DOM n'a pas encore été mis à jour</span></div><div class="line">Vue.nextTick(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="comment">// le DOM est à jour</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <blockquote>
-<p>Nouveauté  de la 2.1.0: retourne une Promise si aucune fonction de callback n’est fournie et si Promise est supporté par l’environnement d’exécution.</p>
+<p>Nouveauté de la 2.1.0+ : retourne une Promise si aucune fonction de callback n’est fournie et si Promise est supporté par l’environnement d’exécution.</p>
 </blockquote>
 </li>
 <li><p><strong>Voir aussi :</strong> <a href="../guide/reactivity.html#Async-Update-Queue">File de mise à jour asynchrone</a></p>
@@ -682,7 +682,7 @@
 </li>
 </ul>
 <h3 id="renderError"><a href="#renderError" class="headerlink" title="renderError"></a>renderError</h3><blockquote>
-<p>Nouveau en 2.2.0</p>
+<p>Nouveau en 2.2.0+</p>
 </blockquote>
 <ul>
 <li><p><strong>Type :</strong> <code>(createElement: () =&gt; VNode, error: Error) =&gt; VNode</code></p>
@@ -700,7 +700,8 @@
 </ul>
 </li>
 </ul>
-<h2 id="Options-Hooks-du-cycle-de-vie"><a href="#Options-Hooks-du-cycle-de-vie" class="headerlink" title="Options / Hooks du cycle de vie"></a>Options / Hooks du cycle de vie</h2><p>Tous les hooks du cycle de vie ont automatiquement leur contexte <code>this</code> rattaché à l’instance, afin que vous puissiez accéder aux données, propriétés calculées et méthodes. Cela signifie que <strong>vous ne devriez pas utiliser une fonction fléchée pour définir une méthode du cycle de vie</strong>  (p. ex. <code>created: () =&gt; this.fetchTodos()</code>). La raison est que les fonctions fléchées utilisent le contexte parent, donc <code>this</code> ne sera pas l’instance de Vue comme vous pouvez vous y attendre et <code>this.fetchTodos</code> sera <code>undefined</code>.</p>
+<p class="tip">Tous les hooks du cycle de vie ont automatiquement leur contexte <code>this</code> rattaché à l’instance, afin que vous puissiez accéder aux données, propriétés calculées et méthodes. Cela signifie que <strong>vous ne devriez pas utiliser une fonction fléchée pour définir une méthode du cycle de vie</strong>  (p. ex. <code>created: () =&gt; this.fetchTodos()</code>). La raison est que les fonctions fléchées utilisent le contexte parent, donc <code>this</code> ne sera pas l’instance de Vue comme vous pouvez vous y attendre et <code>this.fetchTodos</code> sera <code>undefined</code>.</p>
+
 <h3 id="beforeCreate"><a href="#beforeCreate" class="headerlink" title="beforeCreate"></a>beforeCreate</h3><ul>
 <li><p><strong>Type :</strong> <code>Function</code></p>
 </li>
@@ -879,7 +880,7 @@
 </li>
 </ul>
 <h3 id="provide-inject"><a href="#provide-inject" class="headerlink" title="provide / inject"></a>provide / inject</h3><blockquote>
-<p>Nouveau en 2.2.0</p>
+<p>Nouveau dans la 2.2.0+</p>
 </blockquote>
 <ul>
 <li><p><strong>Type :</strong></p>
@@ -903,7 +904,7 @@
 <p>Avec les <code>Symbol</code> ES2015, la fonction <code>provide</code> et l’objet <code>inject</code> :</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">const</span> s = <span class="built_in">Symbol</span>()</div><div class="line"></div><div class="line"><span class="keyword">const</span> Provider = &#123;</div><div class="line">  provide () &#123;</div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">      [s]: <span class="string">'foo'</span></div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">const</span> Enfant = &#123;</div><div class="line">  <span class="attr">inject</span>: &#123; s &#125;,</div><div class="line">  <span class="comment">// ...</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <blockquote>
-<p>Les deux prochains exemples fonctionnent seulement avec Vue &gt; 2.2.1. En dessous de cette version, les valeurs injectées étaient résolues après l’initialisation des <code>props</code> et de <code>data</code>.</p>
+<p>Les deux prochains exemples fonctionnent seulement avec Vue 2.2.1+. En dessous de cette version, les valeurs injectées étaient résolues après l’initialisation des <code>props</code> et de <code>data</code>.</p>
 </blockquote>
 <p>En utilisant une valeur injectée comme valeur par défaut pour une prop :</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">const</span> Enfant = &#123;</div><div class="line">  <span class="attr">inject</span>: [<span class="string">'foo'</span>],</div><div class="line">  <span class="attr">props</span>: &#123;</div><div class="line">    <span class="attr">bar</span>: &#123;</div><div class="line">      <span class="keyword">default</span> () &#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.foo</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -925,6 +926,8 @@
 <li><p><strong>Type :</strong> <code>Array&lt;string&gt;</code></p>
 </li>
 <li><p><strong>Default:</strong> <code>["{{", "}}"]</code></p>
+</li>
+<li><p><strong>Restrictions :</strong> Cette option n’est disponible que dans la version complète du build, avec la compilation dans le navigateur.</p>
 </li>
 <li><p><strong>Détails :</strong></p>
 <p>Change les délimiteurs d’interpolation de texte. <strong>Cette option est uniquement disponible en version complète.</strong></p>
@@ -959,7 +962,7 @@
 </li>
 </ul>
 <h3 id="inheritAttrs"><a href="#inheritAttrs" class="headerlink" title="inheritAttrs"></a>inheritAttrs</h3><blockquote>
-<p>New in 2.4.0</p>
+<p>New in 2.4.0+</p>
 </blockquote>
 <ul>
 <li><p><strong>Type:</strong> <code>boolean</code></p>
@@ -968,15 +971,18 @@
 </li>
 <li><p><strong>Details:</strong></p>
 <p>By default, parent scope attribute bindings that are not recognized as props will “fallthrough” and be applied to the root element of the child component as normal HTML attributes. When authoring a component that wraps a target element or another component, this may not always be the desired behavior. By setting <code>inheritAttrs</code> to <code>false</code>, this default behavior can be disabled. The attributes are available via the <code>$attrs</code> instance property (also new in 2.4) and can be explicitly bound to a non-root element using <code>v-bind</code>.</p>
+<p>Note: this option does <strong>not</strong> affect <code>class</code> and <code>style</code> bindings.</p>
 </li>
 </ul>
 <h3 id="comments"><a href="#comments" class="headerlink" title="comments"></a>comments</h3><blockquote>
-<p>New in 2.4.0</p>
+<p>New in 2.4.0+</p>
 </blockquote>
 <ul>
 <li><p><strong>Type:</strong> <code>boolean</code></p>
 </li>
 <li><p><strong>Default:</strong> <code>false</code></p>
+</li>
+<li><p><strong>Restrictions:</strong> This option is only available in the full build, with in-browser compilation.</p>
 </li>
 <li><p><strong>Details:</strong></p>
 <p>When set to <code>true</code>, will preserve and render HTML comments found in templates. The default behavior is discarding them.</p>
@@ -992,7 +998,7 @@
 </li>
 </ul>
 <h3 id="vm-props"><a href="#vm-props" class="headerlink" title="vm.$props"></a>vm.$props</h3><blockquote>
-<p>Nouveau en 2.2.0</p>
+<p>Nouveau dans la 2.2.0+</p>
 </blockquote>
 <ul>
 <li><p><strong>Type :</strong> <code>Object</code></p>
@@ -1069,7 +1075,7 @@
 </li>
 </ul>
 <h3 id="vm-scopedSlots"><a href="#vm-scopedSlots" class="headerlink" title="vm.$scopedSlots"></a>vm.$scopedSlots</h3><blockquote>
-<p>Nouveauté en 2.1.0</p>
+<p>Nouveauté en 2.1.0+</p>
 </blockquote>
 <ul>
 <li><p><strong>Type :</strong> <code>{ [name: string]: props =&gt; VNode | Array&lt;VNode&gt; }</code></p>
@@ -1120,7 +1126,7 @@
 <li><p><strong>Read only</strong></p>
 </li>
 <li><p><strong>Details:</strong></p>
-<p>Contains parent-scope attribute bindings that are not recognized (and extracted) as props. When a component doesn’t have any declared props, this essentially contains all parent-scope bindings except for <code>class</code> and <code>style</code>, and can be passed down to an inner component via <code>v-bind=&quot;$attrs&quot;</code> - useful when creating higher-order components.</p>
+<p>Contains parent-scope attribute bindings (except for <code>class</code> and <code>style</code>) that are not recognized (and extracted) as props. When a component doesn’t have any declared props, this essentially contains all parent-scope bindings (except for <code>class</code> and <code>style</code>), and can be passed down to an inner component via <code>v-bind=&quot;$attrs&quot;</code> - useful when creating higher-order components.</p>
 </li>
 </ul>
 <h3 id="vm-listeners"><a href="#vm-listeners" class="headerlink" title="vm.$listeners"></a>vm.$listeners</h3><ul>
@@ -1307,7 +1313,7 @@
 <li><p><strong>Utilisation :</strong></p>
 <p>Reporte l’éxécution de la fonction <code>callback</code> au prochain cycle de mise à jour du DOM. Utilisez ceci immédiatement après avoir changé des données pour attendre la mise à jour du DOM. C’est la même chose que la fonction globale <code>Vue.nextTick</code>, sauf que le contexte <code>this</code> dans la fonction <code>callback</code> est automatiquement lié à l’instance appelant cette méthode.</p>
 <blockquote>
-<p>Nouveau en 2.1.0: retourne une Promise si aucun callback n’est fourni et si les Promise sont supportés dans l’environnement d’exécution.</p>
+<p>Nouveau en 2.1.0+ : retourne une Promise si aucun callback n’est fourni et si les Promise sont supportés dans l’environnement d’exécution.</p>
 </blockquote>
 </li>
 <li><p><strong>Exemple :</strong></p>
@@ -1395,7 +1401,7 @@
 </li>
 </ul>
 <h3 id="v-else-if"><a href="#v-else-if" class="headerlink" title="v-else-if"></a>v-else-if</h3><blockquote>
-<p>New in 2.1.0</p>
+<p>New in 2.1.0+</p>
 </blockquote>
 <ul>
 <li><p><strong>Expects:</strong> <code>any</code></p>
@@ -1454,7 +1460,7 @@
 </li>
 <li><p><strong>Utilisation :</strong></p>
 <p>Attaches an event listener to the element. The event type is denoted by the argument. The expression can either be a method name or an inline statement, or simply omitted when there are modifiers present.</p>
-<p>Starting in <code>2.4.0</code>, <code>v-on</code> also supports binding to an object of event/listener pairs without an argument. Note when using the object syntax, it does not support any modifiers.</p>
+<p>Starting in 2.4.0+, <code>v-on</code> also supports binding to an object of event/listener pairs without an argument. Note when using the object syntax, it does not support any modifiers.</p>
 <p>When used on a normal element, it listens to <strong>native DOM events</strong> only. When used on a custom element component, it also listens to <strong>custom events</strong> emitted on that child component.</p>
 <p>When listening to native DOM events, the method receives the native event as the only argument. If using inline statement, the statement has access to the special <code>$event</code> property: <code>v-on:click=&quot;handle(&#39;ok&#39;, $event)&quot;</code>.</p>
 </li>
@@ -1708,7 +1714,7 @@
 <p>When wrapped around a dynamic component, <code>&lt;keep-alive&gt;</code> caches the inactive component instances without destroying them. Similar to <code>&lt;transition&gt;</code>, <code>&lt;keep-alive&gt;</code> is an abstract component: it doesn’t render a DOM element itself, and doesn’t show up in the component parent chain.</p>
 <p>When a component is toggled inside <code>&lt;keep-alive&gt;</code>, its <code>activated</code> and <code>deactivated</code> lifecycle hooks will be invoked accordingly.</p>
 <blockquote>
-<p>In 2.2.0 and above, <code>activated</code> and <code>deactivated</code> will fire for all nested components inside a <code>&lt;keep-alive&gt;</code> tree.</p>
+<p>In 2.2.0+ and above, <code>activated</code> and <code>deactivated</code> will fire for all nested components inside a <code>&lt;keep-alive&gt;</code> tree.</p>
 </blockquote>
 <p>Primarily used with preserve component state or avoid re-rendering.</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- basic --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">keep-alive</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">"view"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">keep-alive</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- multiple conditional children --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">keep-alive</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">comp-a</span> <span class="attr">v-if</span>=<span class="string">"a &gt; 1"</span>&gt;</span><span class="tag">&lt;/<span class="name">comp-a</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">comp-b</span> <span class="attr">v-else</span>&gt;</span><span class="tag">&lt;/<span class="name">comp-b</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">keep-alive</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- used together with &lt;transition&gt; --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">transition</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">keep-alive</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">"view"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">keep-alive</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">transition</span>&gt;</span></div></pre></td></tr></table></figure>
@@ -1718,7 +1724,7 @@
 <ul>
 <li><p><strong><code>include</code> and <code>exclude</code></strong></p>
 <blockquote>
-<p>New in 2.1.0</p>
+<p>New in 2.1.0+</p>
 </blockquote>
 <p>The <code>include</code> and <code>exclude</code> props allow components to be conditionally cached. Both props can be a comma-delimited string, a RegExp or an Array:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- comma-delimited string --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">keep-alive</span> <span class="attr">include</span>=<span class="string">"a,b"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">"view"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">keep-alive</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- regex (use v-bind) --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">keep-alive</span> <span class="attr">:include</span>=<span class="string">"/a|b/"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">"view"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">keep-alive</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- Array (use v-bind) --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">keep-alive</span> <span class="attr">:include</span>=<span class="string">"['a', 'b']"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">"view"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">keep-alive</span>&gt;</span></div></pre></td></tr></table></figure>

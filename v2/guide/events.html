@@ -712,7 +712,7 @@ new Vue({
 <p class="tip">L’ordre a de l’importance quand vous utilisez des modificateurs car le code est généré dans le même ordre. Aussi utiliser <code>@click.prevent.self</code> va empécher <strong>tous les clicks</strong> alors que <code>@click.self.prevent</code> va uniquement empécher le click sur l’élément lui-même.</p>
 
 <blockquote>
-<p>Nouveau dans la 2.1.4</p>
+<p>Nouveau dans la 2.1.4+</p>
 </blockquote>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- l'évènement « click » sera déclenché au moins une fois --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">v-on:click.once</span>=<span class="string">"doThis"</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>Au contraire des autres modificateurs, qui sont exclusifs aux évènements natifs du DOM, le modificateur <code>.once</code> peut également être utilisé pour les <a href="components.html#Using-v-on-with-Custom-Events">évènements des composants</a>. Si vous n’avez pas encore lu la section concernant les composants, ne vous en inquiétez pas pour le moment.</p>
@@ -752,7 +752,7 @@ new Vue({
 <p class="tip">Notez que ces modificateurs de raccourcis sont différents des modificateurs usuels utilisés avec l’évènement <code>keyup</code>, ils doivent être pressés quand l’évènement est émis. En d’autres mots, <code>keyup.ctrl</code> sera déclenché uniquement si vous maintenez la touche <code>ctrl</code> enfoncée. rien ne sera déclenché si vous relâchez uniquement la touche <code>Ctrl</code>.</p>
 
 <h3 id="Modificateurs-de-boutons-de-la-souris"><a href="#Modificateurs-de-boutons-de-la-souris" class="headerlink" title="Modificateurs de boutons de la souris"></a>Modificateurs de boutons de la souris</h3><blockquote>
-<p>Nouveau dans la 2.2.0</p>
+<p>Nouveau dans la 2.2.0+</p>
 </blockquote>
 <ul>
 <li><code>.left</code></li>
