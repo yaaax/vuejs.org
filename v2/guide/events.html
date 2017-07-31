@@ -122,12 +122,12 @@
 <li class="nav-dropdown-container language">
   <a class="nav-link">Traductions</a><span class="arrow"></span>
   <ul class="nav-dropdown">
-    <li><a href="https://cn.vuejs.org/" class="nav-link" target="_blank">中文</a></li>
-    <li><a href="https://jp.vuejs.org/" class="nav-link" target="_blank">日本語</a></li>
-    <li><a href="https://kr.vuejs.org/" class="nav-link" target="_blank">한국어</a></li>
-    <li><a href="https://vuejs.org/" class="nav-link" target="_blank">English</a></li>
-    <li><a href="https://br.vuejs.org/" class="nav-link" target="_blank">Português</a></li>
-    <li><a href="https://ru.vuejs.org/" class="nav-link" target="_blank">Русский</a></li>
+    <li><a href="https://cn.vuejs.org/v2/guide/events.html" class="nav-link" target="_blank">中文</a></li>
+    <li><a href="https://jp.vuejs.org/v2/guide/events.html" class="nav-link" target="_blank">日本語</a></li>
+    <li><a href="https://kr.vuejs.org/v2/guide/events.html" class="nav-link" target="_blank">한국어</a></li>
+    <li><a href="https://vuejs.org/v2/guide/events.html" class="nav-link" target="_blank">English</a></li>
+    <li><a href="https://br.vuejs.org/v2/guide/events.html" class="nav-link" target="_blank">Português</a></li>
+    <li><a href="https://ru.vuejs.org/v2/guide/events.html" class="nav-link" target="_blank">Русский</a></li>
   </ul>
 </li>
 
@@ -187,12 +187,12 @@
 <li class="nav-dropdown-container language">
   <a class="nav-link">Traductions</a><span class="arrow"></span>
   <ul class="nav-dropdown">
-    <li><a href="https://cn.vuejs.org/" class="nav-link" target="_blank">中文</a></li>
-    <li><a href="https://jp.vuejs.org/" class="nav-link" target="_blank">日本語</a></li>
-    <li><a href="https://kr.vuejs.org/" class="nav-link" target="_blank">한국어</a></li>
-    <li><a href="https://vuejs.org/" class="nav-link" target="_blank">English</a></li>
-    <li><a href="https://br.vuejs.org/" class="nav-link" target="_blank">Português</a></li>
-    <li><a href="https://ru.vuejs.org/" class="nav-link" target="_blank">Русский</a></li>
+    <li><a href="https://cn.vuejs.org/v2/guide/events.html" class="nav-link" target="_blank">中文</a></li>
+    <li><a href="https://jp.vuejs.org/v2/guide/events.html" class="nav-link" target="_blank">日本語</a></li>
+    <li><a href="https://kr.vuejs.org/v2/guide/events.html" class="nav-link" target="_blank">한국어</a></li>
+    <li><a href="https://vuejs.org/v2/guide/events.html" class="nav-link" target="_blank">English</a></li>
+    <li><a href="https://br.vuejs.org/v2/guide/events.html" class="nav-link" target="_blank">Português</a></li>
+    <li><a href="https://ru.vuejs.org/v2/guide/events.html" class="nav-link" target="_blank">Русский</a></li>
   </ul>
 </li>
 
@@ -651,7 +651,7 @@ var example1 = new Vue({
 })
 </script>
 
-<h2 id="Les-methodes-des-gestionnaires-d’evenements"><a href="#Les-methodes-des-gestionnaires-d’evenements" class="headerlink" title="Les méthodes des gestionnaires d’évènements"></a>Les méthodes des gestionnaires d’évènements</h2><p>La logique avec beaucoup de gestionnaires d’évènements sera très certainement plus complexe, par conséquent, gardez votre JavaScript dans la valeur de l’attribut <code>v-on</code> ne sera tout simplement pas faisable. C’est pourquoi <code>v-on</code> peut aussi accepter le nom d’une méthode que vous voudriez appeler.</p>
+<h2 id="Methodes-des-gestionnaires-d’evenements"><a href="#Methodes-des-gestionnaires-d’evenements" class="headerlink" title="Méthodes des gestionnaires d’évènements"></a>Méthodes des gestionnaires d’évènements</h2><p>La logique avec beaucoup de gestionnaires d’évènements sera très certainement plus complexe, par conséquent, gardez votre JavaScript dans la valeur de l’attribut <code>v-on</code> ne sera tout simplement pas faisable. C’est pourquoi <code>v-on</code> peut aussi accepter le nom d’une méthode que vous voudriez appeler.</p>
 <p>Par exemple :</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"example-2"</span>&gt;</span></div><div class="line">  <span class="comment">&lt;!-- `greet` est le nom de la méthode definie ci-dessous --&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">v-on:click</span>=<span class="string">"greet"</span>&gt;</span>Greet<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> example2 = <span class="keyword">new</span> Vue(&#123;</div><div class="line">  <span class="attr">el</span>: <span class="string">'#example-2'</span>,</div><div class="line">  <span class="attr">data</span>: &#123;</div><div class="line">    <span class="attr">name</span>: <span class="string">'Vue.js'</span></div><div class="line">  &#125;,</div><div class="line">  <span class="comment">// Définissez les méthodes de l'objet</span></div><div class="line">  methods: &#123;</div><div class="line">    <span class="attr">greet</span>: <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;</div><div class="line">      <span class="comment">// `this` fait référence à l'instance de Vue à l'intérieur de `methods`</span></div><div class="line">      alert(<span class="string">'Bonjour '</span> + <span class="keyword">this</span>.name + <span class="string">' !'</span>)</div><div class="line">      <span class="comment">// `event` est l'évènement natif du DOM</span></div><div class="line">      <span class="keyword">if</span> (event) &#123;</div><div class="line">        alert(event.target.tagName)</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="comment">// vous pouvez également invoquer ces méthodes en JavaScript</span></div><div class="line">example2.greet() <span class="comment">// -&gt; 'Bonjour Vue.js !'</span></div></pre></td></tr></table></figure>

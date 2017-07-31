@@ -122,12 +122,12 @@
 <li class="nav-dropdown-container language">
   <a class="nav-link">Traductions</a><span class="arrow"></span>
   <ul class="nav-dropdown">
-    <li><a href="https://cn.vuejs.org/" class="nav-link" target="_blank">中文</a></li>
-    <li><a href="https://jp.vuejs.org/" class="nav-link" target="_blank">日本語</a></li>
-    <li><a href="https://kr.vuejs.org/" class="nav-link" target="_blank">한국어</a></li>
-    <li><a href="https://vuejs.org/" class="nav-link" target="_blank">English</a></li>
-    <li><a href="https://br.vuejs.org/" class="nav-link" target="_blank">Português</a></li>
-    <li><a href="https://ru.vuejs.org/" class="nav-link" target="_blank">Русский</a></li>
+    <li><a href="https://cn.vuejs.org/v2/guide/custom-directive.html" class="nav-link" target="_blank">中文</a></li>
+    <li><a href="https://jp.vuejs.org/v2/guide/custom-directive.html" class="nav-link" target="_blank">日本語</a></li>
+    <li><a href="https://kr.vuejs.org/v2/guide/custom-directive.html" class="nav-link" target="_blank">한국어</a></li>
+    <li><a href="https://vuejs.org/v2/guide/custom-directive.html" class="nav-link" target="_blank">English</a></li>
+    <li><a href="https://br.vuejs.org/v2/guide/custom-directive.html" class="nav-link" target="_blank">Português</a></li>
+    <li><a href="https://ru.vuejs.org/v2/guide/custom-directive.html" class="nav-link" target="_blank">Русский</a></li>
   </ul>
 </li>
 
@@ -187,12 +187,12 @@
 <li class="nav-dropdown-container language">
   <a class="nav-link">Traductions</a><span class="arrow"></span>
   <ul class="nav-dropdown">
-    <li><a href="https://cn.vuejs.org/" class="nav-link" target="_blank">中文</a></li>
-    <li><a href="https://jp.vuejs.org/" class="nav-link" target="_blank">日本語</a></li>
-    <li><a href="https://kr.vuejs.org/" class="nav-link" target="_blank">한국어</a></li>
-    <li><a href="https://vuejs.org/" class="nav-link" target="_blank">English</a></li>
-    <li><a href="https://br.vuejs.org/" class="nav-link" target="_blank">Português</a></li>
-    <li><a href="https://ru.vuejs.org/" class="nav-link" target="_blank">Русский</a></li>
+    <li><a href="https://cn.vuejs.org/v2/guide/custom-directive.html" class="nav-link" target="_blank">中文</a></li>
+    <li><a href="https://jp.vuejs.org/v2/guide/custom-directive.html" class="nav-link" target="_blank">日本語</a></li>
+    <li><a href="https://kr.vuejs.org/v2/guide/custom-directive.html" class="nav-link" target="_blank">한국어</a></li>
+    <li><a href="https://vuejs.org/v2/guide/custom-directive.html" class="nav-link" target="_blank">English</a></li>
+    <li><a href="https://br.vuejs.org/v2/guide/custom-directive.html" class="nav-link" target="_blank">Português</a></li>
+    <li><a href="https://ru.vuejs.org/v2/guide/custom-directive.html" class="nav-link" target="_blank">Русский</a></li>
   </ul>
 </li>
 
@@ -660,9 +660,9 @@ new Vue({
 </li>
 <li><p><code>inserted</code>: appelée quand l’élément lié a été inséré dans son nœud parent (cela garantit uniquement sa présence dans le nœud parent, mais pas nécessairement dans le document principal).</p>
 </li>
-<li><p><code>update</code>: appelée après que le composant conteneur ait été mis à jour, <strong>mais possiblement avant que ses enfants aient été mis à jour</strong>. La valeur de la directive peut ou pas avoir changé, mais vous pouvez ignorer les mises à jour inutiles en comparant les valeurs actuelles et anciennes de la liaison (voir plus bas les arguments de hook).</p>
+<li><p><code>update</code>: appelée après que le composant conteneur VNode ait été mis à jour, <strong>mais possiblement avant que ses enfants aient été mis à jour</strong>. La valeur de la directive peut ou pas avoir changé, mais vous pouvez ignorer les mises à jour inutiles en comparant les valeurs actuelles et anciennes de la liaison (voir plus bas les arguments de hook).</p>
 </li>
-<li><p><code>componentUpdated</code>: appelée après que le composant conteneur <strong>et ses enfants</strong> aient été mis à jour.</p>
+<li><p><code>componentUpdated</code>: appelée après que le composant conteneur VNode <strong>et les VNode de ses enfants</strong> aient été mis à jour.</p>
 </li>
 <li><p><code>unbind</code>: appelée uniquement une fois, quand la directive est déliée de l’élément.</p>
 </li>

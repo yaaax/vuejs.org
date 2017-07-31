@@ -122,12 +122,12 @@
 <li class="nav-dropdown-container language">
   <a class="nav-link">Traductions</a><span class="arrow"></span>
   <ul class="nav-dropdown">
-    <li><a href="https://cn.vuejs.org/" class="nav-link" target="_blank">中文</a></li>
-    <li><a href="https://jp.vuejs.org/" class="nav-link" target="_blank">日本語</a></li>
-    <li><a href="https://kr.vuejs.org/" class="nav-link" target="_blank">한국어</a></li>
-    <li><a href="https://vuejs.org/" class="nav-link" target="_blank">English</a></li>
-    <li><a href="https://br.vuejs.org/" class="nav-link" target="_blank">Português</a></li>
-    <li><a href="https://ru.vuejs.org/" class="nav-link" target="_blank">Русский</a></li>
+    <li><a href="https://cn.vuejs.org/v2/guide/components.html" class="nav-link" target="_blank">中文</a></li>
+    <li><a href="https://jp.vuejs.org/v2/guide/components.html" class="nav-link" target="_blank">日本語</a></li>
+    <li><a href="https://kr.vuejs.org/v2/guide/components.html" class="nav-link" target="_blank">한국어</a></li>
+    <li><a href="https://vuejs.org/v2/guide/components.html" class="nav-link" target="_blank">English</a></li>
+    <li><a href="https://br.vuejs.org/v2/guide/components.html" class="nav-link" target="_blank">Português</a></li>
+    <li><a href="https://ru.vuejs.org/v2/guide/components.html" class="nav-link" target="_blank">Русский</a></li>
   </ul>
 </li>
 
@@ -187,12 +187,12 @@
 <li class="nav-dropdown-container language">
   <a class="nav-link">Traductions</a><span class="arrow"></span>
   <ul class="nav-dropdown">
-    <li><a href="https://cn.vuejs.org/" class="nav-link" target="_blank">中文</a></li>
-    <li><a href="https://jp.vuejs.org/" class="nav-link" target="_blank">日本語</a></li>
-    <li><a href="https://kr.vuejs.org/" class="nav-link" target="_blank">한국어</a></li>
-    <li><a href="https://vuejs.org/" class="nav-link" target="_blank">English</a></li>
-    <li><a href="https://br.vuejs.org/" class="nav-link" target="_blank">Português</a></li>
-    <li><a href="https://ru.vuejs.org/" class="nav-link" target="_blank">Русский</a></li>
+    <li><a href="https://cn.vuejs.org/v2/guide/components.html" class="nav-link" target="_blank">中文</a></li>
+    <li><a href="https://jp.vuejs.org/v2/guide/components.html" class="nav-link" target="_blank">日本語</a></li>
+    <li><a href="https://kr.vuejs.org/v2/guide/components.html" class="nav-link" target="_blank">한국어</a></li>
+    <li><a href="https://vuejs.org/v2/guide/components.html" class="nav-link" target="_blank">English</a></li>
+    <li><a href="https://br.vuejs.org/v2/guide/components.html" class="nav-link" target="_blank">Português</a></li>
+    <li><a href="https://ru.vuejs.org/v2/guide/components.html" class="nav-link" target="_blank">Русский</a></li>
   </ul>
 </li>
 
@@ -840,7 +840,7 @@ new Vue({
 
 <p>Voici un exemple :</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"counter-event-example"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123; total &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">button-counter</span> <span class="attr">v-on:increment</span>=<span class="string">"incrementTotal"</span>&gt;</span><span class="tag">&lt;/<span class="name">button-counter</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">button-counter</span> <span class="attr">v-on:increment</span>=<span class="string">"incrementTotal"</span>&gt;</span><span class="tag">&lt;/<span class="name">button-counter</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">Vue.component(<span class="string">'button-counter'</span>, &#123;</div><div class="line">  <span class="attr">template</span>: <span class="string">'&lt;button v-on:click="increment"&gt;&#123;&#123; counter &#125;&#125;&lt;/button&gt;'</span>,</div><div class="line">  <span class="attr">data</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">      <span class="attr">counter</span>: <span class="number">0</span></div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">methods</span>: &#123;</div><div class="line">    <span class="attr">increment</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="keyword">this</span>.counter += <span class="number">1</span></div><div class="line">      <span class="keyword">this</span>.$emit(<span class="string">'increment'</span>)</div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">  <span class="attr">el</span>: <span class="string">'#counter-event-example'</span>,</div><div class="line">  <span class="attr">data</span>: &#123;</div><div class="line">    <span class="attr">total</span>: <span class="number">0</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">methods</span>: &#123;</div><div class="line">    <span class="attr">incrementTotal</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="keyword">this</span>.total += <span class="number">1</span></div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">Vue.component(<span class="string">'button-counter'</span>, &#123;</div><div class="line">  <span class="attr">template</span>: <span class="string">'&lt;button v-on:click="incrementCounter"&gt;&#123;&#123; counter &#125;&#125;&lt;/button&gt;'</span>,</div><div class="line">  <span class="attr">data</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">      <span class="attr">counter</span>: <span class="number">0</span></div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">methods</span>: &#123;</div><div class="line">    <span class="attr">incrementCounter</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="keyword">this</span>.counter += <span class="number">1</span></div><div class="line">      <span class="keyword">this</span>.$emit(<span class="string">'increment'</span>)</div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">  <span class="attr">el</span>: <span class="string">'#counter-event-example'</span>,</div><div class="line">  <span class="attr">data</span>: &#123;</div><div class="line">    <span class="attr">total</span>: <span class="number">0</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">methods</span>: &#123;</div><div class="line">    <span class="attr">incrementTotal</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="keyword">this</span>.total += <span class="number">1</span></div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 
 <div id="counter-event-example" class="demo">
   <p>{{ total }}</p>
@@ -849,14 +849,14 @@ new Vue({
 </div>
 <script>
 Vue.component('button-counter', {
-  template: '<button v-on:click="increment">{{ counter }}</button>',
+  template: '<button v-on:click="incrementCounter">{{ counter }}</button>',
   data: function () {
     return {
       counter: 0
     }
   },
   methods: {
-    increment: function () {
+    incrementCounter: function () {
       this.counter += 1
       this.$emit('increment')
     }
