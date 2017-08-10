@@ -57,7 +57,7 @@
 
         <!-- this needs to be loaded before guide's inline scripts -->
         <script src="/js/vue.js"></script>
-        <script>window.PAGE_TYPE = "api (En)"</script>
+        <script>window.PAGE_TYPE = "api"</script>
 
         <!-- ga -->
         <script>
@@ -212,7 +212,7 @@
                 Apporter son soutien
             </a>
             <h2>
-                Api (En)
+                API
                 
                     <select class="version-select">
                         <option value="SELF" selected>2.x</option>
@@ -224,13 +224,6 @@
             </h2>
             <ul class="menu-root">
     
-        
-        
-        
-        <li>
-            <a href="/v2/api/index.html" class="sidebar-link current"></a>
-        </li>
-    
     
 </ul>
 
@@ -239,7 +232,7 @@
 </div>
 
 
-<div class="content api (En) with-sidebar ">
+<div class="content api with-sidebar ">
     
       
         <div id="ad">
@@ -257,8 +250,7 @@
       
     
     
-    <h2 id="Configuration-globale"><a href="#Configuration-globale" class="headerlink" title="Configuration globale"></a>Configuration globale</h2><p class="tip"><strong>Cette page est en cours de traduction française. Revenez une autre fois pour lire une traduction achevée ou <a href="https://github.com/vuejs-fr/vuejs.org" target="_blank" rel="external">participez à la traduction française ici</a>.</strong></p><p><code>Vue.config</code> est un objet contenant les configurations globales de Vue. Vous pouvez modifier les propriétés listées ci-dessous avant de mettre en place votre application :</p>
-
+    <h2 id="Configuration-globale"><a href="#Configuration-globale" class="headerlink" title="Configuration globale"></a>Configuration globale</h2><p><code>Vue.config</code> est un objet contenant les configurations globales de Vue. Vous pouvez modifier les propriétés listées ci-dessous avant de mettre en place votre application :</p>
 <h3 id="silent"><a href="#silent" class="headerlink" title="silent"></a>silent</h3><ul>
 <li><p><strong>Type :</strong> <code>boolean</code></p>
 </li>
@@ -1059,7 +1051,7 @@
 <li><p><strong>Accessible uniquement en lecture</strong></p>
 </li>
 <li><p><strong>Détails :</strong></p>
-<p>Utilisé pour accéder programmatiquement à du contenu <a href="../guide/components.html#Content-Distribution-with-Slots">distribué par slots</a>. Chaque <a href="../guide/components.html#Named-Slots">slot nommé</a> a sa propriété correspondante (p. ex. le contenu de <code>slot=&quot;foo&quot;</code> sera trouvé dans <code>vm.$slots.foo</code>). La propriété <code>default</code> contient tous les noeuds non inclus dans un slot nommé.</p>
+<p>Utilisé pour accéder programmatiquement à du contenu <a href="../guide/components.html#Content-Distribution-with-Slots">distribué par slots</a>. Chaque <a href="../guide/components.html#Named-Slots">slot nommé</a> a sa propriété correspondante (p. ex. le contenu de <code>slot=&quot;foo&quot;</code> sera trouvé dans <code>vm.$slots.foo</code>). La propriété <code>default</code> contient tous les nœuds non inclus dans un slot nommé.</p>
 <p>Accéder à <code>vm.$slots</code> est plus utile lorsque vous écrivez un composant avec une <a href="../guide/render-function.html">fonction <code>render</code></a>.</p>
 </li>
 <li><p><strong>Exemple :</strong></p>
@@ -1338,314 +1330,312 @@
 </li>
 </ul>
 <h2 id="Directives"><a href="#Directives" class="headerlink" title="Directives"></a>Directives</h2><h3 id="v-text"><a href="#v-text" class="headerlink" title="v-text"></a>v-text</h3><ul>
-<li><p><strong>Expects :</strong> <code>string</code></p>
+<li><p><strong>Attend comme valeur :</strong> <code>string</code></p>
 </li>
 <li><p><strong>Détails :</strong></p>
-<p>Updates the element’s <code>textContent</code>. If you need to update the part of <code>textContent</code>, you should use <code>{{ Mustache }}</code> interpolations.</p>
+<p>Met à jour le contenu textuel (<code>textContent</code>) de l’élément. Si vous n’avez besoin de mettre à jour qu’une partie de ce contenu, vous devriez utiliser les interpolations <code>{{ Mustache }}</code>.</p>
 </li>
 <li><p><strong>Exemple :</strong></p>
-<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">v-text</span>=<span class="string">"msg"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line"><span class="comment">&lt;!-- same as --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">span</span>&gt;</span>&#123;&#123;msg&#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">v-text</span>=<span class="string">"msg"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line"><span class="comment">&lt;!-- même chose que --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">span</span>&gt;</span>&#123;&#123;msg&#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div></pre></td></tr></table></figure>
 </li>
-<li><p><strong>Voir aussi :</strong> <a href="../guide/syntax.html#Text">Data Binding Syntax - interpolations</a></p>
+<li><p><strong>Voir aussi :</strong> <a href="../guide/syntax.html#Text">Syntaxe de liaison de données - interpolations</a></p>
 </li>
 </ul>
 <h3 id="v-html"><a href="#v-html" class="headerlink" title="v-html"></a>v-html</h3><ul>
-<li><p><strong>Expects:</strong> <code>string</code></p>
+<li><p><strong>Attend comme valeur :</strong> <code>string</code></p>
 </li>
 <li><p><strong>Détails :</strong></p>
-<p>Updates the element’s <code>innerHTML</code>. <strong>Note that the contents are inserted as plain HTML - they will not be compiled as Vue templates</strong>. If you find yourself trying to compose templates using <code>v-html</code>, try to rethink the solution by using components instead.</p>
-<p class="tip">Dynamically rendering arbitrary HTML on your website can be very dangerous because it can easily lead to <a href="https://en.wikipedia.org/wiki/Cross-site_scripting" target="_blank" rel="external">XSS attacks</a>. Only use <code>v-html</code> on trusted content and <strong>never</strong> on user-provided content.</p>
+<p>Met à jour le contenu HTML (<code>innerHTML</code>) de l’élément. <strong>Notez que les contenus sont insérés en pur HTML - ils ne seront pas compilés en tant que templates Vue</strong>. Si vous vous retrouvez à vouloir composer des templates avec <code>v-html</code>, essayez de repenser la solution en utilisant des composants à la place.</p>
+<p class="tip">Faire le rendu dynamique de code HTML arbitraire sur votre site web peut être très dangereux car cela peut mener facilement à des <a href="https://fr.wikipedia.org/wiki/Cross-site_scripting" target="_blank" rel="external">attaques XSS</a>. Utilisez <code>v-html</code> uniquement avec du contenu de confiance et <strong>jamais</strong> avec du contenu fourni par les utilisateurs.</p>
 </li>
 <li><p><strong>Exemple:</strong></p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-html</span>=<span class="string">"html"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
 </li>
-<li><p><strong>Voir aussi :</strong> <a href="../guide/syntax.html#Raw-HTML">Data Binding Syntax - interpolations</a></p>
+<li><p><strong>Voir aussi :</strong> <a href="../guide/syntax.html#Raw-HTML">Syntaxe de liaison de données - interpolations</a></p>
 </li>
 </ul>
 <h3 id="v-show"><a href="#v-show" class="headerlink" title="v-show"></a>v-show</h3><ul>
-<li><p><strong>Expects:</strong> <code>any</code></p>
+<li><p><strong>Attend comme valeur :</strong> <code>any</code></p>
 </li>
 <li><p><strong>Utilisation :</strong></p>
-<p>Toggle’s the element’s <code>display</code> CSS property based on the truthy-ness of the expression value.</p>
-<p>This directive triggers transitions when its condition changes.</p>
+<p>Permute l’affichage de l’élément avec la propriété CSS <code>display</code> selon si la valeur de l’expression est <a href="https://developer.mozilla.org/fr/docs/Glossaire/Truthy" target="_blank" rel="external">truthy</a> ou non.</p>
+<p>Cette directive déclenche des transitions quand sa condition change.</p>
 </li>
-<li><p><strong>Voir aussi :</strong> <a href="../guide/conditional.html#v-show">Conditional Rendering - v-show</a></p>
+<li><p><strong>Voir aussi :</strong> <a href="../guide/conditional.html#v-show">Rendu conditionnel - v-show</a></p>
 </li>
 </ul>
 <h3 id="v-if"><a href="#v-if" class="headerlink" title="v-if"></a>v-if</h3><ul>
-<li><p><strong>Expects:</strong> <code>any</code></p>
+<li><p><strong>Attend comme valeur :</strong> <code>any</code></p>
 </li>
 <li><p><strong>Utilisation :</strong></p>
-<p>Conditionally render the element based on the truthy-ness of the expression value. The element and its contained directives / components are destroyed and re-constructed during toggles. If the element is a <code>&lt;template&gt;</code> element, its content will be extracted as the conditional block.</p>
-<p>This directive triggers transitions when its condition changes.</p>
+<p>Fait le rendu conditionnel de l’élément selon si la valeur de l’expression est <a href="https://developer.mozilla.org/fr/docs/Glossaire/Truthy" target="_blank" rel="external">truthy</a> ou non. L’element et les directives / composants qu’il contient sont détruits et reconstruits durant la permutation. Si l’élément est un <code>&lt;template&gt;</code>, son contenu sera extrait en tant que bloc conditionnel.</p>
+<p>Cette directive déclenche des transitions quand sa condition change.</p>
 </li>
 </ul>
 <p class="tip">Quand utilisé avec v-if, v-for a une plus grande priorité par rapport à v-if. Voir le <a href="../guide/list.html#v-for-with-v-if">guide sur le rendu de listes</a> pour plus de détails.</p>
 
 <ul>
-<li><strong>Voir aussi :</strong> <a href="../guide/conditional.html">Conditional Rendering - v-if</a></li>
+<li><strong>Voir aussi :</strong> <a href="../guide/conditional.html">Rendu conditionnel - v-if</a></li>
 </ul>
 <h3 id="v-else"><a href="#v-else" class="headerlink" title="v-else"></a>v-else</h3><ul>
-<li><p><strong>Does not expect expression</strong></p>
+<li><p><strong>N’attend aucune valeur</strong></p>
 </li>
-<li><p><strong>Restriction :</strong> previous sibling element must have <code>v-if</code> or <code>v-else-if</code>.</p>
+<li><p><strong>Restriction :</strong> l’élément précédent doit avoir une directive <code>v-if</code> ou <code>v-else-if</code>.</p>
 </li>
 <li><p><strong>Utilisation :</strong></p>
-<p>Denote the “else block” for <code>v-if</code> or a <code>v-if</code>/<code>v-else-if</code> chain.</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-if</span>=<span class="string">"Math.random() &gt; 0.5"</span>&gt;</span></div><div class="line">  Now you see me</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-else</span>&gt;</span></div><div class="line">  Now you don't</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>Dénote un bloc « else » pour <code>v-if</code> ou pour une chaîne <code>v-if</code>/<code>v-else-if</code>.</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-if</span>=<span class="string">"Math.random() &gt; 0.5"</span>&gt;</span></div><div class="line">  Là vous me voyez</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-else</span>&gt;</span></div><div class="line">  Là vous ne me voyez pas</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
 </li>
 <li><p><strong>Voir aussi :</strong></p>
 <ul>
-<li><a href="../guide/conditional.html#v-else">Conditional Rendering - v-else</a></li>
+<li><a href="../guide/conditional.html#v-else">Rendu conditionnel - v-else</a></li>
 </ul>
 </li>
 </ul>
 <h3 id="v-else-if"><a href="#v-else-if" class="headerlink" title="v-else-if"></a>v-else-if</h3><blockquote>
-<p>New in 2.1.0+</p>
+<p>Nouveauté en 2.1.0+</p>
 </blockquote>
 <ul>
-<li><p><strong>Expects:</strong> <code>any</code></p>
+<li><p><strong>Attend comme valeur :</strong> <code>any</code></p>
 </li>
-<li><p><strong>Restriction :</strong> previous sibling element must have <code>v-if</code> or <code>v-else-if</code>.</p>
+<li><p><strong>Restriction :</strong> l’élément précédent doit avoir une directive <code>v-if</code> or <code>v-else-if</code>.</p>
 </li>
 <li><p><strong>Utilisation :</strong></p>
-<p>Denote the “else if block” for <code>v-if</code>. Can be chained.</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-if</span>=<span class="string">"type === 'A'"</span>&gt;</span></div><div class="line">  A</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-else-if</span>=<span class="string">"type === 'B'"</span>&gt;</span></div><div class="line">  B</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-else-if</span>=<span class="string">"type === 'C'"</span>&gt;</span></div><div class="line">  C</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-else</span>&gt;</span></div><div class="line">  Not A/B/C</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>Dénote un bloc « else if » pour <code>v-if</code>. Peut être enchaîné plusieurs fois.</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-if</span>=<span class="string">"type === 'A'"</span>&gt;</span></div><div class="line">  A</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-else-if</span>=<span class="string">"type === 'B'"</span>&gt;</span></div><div class="line">  B</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-else-if</span>=<span class="string">"type === 'C'"</span>&gt;</span></div><div class="line">  C</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-else</span>&gt;</span></div><div class="line">  Ni A, ni B, ni C</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
 </li>
-<li><p><strong>Voir aussi :</strong> <a href="../guide/conditional.html#v-else-if">Conditional Rendering - v-else-if</a></p>
+<li><p><strong>Voir aussi :</strong> <a href="../guide/conditional.html#v-else-if">Rendu conditionnel - v-else-if</a></p>
 </li>
 </ul>
 <h3 id="v-for"><a href="#v-for" class="headerlink" title="v-for"></a>v-for</h3><ul>
-<li><p><strong>Expects:</strong> <code>Array | Object | number | string</code></p>
+<li><p><strong>Attend comme valeur :</strong> <code>Array | Object | number | string</code></p>
 </li>
 <li><p><strong>Utilisation :</strong></p>
-<p>Render the element or template block multiple times based on the source data. The directive’s value must use the special syntax <code>alias in expression</code> to provide an alias for the current element being iterated on:</p>
+<p>Fait le rendu de l’élément ou du bloc template plusieurs fois selon les données sources. La valeur de la directive doit utiliser la syntaxe spéciale <code>alias in expression</code> pour fournir un alias à l’élément courant dans l’itération:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-for</span>=<span class="string">"item in items"</span>&gt;</span></div><div class="line">  &#123;&#123; item.text &#125;&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>Alternatively, you can also specify an alias for the index (or the key if used on an Object):</p>
+<p>Comme alternative, vous pouvez aussi spécifier un alias pour l’index courant dans l’itération (ou la clé si utilisé sur un <code>Object</code>):</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-for</span>=<span class="string">"(item, index) in items"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-for</span>=<span class="string">"(val, key) in object"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-for</span>=<span class="string">"(val, key, index) in object"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>The default behavior of <code>v-for</code> will try to patch the elements in-place without moving them. To force it to reorder elements, you need to provide an ordering hint with the <code>key</code> special attribute:</p>
+<p>Le comportement par défaut de <code>v-for</code> est qu’il essaiera de patcher les éléments actuellement en place sans les déplacer. Pour le forcer à réordonner les éléments, vous devez fournir un indice de tri avec l’attribut spécial <code>key</code> :</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-for</span>=<span class="string">"item in items"</span> <span class="attr">:key</span>=<span class="string">"item.id"</span>&gt;</span></div><div class="line">  &#123;&#123; item.text &#125;&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<p class="tip">When used together with v-if, v-for has a higher priority than v-if. See the <a href="../guide/list.html#v-for-with-v-if">list rendering guide</a> for details.</p>
+<p class="tip">Quand utilisé conjointement avec v-if, v-for a une plus grande priorité que v-if. Consultez le <a href="../guide/list.html#v-for-with-v-if">guide de rendu de listes</a> pour plus de détails.</p>
 
-<p>The detailed usage for <code>v-for</code> is explained in the guide section linked below.</p>
+<p>L’usage détaillé pour <code>v-for</code> est expliqué dans la section du guide indiquée ci-dessous.</p>
 </li>
 <li><p><strong>Voir aussi :</strong></p>
 <ul>
-<li><a href="../guide/list.html">List Rendering</a></li>
+<li><a href="../guide/list.html">Rendu de liste</a></li>
 <li><a href="../guide/list.html#key">key</a></li>
 </ul>
 </li>
 </ul>
 <h3 id="v-on"><a href="#v-on" class="headerlink" title="v-on"></a>v-on</h3><ul>
-<li><p><strong>Shorthand:</strong> <code>@</code></p>
+<li><p><strong>Notation abrégée :</strong> <code>@</code></p>
 </li>
-<li><p><strong>Expects:</strong> <code>Function | Inline Statement | Object</code></p>
+<li><p><strong>Attend comme valeur :</strong> <code>Function | Inline Statement | Object</code></p>
 </li>
-<li><p><strong>Argument:</strong> <code>event</code></p>
+<li><p><strong>Argument de la fonction de rappel (callback) :</strong> <code>event</code></p>
 </li>
-<li><p><strong>Modifiers:</strong></p>
+<li><p><strong>Modificateurs :</strong></p>
 <ul>
-<li><code>.stop</code> - call <code>event.stopPropagation()</code>.</li>
-<li><code>.prevent</code> - call <code>event.preventDefault()</code>.</li>
-<li><code>.capture</code> - add event listener in capture mode.</li>
-<li><code>.self</code> - only trigger handler if event was dispatched from this element.</li>
-<li><code>.{keyCode | keyAlias}</code> - only trigger handler on certain keys.</li>
-<li><code>.native</code> - listen for a native event on the root element of component.</li>
-<li><code>.once</code> - trigger handler at most once.</li>
-<li><code>.left</code> - (2.2.0+) only trigger handler for left button mouse events.</li>
-<li><code>.right</code> - (2.2.0+) only trigger handler for right button mouse events.</li>
-<li><code>.middle</code> - (2.2.0+) only trigger handler for middle button mouse events.</li>
-<li><code>.passive</code> - (2.3.0+) attaches a DOM event with <code>{ passive: true }</code>.</li>
+<li><code>.stop</code> - appelle <code>event.stopPropagation()</code>.</li>
+<li><code>.prevent</code> - appelle <code>event.preventDefault()</code>.</li>
+<li><code>.capture</code> - ajoute l’écouteur d’événement en mode capture.</li>
+<li><code>.self</code> - déclenche le gestionnaire d’événement uniquement si l’événement provient de cet élément.</li>
+<li><code>.{keyCode | keyAlias}</code> - déclenche le gestionnaire d’événement uniquement pour certaines touches du clavier.</li>
+<li><code>.native</code> - écoute un événement natif sur l’élément racine d’un composant.</li>
+<li><code>.once</code> - déclenche le gestionnaire d’événement une seule fois maximum.</li>
+<li><code>.left</code> - (2.2.0+) déclenche le gestionnaire d’événement uniquement pour les événements du bouton gauche de la souris.</li>
+<li><code>.right</code> - (2.2.0+) déclenche le gestionnaire d’événement uniquement pour les événements du bouton droit de la souris.</li>
+<li><code>.middle</code> - (2.2.0+) déclenche le gestionnaire d’événement uniquement pour les événements du bouton du milieu de la souris.</li>
+<li><code>.passive</code> - (2.3.0+) attache un événement du DOM avec <code>{ passive: true }</code>.</li>
 </ul>
 </li>
 <li><p><strong>Utilisation :</strong></p>
-<p>Attaches an event listener to the element. The event type is denoted by the argument. The expression can either be a method name or an inline statement, or simply omitted when there are modifiers present.</p>
-<p>Starting in 2.4.0+, <code>v-on</code> also supports binding to an object of event/listener pairs without an argument. Note when using the object syntax, it does not support any modifiers.</p>
-<p>When used on a normal element, it listens to <strong>native DOM events</strong> only. When used on a custom element component, it also listens to <strong>custom events</strong> emitted on that child component.</p>
-<p>When listening to native DOM events, the method receives the native event as the only argument. If using inline statement, the statement has access to the special <code>$event</code> property: <code>v-on:click=&quot;handle(&#39;ok&#39;, $event)&quot;</code>.</p>
+<p>Attache un écouteur d’événement à l’élément. Le type d’événement écouté est indiqué comme argument. L’expression peut être soit un nom de méthode, soit une ligne d’instruction, ou simplement omise si des modificateurs sont présents.</p>
+<p>À partir de la 2.4.0+, <code>v-on</code> supporte aussi la liaison à un objet de paires événement/écouteur sans argument. Notez que lorsque vous utilisez la syntaxe objet, elle ne supporte aucun modificateur.</p>
+<p>Quand utilisé sur un élément HTML standard, il écoute uniquement les <strong>événements natifs du DOM</strong>. Quand utilisé sur un élement personnalisé de composant, il écoute également les <strong>événements personnalisés</strong> émis depuis ce composant enfant.</p>
+<p>Lorsque des événements natifs du DOM sont écoutés, la méthode reçoit l’événement natif comme unique argument. Si la valeur de la directive est une ligne d’instruction, l’instruction a accès à la propriété spéciale <code>$event</code> : <code>v-on:click=&quot;handle(&#39;ok&#39;, $event)&quot;</code>.</p>
 </li>
 <li><p><strong>Exemple :</strong></p>
-<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- method handler --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">v-on:click</span>=<span class="string">"doThis"</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- object syntax (2.4.0+) --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">v-on</span>=<span class="string">"&#123; mousedown: doThis, mouseup: doThat &#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- inline statement --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">v-on:click</span>=<span class="string">"doThat('hello', $event)"</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- shorthand --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">"doThis"</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- stop propagation --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">button</span> @<span class="attr">click.stop</span>=<span class="string">"doThis"</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- prevent default --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">button</span> @<span class="attr">click.prevent</span>=<span class="string">"doThis"</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- prevent default without expression --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">form</span> @<span class="attr">submit.prevent</span>&gt;</span><span class="tag">&lt;/<span class="name">form</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- chain modifiers --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">button</span> @<span class="attr">click.stop.prevent</span>=<span class="string">"doThis"</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- key modifier using keyAlias --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">input</span> @<span class="attr">keyup.enter</span>=<span class="string">"onEnter"</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- key modifier using keyCode --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">input</span> @<span class="attr">keyup.13</span>=<span class="string">"onEnter"</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- the click event will be triggered at most once --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">v-on:click.once</span>=<span class="string">"doThis"</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>Listening to custom events on a child component (the handler is called when “my-event” is emitted on the child):</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">my-component</span> @<span class="attr">my-event</span>=<span class="string">"handleThis"</span>&gt;</span><span class="tag">&lt;/<span class="name">my-component</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- inline statement --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">my-component</span> @<span class="attr">my-event</span>=<span class="string">"handleThis(123, $event)"</span>&gt;</span><span class="tag">&lt;/<span class="name">my-component</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- native event on component --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">my-component</span> @<span class="attr">click.native</span>=<span class="string">"onClick"</span>&gt;</span><span class="tag">&lt;/<span class="name">my-component</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- nom de méthode --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">v-on:click</span>=<span class="string">"faireCeci"</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- syntaxe objet (2.4.0+) --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">v-on</span>=<span class="string">"&#123; mousedown: faireCeci, mouseup: faireCela &#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- ligne d'instruction --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">v-on:click</span>=<span class="string">"faireCela('hello', $event)"</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- notation abrégée --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">"faireCeci"</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- stoppe la propagation --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">button</span> @<span class="attr">click.stop</span>=<span class="string">"faireCeci"</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- empêche le comportement par défaut --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">button</span> @<span class="attr">click.prevent</span>=<span class="string">"faireCeci"</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- empêche le comportement par défaut sans expression --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">form</span> @<span class="attr">submit.prevent</span>&gt;</span><span class="tag">&lt;/<span class="name">form</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- enchaîner les modificateurs --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">button</span> @<span class="attr">click.stop.prevent</span>=<span class="string">"faireCeci"</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- modificateur de touche avec un keyAlias --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">input</span> @<span class="attr">keyup.enter</span>=<span class="string">"onEnter"</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- modificateur de touche avec un keyCode --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">input</span> @<span class="attr">keyup.13</span>=<span class="string">"onEnter"</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- l'événement click sera déclenché une seule fois maximum --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">v-on:click.once</span>=<span class="string">"faireCeci"</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>Écouter des événements personnalisés sur un composant enfant (le gestionnaire est appelé quand <code>mon-evenement</code> est émis depuis l’enfant):</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">mon-composant</span> @<span class="attr">mon-evenement</span>=<span class="string">"faireCeci"</span>&gt;</span><span class="tag">&lt;/<span class="name">mon-composant</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- ligne d'instruction --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">mon-composant</span> @<span class="attr">mon-evenement</span>=<span class="string">"faireCeci(123, $event)"</span>&gt;</span><span class="tag">&lt;/<span class="name">mon-composant</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- événement natif sur le composant --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">mon-composant</span> @<span class="attr">click.native</span>=<span class="string">"onClick"</span>&gt;</span><span class="tag">&lt;/<span class="name">mon-composant</span>&gt;</span></div></pre></td></tr></table></figure>
 </li>
 <li><p><strong>Voir aussi :</strong></p>
 <ul>
-<li><a href="../guide/events.html">Methods and Event Handling</a></li>
-<li><a href="../guide/components.html#Custom-Events">Components - Custom Events</a></li>
+<li><a href="../guide/events.html">Méthodes et gestionnaires d’événement</a></li>
+<li><a href="../guide/components.html#Custom-Events">Composants - Événements personnalisés</a></li>
 </ul>
 </li>
 </ul>
 <h3 id="v-bind"><a href="#v-bind" class="headerlink" title="v-bind"></a>v-bind</h3><ul>
-<li><p><strong>Shorthand:</strong> <code>:</code></p>
+<li><p><strong>Notation abrégée :</strong> <code>:</code></p>
 </li>
-<li><p><strong>Expects:</strong> <code>any (with argument) | Object (without argument)</code></p>
+<li><p><strong>Attend comme valeur :</strong> <code>any (avec argument) | Object (sans argument)</code></p>
 </li>
-<li><p><strong>Argument:</strong> <code>attrOrProp (optional)</code></p>
+<li><p><strong>Argument :</strong> <code>attrOuProp (optionnel)</code></p>
 </li>
-<li><p><strong>Modifiers:</strong></p>
+<li><p><strong>Modificateurs :</strong></p>
 <ul>
-<li><p><code>.prop</code> - Bind as a DOM property instead of an attribute (<a href="http://stackoverflow.com/questions/6003819/properties-and-attributes-in-html#answer-6004028" target="_blank" rel="external">what’s the difference?</a>). If the tag is a component then <code>.prop</code> will set the property on the component’s <code>$el</code>.</p>
-</li>
-<li><p><code>.camel</code> - (2.1.0+) transform the kebab-case attribute name into camelCase.</p>
-</li>
-<li><code>.sync</code> - (2.3.0+) a syntax sugar that expands into a <code>v-on</code> handler for updating the bound value.</li>
+<li><code>.prop</code> - Associe une propriété du DOM plutôt qu’un attribut. (<a href="http://stackoverflow.com/questions/6003819/properties-and-attributes-in-html#answer-6004028" target="_blank" rel="external">quelle difference?</a>). Si le tag est un composant, alors <code>prop</code> assignera la propriété sur l’élément <code>$el</code> du composant.</li>
+<li><code>.camel</code> - (2.1.0+) transforme un nom d’attribut en kebab-case en sa version camelCase.</li>
+<li><code>.sync</code> - (2.3.0+) du sucre syntaxique pour ajouter un un gestionnaire <code>v-on</code> qui met à jour la valeur liée.</li>
 </ul>
 </li>
 <li><p><strong>Utilisation :</strong></p>
-<p>Dynamically bind one or more attributes, or a component prop to an expression.</p>
-<p>When used to bind the <code>class</code> or <code>style</code> attribute, it supports additional value types such as Array or Objects. See linked guide section below for more details.</p>
-<p>When used for prop binding, the prop must be properly declared in the child component.</p>
-<p>When used without an argument, can be used to bind an object containing attribute name-value pairs. Note in this mode <code>class</code> and <code>style</code> does not support Array or Objects.</p>
+<p>Lie dynamiquement un ou plusieurs attributs HTML ou props de composant à une expression.</p>
+<p>Quand utilisé pour lier un attribut <code>class</code> ou <code>style</code>, la directive supporte des types additionnels de valeur tels que <code>Array</code> ou <code>Object</code>. Consultez la section du guide en lien ci-dessous pour plus de détails.</p>
+<p>Quand utilisé pour lier à une prop de composant, la prop doit être bien déclarée dans le composant enfant.</p>
+<p>Utilisé sans argument, la directive peut lier un objet contenant des paires clé-valeur d’attributs. Notez que dans ce mode, <code>class</code> et <code>style</code> ne supportent pas les <code>Array</code> ou <code>Object</code>.</p>
 </li>
 <li><p><strong>Exemple :</strong></p>
-<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- bind an attribute --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">v-bind:src</span>=<span class="string">"imageSrc"</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- shorthand --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">:src</span>=<span class="string">"imageSrc"</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- with inline string concatenation --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">:src</span>=<span class="string">"'/path/to/images/' + fileName"</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- class binding --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">:class</span>=<span class="string">"&#123; red: isRed &#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">:class</span>=<span class="string">"[classA, classB]"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">:class</span>=<span class="string">"[classA, &#123; classB: isB, classC: isC &#125;]"</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- style binding --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">:style</span>=<span class="string">"&#123; fontSize: size + 'px' &#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">:style</span>=<span class="string">"[styleObjectA, styleObjectB]"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- binding an object of attributes --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-bind</span>=<span class="string">"&#123; id: someProp, 'other-attr': otherProp &#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- DOM attribute binding with prop modifier --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-bind:text-content.prop</span>=<span class="string">"text"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- prop binding. "prop" must be declared in my-component. --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">my-component</span> <span class="attr">:prop</span>=<span class="string">"someThing"</span>&gt;</span><span class="tag">&lt;/<span class="name">my-component</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- pass down parent props in common with a child component --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">child-component</span> <span class="attr">v-bind</span>=<span class="string">"$props"</span>&gt;</span><span class="tag">&lt;/<span class="name">child-component</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- XLink --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">svg</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">:xlink:special</span>=<span class="string">"foo"</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>The <code>.camel</code> modifier allows camelizing a <code>v-bind</code> attribute name when using in-DOM templates, e.g. the SVG <code>viewBox</code> attribute:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- lie un attribut --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">v-bind:src</span>=<span class="string">"imageSrc"</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- notation abrégée --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">:src</span>=<span class="string">"imageSrc"</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- avec de la concaténation de chaînes de caractères --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">:src</span>=<span class="string">"'/path/to/images/' + fileName"</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- liaison de classes --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">:class</span>=<span class="string">"&#123; red: isRed &#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">:class</span>=<span class="string">"[classA, classB]"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">:class</span>=<span class="string">"[classA, &#123; classB: isB, classC: isC &#125;]"</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- liaison de styles --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">:style</span>=<span class="string">"&#123; fontSize: size + 'px' &#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">:style</span>=<span class="string">"[styleObjectA, styleObjectB]"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- lie un objet d'attributs --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-bind</span>=<span class="string">"&#123; id: uneProp, 'autre-attr': uneAutreProp &#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- lie un attribut du DOM avec le modificateur prop --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-bind:text-content.prop</span>=<span class="string">"text"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- liaison de prop. "prop" doit être déclaré dans mon-composant. --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">mon-composant</span> <span class="attr">:prop</span>=<span class="string">"uneValeur"</span>&gt;</span><span class="tag">&lt;/<span class="name">mon-composant</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- transmet les props parentes à un composant enfant --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">composant-enfant</span> <span class="attr">v-bind</span>=<span class="string">"$props"</span>&gt;</span><span class="tag">&lt;/<span class="name">composant-enfant</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- XLink --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">svg</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">:xlink:special</span>=<span class="string">"foo"</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>Le modificateur <code>.camel</code> permet de réécrire en camelCase un nom d’attribut de <code>v-bind</code> si vous déclarez vos templates dans le DOM, p. ex. l’attribut SVG <code>viewBox</code> :</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">:view-box.camel</span>=<span class="string">"viewBox"</span>&gt;</span><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></div></pre></td></tr></table></figure>
-<p><code>.camel</code> is not needed if you are using string templates, or compiling with <code>vue-loader</code>/<code>vueify</code>.</p>
+<p><code>.camel</code> n’est pas nécessaire si vous utilisez des templates en chaîne de caractères ou si vous les compilez avec <code>vue-loader</code>/<code>vueify</code>.</p>
 </li>
 <li><p><strong>Voir aussi :</strong></p>
 <ul>
-<li><a href="../guide/class-and-style.html">Class and Style Bindings</a></li>
-<li><a href="../guide/components.html#Props">Components - Component Props</a></li>
-<li><a href="../guide/components.html#sync-Modifier">Components - <code>.sync</code> Modifier</a></li>
+<li><a href="../guide/class-and-style.html">Liaisons de classe et de style</a></li>
+<li><a href="../guide/components.html#Props">Composants - Props de composant</a></li>
+<li><a href="../guide/components.html#sync-Modifier">Composants - Modificateur <code>.sync</code></a></li>
 </ul>
 </li>
 </ul>
 <h3 id="v-model"><a href="#v-model" class="headerlink" title="v-model"></a>v-model</h3><ul>
-<li><p><strong>Expects:</strong> varies based on value of form inputs element or output of components</p>
+<li><p><strong>Attend comme valeur :</strong> variable selon les éléments des champs de formulaire ou les valeurs en sortie de composants</p>
 </li>
-<li><p><strong>Limited to:</strong></p>
+<li><p><strong>Limité à :</strong></p>
 <ul>
 <li><code>&lt;input&gt;</code></li>
 <li><code>&lt;select&gt;</code></li>
 <li><code>&lt;textarea&gt;</code></li>
-<li>components</li>
+<li>composants</li>
 </ul>
 </li>
-<li><p><strong>Modifiers:</strong></p>
+<li><p><strong>Modificateurs :</strong></p>
 <ul>
-<li><a href="../guide/forms.html#lazy"><code>.lazy</code></a> - listen to <code>change</code> events instead of <code>input</code></li>
-<li><a href="../guide/forms.html#number"><code>.number</code></a> - cast input string to numbers</li>
-<li><a href="../guide/forms.html#trim"><code>.trim</code></a> - trim input</li>
+<li><a href="../guide/forms.html#lazy"><code>.lazy</code></a> - écoute les événements <code>change</code> au lieu de <code>input</code></li>
+<li><a href="../guide/forms.html#number"><code>.number</code></a> - convertit en nombres les chaînes de caractères en entrée</li>
+<li><a href="../guide/forms.html#trim"><code>.trim</code></a> - retire les blancs autour des chaînes de caractères en entrée</li>
 </ul>
 </li>
 <li><p><strong>Utilisation :</strong></p>
-<p>Create a two-way binding on a form input element or a component. For detailed usage and other notes, see the Guide section linked below.</p>
+<p>Crée une liaison bidirectionnelle sur un élément de saisie d’un formulaire ou sur un composant. Pour une utilisation détaillée et d’autres notes, consultez la section du guide en lien ci-dessous.</p>
 </li>
 <li><p><strong>Voir aussi :</strong></p>
 <ul>
-<li><a href="../guide/forms.html">Form Input Bindings</a></li>
-<li><a href="../guide/components.html#Form-Input-Components-using-Custom-Events">Components - Form Input Components using Custom Events</a></li>
+<li><a href="../guide/forms.html">Liaisons de champs de saisie de formulaire</a></li>
+<li><a href="../guide/components.html#Form-Input-Components-using-Custom-Events">Composants - Composants de saisie de formulaire avec événements personnalisés</a></li>
 </ul>
 </li>
 </ul>
 <h3 id="v-pre"><a href="#v-pre" class="headerlink" title="v-pre"></a>v-pre</h3><ul>
-<li><p><strong>Does not expect expression</strong></p>
+<li><p><strong>N’attend aucune valeur</strong></p>
 </li>
 <li><p><strong>Utilisation :</strong></p>
-<p>Skip compilation for this element and all its children. You can use this for displaying raw mustache tags. Skipping large numbers of nodes with no directives on them can also speed up compilation.</p>
+<p>Omet la compilation pour cet élément et tous ses enfants. Vous pouvez utiliser ceci pour afficher à l’utilisateur des expressions <code></code>. Utilisé sur un grand nombre de nœuds sans directives, cela peut aussi accélerer la compilation.</p>
 </li>
 <li><p><strong>Exemple :</strong></p>
-<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">v-pre</span>&gt;</span>&#123;&#123; this will not be compiled &#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">v-pre</span>&gt;</span>&#123;&#123; ceci ne sera pas compilé &#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div></pre></td></tr></table></figure>
 </li>
 </ul>
 <h3 id="v-cloak"><a href="#v-cloak" class="headerlink" title="v-cloak"></a>v-cloak</h3><ul>
-<li><p><strong>Does not expect expression</strong></p>
+<li><p><strong>N’attend aucune valeur</strong></p>
 </li>
 <li><p><strong>Utilisation :</strong></p>
-<p>This directive will remain on the element until the associated Instance de Vue finishes compilation. Combined with CSS rules such as <code>[v-cloak] { display: none }</code>, this directive can be used to hide un-compiled mustache bindings until the Instance de Vue is ready.</p>
+<p>Cette directive restera sur l’élément jusqu’à ce que l’instance de Vue associée ait fini sa compilation. Combiné avec des règles CSS telles que <code>[v-cloak] { display: none }</code>, cette directive peut être utilisée pour cacher des liaisons moustaches encore non compilées jusqu’à ce que l’instance de Vue soit prête.</p>
 </li>
 <li><p><strong>Exemple :</strong></p>
 <figure class="highlight css"><table><tr><td class="code"><pre><div class="line"><span class="selector-attr">[v-cloak]</span> &#123;</div><div class="line">  <span class="attribute">display</span>: none;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-cloak</span>&gt;</span></div><div class="line">  &#123;&#123; message &#125;&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>The <code>&lt;div&gt;</code> will not be visible until the compilation is done.</p>
+<p>L’élément <code>&lt;div&gt;</code> ne sera pas visible jusqu’à ce que la compilation soit terminée.</p>
 </li>
 </ul>
 <h3 id="v-once"><a href="#v-once" class="headerlink" title="v-once"></a>v-once</h3><ul>
-<li><p><strong>Does not expect expression</strong></p>
+<li><p><strong>N’attend aucune valeur</strong></p>
 </li>
 <li><p><strong>Détails :</strong></p>
-<p>Render the element and component <strong>once</strong> only. On subsequent re-renders, the element/component and all its children will be treated as static content and skipped. This can be used to optimize update performance.</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- single element --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">v-once</span>&gt;</span>This will never change: &#123;&#123;msg&#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line"><span class="comment">&lt;!-- the element have children --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-once</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">h1</span>&gt;</span>comment<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123;msg&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="comment">&lt;!-- component --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">my-component</span> <span class="attr">v-once</span> <span class="attr">:comment</span>=<span class="string">"msg"</span>&gt;</span><span class="tag">&lt;/<span class="name">my-component</span>&gt;</span></div><div class="line"><span class="comment">&lt;!-- v-for directive --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"i in list"</span> <span class="attr">v-once</span>&gt;</span>&#123;&#123;i&#125;&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>Fait le rendu de l’élément ou du composant qu’<strong>une seule fois</strong> seulement. Lors des nouveaux rendus par la suite, l’élément/composant et tous ses enfants seront traités comme du contenu statique et ignorés. Cela peut être utilisé pour optimiser les performances à la mise à jour d’un composant.</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- sur un seul élément --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">v-once</span>&gt;</span>Ceci ne changera jamais : &#123;&#123;msg&#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line"><span class="comment">&lt;!-- l'élément a des enfants --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-once</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">h1</span>&gt;</span>commentaire<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123;msg&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="comment">&lt;!-- composant --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">mon-composant</span> <span class="attr">v-once</span> <span class="attr">:commentaire</span>=<span class="string">"msg"</span>&gt;</span><span class="tag">&lt;/<span class="name">mon-composant</span>&gt;</span></div><div class="line"><span class="comment">&lt;!-- directive v-for --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"i in liste"</span> <span class="attr">v-once</span>&gt;</span>&#123;&#123;i&#125;&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div></pre></td></tr></table></figure>
 </li>
 <li><p><strong>Voir aussi :</strong></p>
 <ul>
-<li><a href="../guide/syntax.html#Text">Data Binding Syntax - interpolations</a></li>
-<li><a href="../guide/components.html#Cheap-Static-Components-with-v-once">Components - Cheap Static Components with v-once</a></li>
+<li><a href="../guide/syntax.html#Text">Syntaxe de liaison de données - interpolations</a></li>
+<li><a href="../guide/components.html#Cheap-Static-Components-with-v-once">Components - Composants économes avec v-once</a></li>
 </ul>
 </li>
 </ul>
-<h2 id="Special-Attributes"><a href="#Special-Attributes" class="headerlink" title="Special Attributes"></a>Special Attributes</h2><h3 id="key"><a href="#key" class="headerlink" title="key"></a>key</h3><ul>
-<li><p><strong>Expects:</strong> <code>string</code></p>
-<p>The <code>key</code> special attribute is primarily used as a hint for Vue’s virtual DOM algorithm to identify VNodes when diffing the new list of nodes against the old list. Without keys, Vue uses an algorithm that minimizes element movement and tries to patch/reuse elements of the same type in-place as much as possible. With keys, it will reorder elements based on the order change of keys, and elements with keys that are no longer present will always be removed/destroyed.</p>
-<p>Children of the same common parent must have <strong>unique keys</strong>. Duplicate keys will cause render errors.</p>
-<p>The most common use case is combined with <code>v-for</code>:</p>
+<h2 id="Attributs-speciaux"><a href="#Attributs-speciaux" class="headerlink" title="Attributs spéciaux"></a>Attributs spéciaux</h2><h3 id="key"><a href="#key" class="headerlink" title="key"></a>key</h3><ul>
+<li><p><strong>Attend comme valeur :</strong> <code>number | string</code></p>
+<p>L’attribut spécial <code>key</code> est principalement utilisé comme marqueur pour l’algorithme de DOM virtuel de Vue afin d’identifier les <em>VNodes</em> lors du différentiel entre la nouvelle liste des nœuds et la liste précédente. Sans clés, Vue utilise un algorithme qui minimise le déplacement de nœuds et essaie de patcher/réutiliser le plus possible les éléments présents du même type. Avec des clés, cela réordonnera les éléments en se basant sur le nouvel ordre de clés, et les éléments avec des clés qui ne sont plus présentes seront toujours supprimés/détruits.</p>
+<p>Les enfants d’un même parent commun doivent avoir des <strong>clés uniques</strong>. Des clés en doublons causeront des erreurs de rendu.</p>
+<p>Le cas d’utilisation le plus classique est la combinaison avec <code>v-for</code>:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"item in items"</span> <span class="attr">:key</span>=<span class="string">"item.id"</span>&gt;</span>...<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>It can also be used to force replacement of an element/component instead of reusing it. This can be useful when you want to:</p>
+<p>Il peut aussi être utilisé pour forcer le remplacement d’un élément/composant au lieu de le réutiliser. Cela peut être utile lorsque vous voulez :</p>
 <ul>
-<li>Properly trigger lifecycle hooks of a component</li>
-<li>Trigger transitions</li>
+<li>Déclencher correctement les hooks de cycle de vie d’un composant</li>
+<li>Déclencher des transitions</li>
 </ul>
-<p>For example:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">transition</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">span</span> <span class="attr">:key</span>=<span class="string">"text"</span>&gt;</span>&#123;&#123; text &#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">transition</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>When <code>text</code> changes, the <code>&lt;span&gt;</code> will always be replaced instead of patched, so a transition will be triggered.</p>
+<p>Par exemple :</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">transition</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">span</span> <span class="attr">:key</span>=<span class="string">"texte"</span>&gt;</span>&#123;&#123; texte &#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">transition</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>Quand <code>texte</code> change, le <code>&lt;span&gt;</code> sera toujours remplacé plutôt que d’être patché, afin qu’une transition soit déclenchée.</p>
 </li>
 </ul>
 <h3 id="ref"><a href="#ref" class="headerlink" title="ref"></a>ref</h3><ul>
-<li><p><strong>Expects:</strong> <code>string</code></p>
-<p><code>ref</code> is used to register a reference to an element or a child component. The reference will be registered under the parent component’s <code>$refs</code> object. If used on a plain DOM element, the reference will be that element; if used on a child component, the reference will be component instance:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- vm.$refs.p will be the DOM node --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">ref</span>=<span class="string">"p"</span>&gt;</span>hello<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- vm.$refs.child will be the child comp instance --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">child-comp</span> <span class="attr">ref</span>=<span class="string">"child"</span>&gt;</span><span class="tag">&lt;/<span class="name">child-comp</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>When used on elements/components with <code>v-for</code>, the registered reference will be an Array containing DOM nodes or component instances.</p>
-<p>An important note about the ref registration timing: because the refs themselves are created as a result of the render function, you cannot access them on the initial render - they don’t exist yet! <code>$refs</code> is also non-reactive, therefore you should not attempt to use it in templates for data-binding.</p>
+<li><p><strong>Attend comme valeur :</strong> <code>string</code></p>
+<p><code>ref</code> est utilisé pour inscrire une référence à un élément ou à un composant enfant. La référence sera inscrite sous l’objet <code>$refs</code> du composant parent. Lorsqu’utilisé sur un élément du DOM, la référence sera cet élément; lorsqu’utilisé sur un composant enfant, la référence sera l’instance du composant :</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- vm.$refs.p sera le nœud du DOM --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">ref</span>=<span class="string">"p"</span>&gt;</span>hello<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- vm.$refs.enfant sera l'instance du composant enfant --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">comp-enfant</span> <span class="attr">ref</span>=<span class="string">"enfant"</span>&gt;</span><span class="tag">&lt;/<span class="name">comp-enfant</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>Quand utilisé sur des éléments/composants avec <code>v-for</code>, la référence inscrite sera un <code>Array</code> contenant les nœuds du DOM ou les instances de composant.</p>
+<p>Une note importante à propos du timing de l’inscription de la référence: étant donné que les refs elles-même résultent de la fonction de rendu, vous ne pouvez pas y accéder au rendu initial - elles n’existent pas encore ! <code>$refs</code> est également non réactif, c’est pourquoi vous ne devriez pas essayer de les utiliser dans des templates pour de la liaison de données.</p>
 </li>
-<li><p><strong>Voir aussi :</strong> <a href="../guide/components.html#Child-Component-Refs">Child Component Refs</a></p>
+<li><p><strong>Voir aussi :</strong> <a href="../guide/components.html#Child-Component-Refs">Références de composants enfants</a></p>
 </li>
 </ul>
 <h3 id="slot"><a href="#slot" class="headerlink" title="slot"></a>slot</h3><ul>
-<li><p><strong>Expects:</strong> <code>string</code></p>
-<p>Used on content inserted into child components to indicate which named slot the content belongs to.</p>
-<p>For detailed usage, see the guide section linked below.</p>
+<li><p><strong>Attend comme valeur :</strong> <code>string</code></p>
+<p>Utilisé sur du contenu inséré dans les composants enfants afin d’indiquer à quel slot nommé le contenu doit être associé.</p>
+<p>Pour un usage détaillé, veuillez consulter la section du guide en lien ci-dessous.</p>
 </li>
-<li><p><strong>Voir aussi :</strong> <a href="../guide/components.html#Named-Slots">Named Slots</a></p>
+<li><p><strong>Voir aussi :</strong> <a href="../guide/components.html#Named-Slots">Slots nommés</a></p>
 </li>
 </ul>
 <h3 id="is"><a href="#is" class="headerlink" title="is"></a>is</h3><ul>
-<li><p><strong>Expects:</strong> <code>string</code></p>
-<p>Used for <a href="../guide/components.html#Dynamic-Components">dynamic components</a> and to work around <a href="../guide/components.html#DOM-Template-Parsing-Caveats">limitations of in-DOM templates</a>.</p>
-<p>For example:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- component changes when currentView changes --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">component</span> <span class="attr">v-bind:is</span>=<span class="string">"currentView"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- necessary because &lt;my-row&gt; would be invalid inside --&gt;</span></div><div class="line"><span class="comment">&lt;!-- a &lt;table&gt; element and so would be hoisted out      --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">tr</span> <span class="attr">is</span>=<span class="string">"my-row"</span>&gt;</span><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>For detailed usage, follow the links in the description above.</p>
+<li><p><strong>Attend comme valeur :</strong> <code>string</code></p>
+<p>Utilisé pour les <a href="../guide/components.html#Dynamic-Components">composants dynamiques</a> et pour contourner les <a href="../guide/components.html#DOM-Template-Parsing-Caveats">limitations des templates dans le DOM</a>.</p>
+<p>Par exemple :</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- le composant change quand la vue actuelle change --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">component</span> <span class="attr">v-bind:is</span>=<span class="string">"vueActuelle"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- nécessaire car &lt;ma-ligne&gt; sera invalide à l'intérieur --&gt;</span></div><div class="line"><span class="comment">&lt;!-- d'un élément &lt;table&gt; et donc sera écarté --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">tr</span> <span class="attr">is</span>=<span class="string">"ma-ligne"</span>&gt;</span><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>Pour un usage détaillé, suivez les liens dans la description ci-dessus.</p>
 </li>
 <li><p><strong>See also:</strong></p>
 <ul>
-<li><a href="../guide/components.html#Dynamic-Components">Dynamic Components</a></li>
-<li><a href="../guide/components.html#DOM-Template-Parsing-Caveats">DOM Template Parsing Caveats</a></li>
+<li><a href="../guide/components.html#Dynamic-Components">Composants dynamiques</a></li>
+<li><a href="../guide/components.html#DOM-Template-Parsing-Caveats">Limitations de l’analyse des templates dans le DOM</a></li>
 </ul>
 </li>
 </ul>
-<h2 id="Built-In-Components"><a href="#Built-In-Components" class="headerlink" title="Built-In Components"></a>Built-In Components</h2><h3 id="component"><a href="#component" class="headerlink" title="component"></a>component</h3><ul>
+<h2 id="Composants-integres-par-defaut"><a href="#Composants-integres-par-defaut" class="headerlink" title="Composants intégrés par défaut"></a>Composants intégrés par défaut</h2><h3 id="component"><a href="#component" class="headerlink" title="component"></a>component</h3><ul>
 <li><p><strong>Props:</strong></p>
 <ul>
 <li><code>is</code> - string | ComponentDefinition | ComponentConstructor</li>
-<li><code>inline-template</code> - boolean</li>
+<li><code>inline-template</code> - booléen</li>
 </ul>
 </li>
 <li><p><strong>Utilisation :</strong></p>
-<p>A “meta component” for rendering dynamic components. The actual component to render is determined by the <code>is</code> prop:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- a dynamic component controlled by --&gt;</span></div><div class="line"><span class="comment">&lt;!-- the `componentId` property on the vm --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">"componentId"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- can also render registered component or component passed as prop --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">"$options.components.child"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>Un « méta-composant » pour le rendu de composants dynamiques. Le composant réel obtenu est déterminé par la prop <code>is</code> :</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- un composant dynamique contrôlé par --&gt;</span></div><div class="line"><span class="comment">&lt;!-- la propriété `idComposant` de l'instance de vue --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">"idComposant"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- peut aussi faire le rendu de composants inscrits globalement ou passés comme prop --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">"$options.components.enfant"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></div></pre></td></tr></table></figure>
 </li>
-<li><p><strong>Voir aussi :</strong> <a href="../guide/components.html#Dynamic-Components">Dynamic Components</a></p>
+<li><p><strong>Voir aussi :</strong> <a href="../guide/components.html#Dynamic-Components">Composants dynamiques</a></p>
 </li>
 </ul>
 <h3 id="transition"><a href="#transition" class="headerlink" title="transition"></a>transition</h3><ul>
 <li><p><strong>Props:</strong></p>
 <ul>
-<li><code>name</code> - string, Used to automatically generate transition CSS class names. e.g. <code>name: &#39;fade&#39;</code> will auto expand to <code>.fade-enter</code>, <code>.fade-enter-active</code>, etc. Defaults to <code>&quot;v&quot;</code>.</li>
-<li><code>appear</code> - boolean, Whether to apply transition on initial render. Defaults to <code>false</code>.</li>
-<li><code>css</code> - boolean, Whether to apply CSS transition classes. Defaults to <code>true</code>. If set to <code>false</code>, will only trigger JavaScript hooks registered via component events.</li>
-<li><code>type</code> - string, Specify the type of transition events to wait for to determine transition end timing. Available values are <code>&quot;transition&quot;</code> and <code>&quot;animation&quot;</code>. By default, it will automatically detect the type that has a longer duration.</li>
-<li><code>mode</code> - string, Controls the timing sequence of leaving/entering transitions. Available modes are <code>&quot;out-in&quot;</code> and <code>&quot;in-out&quot;</code>; defaults to simultaneous.</li>
+<li><code>name</code> - string, utilisé pour générer automatiquement des noms de classes CSS pour les transitions. p. ex. <code>name: &#39;fade&#39;</code> donnera <code>.fade-enter</code>, <code>.fade-enter-active</code>, etc. Valeur par défaut : <code>&quot;v&quot;</code>.</li>
+<li><code>appear</code> - booléen, indique si la transition doit être appliquée ou non au rendu initial. Valeur par défaut: <code>false</code>.</li>
+<li><code>css</code> - booléen, indique si les classes CSS de transition doivent être appliquées ou non. Valeur par défaut: <code>true</code>. Si assigné à <code>false</code>, seuls les hooks JavaScript inscrits via les événements du composant seront déclenchés.</li>
+<li><code>type</code> - string, spécifie le type d’événement de transition à attendre pour déterminer le timing de fin de transition. Les valeurs disponibles sont <code>&quot;transition&quot;</code> and <code>&quot;animation&quot;</code>. Par défaut, il détectera automatiquement le type ayant la durée la plus longue.</li>
+<li><code>mode</code> - string, contrôle la séquence de timing des transitions entrantes/sortantes. Les modes disponibles sont <code>&quot;out-in&quot;</code> et <code>&quot;in-out&quot;</code>; par défaut en simultané.</li>
 <li><code>enter-class</code> - string</li>
 <li><code>leave-class</code> - string</li>
 <li><code>appear-class</code> - string</li>
@@ -1669,89 +1659,87 @@
 <li><code>after-leave</code></li>
 <li><code>after-appear</code></li>
 <li><code>enter-cancelled</code></li>
-<li><code>leave-cancelled</code> (<code>v-show</code> only)</li>
+<li><code>leave-cancelled</code> (<code>v-show</code> uniquement)</li>
 <li><code>appear-cancelled</code></li>
 </ul>
 </li>
 <li><p><strong>Utilisation :</strong></p>
-<p><code>&lt;transition&gt;</code> serve as transition effects for <strong>single</strong> element/component. The <code>&lt;transition&gt;</code> does not render an extra DOM element, nor does it show up in the inspected component hierarchy. It simply applies the transition behavior to the wrapped content inside.</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- simple element --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">transition</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">v-if</span>=<span class="string">"ok"</span>&gt;</span>toggled content<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">transition</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- dynamic component --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">transition</span> <span class="attr">name</span>=<span class="string">"fade"</span> <span class="attr">mode</span>=<span class="string">"out-in"</span> <span class="attr">appear</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">"view"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">transition</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- event hooking --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"transition-demo"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">transition</span> @<span class="attr">after-enter</span>=<span class="string">"transitionComplete"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">v-show</span>=<span class="string">"ok"</span>&gt;</span>toggled content<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">transition</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">  ...</div><div class="line">  methods: &#123;</div><div class="line">    <span class="attr">transitionComplete</span>: <span class="function"><span class="keyword">function</span> (<span class="params">el</span>) </span>&#123;</div><div class="line">      <span class="comment">// for passed 'el' that DOM element as the argument, something ...</span></div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  ...</div><div class="line">&#125;).$mount(<span class="string">'#transition-demo'</span>)</div></pre></td></tr></table></figure>
+<p><code>&lt;transition&gt;</code> sert d’effets de transition pour un  <strong>unique</strong> élément/composant. Le rendu de <code>&lt;transition&gt;</code> ne donne pas un élément supplémentaire dans le DOM, et n’apparaît pas non plus dans la hiérarchie du composant inspecté. Il applique simplement le comportement de transition au contenu imbriqué à l’intérieur.</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- élément simple --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">transition</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">v-if</span>=<span class="string">"ok"</span>&gt;</span>contenu permuté<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">transition</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- composant dynamique --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">transition</span> <span class="attr">name</span>=<span class="string">"fade"</span> <span class="attr">mode</span>=<span class="string">"out-in"</span> <span class="attr">appear</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">"view"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">transition</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- hooks d'événement --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"transition-demo"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">transition</span> @<span class="attr">after-enter</span>=<span class="string">"transitionComplete"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">v-show</span>=<span class="string">"ok"</span>&gt;</span>contenu permuté<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">transition</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">  ...</div><div class="line">  methods: &#123;</div><div class="line">    <span class="attr">transitionComplete</span>: <span class="function"><span class="keyword">function</span> (<span class="params">el</span>) </span>&#123;</div><div class="line">      <span class="comment">// pour l'élément du DOM 'el' passé en argument, faire quelque-chose...</span></div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  ...</div><div class="line">&#125;).$mount(<span class="string">'#transition-demo'</span>)</div></pre></td></tr></table></figure>
 </li>
-<li><p><strong>Voir aussi :</strong> <a href="../guide/transitions.html">Transitions: Entering, Leaving, and Lists</a></p>
+<li><p><strong>Voir aussi :</strong> <a href="../guide/transitions.html">Transitions : entrantes, sortantes et de listes</a></p>
 </li>
 </ul>
 <h3 id="transition-group"><a href="#transition-group" class="headerlink" title="transition-group"></a>transition-group</h3><ul>
 <li><p><strong>Props:</strong></p>
 <ul>
-<li><code>tag</code> - string, defaults to <code>span</code>.</li>
-<li><code>move-class</code> - overwrite CSS class applied during moving transition.</li>
-<li>exposes the same props as <code>&lt;transition&gt;</code> except <code>mode</code>.</li>
+<li><code>tag</code> - string, par défaut <code>span</code>.</li>
+<li><code>move-class</code> - surcharge la classe CSS appliquée durant le mouvement de transition.</li>
+<li>expose les mêmes props que <code>&lt;transition&gt;</code> à l’exception de <code>mode</code>.</li>
 </ul>
 </li>
-<li><p><strong>Events:</strong></p>
+<li><p><strong>Événements:</strong></p>
 <ul>
-<li>exposes the same events as <code>&lt;transition&gt;</code>.</li>
+<li>expose les mêmes événements que <code>&lt;transition&gt;</code>.</li>
 </ul>
 </li>
 <li><p><strong>Utilisation :</strong></p>
-<p><code>&lt;transition-group&gt;</code> serve as transition effects for <strong>multiple</strong> elements/components. The <code>&lt;transition-group&gt;</code> renders a real DOM element. By default it renders a <code>&lt;span&gt;</code>, and you can configure what element is should render via the <code>tag</code> attribute.</p>
-<p>Note every child in a <code>&lt;transition-group&gt;</code> must be <strong>uniquely keyed</strong> for the animations to work properly.</p>
-<p><code>&lt;transition-group&gt;</code> supports moving transitions via CSS transform. When a child’s position on screen has changed after an updated, it will get applied a moving CSS class (auto generated from the <code>name</code> attribute or configured with the <code>move-class</code> attribute). If the CSS <code>transform</code> property is “transition-able” when the moving class is applied, the element will be smoothly animated to its destination using the <a href="https://aerotwist.com/blog/flip-your-animations/" target="_blank" rel="external">FLIP technique</a>.</p>
+<p><code>&lt;transition-group&gt;</code> sert d’effets de transition pour de <strong>multiples</strong> éléments/composants. Le rendu de <code>&lt;transition-group&gt;</code> donne un nouvel élément dans le DOM. Par défaut, il s’agit d’un <code>&lt;span&gt;</code>, mais vous pouvez configurer le type d’élément en sortie via l’attribut <code>tag</code>.</p>
+<p>Notez que chaque enfant dans un <code>&lt;transition-group&gt;</code> doit avoir une <strong>clé unique</strong> pour que les animations fonctionnent correctement.</p>
+<p><code>&lt;transition-group&gt;</code> supporte les déplacements de transition via les transformations CSS. Quand la position à l’écran d’un élément enfant a changé après une mise à jour, une classe CSS de déplacement (auto générée à partir de l’attribut <code>name</code> ou configurée via l’attribut <code>move-class</code>) est appliquée. Si la propriété CSS <code>transform</code> permet les transitions quand la classe de déplacement est appliquée, l’élément sera animé de façon fluide jusqu’à sa destination en utilisant la <a href="https://aerotwist.com/blog/flip-your-animations/" target="_blank" rel="external">technique FLIP</a>.</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">transition-group</span> <span class="attr">tag</span>=<span class="string">"ul"</span> <span class="attr">name</span>=<span class="string">"slide"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"item in items"</span> <span class="attr">:key</span>=<span class="string">"item.id"</span>&gt;</span></div><div class="line">    &#123;&#123; item.text &#125;&#125;</div><div class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">transition-group</span>&gt;</span></div></pre></td></tr></table></figure>
 </li>
-<li><p><strong>Voir aussi :</strong> <a href="../guide/transitions.html">Transitions: Entering, Leaving, and Lists</a></p>
+<li><p><strong>Voir aussi :</strong> <a href="../guide/transitions.html">Transition : entrantes, sortantes et de listes</a></p>
 </li>
 </ul>
 <h3 id="keep-alive"><a href="#keep-alive" class="headerlink" title="keep-alive"></a>keep-alive</h3><ul>
 <li><p><strong>Props:</strong></p>
 <ul>
-<li><code>include</code> - string or RegExp or Array. Only components matched by this will be cached.</li>
-<li><code>exclude</code> - string or RegExp or Array. Any component matched by this will not be cached.</li>
+<li><code>include</code> - string ou RegExp. Seuls les composants correspondants seront mis en cache.</li>
+<li><code>exclude</code> - string ou RegExp. Les composants correspondants ne seront pas mis en cache.</li>
 </ul>
 </li>
 <li><p><strong>Utilisation :</strong></p>
-<p>When wrapped around a dynamic component, <code>&lt;keep-alive&gt;</code> caches the inactive component instances without destroying them. Similar to <code>&lt;transition&gt;</code>, <code>&lt;keep-alive&gt;</code> is an abstract component: it doesn’t render a DOM element itself, and doesn’t show up in the component parent chain.</p>
-<p>When a component is toggled inside <code>&lt;keep-alive&gt;</code>, its <code>activated</code> and <code>deactivated</code> lifecycle hooks will be invoked accordingly.</p>
+<p>Quand il entoure un composant dynamique, <code>&lt;keep-alive&gt;</code> met en cache les instances de composant inactives sans les détruire. Tout comme <code>&lt;transition&gt;</code>, <code>&lt;keep-alive&gt;</code> est un composant abstrait : le rendu ne donne pas d’élément supplémentaire dans le DOM, et il n’apparaît pas dans la chaîne de composants du parent.</p>
+<p>Lorsqu’un composant est permuté à l’intérieur de <code>&lt;keep-alive&gt;</code>, ses hooks de cycle de vie <code>activated</code> et <code>deactivated</code> seront appelés en conséquence.</p>
 <blockquote>
-<p>In 2.2.0+ and above, <code>activated</code> and <code>deactivated</code> will fire for all nested components inside a <code>&lt;keep-alive&gt;</code> tree.</p>
+<p>À partir de la 2.2.0+, <code>activated</code> et <code>deactivated</code> se déclencheront pour tous les composants imbriqués dans une arborescence <code>&lt;keep-alive&gt;</code>.</p>
 </blockquote>
-<p>Primarily used with preserve component state or avoid re-rendering.</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- basic --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">keep-alive</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">"view"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">keep-alive</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- multiple conditional children --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">keep-alive</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">comp-a</span> <span class="attr">v-if</span>=<span class="string">"a &gt; 1"</span>&gt;</span><span class="tag">&lt;/<span class="name">comp-a</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">comp-b</span> <span class="attr">v-else</span>&gt;</span><span class="tag">&lt;/<span class="name">comp-b</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">keep-alive</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- used together with &lt;transition&gt; --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">transition</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">keep-alive</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">"view"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">keep-alive</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">transition</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>Note, <code>&lt;keep-alive&gt;</code> is designed for the case where it has one direct child component that is being toggled. It does not work if you have <code>v-for</code> inside it. When there are multiple conditional children, as above, <code>&lt;keep-alive&gt;</code> requires that only one child is rendered at a time.</p>
+<p>Principalement utilisé pour préserver l’état du composant ou éviter un nouveau rendu.</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- basique --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">keep-alive</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">"view"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">keep-alive</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- de multiples enfants conditionnels --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">keep-alive</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">comp-a</span> <span class="attr">v-if</span>=<span class="string">"a &gt; 1"</span>&gt;</span><span class="tag">&lt;/<span class="name">comp-a</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">comp-b</span> <span class="attr">v-else</span>&gt;</span><span class="tag">&lt;/<span class="name">comp-b</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">keep-alive</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- utilisé avec &lt;transition&gt; --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">transition</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">keep-alive</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">"view"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">keep-alive</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">transition</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>Notez que <code>&lt;keep-alive&gt;</code> est conçu pour le cas où il a un seul composant enfant direct qui est permuté. Il ne fonctionne pas si vous avez <code>v-for</code> à l’intérieur. Quand il y a de multiples enfants condtionnels, comme ci-dessus, <code>&lt;keep-alive&gt;</code> requiert qu’un seul enfant soit visible à la fois.</p>
 </li>
-</ul>
-<ul>
-<li><p><strong><code>include</code> and <code>exclude</code></strong></p>
+<li><p><strong><code>include</code> et <code>exclude</code></strong></p>
 <blockquote>
-<p>New in 2.1.0+</p>
+<p>Nouveauté de la 2.1.0</p>
 </blockquote>
-<p>The <code>include</code> and <code>exclude</code> props allow components to be conditionally cached. Both props can be a comma-delimited string, a RegExp or an Array:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- comma-delimited string --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">keep-alive</span> <span class="attr">include</span>=<span class="string">"a,b"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">"view"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">keep-alive</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- regex (use v-bind) --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">keep-alive</span> <span class="attr">:include</span>=<span class="string">"/a|b/"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">"view"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">keep-alive</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- Array (use v-bind) --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">keep-alive</span> <span class="attr">:include</span>=<span class="string">"['a', 'b']"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">"view"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">keep-alive</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>The match is first checked on the component’s own <code>name</code> option, then its local registration name (the key in the parent’s <code>components</code> option) if the <code>name</code> option is not available. Anonymous components cannot be matched against.</p>
-<p class="tip"><code>&lt;keep-alive&gt;</code> does not work with functional components because they do not have instances to be cached.</p>
+<p>Les props <code>include</code> et <code>exclude</code> définissent les conditions de mise en cache des composants. Les deux props peuvent être soit une liste délimitée par des virgules, soit une expression régulière, soit une Array :</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- liste délimitée par des virgules --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">keep-alive</span> <span class="attr">include</span>=<span class="string">"a,b"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">"view"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">keep-alive</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- expression régulière (utiliser v-bind) --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">keep-alive</span> <span class="attr">:include</span>=<span class="string">"/a|b/"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">"view"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">keep-alive</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- Array (utiliser v-bind) --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">keep-alive</span> <span class="attr">:include</span>=<span class="string">"['a', 'b']"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">"view"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">keep-alive</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>La correspondance est d’abord faite avec l’option <code>name</code> propre au composant, puis avec son nom d’inscription locale (la clé dans l’option <code>components</code> du parent) si l’option <code>name</code> n’est pas disponible. Les composants anonymes ne peuvent pas être mis en correspondance.</p>
+<p class="tip"><code>&lt;keep-alive&gt;</code> ne fonctionne pas avec les composants fonctionnels puisqu’ils n’ont pas d’instances à mettre en cache.</p>
 </li>
-<li><p><strong>Voir aussi :</strong> <a href="../guide/components.html#keep-alive">Dynamic Components - keep-alive</a></p>
+<li><p><strong>Voir aussi :</strong> <a href="../guide/components.html#keep-alive">Composants dynamiques - keep-alive</a></p>
 </li>
 </ul>
 <h3 id="slot-1"><a href="#slot-1" class="headerlink" title="slot"></a>slot</h3><ul>
 <li><p><strong>Props:</strong></p>
 <ul>
-<li><code>name</code> - string, Used for named slot.</li>
+<li><code>name</code> - string, utilisé pour nommer le slot.</li>
 </ul>
 </li>
 <li><p><strong>Utilisation :</strong></p>
-<p><code>&lt;slot&gt;</code> serve as content distribution outlets in component templates. <code>&lt;slot&gt;</code> itself will be replaced.</p>
-<p>For detailed usage, see the guide section linked below.</p>
+<p><code>&lt;slot&gt;</code> sert d’emplacement de distribution de contenu dans les templates de composant. L’élement <code>&lt;slot&gt;</code> lui-même sera remplacé par le contenu.</p>
+<p>Pour un usage détaillé, consultez la section du guide en lien ci-dessous.</p>
 </li>
-<li><p><strong>Voir aussi :</strong> <a href="../guide/components.html#Content-Distribution-with-Slots">Content Distribution with Slots</a></p>
+<li><p><strong>Voir aussi :</strong> <a href="../guide/components.html#Content-Distribution-with-Slots">Distribution de contenu avec les Slots</a></p>
 </li>
 </ul>
-<h2 id="VNode-Interface"><a href="#VNode-Interface" class="headerlink" title="VNode Interface"></a>VNode Interface</h2><ul>
-<li>Please refer to the <a href="https://github.com/vuejs/vue/blob/dev/src/core/vdom/vnode.js" target="_blank" rel="external">VNode class declaration</a>.</li>
+<h2 id="Interface-VNode"><a href="#Interface-VNode" class="headerlink" title="Interface VNode"></a>Interface VNode</h2><ul>
+<li>Veuillez vous référer à la <a href="https://github.com/vuejs/vue/blob/dev/src/core/vdom/vnode.js" target="_blank" rel="external">déclaration de classe VNode</a>.</li>
 </ul>
-<h2 id="Server-Side-Rendering"><a href="#Server-Side-Rendering" class="headerlink" title="Server-Side Rendering"></a>Server-Side Rendering</h2><ul>
-<li>Please refer to the <a href="https://github.com/vuejs/vue/tree/dev/packages/vue-server-renderer" target="_blank" rel="external">vue-server-renderer package documentation</a>.</li>
+<h2 id="Rendu-cote-serveur"><a href="#Rendu-cote-serveur" class="headerlink" title="Rendu côté serveur"></a>Rendu côté serveur</h2><ul>
+<li>Veuillez vous référer à la <a href="https://github.com/vuejs/vue/tree/dev/packages/vue-server-renderer" target="_blank" rel="external">documentation du package vue-server-renderer</a>.</li>
 </ul>
 
     
