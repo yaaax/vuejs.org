@@ -271,7 +271,7 @@
 <p>Définit des stratégies personnalisées de fusion pour les options.</p>
 <p>La stratégie de fusion reçoit en arguments la valeur de cette option définie dans le parent et les instances enfants en tant que premier et second argument, respectivement. L’instance de Vue est passée en troisième argument.</p>
 </li>
-<li><p><strong>Voir aussi</strong> : <a href="../guide/mixins.html#Custom-Option-Merge-Strategies">Stratégies personnalisées de fusion d’options</a></p>
+<li><p><strong>Voir aussi :</strong> <a href="../guide/mixins.html#Strategie-de-fusion-des-options-personnalisees">Stratégie de fusion des options personnalisées</a></p>
 </li>
 </ul>
 <h3 id="devtools"><a href="#devtools" class="headerlink" title="devtools"></a>devtools</h3><ul>
@@ -392,7 +392,7 @@
 <p>Nouveauté de la 2.1.0+ : retourne une Promise si aucune fonction de callback n’est fournie et si Promise est supporté par l’environnement d’exécution.</p>
 </blockquote>
 </li>
-<li><p><strong>Voir aussi :</strong> <a href="../guide/reactivity.html#Async-Update-Queue">File de mise à jour asynchrone</a></p>
+<li><p><strong>Voir aussi :</strong> <a href="../guide/reactivity.html#File-d’attente-de-mise-a-jour-asynchrone">File d’attente de mise à jour asynchrone</a></p>
 </li>
 </ul>
 <h3 id="Vue-set">Vue.set( cible, clé, valeur )</h3>
@@ -411,7 +411,7 @@
 <p>Assigne une propriété à un objet cible. Si l’objet est réactif, cette méthode s’assure que la propriété est créée en tant que propriété réactive et déclenche les mises à jour de la vue. Ceci est principalement utilisé pour passer outre la limitation de Vue qui est de ne pas pouvoir détecter automatiquement l’ajout de nouvelles propriétés.</p>
 <p><strong>Notez que l’objet ne peut pas être une instance de Vue, ou l’objet de données à la racine d’une instance de Vue.</strong></p>
 </li>
-<li><p><strong>Voir aussi :</strong> <a href="../guide/reactivity.html">Réactivité en détail</a></p>
+<li><p><strong>Voir aussi :</strong> <a href="../guide/reactivity.html">Réactivité dans le détail</a></p>
 </li>
 </ul>
 <h3 id="Vue-delete">Vue.delete( cible, clé )</h3>
@@ -430,7 +430,7 @@
 <p>Supprime une propriété d’un objet cible. Si l’objet est réactif, cette méthode s’assure que la suppression déclenche les mises à jour de la vue. Ceci est principalement utilisé pour passer outre la limitation de Vue qui est de ne pas pouvoir détecter automatiquement la suppression de propriétés, mais vous devriez rarement en avoir besoin.</p>
 <p class="tip">L’objet cible ne peut pas être une instance de Vue, ou l’objet de données à la racine d’une instance de Vue.</p>
 </li>
-<li><p><strong>Voir aussi :</strong> <a href="../guide/reactivity.html">Réactivité en détail</a></p>
+<li><p><strong>Voir aussi :</strong> <a href="../guide/reactivity.html">Réactivité dans le détail</a></p>
 </li>
 </ul>
 <h3 id="Vue-directive">Vue.directive( id, [définition] )</h3>
@@ -476,7 +476,7 @@
 <p>Inscrit ou récupère un composant global. L’inscription assigne aussi automatiquement la propriété <code>name</code> du composant au paramètre <code>id</code> donné.</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// inscrit un constructeur étendu</span></div><div class="line">Vue.component(<span class="string">'mon-composant'</span>, Vue.extend(&#123; <span class="comment">/* ... */</span> &#125;))</div><div class="line"></div><div class="line"><span class="comment">// inscrit un composant avec un objet options (appelle automatiquement Vue.extend)</span></div><div class="line">Vue.component(<span class="string">'mon-composant'</span>, &#123; <span class="comment">/* ... */</span> &#125;)</div><div class="line"></div><div class="line"><span class="comment">// récupère un composant inscrit (retourne toujours le constructeur)</span></div><div class="line"><span class="keyword">var</span> MonComposant = Vue.component(<span class="string">'mon-composant'</span>)</div></pre></td></tr></table></figure>
 </li>
-<li><p><strong>Voir aussi :</strong> <a href="../guide/components.html">Composants</a>.</p>
+<li><p><strong>Voir aussi :</strong> <a href="../guide/components.html">Composants</a></p>
 </li>
 </ul>
 <h3 id="Vue-use">Vue.use( plugin )</h3>
@@ -491,7 +491,7 @@
 <p>Installe un plugin Vue.js. Si l’argument plugin est de type Object, il doit exposer une méthode  <code>install</code>. S’il s’agit d’une fonction, elle sera utilisée comme méthode d’installation. Cette méthode d’installation sera appelée avec Vue en tant qu’argument.</p>
 <p>Quand cette méthode est appelée avec le même plugin plusieurs fois, le plugin ne sera installée qu’une seule fois.</p>
 </li>
-<li><p><strong>Voir aussi :</strong> <a href="../guide/plugins.html">Plugins</a>.</p>
+<li><p><strong>Voir aussi :</strong> <a href="../guide/plugins.html">Plugins</a></p>
 </li>
 </ul>
 <h3 id="Vue-mixin">Vue.mixin( mixin )</h3>
@@ -505,7 +505,7 @@
 <li><p><strong>Utilisation :</strong></p>
 <p>Applique une mixin globale, qui affecte toutes les instances de Vue créées par la suite. Cela peut être utilisé par les créateurs de plugins pour injecter un composant personnalisé dans les composants. <strong>Non recommandé dans le code applicatif</strong>.</p>
 </li>
-<li><p><strong>Voir aussi :</strong> <a href="../guide/mixins.html#Global-Mixin">Mixins globales</a></p>
+<li><p><strong>Voir aussi :</strong> <a href="../guide/mixins.html#Mixin-global">Mixin global</a></p>
 </li>
 </ul>
 <h3 id="Vue-compile">Vue.compile( template )</h3>
@@ -549,7 +549,7 @@
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> data = &#123; <span class="attr">a</span>: <span class="number">1</span> &#125;</div><div class="line"></div><div class="line"><span class="comment">// création directe d'instance</span></div><div class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</div><div class="line">  <span class="attr">data</span>: data</div><div class="line">&#125;)</div><div class="line">vm.a <span class="comment">// -&gt; 1</span></div><div class="line">vm.$data === data <span class="comment">// -&gt; true</span></div><div class="line"></div><div class="line"><span class="comment">// data doit être une fonction lorsqu'utilisée dans Vue.extend()</span></div><div class="line"><span class="keyword">var</span> Composant = Vue.extend(&#123;</div><div class="line">  <span class="attr">data</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> &#123; <span class="attr">a</span>: <span class="number">1</span> &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <p class="tip">Notez que <strong>vous ne devriez pas utiliser de fonctions fléchées pour la propriété <code>data</code></strong> (exemple: <code>data: () =&gt; { return { a: this.maPropriete }}</code>). La raison est que les fonctions fléchées sont liées au contexte parent, donc <code>this</code> ne correspondra pas à l’instance de Vue et  <code>this.maPropriete</code> vaudra <code>undefined</code>.</p>
 </li>
-<li><p><strong>Voir aussi :</strong> <a href="../guide/reactivity.html">Réactivité en détail</a>.</p>
+<li><p><strong>Voir aussi :</strong> <a href="../guide/reactivity.html">Réactivité dans le détail</a></p>
 </li>
 </ul>
 <h3 id="props"><a href="#props" class="headerlink" title="props"></a>props</h3><ul>
@@ -561,7 +561,7 @@
 <li><p><strong>Exemple :</strong></p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// syntaxe simple</span></div><div class="line">Vue.component(<span class="string">'props-démo-simple'</span>, &#123;</div><div class="line">  <span class="attr">props</span>: [<span class="string">'taille'</span>, <span class="string">'monMessage'</span>]</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="comment">// syntaxe avancée avec validation</span></div><div class="line">Vue.component(<span class="string">'props-démo-avancée'</span>, &#123;</div><div class="line">  <span class="attr">props</span>: &#123;</div><div class="line">    <span class="comment">// juste une vérification de type</span></div><div class="line">    hauteur: <span class="built_in">Number</span>,</div><div class="line">    <span class="comment">// vérification du type ainsi que d'autres validations</span></div><div class="line">    âge: &#123;</div><div class="line">      <span class="attr">type</span>: <span class="built_in">Number</span>,</div><div class="line">      <span class="attr">default</span>: <span class="number">0</span>,</div><div class="line">      <span class="attr">required</span>: <span class="literal">true</span>,</div><div class="line">      <span class="attr">validator</span>: <span class="function"><span class="keyword">function</span> (<span class="params">valeur</span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> valeur &gt;= <span class="number">0</span></div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 </li>
-<li><p><strong>Voir aussi :</strong> <a href="../guide/components.html#Props">Attributs</a></p>
+<li><p><strong>Voir aussi :</strong> <a href="../guide/components.html#Props">Props</a></p>
 </li>
 </ul>
 <h3 id="propsData"><a href="#propsData" class="headerlink" title="propsData"></a>propsData</h3><ul>
@@ -588,10 +588,7 @@
 <li><p><strong>Exemple :</strong></p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</div><div class="line">  <span class="attr">data</span>: &#123; <span class="attr">a</span>: <span class="number">1</span> &#125;,</div><div class="line">  <span class="attr">computed</span>: &#123;</div><div class="line">    <span class="comment">// accesseur uniquement, on a juste besoin d'une fonction</span></div><div class="line">    aDouble: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="keyword">return</span> <span class="keyword">this</span>.a * <span class="number">2</span></div><div class="line">    &#125;,</div><div class="line">    <span class="comment">// accesseur et mutateur à la fois</span></div><div class="line">    aPlus: &#123;</div><div class="line">      <span class="attr">get</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.a + <span class="number">1</span></div><div class="line">      &#125;,</div><div class="line">      <span class="attr">set</span>: <span class="function"><span class="keyword">function</span> (<span class="params">v</span>) </span>&#123;</div><div class="line">        <span class="keyword">this</span>.a = v - <span class="number">1</span></div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line">vm.aPlus   <span class="comment">// -&gt; 2</span></div><div class="line">vm.aPlus = <span class="number">3</span></div><div class="line">vm.a       <span class="comment">// -&gt; 2</span></div><div class="line">vm.aDouble <span class="comment">// -&gt; 4</span></div></pre></td></tr></table></figure>
 </li>
-<li><p><strong>Voir aussi :</strong></p>
-<ul>
-<li><a href="../guide/computed.html">Propriétés calculées</a></li>
-</ul>
+<li><p><strong>Voir aussi :</strong> <a href="../guide/computed.html">Propriétés calculées</a></p>
 </li>
 </ul>
 <h3 id="methods"><a href="#methods" class="headerlink" title="methods"></a>methods</h3><ul>
@@ -604,7 +601,7 @@
 <li><p><strong>Exemple :</strong></p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</div><div class="line">  <span class="attr">data</span>: &#123; <span class="attr">a</span>: <span class="number">1</span> &#125;,</div><div class="line">  <span class="attr">methods</span>: &#123;</div><div class="line">    <span class="attr">plus</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="keyword">this</span>.a++</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line">vm.plus()</div><div class="line">vm.a <span class="comment">// 2</span></div></pre></td></tr></table></figure>
 </li>
-<li><p><strong>Voir aussi :</strong> <a href="../guide/events.html">Méthodes et gestion d’évènements</a></p>
+<li><p><strong>Voir aussi :</strong> <a href="../guide/events.html">Gestion des évènements</a></p>
 </li>
 </ul>
 <h3 id="watch"><a href="#watch" class="headerlink" title="watch"></a>watch</h3><ul>
@@ -615,12 +612,10 @@
 </li>
 <li><p><strong>Exemple :</strong></p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</div><div class="line">  <span class="attr">data</span>: &#123;</div><div class="line">    <span class="attr">a</span>: <span class="number">1</span>,</div><div class="line">    <span class="attr">b</span>: <span class="number">2</span>,</div><div class="line">    <span class="attr">c</span>: <span class="number">3</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">watch</span>: &#123;</div><div class="line">    <span class="attr">a</span>: <span class="function"><span class="keyword">function</span> (<span class="params">valeur, ancienneValeur</span>) </span>&#123;</div><div class="line">      <span class="built_in">console</span>.log(<span class="string">'nouveau: %s, ancien: %s'</span>, valeur, ancienneValeur)</div><div class="line">    &#125;,</div><div class="line">    <span class="comment">// nom d'une méthode</span></div><div class="line">    b: <span class="string">'uneMéthode'</span>,</div><div class="line">    <span class="comment">// observateur profond (deep watcher)</span></div><div class="line">    c: &#123;</div><div class="line">      <span class="attr">handler</span>: <span class="function"><span class="keyword">function</span> (<span class="params">valeur, ancienneValeur</span>) </span>&#123; <span class="comment">/* ... */</span> &#125;,</div><div class="line">      <span class="attr">deep</span>: <span class="literal">true</span></div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line">vm.a = <span class="number">2</span> <span class="comment">// -&gt; nouveau: 2, ancien: 1</span></div></pre></td></tr></table></figure>
+<p class="tip">Notez que <strong>vous ne devriez pas utiliser de fonctions fléchées pour définir un observateur</strong> (exemple: <code>saisie: nouvelleValeur =&gt; this.actualiserSuggestions(nouvelleValeur)</code>). La raison est que les fonctions fléchées sont liées au contexte parent, donc <code>this</code> ne correspondra pas à l’instance de Vue et <code>this.actualiserSuggestions</code> vaudra <code>undefined</code>.</p>
 </li>
-</ul>
-  <p class="tip">Notez que <strong>vous ne devriez pas utiliser de fonctions fléchées pour définir un observateur</strong> (exemple: <code>saisie: nouvelleValeur =&gt; this.actualiserSuggestions(nouvelleValeur)</code>). La raison est que les fonctions fléchées sont liées au contexte parent, donc <code>this</code> ne correspondra pas à l’instance de Vue et <code>this.actualiserSuggestions</code> vaudra <code>undefined</code>.</p>
-
-<ul>
-<li><strong>Voir aussi :</strong> <a href="#vm-watch">Méthodes d’instance - vm.$watch</a></li>
+<li><p><strong>Voir aussi :</strong> <a href="#vm-watch">Méthodes et données d’instance - vm.$watch</a></p>
+</li>
 </ul>
 <h2 id="Options-DOM"><a href="#Options-DOM" class="headerlink" title="Options / DOM"></a>Options / DOM</h2><h3 id="el"><a href="#el" class="headerlink" title="el"></a>el</h3><ul>
 <li><p><strong>Type :</strong> <code>string | HTMLElement</code></p>
@@ -637,8 +632,8 @@
 </li>
 <li><p><strong>Voir aussi :</strong></p>
 <ul>
-<li><a href="../guide/instance.html#Lifecycle-Diagram">Diagramme du Cycle de Vie</a></li>
-<li><a href="../guide/installation.html#Runtime-Compiler-vs-Runtime-only">Runtime + Compilateur vs. Runtime uniquement</a></li>
+<li><a href="../guide/instance.html#Diagramme-du-cycle-de-vie">Diagramme du cycle de vie</a></li>
+<li><a href="../guide/installation.html#Runtime-Compiler-vs-Runtime-seul">Runtime + Compiler vs. Runtime seul</a></li>
 </ul>
 </li>
 </ul>
@@ -654,8 +649,8 @@
 </li>
 <li><p><strong>Voir aussi :</strong></p>
 <ul>
-<li><a href="../guide/instance.html#Lifecycle-Diagram">Diagramme du Cycle de Vie</a></li>
-<li><a href="../guide/components.html#Content-Distribution-with-Slots">Distribution de Contenu</a></li>
+<li><a href="../guide/instance.html#Diagramme-du-cycle-de-vie">Diagramme du cycle de vie</a></li>
+<li><a href="../guide/components.html#Distribution-de-contenu-avec-des-slots">Distribution de contenu avec des slots</a></li>
 </ul>
 </li>
 </ul>
@@ -667,10 +662,7 @@
 <p>Si le composant est un composant fonctionnel, la fonction <code>render</code> recevra aussi un argument supplémentaire <code>context</code>, qui donne accès aux données contextuelles puisque les composants fonctionnels sont sans instance.</p>
 <p class="tip">La fonction <code>render</code> a la priorité par rapport à la fonction de rendu compilée à partir de l’option <code>template</code>, ou par rapport au template HTML de l’élément d’ancrage dans le DOM qui est spécifié par l’option <code>el</code>.</p>
 </li>
-<li><p><strong>Voir aussi :</strong></p>
-<ul>
-<li><a href="../guide/render-function.html">Fonctions de Rendu</a></li>
-</ul>
+<li><p><strong>Voir aussi :</strong> <a href="../guide/render-function.html">Fonctions de rendu</a></p>
 </li>
 </ul>
 <h3 id="renderError"><a href="#renderError" class="headerlink" title="renderError"></a>renderError</h3><blockquote>
@@ -686,10 +678,7 @@
 <li><p><strong>Exemple :</strong></p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">  render (h) &#123;</div><div class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'oups'</span>)</div><div class="line">  &#125;,</div><div class="line">  renderError (h, err) &#123;</div><div class="line">    <span class="keyword">return</span> h(<span class="string">'pre'</span>, &#123; <span class="attr">style</span>: &#123; <span class="attr">color</span>: <span class="string">'red'</span> &#125;&#125;, err.stack)</div><div class="line">  &#125;</div><div class="line">&#125;).$mount(<span class="string">'#app'</span>)</div></pre></td></tr></table></figure>
 </li>
-<li><p><strong>Voir aussi ::</strong></p>
-<ul>
-<li><a href="../guide/render-function.html">Fonctions de Rendu</a></li>
-</ul>
+<li><p><strong>Voir aussi :</strong> <a href="../guide/render-function.html">Fonctions de rendu</a></p>
 </li>
 </ul>
 <p class="tip">Tous les hooks du cycle de vie ont automatiquement leur contexte <code>this</code> rattaché à l’instance, afin que vous puissiez accéder aux données, propriétés calculées et méthodes. Cela signifie que <strong>vous ne devriez pas utiliser une fonction fléchée pour définir une méthode du cycle de vie</strong>  (p. ex. <code>created: () =&gt; this.fetchTodos()</code>). La raison est que les fonctions fléchées utilisent le contexte parent, donc <code>this</code> ne sera pas l’instance de Vue comme vous pouvez vous y attendre et <code>this.fetchTodos</code> sera <code>undefined</code>.</p>
@@ -700,7 +689,7 @@
 <li><p><strong>Détails :</strong></p>
 <p>Appelé de manière synchrone juste après que l’instance ait été initialisée, et avant l’observation des données et l’installation des évènements/observateurs.</p>
 </li>
-<li><p><strong>Voir aussi :</strong> <a href="../guide/instance.html#Lifecycle-Diagram">Diagramme du Cycle de Vie</a></p>
+<li><p><strong>Voir aussi :</strong> <a href="../guide/instance.html#Diagramme-du-cycle-de-vie">Diagramme du cycle de vie</a></p>
 </li>
 </ul>
 <h3 id="created"><a href="#created" class="headerlink" title="created"></a>created</h3><ul>
@@ -709,7 +698,7 @@
 <li><p><strong>Détails :</strong></p>
 <p>Appelé de manière synchrone après que l’instance ait été créée. À ce stade, l’instance a fini de traiter les options, ce qui signifie que les éléments suivants ont été installés: observation des données, propriétés calculées, méthodes, fonctions de retour des observateurs et évènements. Cependant, la propriété <code>$el</code> n’est pas encore disponible.</p>
 </li>
-<li><p><strong>Voir aussi :</strong> <a href="../guide/instance.html#Lifecycle-Diagram">Diagramme du Cycle de Vie</a></p>
+<li><p><strong>Voir aussi :</strong> <a href="../guide/instance.html#Diagramme-du-cycle-de-vie">Diagramme du cycle de vie</a></p>
 </li>
 </ul>
 <h3 id="beforeMount"><a href="#beforeMount" class="headerlink" title="beforeMount"></a>beforeMount</h3><ul>
@@ -719,7 +708,7 @@
 <p>Appelé juste avant que le montage commence: la fonction <code>render</code> est sur le point d’être appelée pour la première fois.</p>
 <p><strong>Ce hook n’est pas appelé durant le rendu côté serveur.</strong></p>
 </li>
-<li><p><strong>Voir aussi :</strong> <a href="../guide/instance.html#Lifecycle-Diagram">Diagramme du Cycle de Vie</a></p>
+<li><p><strong>Voir aussi :</strong> <a href="../guide/instance.html#Diagramme-du-cycle-de-vie">Diagramme du cycle de vie</a></p>
 </li>
 </ul>
 <h3 id="mounted"><a href="#mounted" class="headerlink" title="mounted"></a>mounted</h3><ul>
@@ -729,7 +718,7 @@
 <p>Appelé juste après que l’instance ait été montée, là où <code>el</code> est remplacé par le nouvellement créé <code>vm.$el</code>. Si l’instance à la racine est montée sur un élément du document, alors <code>vm.$el</code> sera aussi dans le document quand <code>mounted</code> est appelé.</p>
 <p><strong>Ce hook n’est pas appelé durant le rendu côté serveur.</strong></p>
 </li>
-<li><p><strong>Voir aussi :</strong> <a href="../guide/instance.html#Lifecycle-Diagram">Diagramme du Cycle de Vie</a></p>
+<li><p><strong>Voir aussi :</strong> <a href="../guide/instance.html#Diagramme-du-cycle-de-vie">Diagramme du cycle de vie</a></p>
 </li>
 </ul>
 <h3 id="beforeUpdate"><a href="#beforeUpdate" class="headerlink" title="beforeUpdate"></a>beforeUpdate</h3><ul>
@@ -740,7 +729,7 @@
 <p>Vous pouvez effectuer d’autres changements d’état dans ce hook et ils ne déclencheront pas de rendus additionnels.</p>
 <p><strong>Ce hook n’est pas appelé durant le rendu côté serveur.</strong></p>
 </li>
-<li><p><strong>Voir aussi :</strong> <a href="../guide/instance.html#Lifecycle-Diagram">Diagramme du Cycle de Vie</a></p>
+<li><p><strong>Voir aussi :</strong> <a href="../guide/instance.html#Diagramme-du-cycle-de-vie">Diagramme du cycle de vie</a></p>
 </li>
 </ul>
 <h3 id="updated"><a href="#updated" class="headerlink" title="updated"></a>updated</h3><ul>
@@ -751,7 +740,7 @@
 <p>Le DOM du composant aura été mis à jour quand ce hook est appelé, donc vous pouvez effectuer des opérations dépendantes du DOM ici. Cependant, dans la plupart des cas, vous devriez éviter de changer l’état dans ce hook. Pour réagir à des changements d’état, il vaut généralement mieux utiliser une <a href="#computed">propriété calculée</a> ou un <a href="#watch">observateur</a> à la place.</p>
 <p><strong>Ce hook n’est pas appelé durant le rendu côté serveur.</strong></p>
 </li>
-<li><p><strong>Voir aussi :</strong> <a href="../guide/instance.html#Lifecycle-Diagram">Diagramme du Cycle de Vie</a></p>
+<li><p><strong>Voir aussi :</strong> <a href="../guide/instance.html#Diagramme-du-cycle-de-vie">Diagramme du cycle de vie</a></p>
 </li>
 </ul>
 <h3 id="activated"><a href="#activated" class="headerlink" title="activated"></a>activated</h3><ul>
@@ -763,7 +752,7 @@
 </li>
 <li><p><strong>Voir aussi :</strong></p>
 <ul>
-<li><a href="#keep-alive">Composants intégrés de base - keep-alive</a></li>
+<li><a href="#keep-alive">Composants intégrés par défaut - keep-alive</a></li>
 <li><a href="../guide/components.html#keep-alive">Composants dynamiques - keep-alive</a></li>
 </ul>
 </li>
@@ -777,7 +766,7 @@
 </li>
 <li><p><strong>Voir aussi :</strong></p>
 <ul>
-<li><a href="#keep-alive">Composants intégrés de base - keep-alive</a></li>
+<li><a href="#keep-alive">Composants intégrés par défaut - keep-alive</a></li>
 <li><a href="../guide/components.html#keep-alive">Composants dynamiques - keep-alive</a></li>
 </ul>
 </li>
@@ -789,7 +778,7 @@
 <p>Appelé juste avant qu’une instance de Vue ne soit détruite. À ce stade, l’instance est toujours pleinement fonctionnelle.</p>
 <p><strong>Ce hook n’est pas appelé durant le rendu côté serveur.</strong></p>
 </li>
-<li><p><strong>Voir aussi :</strong> <a href="../guide/instance.html#Lifecycle-Diagram">Diagramme du Cycle de Vie</a></p>
+<li><p><strong>Voir aussi :</strong> <a href="../guide/instance.html#Diagramme-du-cycle-de-vie">Diagramme du cycle de vie</a></p>
 </li>
 </ul>
 <h3 id="destroyed"><a href="#destroyed" class="headerlink" title="destroyed"></a>destroyed</h3><ul>
@@ -799,7 +788,7 @@
 <p>Appelé après qu’une instance de Vue ait été détruite. Quand ce hook est appelé, toutes les directives de l’instance de Vue ont été détachées, tous les écouteurs d’évènements ont été supprimés et toutes les instances de Vue enfants ont également été détruites.</p>
 <p><strong>Ce hook n’est pas appelé durant le rendu côté serveur.</strong></p>
 </li>
-<li><p><strong>Voir aussi :</strong> <a href="../guide/instance.html#Lifecycle-Diagram">Diagramme du Cycle de Vie</a></p>
+<li><p><strong>Voir aussi :</strong> <a href="../guide/instance.html#Diagramme-du-cycle-de-vie">Diagramme du cycle de vie</a></p>
 </li>
 </ul>
 <h2 id="Options-Ressources"><a href="#Options-Ressources" class="headerlink" title="Options / Ressources"></a>Options / Ressources</h2><h3 id="directives"><a href="#directives" class="headerlink" title="directives"></a>directives</h3><ul>
@@ -808,10 +797,7 @@
 <li><p><strong>Détails :</strong></p>
 <p>Un objet de mappage des directives à mettre à disposition de l’instance de Vue.</p>
 </li>
-<li><p><strong>Voir aussi :</strong></p>
-<ul>
-<li><a href="../guide/custom-directive.html">Directives Personnalisées</a></li>
-</ul>
+<li><p><strong>Voir aussi :</strong> <a href="../guide/custom-directive.html">Directives personnalisées</a></p>
 </li>
 </ul>
 <h3 id="filters"><a href="#filters" class="headerlink" title="filters"></a>filters</h3><ul>
@@ -820,10 +806,7 @@
 <li><p><strong>Détails :</strong></p>
 <p>Un objet de mappage des filtres à mettre à disposition de l’instance de Vue.</p>
 </li>
-<li><p><strong>Voir aussi :</strong></p>
-<ul>
-<li><a href="#Vue-filter"><code>Vue.filter</code></a></li>
-</ul>
+<li><p><strong>Voir aussi :</strong> <a href="#Vue-filter"><code>Vue.filter</code></a></p>
 </li>
 </ul>
 <h3 id="components"><a href="#components" class="headerlink" title="components"></a>components</h3><ul>
@@ -832,10 +815,7 @@
 <li><p><strong>Détails :</strong></p>
 <p>Un objet de mappage des composants à mettre à disposition de l’instance de Vue.</p>
 </li>
-<li><p><strong>Voir aussi :</strong></p>
-<ul>
-<li><a href="../guide/components.html">Components</a></li>
-</ul>
+<li><p><strong>Voir aussi :</strong> <a href="../guide/components.html">Composants</a></p>
 </li>
 </ul>
 <h2 id="Options-Divers"><a href="#Options-Divers" class="headerlink" title="Options / Divers"></a>Options / Divers</h2><h3 id="parent"><a href="#parent" class="headerlink" title="parent"></a>parent</h3><ul>
@@ -934,7 +914,7 @@
 <li><p><strong>Détails :</strong></p>
 <p>Rend le composant sans état (pas de propriété <code>data</code>) et sans instance (pas de contexte <code>this</code>). Il s’agit simplement d’une fonction <code>render</code> qui retourne des nœuds virtuels, ce qui réduit fortement les coûts en performance au rendu pour ce type de composants.</p>
 </li>
-<li><p><strong>Voir aussi :</strong> <a href="../guide/render-function.html#Functional-Components">Composants Fonctionnels</a></p>
+<li><p><strong>Voir aussi :</strong> <a href="../guide/render-function.html#Composants-fonctionnels">Composants fonctionnels</a></p>
 </li>
 </ul>
 <h3 id="model"><a href="#model" class="headerlink" title="model"></a>model</h3><blockquote>
@@ -986,7 +966,7 @@
 <li><p><strong>Détails :</strong></p>
 <p>L’objet <code>data</code> est ce que l’instance de Vue observe. L’instance de Vue agit comme un proxy pour l’accès aux propriétés de cet objet <code>data</code>.</p>
 </li>
-<li><p><strong>Voir aussi :</strong> <a href="#data">Options - data</a></p>
+<li><p><strong>Voir aussi :</strong> <a href="#data">Options / Data - data</a></p>
 </li>
 </ul>
 <h3 id="vm-props"><a href="#vm-props" class="headerlink" title="vm.$props"></a>vm.$props</h3><blockquote>
@@ -1051,8 +1031,8 @@
 <li><p><strong>Accessible uniquement en lecture</strong></p>
 </li>
 <li><p><strong>Détails :</strong></p>
-<p>Utilisé pour accéder programmatiquement à du contenu <a href="../guide/components.html#Content-Distribution-with-Slots">distribué par slots</a>. Chaque <a href="../guide/components.html#Named-Slots">slot nommé</a> a sa propriété correspondante (p. ex. le contenu de <code>slot=&quot;foo&quot;</code> sera trouvé dans <code>vm.$slots.foo</code>). La propriété <code>default</code> contient tous les nœuds non inclus dans un slot nommé.</p>
-<p>Accéder à <code>vm.$slots</code> est plus utile lorsque vous écrivez un composant avec une <a href="../guide/render-function.html">fonction <code>render</code></a>.</p>
+<p>Utilisé pour accéder programmatiquement à du contenu <a href="../guide/components.html#Distribution-de-contenu-avec-des-slots">distribué par slots</a>. Chaque <a href="../guide/components.html#Slots-nommes">slot nommé</a> a sa propriété correspondante (p. ex. le contenu de <code>slot=&quot;foo&quot;</code> sera trouvé dans <code>vm.$slots.foo</code>). La propriété <code>default</code> contient tous les nœuds non inclus dans un slot nommé.</p>
+<p>Accéder à <code>vm.$slots</code> est plus utile lorsque vous écrivez un composant avec une <a href="../guide/render-function.html">fonction de rendu</a>.</p>
 </li>
 <li><p><strong>Exemple :</strong></p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">blog-post</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">h1</span> <span class="attr">slot</span>=<span class="string">"header"</span>&gt;</span></div><div class="line">    À propos de moi</div><div class="line">  <span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line"></div><div class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>Voici du contenu pour la page, qui sera inclus dans vm.$slots.default, car il n'est pas à l'intérieur d'un slot nommé.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"></div><div class="line">  <span class="tag">&lt;<span class="name">p</span> <span class="attr">slot</span>=<span class="string">"footer"</span>&gt;</span></div><div class="line">    Copyright 2016 Evan You</div><div class="line">  <span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"></div><div class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>Si j'ai du contenu ici, il sera aussi inclus dans vm.$slots.default.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">blog-post</span>&gt;</span></div></pre></td></tr></table></figure>
@@ -1060,9 +1040,9 @@
 </li>
 <li><p><strong>Voir aussi :</strong></p>
 <ul>
-<li><a href="#slot-1"><code>Composant &lt;slot&gt;</code></a></li>
-<li><a href="../guide/components.html#Content-Distribution-with-Slots">Distribution de Contenu avec des Slots</a></li>
-<li><a href="../guide/render-function.html#Slots">Fonctions de Rendu: Slots</a></li>
+<li><a href="#slot-1">Composant <code>&lt;slot&gt;</code></a></li>
+<li><a href="../guide/components.html#Distribution-de-contenu-avec-des-slots">Distribution de contenu avec des slots</a></li>
+<li><a href="../guide/render-function.html#Slots">Fonctions de rendu - Slots</a></li>
 </ul>
 </li>
 </ul>
@@ -1075,14 +1055,14 @@
 <li><p><strong>Accessible uniquement en lecture</strong></p>
 </li>
 <li><p><strong>Détails :</strong></p>
-<p>Utilisé pour accéder programmatiquement aux <a href="../guide/components.html#Scoped-Slots">slots à portée</a>. Pour chaque slot, y-compris celui par défaut <code>default</code>, l’objet contient une fonction correspondante qui retourne des nœuds virtuels <code>VNode</code>.</p>
-<p>Accéder à <code>vm.$scopedSlots</code> est surtout utile lors de l’écriture d’un composant avec une <a href="../guide/render-function.html">fonction render</a>.</p>
+<p>Utilisé pour accéder programmatiquement aux <a href="../guide/components.html#Slots-avec-portee">slots avec portée</a>. Pour chaque slot, y-compris celui par défaut <code>default</code>, l’objet contient une fonction correspondante qui retourne des nœuds virtuels <code>VNode</code>.</p>
+<p>Accéder à <code>vm.$scopedSlots</code> est surtout utile lors de l’écriture d’un composant avec une <a href="../guide/render-function.html">fonction de rendu</a>.</p>
 </li>
 <li><p><strong>Voir aussi :</strong></p>
 <ul>
 <li><a href="#slot-1">Composant <code>&lt;slot&gt;</code></a></li>
-<li><a href="../guide/components.html#Scoped-Slots">Slots à portée</a></li>
-<li><a href="../guide/render-function.html#Slots">Fonctions Render : Slots</a></li>
+<li><a href="../guide/components.html#Slots-avec-portee">Slots avec portée</a></li>
+<li><a href="../guide/render-function.html#Slots">Fonctions de rendu - Slots</a></li>
 </ul>
 </li>
 </ul>
@@ -1096,8 +1076,8 @@
 </li>
 <li><p><strong>Voir aussi :</strong></p>
 <ul>
-<li><a href="../guide/components.html#Child-Component-Refs">Références aux Composants Enfants</a></li>
-<li><a href="#ref">ref</a></li>
+<li><a href="../guide/components.html#Les-refs-des-composants-enfants">Les refs des composants enfants</a></li>
+<li><a href="#ref">Attributs spéciaux - ref</a></li>
 </ul>
 </li>
 </ul>
@@ -1282,7 +1262,7 @@
 </li>
 <li><p><strong>Voir aussi :</strong></p>
 <ul>
-<li><a href="../guide/instance.html#Lifecycle-Diagram">Diagramme du Cycle de Vie</a></li>
+<li><a href="../guide/instance.html#Diagramme-du-cycle-de-vie">Diagramme du cycle de vie</a></li>
 <li><a href="../guide/ssr.html">Rendu côté serveur</a></li>
 </ul>
 </li>
@@ -1314,7 +1294,7 @@
 <li><p><strong>Voir aussi :</strong></p>
 <ul>
 <li><a href="#Vue-nextTick">Vue.nextTick</a></li>
-<li><a href="../guide/reactivity.html#Async-Update-Queue">File de mise à jour asynchrone</a></li>
+<li><a href="../guide/reactivity.html#File-d’attente-de-mise-a-jour-asynchrone">File d’attente de mise à jour asynchrone</a></li>
 </ul>
 </li>
 </ul>
@@ -1326,7 +1306,7 @@
 <p>Déclenche les hooks <code>beforeDestroy</code> et <code>destroyed</code>.</p>
 <p class="tip">Dans les cas d’utilisation normaux, vous ne devriez pas avoir à appeler cette méthode vous-même. Contrôlez plutôt le cycle de vie de vos composants enfants de manière pilotée par les données, en utilisant <code>v-if</code> et <code>v-for</code>.</p>
 </li>
-<li><p><strong>Voir aussi :</strong> <a href="../guide/instance.html#Lifecycle-Diagram">Diagramme du Cycle de Vie</a></p>
+<li><p><strong>Voir aussi :</strong> <a href="../guide/instance.html#Diagramme-du-cycle-de-vie">Diagramme du cycle de vie</a></p>
 </li>
 </ul>
 <h2 id="Directives"><a href="#Directives" class="headerlink" title="Directives"></a>Directives</h2><h3 id="v-text"><a href="#v-text" class="headerlink" title="v-text"></a>v-text</h3><ul>
@@ -1338,7 +1318,7 @@
 <li><p><strong>Exemple :</strong></p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">v-text</span>=<span class="string">"msg"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line"><span class="comment">&lt;!-- même chose que --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">span</span>&gt;</span>&#123;&#123;msg&#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div></pre></td></tr></table></figure>
 </li>
-<li><p><strong>Voir aussi :</strong> <a href="../guide/syntax.html#Text">Syntaxe de liaison de données - interpolations</a></p>
+<li><p><strong>Voir aussi :</strong> <a href="../guide/syntax.html#Texte">Syntaxe de liaison de données - Interpolations</a></p>
 </li>
 </ul>
 <h3 id="v-html"><a href="#v-html" class="headerlink" title="v-html"></a>v-html</h3><ul>
@@ -1351,7 +1331,7 @@
 <li><p><strong>Exemple:</strong></p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-html</span>=<span class="string">"html"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
 </li>
-<li><p><strong>Voir aussi :</strong> <a href="../guide/syntax.html#Raw-HTML">Syntaxe de liaison de données - interpolations</a></p>
+<li><p><strong>Voir aussi :</strong> <a href="../guide/syntax.html#Interpetation-du-HTML">Syntaxe de liaison de données - Interpolations</a></p>
 </li>
 </ul>
 <h3 id="v-show"><a href="#v-show" class="headerlink" title="v-show"></a>v-show</h3><ul>
@@ -1372,7 +1352,7 @@
 <p>Cette directive déclenche des transitions quand sa condition change.</p>
 </li>
 </ul>
-<p class="tip">Quand utilisé avec v-if, v-for a une plus grande priorité par rapport à v-if. Voir le <a href="../guide/list.html#v-for-with-v-if">guide sur le rendu de listes</a> pour plus de détails.</p>
+<p class="tip">Quand utilisé avec v-if, v-for a une plus grande priorité par rapport à v-if. Voir le <a href="../guide/list.htmll#v-for-avec-v-if">guide sur le rendu de listes</a> pour plus de détails.</p>
 
 <ul>
 <li><strong>Voir aussi :</strong> <a href="../guide/conditional.html">Rendu conditionnel - v-if</a></li>
@@ -1386,10 +1366,7 @@
 <p>Dénote un bloc « else » pour <code>v-if</code> ou pour une chaîne <code>v-if</code>/<code>v-else-if</code>.</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-if</span>=<span class="string">"Math.random() &gt; 0.5"</span>&gt;</span></div><div class="line">  Là vous me voyez</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-else</span>&gt;</span></div><div class="line">  Là vous ne me voyez pas</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
 </li>
-<li><p><strong>Voir aussi :</strong></p>
-<ul>
-<li><a href="../guide/conditional.html#v-else">Rendu conditionnel - v-else</a></li>
-</ul>
+<li><p><strong>Voir aussi :</strong> <a href="../guide/conditional.html#v-else">Rendu conditionnel - v-else</a></p>
 </li>
 </ul>
 <h3 id="v-else-if"><a href="#v-else-if" class="headerlink" title="v-else-if"></a>v-else-if</h3><blockquote>
@@ -1463,8 +1440,8 @@
 </li>
 <li><p><strong>Voir aussi :</strong></p>
 <ul>
-<li><a href="../guide/events.html">Méthodes et gestionnaires d’événement</a></li>
-<li><a href="../guide/components.html#Custom-Events">Composants - Événements personnalisés</a></li>
+<li><a href="../guide/events.html">Gestion des évènements</a></li>
+<li><a href="../guide/components.html#Evenements-personnalises">Composants - Événements personnalisés</a></li>
 </ul>
 </li>
 </ul>
@@ -1498,7 +1475,7 @@
 <ul>
 <li><a href="../guide/class-and-style.html">Liaisons de classe et de style</a></li>
 <li><a href="../guide/components.html#Props">Composants - Props de composant</a></li>
-<li><a href="../guide/components.html#sync-Modifier">Composants - Modificateur <code>.sync</code></a></li>
+<li><a href="../guide/components.html#Modificateur-sync">Composants - Modificateur <code>.sync</code></a></li>
 </ul>
 </li>
 </ul>
@@ -1525,8 +1502,8 @@
 </li>
 <li><p><strong>Voir aussi :</strong></p>
 <ul>
-<li><a href="../guide/forms.html">Liaisons de champs de saisie de formulaire</a></li>
-<li><a href="../guide/components.html#Form-Input-Components-using-Custom-Events">Composants - Composants de saisie de formulaire avec événements personnalisés</a></li>
+<li><a href="../guide/forms.html">Liaisons sur les champs de formulaire</a></li>
+<li><a href="../guide/components.html#Composants-de-champ-de-formulaire-utilisant-les-evenements-personnalises">Composants - Composants de champ de formulaire utilisant les événements personnalisés</a></li>
 </ul>
 </li>
 </ul>
@@ -1561,8 +1538,8 @@
 </li>
 <li><p><strong>Voir aussi :</strong></p>
 <ul>
-<li><a href="../guide/syntax.html#Text">Syntaxe de liaison de données - interpolations</a></li>
-<li><a href="../guide/components.html#Cheap-Static-Components-with-v-once">Components - Composants économes avec v-once</a></li>
+<li><a href="../guide/syntax.html#Texte">Syntaxe de liaison de données - Interpolations</a></li>
+<li><a href="../guide/components.html#Cheap-Static-Components-with-v-once">Composants - Composants statiques peu coûteux avec <code>v-once</code></a></li>
 </ul>
 </li>
 </ul>
@@ -1589,7 +1566,7 @@
 <p>Quand utilisé sur des éléments/composants avec <code>v-for</code>, la référence inscrite sera un <code>Array</code> contenant les nœuds du DOM ou les instances de composant.</p>
 <p>Une note importante à propos du timing de l’inscription de la référence: étant donné que les refs elles-même résultent de la fonction de rendu, vous ne pouvez pas y accéder au rendu initial - elles n’existent pas encore ! <code>$refs</code> est également non réactif, c’est pourquoi vous ne devriez pas essayer de les utiliser dans des templates pour de la liaison de données.</p>
 </li>
-<li><p><strong>Voir aussi :</strong> <a href="../guide/components.html#Child-Component-Refs">Références de composants enfants</a></p>
+<li><p><strong>Voir aussi :</strong> <a href="../guide/components.html#Les-refs-des-composants-enfants">Les refs des composants enfants</a></p>
 </li>
 </ul>
 <h3 id="slot"><a href="#slot" class="headerlink" title="slot"></a>slot</h3><ul>
@@ -1597,20 +1574,20 @@
 <p>Utilisé sur du contenu inséré dans les composants enfants afin d’indiquer à quel slot nommé le contenu doit être associé.</p>
 <p>Pour un usage détaillé, veuillez consulter la section du guide en lien ci-dessous.</p>
 </li>
-<li><p><strong>Voir aussi :</strong> <a href="../guide/components.html#Named-Slots">Slots nommés</a></p>
+<li><p><strong>Voir aussi :</strong> <a href="../guide/components.html#Slots-nommes">Slots nommés</a></p>
 </li>
 </ul>
 <h3 id="is"><a href="#is" class="headerlink" title="is"></a>is</h3><ul>
 <li><p><strong>Attend comme valeur :</strong> <code>string</code></p>
-<p>Utilisé pour les <a href="../guide/components.html#Dynamic-Components">composants dynamiques</a> et pour contourner les <a href="../guide/components.html#DOM-Template-Parsing-Caveats">limitations des templates dans le DOM</a>.</p>
+<p>Utilisé pour les <a href="../guide/components.html#Composants-dynamiques">composants dynamiques</a> et pour contourner les <a href="../guide/components.html#Limitations-de-l’analyse-d’un-template-a-partir-du-DOM">limitations des templates dans le DOM</a>.</p>
 <p>Par exemple :</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- le composant change quand la vue actuelle change --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">component</span> <span class="attr">v-bind:is</span>=<span class="string">"vueActuelle"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- nécessaire car &lt;ma-ligne&gt; sera invalide à l'intérieur --&gt;</span></div><div class="line"><span class="comment">&lt;!-- d'un élément &lt;table&gt; et donc sera écarté --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">tr</span> <span class="attr">is</span>=<span class="string">"ma-ligne"</span>&gt;</span><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>Pour un usage détaillé, suivez les liens dans la description ci-dessus.</p>
 </li>
 <li><p><strong>See also:</strong></p>
 <ul>
-<li><a href="../guide/components.html#Dynamic-Components">Composants dynamiques</a></li>
-<li><a href="../guide/components.html#DOM-Template-Parsing-Caveats">Limitations de l’analyse des templates dans le DOM</a></li>
+<li><a href="../guide/components.html#Composants-dynamiques">Composants dynamiques</a></li>
+<li><a href="../guide/components.html#Limitations-de-l’analyse-d’un-template-a-partir-du-DOM">Limitations de l’analyse d’un template à partir du DOM</a></li>
 </ul>
 </li>
 </ul>
@@ -1625,7 +1602,7 @@
 <p>Un « méta-composant » pour le rendu de composants dynamiques. Le composant réel obtenu est déterminé par la prop <code>is</code> :</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- un composant dynamique contrôlé par --&gt;</span></div><div class="line"><span class="comment">&lt;!-- la propriété `idComposant` de l'instance de vue --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">"idComposant"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- peut aussi faire le rendu de composants inscrits globalement ou passés comme prop --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">"$options.components.enfant"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></div></pre></td></tr></table></figure>
 </li>
-<li><p><strong>Voir aussi :</strong> <a href="../guide/components.html#Dynamic-Components">Composants dynamiques</a></p>
+<li><p><strong>Voir aussi :</strong> <a href="../guide/components.html#Composants-dynamiques">Composants dynamiques</a></p>
 </li>
 </ul>
 <h3 id="transition"><a href="#transition" class="headerlink" title="transition"></a>transition</h3><ul>
@@ -1732,7 +1709,7 @@
 <p><code>&lt;slot&gt;</code> sert d’emplacement de distribution de contenu dans les templates de composant. L’élement <code>&lt;slot&gt;</code> lui-même sera remplacé par le contenu.</p>
 <p>Pour un usage détaillé, consultez la section du guide en lien ci-dessous.</p>
 </li>
-<li><p><strong>Voir aussi :</strong> <a href="../guide/components.html#Content-Distribution-with-Slots">Distribution de contenu avec les Slots</a></p>
+<li><p><strong>Voir aussi :</strong> <a href="../guide/components.html#Distribution-de-contenu-avec-des-slots">Distribution de contenu avec des slots</a></p>
 </li>
 </ul>
 <h2 id="Interface-VNode"><a href="#Interface-VNode" class="headerlink" title="Interface VNode"></a>Interface VNode</h2><ul>
