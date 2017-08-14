@@ -681,7 +681,7 @@
 <li><p><strong>Voir aussi :</strong> <a href="../guide/render-function.html">Fonctions de rendu</a></p>
 </li>
 </ul>
-<p class="tip">Tous les hooks du cycle de vie ont automatiquement leur contexte <code>this</code> rattaché à l’instance, afin que vous puissiez accéder aux données, propriétés calculées et méthodes. Cela signifie que <strong>vous ne devriez pas utiliser une fonction fléchée pour définir une méthode du cycle de vie</strong>  (p. ex. <code>created: () =&gt; this.fetchTodos()</code>). La raison est que les fonctions fléchées utilisent le contexte parent, donc <code>this</code> ne sera pas l’instance de Vue comme vous pouvez vous y attendre et <code>this.fetchTodos</code> sera <code>undefined</code>.</p>
+<h2 id="Options-Cycle-de-vie-des-hooks"><a href="#Options-Cycle-de-vie-des-hooks" class="headerlink" title="Options / Cycle de vie des hooks"></a>Options / Cycle de vie des hooks</h2><p class="tip">Tous les hooks du cycle de vie ont automatiquement leur contexte <code>this</code> rattaché à l’instance, afin que vous puissiez accéder aux données, propriétés calculées et méthodes. Cela signifie que <strong>vous ne devriez pas utiliser une fonction fléchée pour définir une méthode du cycle de vie</strong>  (p. ex. <code>created: () =&gt; this.fetchTodos()</code>). La raison est que les fonctions fléchées utilisent le contexte parent, donc <code>this</code> ne sera pas l’instance de Vue comme vous pouvez vous y attendre et <code>this.fetchTodos</code> sera <code>undefined</code>.</p>
 
 <h3 id="beforeCreate"><a href="#beforeCreate" class="headerlink" title="beforeCreate"></a>beforeCreate</h3><ul>
 <li><p><strong>Type :</strong> <code>Function</code></p>
