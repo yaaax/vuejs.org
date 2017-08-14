@@ -294,22 +294,22 @@
 <p>Définit un gestionnaire pour les erreurs non interceptées pendant le rendu d’un composant et les appels aux observateurs. Ce gestionnaire sera appelé avec comme arguments l’erreur et l’instance de Vue associée.</p>
 <blockquote>
 <p>En 2.2.0+, ce hook capture également les erreurs dans les hooks du cycle de vie des composants. De plus, quand ce hook est <code>undefined</code>, les erreurs capturées seront loguées avec <code>console.error</code> plutôt qu’avoir un crash de l’application.</p>
-<p>In 2.4.0+ this hook also captures errors thrown inside Vue custom event handlers.</p>
+<p>En 2.4.0+ ce hook capture également les erreurs lancées depuis un gestionnaire d’évènement Vue personnalisé.</p>
 <p><a href="https://sentry.io" target="_blank" rel="external">Sentry</a>, un service de traçage d’erreur, fournit une <a href="https://sentry.io/for/vue/" target="_blank" rel="external">intégration officielle</a> utilisant cette option.</p>
 </blockquote>
 </li>
 </ul>
 <h3 id="warnHandler"><a href="#warnHandler" class="headerlink" title="warnHandler"></a>warnHandler</h3><blockquote>
-<p>New in 2.4.0+</p>
+<p>Nouveau dans la 2.4.0+</p>
 </blockquote>
 <ul>
-<li><p><strong>Type:</strong> <code>Function</code></p>
+<li><p><strong>Type :</strong> <code>Function</code></p>
 </li>
-<li><p><strong>Default:</strong> <code>undefined</code></p>
+<li><p><strong>*Par défaut :</strong> <code>undefined</code></p>
 </li>
-<li><p><strong>Usage:</strong></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">Vue.config.warnHandler = <span class="function"><span class="keyword">function</span> (<span class="params">msg, vm, trace</span>) </span>&#123;</div><div class="line">  <span class="comment">// trace is the component hierarchy trace</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>Assign a custom handler for runtime Vue warnings. Note this only works during development and is ignored in production.</p>
+<li><p><strong>Utilisation :</strong></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">Vue.config.warnHandler = <span class="function"><span class="keyword">function</span> (<span class="params">msg, vm, trace</span>) </span>&#123;</div><div class="line">  <span class="comment">// `trace` est la trace de hierarchie de composant</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Assigne un gestionnaire personnalisé pour les avertissements à l’exécution de Vue. Notez que cela n’est fonctionnel qu’en développement et est ignoré en production.</p>
 </li>
 </ul>
 <h3 id="ignoredElements"><a href="#ignoredElements" class="headerlink" title="ignoredElements"></a>ignoredElements</h3><ul>
@@ -328,7 +328,7 @@
 <li><p><strong>Par défaut :</strong> <code>{}</code></p>
 </li>
 <li><p><strong>Utilisation :</strong></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">Vue.config.keyCodes = &#123;</div><div class="line">  <span class="attr">v</span>: <span class="number">86</span>,</div><div class="line">  <span class="attr">f1</span>: <span class="number">112</span>,</div><div class="line">  <span class="comment">// camelCase won`t work</span></div><div class="line">  mediaPlayPause: <span class="number">179</span>,</div><div class="line">  <span class="comment">// instead you can use kebab-case with double quotation marks</span></div><div class="line">  <span class="string">"media-play-pause"</span> : <span class="number">179</span>,</div><div class="line">  <span class="attr">up</span>: [<span class="number">38</span>, <span class="number">87</span>]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">Vue.config.keyCodes = &#123;</div><div class="line">  <span class="attr">v</span>: <span class="number">86</span>,</div><div class="line">  <span class="attr">f1</span>: <span class="number">112</span>,</div><div class="line">  <span class="comment">// La camelCase ne marche pas</span></div><div class="line">  mediaPlayPause: <span class="number">179</span>,</div><div class="line">  <span class="comment">// à la place vous devez utiliser la kebab-case avec un guillement double</span></div><div class="line">  <span class="string">"media-play-pause"</span>: <span class="number">179</span>,</div><div class="line">  <span class="attr">up</span>: [<span class="number">38</span>, <span class="number">87</span>]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> @<span class="attr">keyup.media-play-pause</span>=<span class="string">"method"</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>Définit des alias pour les touches avec <code>v-on</code>.</p>
 </li>
@@ -386,10 +386,10 @@
 </ul>
 </li>
 <li><p><strong>Utilisation :</strong></p>
-<p>Reporte l’exécution du callback au prochain cycle de mise à jour du DOM. Utilisez-le immédiatement après avoir changé des données afin d’attendre la mise à jour du DOM.</p>
+<p>Reporte l’exécution de la fonction de rappel au prochain cycle de mise à jour du DOM. Utilisez-le immédiatement après avoir changé des données afin d’attendre la mise à jour du DOM.</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// modification de données</span></div><div class="line">vm.msg = <span class="string">'Salut'</span></div><div class="line"><span class="comment">// le DOM n'a pas encore été mis à jour</span></div><div class="line">Vue.nextTick(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="comment">// le DOM est à jour</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <blockquote>
-<p>Nouveauté de la 2.1.0+ : retourne une Promise si aucune fonction de callback n’est fournie et si Promise est supporté par l’environnement d’exécution.</p>
+<p>Nouveauté de la 2.1.0+ : retourne une Promise si aucune fonction de rappel n’est fournie et si Promise est supporté par l’environnement d’exécution.</p>
 </blockquote>
 </li>
 <li><p><strong>Voir aussi :</strong> <a href="../guide/reactivity.html#File-d’attente-de-mise-a-jour-asynchrone">File d’attente de mise à jour asynchrone</a></p>
@@ -538,7 +538,7 @@
 <li><p><strong>Restriction :</strong> accepte uniquement une fonction lorsqu’utilisé dans une définition de composant.</p>
 </li>
 <li><p><strong>Détails :</strong></p>
-<p>L’objet de données pour l’instance de Vue. Vue va de manière récursive convertir ses propriétés en des accesseurs/mutateurs (<em>getter/setters</em>) afin de les rendre “réactives”. <strong>L’objet doit être un simple objet de base</strong>: les objets natifs tels que les API du navigateur et les propriétés issues du prototype sont ignorées. Une règle d’or est que la donnée doit juste être de la donnée - il n’est pas recommandé d’observer des objets ayant leur propre comportement avec états.</p>
+<p>L’objet de données pour l’instance de Vue. Vue va de manière récursive convertir ses propriétés en des accesseurs/mutateurs (<em>getter/setters</em>) afin de les rendre « réactives ». <strong>L’objet doit être un simple objet de base</strong>: les objets natifs tels que les API du navigateur et les propriétés issues du prototype sont ignorées. Une règle d’or est que la donnée doit juste être de la donnée - il n’est pas recommandé d’observer des objets ayant leur propre comportement avec états.</p>
 <p>Une fois observé, vous ne pouvez plus ajouter de propriétés réactives à l’objet de données racine. C’est pourquoi il est recommandé de déclarer dès le départ toutes les propriétés réactives à la racine de l’objet de données, avant de créer l’instance.</p>
 <p>Après que l’instance ait été créée, l’objet de données initial peut être accédé via <code>vm.$data</code>. L’instance de Vue servira également de proxy pour toutes les propriétés trouvées dans l’objet de données, donc <code>vm.a</code> sera l’équivalent de <code>vm.$data.a</code>.</p>
 <p>Les propriétés commençant par <code>_</code> ou <code>$</code> ne seront <strong>pas</strong> proxyfiées par l’instance de Vue car elles pourraient entrer en conflit avec certaines propriétés internes et méthodes d’API de Vue. Vous devrez y accéder via <code>vm.$data._propriete</code>.</p>
@@ -559,7 +559,7 @@
 <p>Une liste ou un objet décrivant les attributs exposés par le composant afin de passer des données depuis le composant parent. Ce paramètre a une syntaxe simple basée sur un tableau (<code>Array</code>) et une syntaxe alternative basée sur un <code>Object</code> qui permet une configuration avancée telle qu’une vérification de typage, des contrôles de validation personnalisés et des valeurs par défaut.</p>
 </li>
 <li><p><strong>Exemple :</strong></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// syntaxe simple</span></div><div class="line">Vue.component(<span class="string">'props-démo-simple'</span>, &#123;</div><div class="line">  <span class="attr">props</span>: [<span class="string">'taille'</span>, <span class="string">'monMessage'</span>]</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="comment">// syntaxe avancée avec validation</span></div><div class="line">Vue.component(<span class="string">'props-démo-avancée'</span>, &#123;</div><div class="line">  <span class="attr">props</span>: &#123;</div><div class="line">    <span class="comment">// juste une vérification de type</span></div><div class="line">    hauteur: <span class="built_in">Number</span>,</div><div class="line">    <span class="comment">// vérification du type ainsi que d'autres validations</span></div><div class="line">    âge: &#123;</div><div class="line">      <span class="attr">type</span>: <span class="built_in">Number</span>,</div><div class="line">      <span class="attr">default</span>: <span class="number">0</span>,</div><div class="line">      <span class="attr">required</span>: <span class="literal">true</span>,</div><div class="line">      <span class="attr">validator</span>: <span class="function"><span class="keyword">function</span> (<span class="params">valeur</span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> valeur &gt;= <span class="number">0</span></div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// syntaxe simple</span></div><div class="line">Vue.component(<span class="string">'props-démo-simple'</span>, &#123;</div><div class="line">  <span class="attr">props</span>: [<span class="string">'taille'</span>, <span class="string">'monMessage'</span>]</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="comment">// syntaxe avancée avec validation</span></div><div class="line">Vue.component(<span class="string">'props-démo-avancée'</span>, &#123;</div><div class="line">  <span class="attr">props</span>: &#123;</div><div class="line">    <span class="comment">// juste une vérification de type</span></div><div class="line">    hauteur: <span class="built_in">Number</span>,</div><div class="line">    <span class="comment">// vérification du type ainsi que d'autres validations</span></div><div class="line">    âge: &#123;</div><div class="line">      <span class="attr">type</span> : <span class="built_in">Number</span>,</div><div class="line">      <span class="attr">default</span>: <span class="number">0</span>,</div><div class="line">      <span class="attr">required</span>: <span class="literal">true</span>,</div><div class="line">      <span class="attr">validator</span>: <span class="function"><span class="keyword">function</span> (<span class="params">valeur</span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> valeur &gt;= <span class="number">0</span></div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 </li>
 <li><p><strong>Voir aussi :</strong> <a href="../guide/components.html#Props">Props</a></p>
 </li>
@@ -580,7 +580,7 @@
 <li><p><strong>Type :</strong> <code>{ [key: string]: Function | { get: Function, set: Function } }</code></p>
 </li>
 <li><p><strong>Détails :</strong></p>
-<p>Les propriétés calculées qui seront ajoutées à l’instance de Vue. Tous les accesseurs (<em>getters</em>) et mutateurs (<em>setters</em>) ont leur contexte <code>this</code> automatiquement lié à l’instance de Vue.</p>
+<p>Les propriétés calculées qui seront ajoutées à l’instance de Vue. Tous les accesseurs (« getters ») et mutateurs (« setters ») ont leur contexte <code>this</code> automatiquement lié à l’instance de Vue.</p>
 <p class="tip">Notez que <strong>vous ne devriez pas utiliser de fonctions fléchées pour définir une propriété calculée</strong> (exemple: <code>aDouble: () =&gt; this.a * 2</code>). La raison est que les fonctions fléchées sont liées au contexte parent, donc <code>this</code> ne correspondra pas à l’instance de Vue et <code>this.a</code> vaudra <code>undefined</code>.</p>
 
 <p>Les propriétés calculées sont mises en cache, et réévaluées uniquement lorsque leurs dépendances réactives changent. Notez que si une certaine dépendance est en dehors de la portée de l’instance (et donc non réactive), la propriété calculée ne sera <strong>pas</strong> mise à jour.</p>
@@ -608,10 +608,10 @@
 <li><p><strong>Type :</strong> <code>{ [key: string]: string | Function | Object }</code></p>
 </li>
 <li><p><strong>Détails :</strong></p>
-<p>Un objet où les clés sont des expressions à surveiller et où la valeur associée est la fonction de callback exécutée quand cette expression change. On parle alors d’observateur ou <em>watcher</em> pour décrire ce lien. La valeur peut également être une <code>String</code> correspondant au nom d’une méthode de l’instance, ou un objet avec des options avancées. L’instance de Vue appelera <code>$watch()</code> pour chaque clé de l’objet à l’initialisation.</p>
+<p>Un objet où les clés sont des expressions à surveiller et où la valeur associée est la fonction de rappel exécutée quand cette expression change. On parle alors d’observateur ou <em>watcher</em> pour décrire ce lien. La valeur peut également être une <code>String</code> correspondant au nom d’une méthode de l’instance, ou un objet avec des options avancées. L’instance de Vue appelera <code>$watch()</code> pour chaque clé de l’objet à l’initialisation.</p>
 </li>
 <li><p><strong>Exemple :</strong></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</div><div class="line">  <span class="attr">data</span>: &#123;</div><div class="line">    <span class="attr">a</span>: <span class="number">1</span>,</div><div class="line">    <span class="attr">b</span>: <span class="number">2</span>,</div><div class="line">    <span class="attr">c</span>: <span class="number">3</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">watch</span>: &#123;</div><div class="line">    <span class="attr">a</span>: <span class="function"><span class="keyword">function</span> (<span class="params">valeur, ancienneValeur</span>) </span>&#123;</div><div class="line">      <span class="built_in">console</span>.log(<span class="string">'nouveau: %s, ancien: %s'</span>, valeur, ancienneValeur)</div><div class="line">    &#125;,</div><div class="line">    <span class="comment">// nom d'une méthode</span></div><div class="line">    b: <span class="string">'uneMéthode'</span>,</div><div class="line">    <span class="comment">// observateur profond (deep watcher)</span></div><div class="line">    c: &#123;</div><div class="line">      <span class="attr">handler</span>: <span class="function"><span class="keyword">function</span> (<span class="params">valeur, ancienneValeur</span>) </span>&#123; <span class="comment">/* ... */</span> &#125;,</div><div class="line">      <span class="attr">deep</span>: <span class="literal">true</span></div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line">vm.a = <span class="number">2</span> <span class="comment">// -&gt; nouveau: 2, ancien: 1</span></div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</div><div class="line">  <span class="attr">data</span>: &#123;</div><div class="line">    <span class="attr">a</span>: <span class="number">1</span>,</div><div class="line">    <span class="attr">b</span>: <span class="number">2</span>,</div><div class="line">    <span class="attr">c</span>: <span class="number">3</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">watch</span>: &#123;</div><div class="line">    <span class="attr">a</span>: <span class="function"><span class="keyword">function</span> (<span class="params">valeur, ancienneValeur</span>) </span>&#123;</div><div class="line">      <span class="built_in">console</span>.log(<span class="string">'nouveau: %s, ancien: %s'</span>, valeur, ancienneValeur)</div><div class="line">    &#125;,</div><div class="line">    <span class="comment">// nom d'une méthode</span></div><div class="line">    b: <span class="string">'uneMéthode'</span>,</div><div class="line">    <span class="comment">// observateur profond (deep watcher)</span></div><div class="line">    c: &#123;</div><div class="line">      <span class="attr">handler</span>: <span class="function"><span class="keyword">function</span> (<span class="params">valeur, ancienneValeur</span>) </span>&#123; <span class="comment">/* ... */</span> &#125;,</div><div class="line">      <span class="attr">deep</span>: <span class="literal">true</span></div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line">vm.a = <span class="number">2</span> <span class="comment">// -&gt; nouveau : 2, ancien : 1</span></div></pre></td></tr></table></figure>
 <p class="tip">Notez que <strong>vous ne devriez pas utiliser de fonctions fléchées pour définir un observateur</strong> (exemple: <code>saisie: nouvelleValeur =&gt; this.actualiserSuggestions(nouvelleValeur)</code>). La raison est que les fonctions fléchées sont liées au contexte parent, donc <code>this</code> ne correspondra pas à l’instance de Vue et <code>this.actualiserSuggestions</code> vaudra <code>undefined</code>.</p>
 </li>
 <li><p><strong>Voir aussi :</strong> <a href="#vm-watch">Méthodes et données d’instance - vm.$watch</a></p>
@@ -666,7 +666,7 @@
 </li>
 </ul>
 <h3 id="renderError"><a href="#renderError" class="headerlink" title="renderError"></a>renderError</h3><blockquote>
-<p>Nouveau en 2.2.0+</p>
+<p>Nouveau dans la 2.2.0+</p>
 </blockquote>
 <ul>
 <li><p><strong>Type :</strong> <code>(createElement: () =&gt; VNode, error: Error) =&gt; VNode</code></p>
@@ -848,7 +848,7 @@
 <p>Cette option est similaire à <code>mixins</code>, la différence étant que les propres options du composant ont la priorité sur celles du composant source à étendre.</p>
 </li>
 <li><p><strong>Exemple :</strong></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> CompA = &#123; ... &#125;</div><div class="line"></div><div class="line"><span class="comment">// étend CompA sans avoir à appeler Vue.extend sur l'un ou l'autre</span></div><div class="line"><span class="keyword">var</span> CompB = &#123;</div><div class="line">  <span class="attr">extends</span>: CompA,</div><div class="line">  ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> CompA = &#123; ... &#125;</div><div class="line"></div><div class="line"><span class="comment">// étend CompA sans avoir à appeler `Vue.extend` sur l'un ou l'autre</span></div><div class="line"><span class="keyword">var</span> CompB = &#123;</div><div class="line">  <span class="attr">extends</span>: CompA,</div><div class="line">  ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 </ul>
 <h3 id="provide-inject"><a href="#provide-inject" class="headerlink" title="provide / inject"></a>provide / inject</h3><blockquote>
@@ -897,7 +897,7 @@
 <h3 id="delimiters"><a href="#delimiters" class="headerlink" title="delimiters"></a>delimiters</h3><ul>
 <li><p><strong>Type :</strong> <code>Array&lt;string&gt;</code></p>
 </li>
-<li><p><strong>Default:</strong> <code>["{{", "}}"]</code></p>
+<li><p><strong>Par défaut :</strong> <code>["{{", "}}"]</code></p>
 </li>
 <li><p><strong>Restrictions :</strong> Cette option n’est disponible que dans la version complète du build, avec la compilation dans le navigateur.</p>
 </li>
@@ -918,7 +918,7 @@
 </li>
 </ul>
 <h3 id="model"><a href="#model" class="headerlink" title="model"></a>model</h3><blockquote>
-<p>Nouveau en 2.2.0</p>
+<p>Nouveau dans la 2.2.0</p>
 </blockquote>
 <ul>
 <li><p><strong>Type :</strong> <code>{ prop?: string, event?: string }</code></p>
@@ -927,37 +927,37 @@
 <p>Permet à un composant personnalisé de définir la prop et l’événement utilisé quand il est utilisé avec <code>v-model</code>. Par défaut, <code>v-model</code> sur un composant utilise <code>value</code> comme prop et <code>input</code> comme événement, mais certains types de champs de saisie comme les cases à cocher et les boutons radio peuvent vouloir utiliser la prop <code>value</code> à d’autres fins. Utiliser l’option <code>model</code> peut éviter le conflit dans ce genre de cas.</p>
 </li>
 <li><p><strong>Exemple :</strong></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">Vue.component(<span class="string">'ma-checkbox'</span>, &#123;</div><div class="line">  <span class="attr">model</span>: &#123;</div><div class="line">    <span class="attr">prop</span>: <span class="string">'checked'</span>,</div><div class="line">    <span class="attr">event</span>: <span class="string">'change'</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">props</span>: &#123;</div><div class="line">    <span class="comment">// cela permet d'utiliser la prop `value` à d'autres fins</span></div><div class="line">    value: <span class="built_in">String</span>,</div><div class="line">    <span class="comment">// utilise `checked` comme prop qui prend la place de `value`</span></div><div class="line">    checked: &#123;</div><div class="line">      <span class="attr">type</span>: <span class="built_in">Number</span>,</div><div class="line">      <span class="attr">default</span>: <span class="number">0</span></div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">  <span class="comment">// ...</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">Vue.component(<span class="string">'ma-checkbox'</span>, &#123;</div><div class="line">  <span class="attr">model</span>: &#123;</div><div class="line">    <span class="attr">prop</span>: <span class="string">'checked'</span>,</div><div class="line">    <span class="attr">event</span>: <span class="string">'change'</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">props</span>: &#123;</div><div class="line">    <span class="comment">// cela permet d'utiliser la prop `value` à d'autres fins</span></div><div class="line">    value: <span class="built_in">String</span>,</div><div class="line">    <span class="comment">// utilise `checked` comme prop qui prend la place de `value`</span></div><div class="line">    checked: &#123;</div><div class="line">      <span class="attr">type</span> : <span class="built_in">Number</span>,</div><div class="line">      <span class="attr">default</span>: <span class="number">0</span></div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">  <span class="comment">// ...</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ma-checkbox</span> <span class="attr">v-model</span>=<span class="string">"foo"</span> <span class="attr">value</span>=<span class="string">"une certaine valeur"</span>&gt;</span><span class="tag">&lt;/<span class="name">ma-checkbox</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>Le code ci-dessus est équivalent à :</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ma-checkbox</span></span></div><div class="line">  <span class="attr">:checked</span>=<span class="string">"foo"</span></div><div class="line">  @<span class="attr">change</span>=<span class="string">"val =&gt; &#123; foo = val &#125;"</span></div><div class="line">  <span class="attr">value</span>=<span class="string">"une certaine valeur"</span>&gt;</div><div class="line"><span class="tag">&lt;/<span class="name">ma-checkbox</span>&gt;</span></div></pre></td></tr></table></figure>
 </li>
 </ul>
 <h3 id="inheritAttrs"><a href="#inheritAttrs" class="headerlink" title="inheritAttrs"></a>inheritAttrs</h3><blockquote>
-<p>New in 2.4.0+</p>
+<p>Nouveau dans la 2.4.0+</p>
 </blockquote>
 <ul>
-<li><p><strong>Type:</strong> <code>boolean</code></p>
+<li><p><strong>Type :</strong> <code>boolean</code></p>
 </li>
-<li><p><strong>Default:</strong> <code>true</code></p>
+<li><p><strong>Par défaut :</strong> <code>true</code></p>
 </li>
-<li><p><strong>Details:</strong></p>
-<p>By default, parent scope attribute bindings that are not recognized as props will “fallthrough” and be applied to the root element of the child component as normal HTML attributes. When authoring a component that wraps a target element or another component, this may not always be the desired behavior. By setting <code>inheritAttrs</code> to <code>false</code>, this default behavior can be disabled. The attributes are available via the <code>$attrs</code> instance property (also new in 2.4) and can be explicitly bound to a non-root element using <code>v-bind</code>.</p>
-<p>Note: this option does <strong>not</strong> affect <code>class</code> and <code>style</code> bindings.</p>
+<li><p><strong>Détails :</strong></p>
+<p>Par défaut, les attributs de portée parente qui ne sont pas reconnu en tant que props vont « échouer » et être appliquées à l’élément racine du composant enfant en tant qu’attribut HTML normal. Quand on crée un composant qui encapsule un élément cible ou un autre composant, cela peut ne pas être le comportement souhaité. En mettant <code>inheritAttrs</code> à <code>false</code>, ce comportement par défaut peut être désactivé. Les attributs sont disponibles via la propriété d’instance <code>$attrs</code> (aussi nouvelle en 2.4) et peuvent être explicitement liée a un élément non racine en utilisant <code>v-bind</code>.</p>
+<p>Note : cette option n’affecte <strong>pas</strong> les liaisons <code>class</code> et <code>style</code>.</p>
 </li>
 </ul>
 <h3 id="comments"><a href="#comments" class="headerlink" title="comments"></a>comments</h3><blockquote>
-<p>New in 2.4.0+</p>
+<p>Nouveau dans la 2.4.0+</p>
 </blockquote>
 <ul>
-<li><p><strong>Type:</strong> <code>boolean</code></p>
+<li><p><strong>Type :</strong> <code>boolean</code></p>
 </li>
-<li><p><strong>Default:</strong> <code>false</code></p>
+<li><p><strong>Par défaut :</strong> <code>false</code></p>
 </li>
-<li><p><strong>Restrictions:</strong> This option is only available in the full build, with in-browser compilation.</p>
+<li><p><strong>Restrictions :</strong> Cette option est uniquement disponible dans le build complet, avec la compilation dans le navigateur.</p>
 </li>
-<li><p><strong>Details:</strong></p>
-<p>When set to <code>true</code>, will preserve and render HTML comments found in templates. The default behavior is discarding them.</p>
+<li><p><strong>Détails :</strong></p>
+<p>Quand mis à <code>true</code>, cela va conserver et faire le rendu HTML des commentaires trouvés dans les templates. Le comportement par défaut est de les enlever.</p>
 </li>
 </ul>
 <h2 id="Proprietes-d’instance"><a href="#Proprietes-d’instance" class="headerlink" title="Propriétés d’instance"></a>Propriétés d’instance</h2><h3 id="vm-data"><a href="#vm-data" class="headerlink" title="vm.$data"></a>vm.$data</h3><ul>
@@ -1047,7 +1047,7 @@
 </li>
 </ul>
 <h3 id="vm-scopedSlots"><a href="#vm-scopedSlots" class="headerlink" title="vm.$scopedSlots"></a>vm.$scopedSlots</h3><blockquote>
-<p>Nouveauté en 2.1.0+</p>
+<p>Nouveau dans la 2.1.0+</p>
 </blockquote>
 <ul>
 <li><p><strong>Type :</strong> <code>{ [name: string]: props =&gt; VNode | Array&lt;VNode&gt; }</code></p>
@@ -1093,7 +1093,7 @@
 </li>
 </ul>
 <h3 id="vm-attrs"><a href="#vm-attrs" class="headerlink" title="vm.$attrs"></a>vm.$attrs</h3><ul>
-<li><p><strong>Type:</strong> <code>{ [key: string]: string }</code></p>
+<li><p><strong>Type :</strong> <code>{ [key: string]: string }</code></p>
 </li>
 <li><p><strong>Read only</strong></p>
 </li>
@@ -1102,7 +1102,7 @@
 </li>
 </ul>
 <h3 id="vm-listeners"><a href="#vm-listeners" class="headerlink" title="vm.$listeners"></a>vm.$listeners</h3><ul>
-<li><p><strong>Type:</strong> <code>{ [key: string]: Function | Array&lt;Function&gt; }</code></p>
+<li><p><strong>Type :</strong> <code>{ [key: string]: Function | Array&lt;Function&gt; }</code></p>
 </li>
 <li><p><strong>Read only</strong></p>
 </li>
@@ -1140,11 +1140,11 @@
 </li>
 <li><p><strong>Option: deep</strong></p>
 <p>Pour aussi détecter les changements des valeurs imbriquées dans les objets, vous devez passer <code>deep: true</code> dans l’argument des options. Notez que vous n’avez pas besoin de cela pour observer les modifications d’un <code>Array</code>.</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">vm.$watch(<span class="string">'monObjet'</span>, callback, &#123;</div><div class="line">  <span class="attr">deep</span>: <span class="literal">true</span></div><div class="line">&#125;)</div><div class="line">vm.monObjet.valeurImbriquée = <span class="number">123</span></div><div class="line"><span class="comment">// la fonction callback est déclenchée</span></div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">vm.$watch(<span class="string">'monObjet'</span>, callback, &#123;</div><div class="line">  <span class="attr">deep</span>: <span class="literal">true</span></div><div class="line">&#125;)</div><div class="line">vm.monObjet.valeurImbriquée = <span class="number">123</span></div><div class="line"><span class="comment">// la fonction de rappel est déclenchée</span></div></pre></td></tr></table></figure>
 </li>
 <li><p><strong>Option: immediate</strong></p>
 <p>Passer <code>immediate: true</code> dans les options déclenchera immédiatement la fonction <code>callback</code> avec la valeur actuelle de l’expression :</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">vm.$watch(<span class="string">'a'</span>, callback, &#123;</div><div class="line">  <span class="attr">immediate</span>: <span class="literal">true</span></div><div class="line">&#125;)</div><div class="line"><span class="comment">// la fonction callback est immédiatement déclenchée avec la valeur actuelle de `a`</span></div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">vm.$watch(<span class="string">'a'</span>, callback, &#123;</div><div class="line">  <span class="attr">immediate</span>: <span class="literal">true</span></div><div class="line">&#125;)</div><div class="line"><span class="comment">// la fonction `callback` est immédiatement déclenchée avec la valeur actuelle de `a`</span></div></pre></td></tr></table></figure>
 </li>
 </ul>
 <h3 id="vm-set">vm.$set( cible, clé, valeur )</h3>
@@ -1190,7 +1190,7 @@
 </ul>
 </li>
 <li><p><strong>Utilisation :</strong></p>
-<p>Écoute un événement personnalisé sur l’instance <code>vm</code>. Les événements peuvent être déclenchés avec <code>vm.$emit</code>. La fonction de callback recevra tous les arguments additionnels passés dans ces méthodes de déclenchement d’événement.</p>
+<p>Écoute un événement personnalisé sur l’instance <code>vm</code>. Les événements peuvent être déclenchés avec <code>vm.$emit</code>. La fonction de rappel recevra tous les arguments additionnels passés dans ces méthodes de déclenchement d’événement.</p>
 </li>
 <li><p><strong>Exemple :</strong></p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line">vm.$on(<span class="string">'test'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">msg</span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(msg)</div><div class="line">&#125;)</div><div class="line">vm.$emit(<span class="string">'test'</span>, <span class="string">'salut'</span>)</div><div class="line"><span class="comment">// -&gt; "salut"</span></div></pre></td></tr></table></figure>
@@ -1225,7 +1225,7 @@
 </li>
 <li><p>Si seul l’argument événément est fourni, supprime tous les écouteurs de cet événement;</p>
 </li>
-<li><p>Si l’événement et le callback sont fournis, supprime l’écouteur uniquement pour cet événément et ce callback spécifique.</p>
+<li><p>Si l’événement et la fonction de rappel sont fournis, supprime l’écouteur uniquement pour cet événément et cette fonction de rappel spécifique.</p>
 </li>
 </ul>
 </li>
@@ -1238,7 +1238,7 @@
 <li><code>{string} événement</code></li>
 <li><code>[...arguments]</code></li>
 </ul>
-<p>Déclenche un événement sur l’instance actuelle. Tous les arguments additionnels sont passés à la fonction callback de l’écouteur.</p>
+<p>Déclenche un événement sur l’instance actuelle. Tous les arguments additionnels sont passés à la fonction de rappel de l’écouteur.</p>
 </li>
 </ul>
 <h2 id="Methodes-d’Instance-Cycle-de-Vie"><a href="#Methodes-d’Instance-Cycle-de-Vie" class="headerlink" title="Méthodes d’Instance / Cycle de Vie"></a>Méthodes d’Instance / Cycle de Vie</h2><h3 id="vm-mount">vm.$mount( [élémentOuSelecteur] )</h3>
@@ -1285,7 +1285,7 @@
 <li><p><strong>Utilisation :</strong></p>
 <p>Reporte l’éxécution de la fonction <code>callback</code> au prochain cycle de mise à jour du DOM. Utilisez ceci immédiatement après avoir changé des données pour attendre la mise à jour du DOM. C’est la même chose que la fonction globale <code>Vue.nextTick</code>, sauf que le contexte <code>this</code> dans la fonction <code>callback</code> est automatiquement lié à l’instance appelant cette méthode.</p>
 <blockquote>
-<p>Nouveau en 2.1.0+ : retourne une Promise si aucun callback n’est fourni et si les Promise sont supportés dans l’environnement d’exécution.</p>
+<p>Nouveau dans la 2.1.0+ : retourne une Promise si aucune fonction de rappel n’est fourni et si les Promise sont supportés dans l’environnement d’exécution.</p>
 </blockquote>
 </li>
 <li><p><strong>Exemple :</strong></p>
@@ -1363,7 +1363,7 @@
 <li><p><strong>Restriction :</strong> l’élément précédent doit avoir une directive <code>v-if</code> ou <code>v-else-if</code>.</p>
 </li>
 <li><p><strong>Utilisation :</strong></p>
-<p>Dénote un bloc « else » pour <code>v-if</code> ou pour une chaîne <code>v-if</code>/<code>v-else-if</code>.</p>
+<p>Dénote un bloc « else » pour <code>v-if</code> ou pour une chaîne <code>v-if</code> / <code>v-else-if</code>.</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-if</span>=<span class="string">"Math.random() &gt; 0.5"</span>&gt;</span></div><div class="line">  Là vous me voyez</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-else</span>&gt;</span></div><div class="line">  Là vous ne me voyez pas</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
 </li>
 <li><p><strong>Voir aussi :</strong> <a href="../guide/conditional.html#v-else">Rendu conditionnel - v-else</a></p>
@@ -1534,7 +1534,7 @@
 </li>
 <li><p><strong>Détails :</strong></p>
 <p>Fait le rendu de l’élément ou du composant qu’<strong>une seule fois</strong> seulement. Lors des nouveaux rendus par la suite, l’élément/composant et tous ses enfants seront traités comme du contenu statique et ignorés. Cela peut être utilisé pour optimiser les performances à la mise à jour d’un composant.</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- sur un seul élément --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">v-once</span>&gt;</span>Ceci ne changera jamais : &#123;&#123;msg&#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line"><span class="comment">&lt;!-- l'élément a des enfants --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-once</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">h1</span>&gt;</span>commentaire<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123;msg&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="comment">&lt;!-- composant --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">mon-composant</span> <span class="attr">v-once</span> <span class="attr">:commentaire</span>=<span class="string">"msg"</span>&gt;</span><span class="tag">&lt;/<span class="name">mon-composant</span>&gt;</span></div><div class="line"><span class="comment">&lt;!-- directive v-for --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"i in liste"</span> <span class="attr">v-once</span>&gt;</span>&#123;&#123;i&#125;&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- sur un seul élément --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">v-once</span>&gt;</span>Ceci ne changera jamais : &#123;&#123;msg&#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line"><span class="comment">&lt;!-- l'élément a des enfants --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-once</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">h1</span>&gt;</span>commentaire<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123;msg&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="comment">&lt;!-- composant --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">mon-composant</span> <span class="attr">v-once</span> <span class="attr">:commentaire</span>=<span class="string">"msg"</span>&gt;</span><span class="tag">&lt;/<span class="name">mon-composant</span>&gt;</span></div><div class="line"><span class="comment">&lt;!-- directive `v-for` --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"i in liste"</span> <span class="attr">v-once</span>&gt;</span>&#123;&#123;i&#125;&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div></pre></td></tr></table></figure>
 </li>
 <li><p><strong>Voir aussi :</strong></p>
 <ul>
@@ -1581,7 +1581,7 @@
 <li><p><strong>Attend comme valeur :</strong> <code>string</code></p>
 <p>Utilisé pour les <a href="../guide/components.html#Composants-dynamiques">composants dynamiques</a> et pour contourner les <a href="../guide/components.html#Limitations-de-l’analyse-d’un-template-a-partir-du-DOM">limitations des templates dans le DOM</a>.</p>
 <p>Par exemple :</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- le composant change quand la vue actuelle change --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">component</span> <span class="attr">v-bind:is</span>=<span class="string">"vueActuelle"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- nécessaire car &lt;ma-ligne&gt; sera invalide à l'intérieur --&gt;</span></div><div class="line"><span class="comment">&lt;!-- d'un élément &lt;table&gt; et donc sera écarté --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">tr</span> <span class="attr">is</span>=<span class="string">"ma-ligne"</span>&gt;</span><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- le composant change quand la vue actuelle change --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">component</span> <span class="attr">v-bind:is</span>=<span class="string">"vueActuelle"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- nécessaire car `&lt;ma-ligne&gt;` sera invalide à l'intérieur --&gt;</span></div><div class="line"><span class="comment">&lt;!-- d'un élément `&lt;table&gt;` et donc sera écarté --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">tr</span> <span class="attr">is</span>=<span class="string">"ma-ligne"</span>&gt;</span><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>Pour un usage détaillé, suivez les liens dans la description ci-dessus.</p>
 </li>
 <li><p><strong>See also:</strong></p>
@@ -1684,7 +1684,7 @@
 <p>À partir de la 2.2.0+, <code>activated</code> et <code>deactivated</code> se déclencheront pour tous les composants imbriqués dans une arborescence <code>&lt;keep-alive&gt;</code>.</p>
 </blockquote>
 <p>Principalement utilisé pour préserver l’état du composant ou éviter un nouveau rendu.</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- basique --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">keep-alive</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">"view"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">keep-alive</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- de multiples enfants conditionnels --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">keep-alive</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">comp-a</span> <span class="attr">v-if</span>=<span class="string">"a &gt; 1"</span>&gt;</span><span class="tag">&lt;/<span class="name">comp-a</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">comp-b</span> <span class="attr">v-else</span>&gt;</span><span class="tag">&lt;/<span class="name">comp-b</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">keep-alive</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- utilisé avec &lt;transition&gt; --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">transition</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">keep-alive</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">"view"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">keep-alive</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">transition</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- basique --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">keep-alive</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">"view"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">keep-alive</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- de multiples enfants conditionnels --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">keep-alive</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">comp-a</span> <span class="attr">v-if</span>=<span class="string">"a &gt; 1"</span>&gt;</span><span class="tag">&lt;/<span class="name">comp-a</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">comp-b</span> <span class="attr">v-else</span>&gt;</span><span class="tag">&lt;/<span class="name">comp-b</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">keep-alive</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- utilisé avec `&lt;transition&gt;` --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">transition</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">keep-alive</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">"view"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">keep-alive</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">transition</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>Notez que <code>&lt;keep-alive&gt;</code> est conçu pour le cas où il a un seul composant enfant direct qui est permuté. Il ne fonctionne pas si vous avez <code>v-for</code> à l’intérieur. Quand il y a de multiples enfants condtionnels, comme ci-dessus, <code>&lt;keep-alive&gt;</code> requiert qu’un seul enfant soit visible à la fois.</p>
 </li>
 <li><p><strong><code>include</code> et <code>exclude</code></strong></p>
@@ -1692,7 +1692,7 @@
 <p>Nouveauté de la 2.1.0</p>
 </blockquote>
 <p>Les props <code>include</code> et <code>exclude</code> définissent les conditions de mise en cache des composants. Les deux props peuvent être soit une liste délimitée par des virgules, soit une expression régulière, soit une Array :</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- liste délimitée par des virgules --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">keep-alive</span> <span class="attr">include</span>=<span class="string">"a,b"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">"view"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">keep-alive</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- expression régulière (utiliser v-bind) --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">keep-alive</span> <span class="attr">:include</span>=<span class="string">"/a|b/"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">"view"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">keep-alive</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- Array (utiliser v-bind) --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">keep-alive</span> <span class="attr">:include</span>=<span class="string">"['a', 'b']"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">"view"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">keep-alive</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- liste délimitée par des virgules --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">keep-alive</span> <span class="attr">include</span>=<span class="string">"a,b"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">"view"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">keep-alive</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- expression régulière (utiliser `v-bind`) --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">keep-alive</span> <span class="attr">:include</span>=<span class="string">"/a|b/"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">"view"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">keep-alive</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- Array (utiliser `v-bind`) --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">keep-alive</span> <span class="attr">:include</span>=<span class="string">"['a', 'b']"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">"view"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">keep-alive</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>La correspondance est d’abord faite avec l’option <code>name</code> propre au composant, puis avec son nom d’inscription locale (la clé dans l’option <code>components</code> du parent) si l’option <code>name</code> n’est pas disponible. Les composants anonymes ne peuvent pas être mis en correspondance.</p>
 <p class="tip"><code>&lt;keep-alive&gt;</code> ne fonctionne pas avec les composants fonctionnels puisqu’ils n’ont pas d’instances à mettre en cache.</p>
 </li>
