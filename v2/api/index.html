@@ -1095,19 +1095,19 @@
 <h3 id="vm-attrs"><a href="#vm-attrs" class="headerlink" title="vm.$attrs"></a>vm.$attrs</h3><ul>
 <li><p><strong>Type :</strong> <code>{ [key: string]: string }</code></p>
 </li>
-<li><p><strong>Read only</strong></p>
+<li><p><strong>Accessible uniquement en lecture</strong></p>
 </li>
-<li><p><strong>Details:</strong></p>
-<p>Contains parent-scope attribute bindings (except for <code>class</code> and <code>style</code>) that are not recognized (and extracted) as props. When a component doesn’t have any declared props, this essentially contains all parent-scope bindings (except for <code>class</code> and <code>style</code>), and can be passed down to an inner component via <code>v-bind=&quot;$attrs&quot;</code> - useful when creating higher-order components.</p>
+<li><p><strong>Détails :</strong></p>
+<p>Contient les attributs liés de portée parente (à l’exeption de <code>class</code> et <code>style</code>) qui ne sont pas reconnus (et extrait) en tant que props. Quand un composant n’a aucune props de déclarée, il contient essentiellement toutes les liaisons de portée parente (à l’exeption de <code>class</code> et <code>style</code>), et peut être passé à l’intérieur d’un composant enfant via <code>v-bind=&quot;$attrs&quot;</code>. Ceci est utile pour la création de composants d’ordre supérieur.</p>
 </li>
 </ul>
 <h3 id="vm-listeners"><a href="#vm-listeners" class="headerlink" title="vm.$listeners"></a>vm.$listeners</h3><ul>
 <li><p><strong>Type :</strong> <code>{ [key: string]: Function | Array&lt;Function&gt; }</code></p>
 </li>
-<li><p><strong>Read only</strong></p>
+<li><p><strong>Accessible uniquement en lecture</strong></p>
 </li>
-<li><p><strong>Details:</strong></p>
-<p>Contains parent-scope <code>v-on</code> event listeners (without <code>.native</code> modifiers). This can be passed down to an inner component via <code>v-on=&quot;$listeners&quot;</code> - useful when creating higher-order components.</p>
+<li><p><strong>Détails :</strong></p>
+<p>Contient le gestionnaire d’évènement <code>v-on</code> de portée parente (sans le modificateur <code>.native</code>). Il peut être passé à l’intérieur d’un composant enfant via <code>v-on=&quot;$listeners&quot;</code>. Ceci est utile pour la création de composants d’ordre supérieur.</p>
 </li>
 </ul>
 <h2 id="Methodes-et-donnees-d’instance"><a href="#Methodes-et-donnees-d’instance" class="headerlink" title="Méthodes et données d’instance"></a>Méthodes et données d’instance</h2><h3 id="vm-watch">vm.$watch( expOuFn, callback, [options] )</h3>
@@ -1253,7 +1253,7 @@
 <li><p><strong>Retourne :</strong> <code>vm</code> - l’instance elle-même</p>
 </li>
 <li><p><strong>Utilisation :</strong></p>
-<p>Si une Instance de Vue n’a pas reçu l’option <code>el</code> à l’instanciation, il sera dans un état “non monté”, sans élément du DOM associé. <code>vm.$mount()</code> peut être utilisé pour démarrer manuellement le montage d’une Instance de Vue non montée.</p>
+<p>Si une Instance de Vue n’a pas reçu l’option <code>el</code> à l’instanciation, il sera dans un état « non monté », sans élément du DOM associé. <code>vm.$mount()</code> peut être utilisé pour démarrer manuellement le montage d’une Instance de Vue non montée.</p>
 <p>Si l’argument <code>élémentOuSelecteur</code> n’est pas fourni, le rendu du template se fera dans un élément hors du document, et vous devrez utiliser les API natives du DOM pour l’insérer vous-même dans le document.</p>
 <p>La méthode retourne l’instance elle-même afin que vous puissiez chaîner d’autres méthodes d’instance ensuite.</p>
 </li>
@@ -1584,7 +1584,7 @@
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- le composant change quand la vue actuelle change --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">component</span> <span class="attr">v-bind:is</span>=<span class="string">"vueActuelle"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- nécessaire car `&lt;ma-ligne&gt;` sera invalide à l'intérieur --&gt;</span></div><div class="line"><span class="comment">&lt;!-- d'un élément `&lt;table&gt;` et donc sera écarté --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">tr</span> <span class="attr">is</span>=<span class="string">"ma-ligne"</span>&gt;</span><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>Pour un usage détaillé, suivez les liens dans la description ci-dessus.</p>
 </li>
-<li><p><strong>See also:</strong></p>
+<li><p><strong>Voir aussi :</strong></p>
 <ul>
 <li><a href="../guide/components.html#Composants-dynamiques">Composants dynamiques</a></li>
 <li><a href="../guide/components.html#Limitations-de-l’analyse-d’un-template-a-partir-du-DOM">Limitations de l’analyse d’un template à partir du DOM</a></li>
