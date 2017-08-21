@@ -833,7 +833,7 @@ new Vue({
 <li>Écouter un événement en utilisant <code>$on(eventName)</code></li>
 <li>Déclencher un événement en utilisant <code>$emit(eventName)</code></li>
 </ul>
-<p class="tip">Notez que le système d’événement de Vue est différent de celui du navigateur <a href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget" target="_blank" rel="external">EventTarget API</a>. Bien qu’il fonctionne de manière similaire, <code>$on</code> et <code>$emit</code> <strong>ne</strong> sont <strong>pas</strong> des alias pour <code>addEventListener</code> et <code>dispatchEvent</code>.</p>
+<p class="tip">Notez que le système d’événement de Vue est différent de celui de l’API navigateur <a href="https://developer.mozilla.org/fr/docs/Web/API/EventTarget" target="_blank" rel="external">EventTarget</a>. Bien qu’il fonctionne de manière similaire, <code>$on</code> et <code>$emit</code> <strong>ne</strong> sont <strong>pas</strong> des alias pour <code>addEventListener</code> et <code>dispatchEvent</code>.</p>
 
 <p>De plus, un composant parent peut écouter des événements émis depuis un composant enfant en utilisant <code>v-on</code> directement sur le template où le composant enfant est utilisé.</p>
 <p class="tip">Vous ne pouvez pas utiliser <code>$on</code> pour écouter les événements émis par les enfants. Vous devez utiliser <code>v-on</code> directement dans le template, comme dans l’exemple ci-dessous.</p>

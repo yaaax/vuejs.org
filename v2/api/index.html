@@ -328,7 +328,7 @@
 <li><p><strong>Par défaut :</strong> <code>{}</code></p>
 </li>
 <li><p><strong>Utilisation :</strong></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">Vue.config.keyCodes = &#123;</div><div class="line">  <span class="attr">v</span>: <span class="number">86</span>,</div><div class="line">  <span class="attr">f1</span>: <span class="number">112</span>,</div><div class="line">  <span class="comment">// La camelCase ne marche pas</span></div><div class="line">  mediaPlayPause: <span class="number">179</span>,</div><div class="line">  <span class="comment">// à la place vous devez utiliser la kebab-case avec un guillement double</span></div><div class="line">  <span class="string">"media-play-pause"</span>: <span class="number">179</span>,</div><div class="line">  <span class="attr">up</span>: [<span class="number">38</span>, <span class="number">87</span>]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">Vue.config.keyCodes = &#123;</div><div class="line">  <span class="attr">v</span>: <span class="number">86</span>,</div><div class="line">  <span class="attr">f1</span>: <span class="number">112</span>,</div><div class="line">  <span class="comment">// La camelCase ne marche pas</span></div><div class="line">  mediaPlayPause: <span class="number">179</span>,</div><div class="line">  <span class="comment">// à la place vous devez utiliser la kebab-case avec des guillemets doubles</span></div><div class="line">  <span class="string">"media-play-pause"</span>: <span class="number">179</span>,</div><div class="line">  <span class="attr">up</span>: [<span class="number">38</span>, <span class="number">87</span>]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> @<span class="attr">keyup.media-play-pause</span>=<span class="string">"method"</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>Définit des alias pour les touches avec <code>v-on</code>.</p>
 </li>
@@ -848,7 +848,7 @@
 <p>Cette option est similaire à <code>mixins</code>, la différence étant que les propres options du composant ont la priorité sur celles du composant source à étendre.</p>
 </li>
 <li><p><strong>Exemple :</strong></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> CompA = &#123; ... &#125;</div><div class="line"></div><div class="line"><span class="comment">// étend CompA sans avoir à appeler `Vue.extend` sur l'un ou l'autre</span></div><div class="line"><span class="keyword">var</span> CompB = &#123;</div><div class="line">  <span class="attr">extends</span>: CompA,</div><div class="line">  ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> CompA = &#123; ... &#125;</div><div class="line"></div><div class="line"><span class="comment">// étend `CompA` sans avoir à appeler `Vue.extend` sur l'un ou l'autre</span></div><div class="line"><span class="keyword">var</span> CompB = &#123;</div><div class="line">  <span class="attr">extends</span>: CompA,</div><div class="line">  ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 </ul>
 <h3 id="provide-inject"><a href="#provide-inject" class="headerlink" title="provide / inject"></a>provide / inject</h3><blockquote>
@@ -1214,7 +1214,7 @@
 <ul>
 <li><p><strong>Arguments :</strong></p>
 <ul>
-<li><code>{string} [événement]</code></li>
+<li><code>{string | Array&lt;string&gt;} événement</code> (les tableaux sont seulement supportés dans la 2.2.2+)</li>
 <li><code>{Function} [callback]</code></li>
 </ul>
 </li>
@@ -1454,7 +1454,7 @@
 </li>
 <li><p><strong>Modificateurs :</strong></p>
 <ul>
-<li><code>.prop</code> - Associe une propriété du DOM plutôt qu’un attribut. (<a href="http://stackoverflow.com/questions/6003819/properties-and-attributes-in-html#answer-6004028" target="_blank" rel="external">quelle difference?</a>). Si le tag est un composant, alors <code>prop</code> assignera la propriété sur l’élément <code>$el</code> du composant.</li>
+<li><code>.prop</code> - Associe une propriété du DOM plutôt qu’un attribut. (<a href="http://stackoverflow.com/questions/6003819/properties-and-attributes-in-html#answer-6004028" target="_blank" rel="external">Quelle difference ?</a>). Si le tag est un composant, alors <code>.prop</code> assignera la propriété sur l’élément <code>$el</code> du composant.</li>
 <li><code>.camel</code> - (2.1.0+) transforme un nom d’attribut en kebab-case en sa version camelCase.</li>
 <li><code>.sync</code> - (2.3.0+) du sucre syntaxique pour ajouter un un gestionnaire <code>v-on</code> qui met à jour la valeur liée.</li>
 </ul>
