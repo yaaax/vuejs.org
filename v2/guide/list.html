@@ -539,7 +539,7 @@
         
         
         <li>
-            <a href="/v2/guide/migration.html" class="sidebar-link">Migration from Vue 1.x (En)</a>
+            <a href="/v2/guide/migration.html" class="sidebar-link">Migration depuis Vue 1.x</a>
         </li>
     
         
@@ -720,7 +720,7 @@ new Vue({
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-for</span>=<span class="string">"(value, key, index) in object"</span>&gt;</span></div><div class="line">  &#123;&#123; index &#125;&#125;. &#123;&#123; key &#125;&#125; : &#123;&#123; value &#125;&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
 <p class="tip">Quand vous itérez sur un objet, l’ordre est basé sur l’ordre d’énumération de <code>Object.keys()</code> et il <strong>n’</strong>y a <strong>aucune</strong> garantie de cohérence à travers toutes les implémentations des moteurs JavaScript.</p>
 
-<h3 id="v-for-et-nombres"><a href="#v-for-et-nombres" class="headerlink" title="v-for et nombres"></a><code>v-for</code> et nombres</h3><p><code>v-for</code> peut également prendre un nombre entier. Dans ce cas, il répétera le template autant de fois qu’indiqué.</p>
+<h3 id="v-for-et-plage-de-valeurs"><a href="#v-for-et-plage-de-valeurs" class="headerlink" title="v-for et plage de valeurs"></a><code>v-for</code> et plage de valeurs</h3><p><code>v-for</code> peut également prendre un nombre entier. Dans ce cas, il répétera le template autant de fois qu’indiqué.</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">span</span> <span class="attr">v-for</span>=<span class="string">"n in 10"</span>&gt;</span>&#123;&#123; n &#125;&#125; <span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>Résultat :</p>
 
@@ -795,7 +795,7 @@ new Vue({
 })
 </script>
 
-<h3 id="v-for-avec-v-if"><a href="#v-for-avec-v-if" class="headerlink" title="v-for avec v-if"></a><code>v-for</code> avec <code>v-if</code></h3><p>Quand ils existent sur le même nœud, <code>v-for</code> a une priorité plus élevée que <code>v-if</code>. Cela signifie que <code>v-if</code> va être exécuté indépendamment à chaque itération de boucle. C’est très utile quand vous voulez faire le rendu de seulement certains noeuds, comme ci-dessous : </p>
+<h3 id="v-for-avec-v-if"><a href="#v-for-avec-v-if" class="headerlink" title="v-for avec v-if"></a><code>v-for</code> avec <code>v-if</code></h3><p>Quand ils existent sur le même nœud, <code>v-for</code> a une priorité plus élevée que <code>v-if</code>. Cela signifie que <code>v-if</code> va être exécuté indépendamment à chaque itération de boucle. C’est très utile quand vous voulez faire le rendu de seulement certains noeuds, comme ci-dessous :</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"todo in todos"</span> <span class="attr">v-if</span>=<span class="string">"!todo.isComplete"</span>&gt;</span></div><div class="line">  &#123;&#123; todo &#125;&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>La partie ci-dessus fait uniquement le rendu des tâches qui ne sont pas achevées.</p>
 <p>Si votre intention est plutôt de sauter conditionnellement l’exécution de la boucle, vous pouvez placer le <code>v-if</code> sur l’élément parent (ou sur <a href="conditional.html#Conditional-Groups-with-v-if-on-lt-template-gt"><code>&lt;template&gt;</code></a>). Par exemple :</p>
