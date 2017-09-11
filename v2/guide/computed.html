@@ -866,7 +866,7 @@ var watchExampleVM = new Vue({
         vm.answer = 'Je réfléchis...'
         axios.get('https://yesno.wtf/api')
           .then(function (response) {
-            vm.answer = _.capitalize(response.data.answer)
+            vm.answer = _.capitalize(response.data.answer.replace(/Yes/g, 'Oui').replace(/No/g, 'Non'))
           })
           .catch(function (error) {
             vm.answer = "Erreur ! Impossible d'accéder à l'API." + error
