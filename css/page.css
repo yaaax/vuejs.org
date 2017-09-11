@@ -155,7 +155,6 @@ a.button.white {
 }
 .highlight {
   overflow-x: auto;
-  position: relative;
   padding: 0;
   background-color: #f8f8f8;
   padding: 0.8em 0.8em 0.4em;
@@ -181,12 +180,12 @@ a.button.white {
 .highlight .code .line {
   min-height: 1.5em;
 }
-.highlight.html .code:after,
-.highlight.js .code:after,
-.highlight.bash .code:after,
-.highlight.css .code:after {
+.highlight.html .code:before,
+.highlight.js .code:before,
+.highlight.bash .code:before,
+.highlight.css .code:before {
   position: absolute;
-  top: 0;
+  margin-top: -1em;
   right: 0;
   color: #ccc;
   text-align: right;
@@ -196,16 +195,16 @@ a.button.white {
   height: 15px;
   font-weight: 600;
 }
-.highlight.html .code:after {
+.highlight.html .code:before {
   content: 'HTML';
 }
-.highlight.js .code:after {
+.highlight.js .code:before {
   content: 'JS';
 }
-.highlight.bash .code:after {
+.highlight.bash .code:before {
   content: 'Shell';
 }
-.highlight.css .code:after {
+.highlight.css .code:before {
   content: 'CSS';
 }
 #main {
@@ -929,7 +928,7 @@ i.rotating-clockwise {
   padding: 2.2em 0;
   max-width: 600px;
   margin: 0 auto;
-  padding-left: 30px;
+  padding-left: 50px;
 }
 .content.api > a:first-of-type > h2 {
   margin-top: 0;
