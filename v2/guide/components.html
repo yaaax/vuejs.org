@@ -921,7 +921,7 @@ new Vue({
 })
 </script>
 
-<p>Si vous souhaitez passer toutes les propriétés dans un objet en tant que props, vous devez utiliser <code>v-bind</code> sans un argument  (<code>v-bind</code> au lieu de <code>v-bind:prop-name</code>). Par exemple, avec un objet <code>todo</code> :</p>
+<p>Si vous souhaitez passer toutes les propriétés dans un objet en tant que props, vous devez utiliser <code>v-bind</code> sans arguments  (<code>v-bind</code> au lieu de <code>v-bind:prop-name</code>). Par exemple, avec un objet <code>todo</code> :</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line">todo: &#123;</div><div class="line">  <span class="attr">text</span>: <span class="string">'Apprendre Vue'</span>,</div><div class="line">  <span class="attr">isComplete</span>: <span class="literal">false</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>Alors :</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">todo-item</span> <span class="attr">v-bind</span>=<span class="string">"todo"</span>&gt;</span><span class="tag">&lt;/<span class="name">todo-item</span>&gt;</span></div></pre></td></tr></table></figure>
