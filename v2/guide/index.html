@@ -107,6 +107,7 @@
     <li><ul>
       <li><a href="https://router.vuejs.org/" class="nav-link" target="_blank">Vue Router</a></li>
       <li><a href="https://vuex.vuejs.org/" class="nav-link" target="_blank">Vuex</a></li>
+      <li><a href="https://ssr.vuejs.org/" class="nav-link" target="_blank">Vue Server Renderer</a></li>
     </ul></li>
     <li><h4>Liste de ressources</h4></li>
     <li><ul>
@@ -172,6 +173,7 @@
     <li><ul>
       <li><a href="https://router.vuejs.org/" class="nav-link" target="_blank">Vue Router</a></li>
       <li><a href="https://vuex.vuejs.org/" class="nav-link" target="_blank">Vuex</a></li>
+      <li><a href="https://ssr.vuejs.org/" class="nav-link" target="_blank">Vue Server Renderer</a></li>
     </ul></li>
     <li><h4>Liste de ressources</h4></li>
     <li><ul>
@@ -944,7 +946,7 @@ var app7 = new Vue({
 <p>Ceci n’est qu’un exemple grossier, nous avons réussi à séparer notre application en deux plus petites unités, et chaque enfant est raisonnablement bien découplé de son parent via l’utilisation des props. Nous pouvons maintenant améliorer notre <code>&lt;todo-item&gt;</code> avec un template et une logique plus complexes sans affecter l’application parente.</p>
 <p>Pour une grosse application, il est nécessaire de la diviser entièrement en composants afin de rendre le développement plus abordable. Nous parlerons des composants plus précisément <a href="components.html">plus tard dans le guide</a>, mais en attendant voici un exemple (imaginaire) de ce à quoi un template d’application pourrait ressembler avec des composants :</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">app-nav</span>&gt;</span><span class="tag">&lt;/<span class="name">app-nav</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">app-view</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">app-sidebar</span>&gt;</span><span class="tag">&lt;/<span class="name">app-sidebar</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">app-content</span>&gt;</span><span class="tag">&lt;/<span class="name">app-content</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">app-view</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<h3 id="Parallele-avec-les-Custom-Elements"><a href="#Parallele-avec-les-Custom-Elements" class="headerlink" title="Parallèle avec les Custom Elements"></a>Parallèle avec les Custom Elements</h3><p>Vous avez peut-être remarqué que les composants de Vue sont très similaires aux <strong><em>Custom Elements</em></strong>, qui sont une partie de la <a href="http://www.w3.org/wiki/WebComponents/" target="_blank" rel="external">spécification des <em>Web Components</em></a>. C’est parce que la syntaxe de Vue est vaguement inspirée de cette spécification. Par exemple, les composants de Vue implémentent l’<a href="https://github.com/w3c/webcomponents/blob/gh-pages/proposals/Slots-Proposal.md" target="_blank" rel="external">API Slot</a> et l’attribut spécial <code>is</code>. Cependant, il y a quelques différences essentielles :</p>
+<h3 id="Parallele-avec-les-Custom-Elements"><a href="#Parallele-avec-les-Custom-Elements" class="headerlink" title="Parallèle avec les Custom Elements"></a>Parallèle avec les Custom Elements</h3><p>Vous avez peut-être remarqué que les composants de Vue sont très similaires aux <strong><em>Custom Elements</em></strong>, qui sont une partie de la <a href="https://www.w3.org/wiki/WebComponents/" target="_blank" rel="external">spécification des <em>Web Components</em></a>. C’est parce que la syntaxe de Vue est vaguement inspirée de cette spécification. Par exemple, les composants de Vue implémentent l’<a href="https://github.com/w3c/webcomponents/blob/gh-pages/proposals/Slots-Proposal.md" target="_blank" rel="external">API Slot</a> et l’attribut spécial <code>is</code>. Cependant, il y a quelques différences essentielles :</p>
 <ol>
 <li><p>La spécification des <em>Web Components</em> est toujours à l’état de brouillon, et n’est pas implémentée nativement dans tous les navigateurs. En comparaison, les composants de Vue n’ont besoin d’aucun <em>polyfill</em> et fonctionnent de la même manière dans tous les navigateurs supportés (IE9 et supérieurs). Quand cela est nécessaire, les composants de Vue peuvent également être implémentés à l’intérieur d’un élément personnalisé natif.</p>
 </li>

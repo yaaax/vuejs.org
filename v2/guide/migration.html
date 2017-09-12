@@ -107,6 +107,7 @@
     <li><ul>
       <li><a href="https://router.vuejs.org/" class="nav-link" target="_blank">Vue Router</a></li>
       <li><a href="https://vuex.vuejs.org/" class="nav-link" target="_blank">Vuex</a></li>
+      <li><a href="https://ssr.vuejs.org/" class="nav-link" target="_blank">Vue Server Renderer</a></li>
     </ul></li>
     <li><h4>Liste de ressources</h4></li>
     <li><ul>
@@ -172,6 +173,7 @@
     <li><ul>
       <li><a href="https://router.vuejs.org/" class="nav-link" target="_blank">Vue Router</a></li>
       <li><a href="https://vuex.vuejs.org/" class="nav-link" target="_blank">Vuex</a></li>
+      <li><a href="https://ssr.vuejs.org/" class="nav-link" target="_blank">Vue Server Renderer</a></li>
     </ul></li>
     <li><h4>Liste de ressources</h4></li>
     <li><ul>
@@ -811,9 +813,9 @@
 </li>
 </ul>
 <blockquote>
-<p>Si je passe à Vue 2, dois-je aussi mettre à jour Vuex et Vue-Router ?</p>
+<p>Si je passe à Vue 2, dois-je aussi mettre à jour Vuex et Vue Router ?</p>
 </blockquote>
-<p>Seul Vue-Router 2 est compatible avec Vue 2, donc oui, vous allez devoir également suivre le <a href="migration-vue-router.html">guide de migration pour Vue-Router</a>. Heureusement, un grand nombre d’applications n’ont pas beaucoup de code en lien avec le routeur, cela ne devrait donc pas prendre plus d’une heure.</p>
+<p>Seul Vue Router 2 est compatible avec Vue 2, donc oui, vous allez devoir également suivre le <a href="migration-vue-router.html">guide de migration pour Vue Router</a>. Heureusement, un grand nombre d’applications n’ont pas beaucoup de code en lien avec le routeur, cela ne devrait donc pas prendre plus d’une heure.</p>
 <p>En ce qui concerne Vuex, la version 0.8 est compatible avec Vue 2, vous n’êtes donc pas obligé de le mettre à jour. La seule raison pour que vous souhaitiez faire la mise à jour dès maintenant serait de tirer partie des nouvelles fonctionnalités de Vuex 2, comme les modules ou les codes pré-conçus (« boilerplate ») moins verbeux.</p>
 <h2 id="Templates"><a href="#Templates" class="headerlink" title="Templates"></a>Templates</h2><h3 id="Instances-fragmentees-retirees"><a href="#Instances-fragmentees-retirees" class="headerlink" title="Instances fragmentées retirées"></a>Instances fragmentées <sup>retirées</sup></h3><p>Tous les composants doivent avoir seulement un seul élément racine. Les instances fragmentées ne sont plus permises. Si vous aviez un template comme ceci :</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>foo<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>bar<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div></pre></td></tr></table></figure>

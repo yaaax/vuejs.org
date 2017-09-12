@@ -107,6 +107,7 @@
     <li><ul>
       <li><a href="https://router.vuejs.org/" class="nav-link" target="_blank">Vue Router</a></li>
       <li><a href="https://vuex.vuejs.org/" class="nav-link" target="_blank">Vuex</a></li>
+      <li><a href="https://ssr.vuejs.org/" class="nav-link" target="_blank">Vue Server Renderer</a></li>
     </ul></li>
     <li><h4>Liste de ressources</h4></li>
     <li><ul>
@@ -172,6 +173,7 @@
     <li><ul>
       <li><a href="https://router.vuejs.org/" class="nav-link" target="_blank">Vue Router</a></li>
       <li><a href="https://vuex.vuejs.org/" class="nav-link" target="_blank">Vuex</a></li>
+      <li><a href="https://ssr.vuejs.org/" class="nav-link" target="_blank">Vue Server Renderer</a></li>
     </ul></li>
     <li><h4>Liste de ressources</h4></li>
     <li><ul>
@@ -785,7 +787,7 @@
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">  <span class="attr">el</span>: <span class="string">'#some-element'</span>,</div><div class="line">  <span class="comment">// options</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <p>Pour inscrire un composant global, vous pouvez utiliser <code>Vue.component(tagName, options)</code>. Par exemple :</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line">Vue.component(<span class="string">'my-component'</span>, &#123;</div><div class="line">  <span class="comment">// options</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<p class="tip">Notez que Vue ne vous force pas à respecter les <a href="http://www.w3.org/TR/custom-elements/#concepts" target="_blank" rel="external">règles du W3C</a> en ce qui concerne les noms de balises personnalisées (tout en minuscules, obligation de contenir un trait d’union) bien que suivre cette convention est considéré comme une bonne pratique.</p>
+<p class="tip">Notez que Vue ne vous force pas à respecter les <a href="https://www.w3.org/TR/custom-elements/#concepts" target="_blank" rel="external">règles du W3C</a> en ce qui concerne les noms de balises personnalisées (tout en minuscules, obligation de contenir un trait d’union) bien que suivre cette convention est considéré comme une bonne pratique.</p>
 
 <p>Une fois inscrit, un composant peut être utilisé dans le template d’une instance en tant qu’élément personnalisé, <code>&lt;my-component&gt;&lt;/my-component&gt;</code>. Assurez-vous que le composant soit inscrit <strong>avant</strong> l’instanciation de l’instance racine de Vue. Voici un exemple complet :</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"example"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">my-component</span>&gt;</span><span class="tag">&lt;/<span class="name">my-component</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
