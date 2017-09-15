@@ -685,7 +685,7 @@
         
         
         <li>
-            <a href="/v2/guide/migration-vue-router.html" class="sidebar-link">Migration from Vue Router 0.7.x (En)</a>
+            <a href="/v2/guide/migration-vue-router.html" class="sidebar-link">Migration depuis Vue Router 0.7.x</a>
         </li>
     
         
@@ -817,7 +817,7 @@
 </blockquote>
 <p>Seul Vue Router 2 est compatible avec Vue 2, donc oui, vous allez devoir également suivre le <a href="migration-vue-router.html">guide de migration pour Vue Router</a>. Heureusement, un grand nombre d’applications n’ont pas beaucoup de code en lien avec le routeur, cela ne devrait donc pas prendre plus d’une heure.</p>
 <p>En ce qui concerne Vuex, la version 0.8 est compatible avec Vue 2, vous n’êtes donc pas obligé de le mettre à jour. La seule raison pour que vous souhaitiez faire la mise à jour dès maintenant serait de tirer partie des nouvelles fonctionnalités de Vuex 2, comme les modules ou les codes pré-conçus (« boilerplate ») moins verbeux.</p>
-<h2 id="Templates"><a href="#Templates" class="headerlink" title="Templates"></a>Templates</h2><h3 id="Instances-fragmentees-retirees"><a href="#Instances-fragmentees-retirees" class="headerlink" title="Instances fragmentées retirées"></a>Instances fragmentées <sup>retirées</sup></h3><p>Tous les composants doivent avoir seulement un seul élément racine. Les instances fragmentées ne sont plus permises. Si vous aviez un template comme ceci :</p>
+<h2 id="Templates"><a href="#Templates" class="headerlink" title="Templates"></a>Templates</h2><h3 id="Instances-fragmentees-supprimees"><a href="#Instances-fragmentees-supprimees" class="headerlink" title="Instances fragmentées supprimées"></a>Instances fragmentées <sup>supprimées</sup></h3><p>Tous les composants doivent avoir seulement un seul élément racine. Les instances fragmentées ne sont plus permises. Si vous aviez un template comme ceci :</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>foo<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>bar<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>Il est recommandé d’entourer simplement le contenu complet dans un nouvel élément, comme cela :</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>foo<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>bar<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
@@ -827,7 +827,7 @@
   <p>Lancez votre suite de tests ou votre application après mise à jour et vérifiez les <strong>avertissements de console</strong> à propos d'éléments multiple à la racine dans un template.</p>
 </div>
 
-<h2 id="Hooks-de-cycle-de-vie"><a href="#Hooks-de-cycle-de-vie" class="headerlink" title="Hooks de cycle de vie"></a>Hooks de cycle de vie</h2><h3 id="beforeCompile-retire"><a href="#beforeCompile-retire" class="headerlink" title="beforeCompile retiré"></a><code>beforeCompile</code> <sup>retiré</sup></h3><p>Utilisez le hook <code>created</code> à la place.</p>
+<h2 id="Hooks-de-cycle-de-vie"><a href="#Hooks-de-cycle-de-vie" class="headerlink" title="Hooks de cycle de vie"></a>Hooks de cycle de vie</h2><h3 id="beforeCompile-supprime"><a href="#beforeCompile-supprime" class="headerlink" title="beforeCompile supprimé"></a><code>beforeCompile</code> <sup>supprimé</sup></h3><p>Utilisez le hook <code>created</code> à la place.</p>
 
 <div class="upgrade-path">
   <h4>Comment procéder ?</h4>
@@ -841,7 +841,7 @@
   <p>Lancez l'<a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">outil d'aide à la migration</a> sur votre code pour trouver toutes les occurrences de ce hook.</p>
 </div>
 
-<h3 id="attached-retire"><a href="#attached-retire" class="headerlink" title="attached retiré"></a><code>attached</code> <sup>retiré</sup></h3><p>Utilisez une vérification du DOM dans les autres hooks. Par exemple, remplacez :</p>
+<h3 id="attached-supprime"><a href="#attached-supprime" class="headerlink" title="attached supprimé"></a><code>attached</code> <sup>supprimé</sup></h3><p>Utilisez une vérification du DOM dans les autres hooks. Par exemple, remplacez :</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line">attached: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  doSomething()</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>par :</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line">mounted: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">this</span>.$nextTick(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    doSomething()</div><div class="line">  &#125;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -851,7 +851,7 @@
   <p>Lancez l'<a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">outil d'aide à la migration</a> sur votre code pour trouver toutes les occurrences de ce hook.</p>
 </div>
 
-<h3 id="detached-retire"><a href="#detached-retire" class="headerlink" title="detached retiré"></a><code>detached</code> <sup>retiré</sup></h3><p>Utilisez une vérification du DOM dans les autres hooks. Par exemple, remplacez :</p>
+<h3 id="detached-supprime"><a href="#detached-supprime" class="headerlink" title="detached supprimé"></a><code>detached</code> <sup>supprimé</sup></h3><p>Utilisez une vérification du DOM dans les autres hooks. Par exemple, remplacez :</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line">detached: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  doSomething()</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>par :</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line">destroyed: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">this</span>.$nextTick(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    doSomething()</div><div class="line">  &#125;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -890,7 +890,7 @@
   <p>Lancez l'<a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">outil d'aide à la migration</a> sur votre code pour trouver des exemples d'ordre des arguments obsolètes. Notez que si le nom de votre clé est quelque chose comme <code>name</code> ou <code>property</code>, l'outil d'aide ne les trouvera pas.</p>
 </div>
 
-<h3 id="index-et-key-retires"><a href="#index-et-key-retires" class="headerlink" title="$index et $key retirés"></a><code>$index</code> et <code>$key</code> <sup>retirés</sup></h3><p>Les variables implicites <code>$index</code> et <code>$key</code> ont été enlevées à la faveur de leur définition explicite dans <code>v-for</code>. Ceci rend le code plus simple à lire pour les développeurs moins expérimentés avec Vue. Il en résulte également des comportements plus prévisibles dans les cas de boucles imbriquées.</p>
+<h3 id="index-et-key-supprimes"><a href="#index-et-key-supprimes" class="headerlink" title="$index et $key supprimés"></a><code>$index</code> et <code>$key</code> <sup>supprimés</sup></h3><p>Les variables implicites <code>$index</code> et <code>$key</code> ont été enlevées à la faveur de leur définition explicite dans <code>v-for</code>. Ceci rend le code plus simple à lire pour les développeurs moins expérimentés avec Vue. Il en résulte également des comportements plus prévisibles dans les cas de boucles imbriquées.</p>
 
 <div class="upgrade-path">
   <h4>Comment procéder ?</h4>
@@ -914,7 +914,7 @@
   <p>Cherchez dans votre code avec l'expression régulière <code>/\w+ in \d+/</code>. Partout ou cette expression sort dans du code <code>v-for</code>, vérifiez si cela vous affecte.</p>
 </div>
 
-<h2 id="Props"><a href="#Props" class="headerlink" title="Props"></a>Props</h2><h3 id="Option-de-prop-coerce-retiree"><a href="#Option-de-prop-coerce-retiree" class="headerlink" title="Option de prop coerce retirée"></a>Option de prop <code>coerce</code> <sup>retirée</sup></h3><p>Si vous voulez coercer une prop, mettez en place une propriété calculée basée dessus. Par exemple au lieu de :</p>
+<h2 id="Props"><a href="#Props" class="headerlink" title="Props"></a>Props</h2><h3 id="Option-de-prop-coerce-supprimee"><a href="#Option-de-prop-coerce-supprimee" class="headerlink" title="Option de prop coerce supprimée"></a>Option de prop <code>coerce</code> <sup>supprimée</sup></h3><p>Si vous voulez coercer une prop, mettez en place une propriété calculée basée dessus. Par exemple au lieu de :</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line">props: &#123;</div><div class="line">  <span class="attr">username</span>: &#123;</div><div class="line">    <span class="attr">type</span>: <span class="built_in">String</span>,</div><div class="line">    <span class="attr">coerce</span>: <span class="function"><span class="keyword">function</span> (<span class="params">value</span>) </span>&#123;</div><div class="line">      <span class="keyword">return</span> value</div><div class="line">        .toLowerCase()</div><div class="line">        .replace(<span class="regexp">/\s+/</span>, <span class="string">'-'</span>)</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>utilisez plutôt :</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line">props: &#123;</div><div class="line">  <span class="attr">username</span>: <span class="built_in">String</span>,</div><div class="line">&#125;,</div><div class="line"><span class="attr">computed</span>: &#123;</div><div class="line">  <span class="attr">normalizedUsername</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.username</div><div class="line">      .toLowerCase()</div><div class="line">      .replace(<span class="regexp">/\s+/</span>, <span class="string">'-'</span>)</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -929,7 +929,7 @@
   <p>Lancez l'<a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">outil d'aide à la migration</a> sur votre code pour trouver des occurrences de l'option <code>coerce</code>.</p>
 </div>
 
-<h3 id="Option-de-prop-twoWay-retiree"><a href="#Option-de-prop-twoWay-retiree" class="headerlink" title="Option de prop twoWay retirée"></a>Option de prop <code>twoWay</code> <sup>retirée</sup></h3><p>Les props sont maintenant toujours unidirectionnelles et descendantes. Pour produire une modification dans la portée parente, un composant a besoin d’explicitement émettre un évènement au lieu de créer une liaison implicite. Pour plus d’informations, consultez :</p>
+<h3 id="Option-de-prop-twoWay-supprimee"><a href="#Option-de-prop-twoWay-supprimee" class="headerlink" title="Option de prop twoWay supprimée"></a>Option de prop <code>twoWay</code> <sup>supprimée</sup></h3><p>Les props sont maintenant toujours unidirectionnelles et descendantes. Pour produire une modification dans la portée parente, un composant a besoin d’explicitement émettre un évènement au lieu de créer une liaison implicite. Pour plus d’informations, consultez :</p>
 <ul>
 <li><a href="components.html#Evenements-personnalises">Événements de composant personnalisés</a></li>
 <li><a href="components.html#Composants-de-champ-de-formulaire-utilisant-les-evenements-personnalises">Composants de champ de formulaire personnalisés</a> (utilisant les événements de composant)</li>
@@ -941,7 +941,7 @@
   <p>Lancez l'<a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">outil d'aide à la migration</a> sur votre code pour trouver des occurrences de l'option <code>twoWay</code>.</p>
 </div>
 
-<h3 id="Modificateur-once-et-sync-de-v-bind-retire"><a href="#Modificateur-once-et-sync-de-v-bind-retire" class="headerlink" title="Modificateur .once et .sync de v-bind retiré"></a>Modificateur <code>.once</code> et <code>.sync</code> de <code>v-bind</code> <sup>retiré</sup></h3><p>Les props sont maintenant toujours unidirectionnelles et descendantes. Pour produire une modification dans la portée parente, un composant a besoin d’explicitement émettre un évènement au lieu de créer une liaison implicite. Pour plus d’informations, consultez :</p>
+<h3 id="Modificateur-once-et-sync-de-v-bind-supprime"><a href="#Modificateur-once-et-sync-de-v-bind-supprime" class="headerlink" title="Modificateur .once et .sync de v-bind supprimé"></a>Modificateur <code>.once</code> et <code>.sync</code> de <code>v-bind</code> <sup>supprimé</sup></h3><p>Les props sont maintenant toujours unidirectionnelles et descendantes. Pour produire une modification dans la portée parente, un composant a besoin d’explicitement émettre un évènement au lieu de créer une liaison implicite. Pour plus d’informations, consultez :</p>
 <ul>
 <li><a href="components.html#Evenements-personnalises">Événements de composant personnalisés</a></li>
 <li><a href="components.html#Composants-de-champ-de-formulaire-utilisant-les-evenements-personnalises">Composants de champ de formulaire personnalisés</a> (utilisant les événements de composant)</li>
@@ -1001,7 +1001,7 @@
   <p>Lancez votre suite de tests si vous en avez. Les <strong>tests en échec</strong> devraient vous alerter si des parties de votre application sont affectées par ce changement.</p>
 </div>
 
-<h3 id="Parametre-d’attribut-debounce-pour-v-model-retire"><a href="#Parametre-d’attribut-debounce-pour-v-model-retire" class="headerlink" title="Paramètre d’attribut debounce pour v-model retiré"></a>Paramètre d’attribut <code>debounce</code> pour <code>v-model</code> <sup>retiré</sup></h3><p>Une fonction de rétention (« debounce ») est utilisée pour limiter la fréquence d’exécution des requêtes Ajax et des autres opérations coûteuses. L’attribut <code>debounce</code> de Vue pour le paramètre <code>v-model</code> est taillé pour des cas simples, mais en fait il fait la rétention des <strong>mises à jour d’état</strong> plutôt que des opérations lourdes elles-même. C’est une différence subtile, mais cela amène des limitations quand l’application grandit.</p>
+<h3 id="Parametre-d’attribut-debounce-pour-v-model-supprime"><a href="#Parametre-d’attribut-debounce-pour-v-model-supprime" class="headerlink" title="Paramètre d’attribut debounce pour v-model supprimé"></a>Paramètre d’attribut <code>debounce</code> pour <code>v-model</code> <sup>supprimé</sup></h3><p>Une fonction de rétention (« debounce ») est utilisée pour limiter la fréquence d’exécution des requêtes Ajax et des autres opérations coûteuses. L’attribut <code>debounce</code> de Vue pour le paramètre <code>v-model</code> est taillé pour des cas simples, mais en fait il fait la rétention des <strong>mises à jour d’état</strong> plutôt que des opérations lourdes elles-même. C’est une différence subtile, mais cela amène des limitations quand l’application grandit.</p>
 <p>Ces limitations peuvent être mises en évidence avec un indicateur de recherche, comme celui de cet exemple :</p>
 
 <script src="https://cdn.jsdelivr.net/lodash/4.13.1/lodash.js"></script>
@@ -1066,7 +1066,7 @@ new Vue({
   <p>Lancez l'<a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">outil d'aide à la migration</a> sur votre code pour trouver des occurrences des paramètres d'attributs <code>lazy</code> ou <code>number</code>.</p>
 </div>
 
-<h3 id="Attribut-value-avec-v-model-retire"><a href="#Attribut-value-avec-v-model-retire" class="headerlink" title="Attribut value avec v-model retiré"></a>Attribut <code>value</code> avec <code>v-model</code> <sup>retiré</sup></h3><p><code>v-model</code> ne se préoccupe plus de la valeur initiale de l’attribut <code>value</code>. Pour plus de prédictibilité, il utilisera toujours la donnée utilisée dans l’instance de Vue comme source de vérité.</p>
+<h3 id="Attribut-value-avec-v-model-supprime"><a href="#Attribut-value-avec-v-model-supprime" class="headerlink" title="Attribut value avec v-model supprimé"></a>Attribut <code>value</code> avec <code>v-model</code> <sup>supprimé</sup></h3><p><code>v-model</code> ne se préoccupe plus de la valeur initiale de l’attribut <code>value</code>. Pour plus de prédictibilité, il utilisera toujours la donnée utilisée dans l’instance de Vue comme source de vérité.</p>
 <p>Cela signifie que cet élément :</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">v-model</span>=<span class="string">"text"</span> <span class="attr">value</span>=<span class="string">"foo"</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>lié par cette donnée :</p>
@@ -1080,7 +1080,7 @@ new Vue({
   <p>Lancez votre suite de tests ou votre application après mise à jour et vérifiez les <strong>avertissements de console</strong> à propos d'éléments des valeurs de l'attribut <code>value</code> avec <code>v-model</code>.</p>
 </div>
 
-<h3 id="Iteration-de-valeur-primitive-avec-v-model-et-v-for-retire"><a href="#Iteration-de-valeur-primitive-avec-v-model-et-v-for-retire" class="headerlink" title="Itération de valeur primitive avec v-model et v-for retiré"></a>Itération de valeur primitive avec <code>v-model</code> et <code>v-for</code> <sup>retiré</sup></h3><p>Les cas de figure comme celui-ci ne fonctionnent plus :</p>
+<h3 id="Iteration-de-valeur-primitive-avec-v-model-et-v-for-supprime"><a href="#Iteration-de-valeur-primitive-avec-v-model-et-v-for-supprime" class="headerlink" title="Itération de valeur primitive avec v-model et v-for supprimé"></a>Itération de valeur primitive avec <code>v-model</code> et <code>v-for</code> <sup>supprimé</sup></h3><p>Les cas de figure comme celui-ci ne fonctionnent plus :</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">v-for</span>=<span class="string">"str in strings"</span> <span class="attr">v-model</span>=<span class="string">"str"</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>La raison est que le JavaScript équivalent après compilation de <code>&lt;input&gt;</code> est :</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line">strings.map(<span class="function"><span class="keyword">function</span> (<span class="params">str</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> createElement(<span class="string">'input'</span>, ...)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
@@ -1093,7 +1093,7 @@ new Vue({
   <p>Lancez votre suite de tests si vous en avez. Les <strong>tests en échec</strong> devraient vous alerter si des parties de votre application sont affectées par ce changement.</p>
 </div>
 
-<h3 id="v-bind-style-avec-la-syntaxe-objet-et-important-retire"><a href="#v-bind-style-avec-la-syntaxe-objet-et-important-retire" class="headerlink" title="v-bind:style avec la syntaxe objet et !important retiré"></a><code>v-bind:style</code> avec la syntaxe objet et <code>!important</code> <sup>retiré</sup></h3><p>Ceci ne fonctionne plus :</p>
+<h3 id="v-bind-style-avec-la-syntaxe-objet-et-important-supprime"><a href="#v-bind-style-avec-la-syntaxe-objet-et-important-supprime" class="headerlink" title="v-bind:style avec la syntaxe objet et !important supprimé"></a><code>v-bind:style</code> avec la syntaxe objet et <code>!important</code> <sup>supprimé</sup></h3><p>Ceci ne fonctionne plus :</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">v-bind:style</span>=<span class="string">"&#123; color: myColor + ' !important' &#125;"</span>&gt;</span>hello<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>Si vous voulez vraiment ré-écrire un autre <code>!important</code>, vous devrez utiliser la syntaxe de chaîne de caractères :</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">v-bind:style</span>=<span class="string">"'color: ' + myColor + ' !important'"</span>&gt;</span>hello<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div></pre></td></tr></table></figure>
@@ -1116,7 +1116,7 @@ new Vue({
   <p>Lancez l'<a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">outil d'aide à la migration</a> sur votre code pour trouver des occurrences de <code>v-el</code> ou de <code>v-ref</code>.</p>
 </div>
 
-<h3 id="v-else-avec-v-show-retire"><a href="#v-else-avec-v-show-retire" class="headerlink" title="v-else avec v-show retiré"></a><code>v-else</code> avec <code>v-show</code> <sup>retiré</sup></h3><p><code>v-else</code> n’est plus supporté avec <code>v-show</code>. Utilisez <code>v-if</code> avec une expression négative à la place. Par exemple, au lieu de :</p>
+<h3 id="v-else-avec-v-show-supprime"><a href="#v-else-avec-v-show-supprime" class="headerlink" title="v-else avec v-show supprimé"></a><code>v-else</code> avec <code>v-show</code> <sup>supprimé</sup></h3><p><code>v-else</code> n’est plus supporté avec <code>v-show</code>. Utilisez <code>v-if</code> avec une expression négative à la place. Par exemple, au lieu de :</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">v-if</span>=<span class="string">"foo"</span>&gt;</span>Foo<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">v-else</span> <span class="attr">v-show</span>=<span class="string">"bar"</span>&gt;</span>Pas foo, mais bar<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>Vous pouvez utilisez :</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">v-if</span>=<span class="string">"foo"</span>&gt;</span>Foo<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">v-if</span>=<span class="string">"!foo &amp;&amp; bar"</span>&gt;</span>Pas foo, mais bar<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div></pre></td></tr></table></figure>
@@ -1140,7 +1140,7 @@ new Vue({
   <p>Lancez l'<a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">outil d'aide à la migration</a> sur votre code pour trouver des exemples de directives définies. L'outil d'aide va toutes vous les pointers, comme dans la plupart des cas vous allez devoir les refactoriser dans un composant.</p>
 </div>
 
-<h3 id="Modificateur-de-directive-literal-retire"><a href="#Modificateur-de-directive-literal-retire" class="headerlink" title="Modificateur de directive .literal retiré"></a>Modificateur de directive <code>.literal</code> <sup>retiré</sup></h3><p>Le modificateur <code>.literal</code> a été supprimé, la même chose peut être facilement réalisée en fournissant une chaîne de caractères littérale en tant que valeur.</p>
+<h3 id="Modificateur-de-directive-literal-supprime"><a href="#Modificateur-de-directive-literal-supprime" class="headerlink" title="Modificateur de directive .literal supprimé"></a>Modificateur de directive <code>.literal</code> <sup>supprimé</sup></h3><p>Le modificateur <code>.literal</code> a été supprimé, la même chose peut être facilement réalisée en fournissant une chaîne de caractères littérale en tant que valeur.</p>
 <p>Par exemple, vous pouvez mettre à jour :</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line">&lt;p v-my-directive.literal=<span class="string">"foo bar baz"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></div></pre></td></tr></table></figure>
 <p>avec :</p>
@@ -1165,14 +1165,14 @@ new Vue({
   <p>Lancez l'<a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">outil d'aide à la migration</a> sur votre code pour trouver des exemples d'attribut de <code>Vue.transition</code>.</p>
 </div>
 
-<h3 id="Attribut-de-transition-stagger-retire"><a href="#Attribut-de-transition-stagger-retire" class="headerlink" title="Attribut de transition stagger retiré"></a>Attribut de transition <code>stagger</code> <sup>retiré</sup></h3><p>Si vous avez besoin d’écheloner les transitions, vous pouvez contrôler le timing en accédant ou changeant une <code>data-index</code> ou attribut similaire sur un élément. Consultez <a href="transitions.html#Echelonnage-des-transitions-de-liste">un exemple ici</a>.</p>
+<h3 id="Attribut-de-transition-stagger-supprime"><a href="#Attribut-de-transition-stagger-supprime" class="headerlink" title="Attribut de transition stagger supprimé"></a>Attribut de transition <code>stagger</code> <sup>supprimé</sup></h3><p>Si vous avez besoin d’écheloner les transitions, vous pouvez contrôler le timing en accédant ou changeant une <code>data-index</code> ou attribut similaire sur un élément. Consultez <a href="transitions.html#Echelonnage-des-transitions-de-liste">un exemple ici</a>.</p>
 
 <div class="upgrade-path">
   <h4>Comment procéder ?</h4>
   <p>Lancez l'<a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">outil d'aide à la migration</a> sur votre code pour trouver des exemples d'attribut de <code>transition</code>. Au cours de votre mise à jour, vous pouvez également passer à la nouvelle stratégie d'échelonnage.</p>
 </div>
 
-<h2 id="Evenements"><a href="#Evenements" class="headerlink" title="Évènements"></a>Évènements</h2><h3 id="Option-events-retiree"><a href="#Option-events-retiree" class="headerlink" title="Option events retirée"></a>Option <code>events</code> <sup>retirée</sup></h3><p>L’option <code>events</code> a été retirée. Les gestionnaires d’évènements doivent maintenant être abonnés dans le hook <code>created</code> à la place. Consultez <a href="#dispatch-et-broadcast-remplaces">le guide <code>$dispatch</code> et <code>$broadcast</code></a> pour plus de détails.</p>
+<h2 id="Evenements"><a href="#Evenements" class="headerlink" title="Évènements"></a>Évènements</h2><h3 id="Option-events-supprimee"><a href="#Option-events-supprimee" class="headerlink" title="Option events supprimée"></a>Option <code>events</code> <sup>supprimée</sup></h3><p>L’option <code>events</code> a été retirée. Les gestionnaires d’évènements doivent maintenant être abonnés dans le hook <code>created</code> à la place. Consultez <a href="#dispatch-et-broadcast-remplaces">le guide <code>$dispatch</code> et <code>$broadcast</code></a> pour plus de détails.</p>
 <h3 id="Vue-directive-39-on-39-keyCodes-remplace"><a href="#Vue-directive-39-on-39-keyCodes-remplace" class="headerlink" title="Vue.directive(&#39;on&#39;).keyCodes remplacé"></a><code>Vue.directive(&#39;on&#39;).keyCodes</code> <sup>remplacé</sup></h3><p>La nouvelle, et plus concise, manière de configurer <code>keyCodes</code> à travers <code>Vue.config.keyCodes</code>. Par exemple :</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// enable v-on:keyup.f1</span></div><div class="line">Vue.config.keyCodes.f1 = <span class="number">112</span></div></pre></td></tr></table></figure>
 
@@ -1200,7 +1200,7 @@ new Vue({
   <p>Lancez l'<a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">outil d'aide à la migration</a> sur votre code pour trouver des exemples de <code>$dispatch</code> et <code>$broadcast</code>.</p>
 </div>
 
-<h2 id="Filtres"><a href="#Filtres" class="headerlink" title="Filtres"></a>Filtres</h2><h3 id="Filtres-en-dehors-des-interpolations-de-texte-retire"><a href="#Filtres-en-dehors-des-interpolations-de-texte-retire" class="headerlink" title="Filtres en dehors des interpolations de texte retiré"></a>Filtres en dehors des interpolations de texte <sup>retiré</sup></h3><p>Les filtres peuvent maintenant seulement être utilisés à l’intérieur des interpolations de texte (Ouverture et fermeture <code>{{ }}</code>). Avant, il était possible d’utiliser ses filtres sur <code>v-model</code>, <code>v-on</code>, etc mais cela menait à plus de complexité et d’inconvénient. Pour filtrer les listes sur <code>v-for</code>, il est plus logique de déplacer cela dans la partie propriétés calculées du JavaScript, ainsi cela peut-être ré-utilisé à travers votre composant.</p>
+<h2 id="Filtres"><a href="#Filtres" class="headerlink" title="Filtres"></a>Filtres</h2><h3 id="Filtres-en-dehors-des-interpolations-de-texte-supprime"><a href="#Filtres-en-dehors-des-interpolations-de-texte-supprime" class="headerlink" title="Filtres en dehors des interpolations de texte supprimé"></a>Filtres en dehors des interpolations de texte <sup>supprimé</sup></h3><p>Les filtres peuvent maintenant seulement être utilisés à l’intérieur des interpolations de texte (Ouverture et fermeture <code>{{ }}</code>). Avant, il était possible d’utiliser ses filtres sur <code>v-model</code>, <code>v-on</code>, etc mais cela menait à plus de complexité et d’inconvénient. Pour filtrer les listes sur <code>v-for</code>, il est plus logique de déplacer cela dans la partie propriétés calculées du JavaScript, ainsi cela peut-être ré-utilisé à travers votre composant.</p>
 <p>En général, chaque fois que quelque chose peut-être fait en JavaScript, nous voulons éviter d’introduire une syntaxe spéciale comme les filtres pour prendre en charge les mêmes choses. Voici comment vous pouvez remplacer les directives de filtre de Vue :</p>
 <h4 id="Remplacer-le-filtre-debounce"><a href="#Remplacer-le-filtre-debounce" class="headerlink" title="Remplacer le filtre debounce"></a>Remplacer le filtre <code>debounce</code></h4><p>Au lieu de :</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">v-on:keyup</span>=<span class="string">"doStuff | debounce 500"</span>&gt;</span></div></pre></td></tr></table></figure>
@@ -1244,7 +1244,7 @@ new Vue({
   <p>Lancez l'<a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">outil d'aide à la migration</a> sur votre code pour trouver des exemples de vieilles syntaxes de filtre. Si vous en oubliez, vous devriez également voir des <code>erreurs dans la console</code>.</p>
 </div>
 
-<h3 id="Filtres-de-texte-integre-retires"><a href="#Filtres-de-texte-integre-retires" class="headerlink" title="Filtres de texte intégré retirés"></a>Filtres de texte intégré <sup>retirés</sup></h3><p>Bien que les filtres dans les interpolations de texte soit toujours autorisés, tous les filtres ont été retirés. À la place, nous recommandons d’utiliser des bibliothèques spéciales pour résoudre les problèmes dans chaque domaine (par ex. <a href="https://date-fns.org/" target="_blank" rel="external"><code>date-fns</code></a> pour le format des dates et <a href="http://openexchangerates.github.io/accounting.js/" target="_blank" rel="external"><code>accounting</code></a> pour le format des devises).</p>
+<h3 id="Filtres-de-texte-integre-supprimes"><a href="#Filtres-de-texte-integre-supprimes" class="headerlink" title="Filtres de texte intégré supprimés"></a>Filtres de texte intégré <sup>supprimés</sup></h3><p>Bien que les filtres dans les interpolations de texte soit toujours autorisés, tous les filtres ont été retirés. À la place, nous recommandons d’utiliser des bibliothèques spéciales pour résoudre les problèmes dans chaque domaine (par ex. <a href="https://date-fns.org/" target="_blank" rel="external"><code>date-fns</code></a> pour le format des dates et <a href="http://openexchangerates.github.io/accounting.js/" target="_blank" rel="external"><code>accounting</code></a> pour le format des devises).</p>
 <p>Vous trouverez de quoi remplacer chaque filtre de texte dans la liste ci-dessous. L’exemple de code peut exister dans des fonctions utilitaires personnalisées, méthodes ou propriétés calculées.</p>
 <h4 id="Remplacer-le-filtre-json"><a href="#Remplacer-le-filtre-json" class="headerlink" title="Remplacer le filtre json"></a>Remplacer le filtre <code>json</code></h4><p>Vous n’avez rien besoin de faire de ce point de vue, car Vue va joliment formater la sortie pour vous automatiquement, qu’il s’agisse d’une chaîne de caractères, d’un nombre, d’un tableau ou d’un objet complet. Si vous voulez une fonctionnalité identique en JavaScript, c’est <code>JSON.stringify</code>. Vous pouvez donc utiliser cela dans une méthode ou dans une propriété calculée.</p>
 <h4 id="Remplacer-le-filtre-capitalize"><a href="#Remplacer-le-filtre-capitalize" class="headerlink" title="Remplacer le filtre capitalize"></a>Remplacer le filtre <code>capitalize</code></h4><figure class="highlight js"><table><tr><td class="code"><pre><div class="line">text[<span class="number">0</span>].toUpperCase() + text.slice(<span class="number">1</span>)</div></pre></td></tr></table></figure>
@@ -1293,14 +1293,14 @@ new Vue({
   <p>Lancez l'<a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">outil d'aide à la migration</a> sur votre code pour trouver des exemples de filtres utilisant des directives comme <code>v-model</code>. Si vous en oubliez, vous devriez également voir des <code>erreurs dans la console</code>.</p>
 </div>
 
-<h2 id="Slots"><a href="#Slots" class="headerlink" title="Slots"></a>Slots</h2><h3 id="Slots-dupliques-retires"><a href="#Slots-dupliques-retires" class="headerlink" title="Slots dupliqués retirés"></a>Slots dupliqués <sup>retirés</sup></h3><p>Il n’est plus possible d’avoir deux <code>&lt;slot&gt;</code> avec le même nom dans le même template. Quand le rendu d’un slot est fait, il est réputé déjà rendu et son rendu ne doit plus être refait dans le même arbre de rendu. Si vous devez faire le rendu d’un même contenu, à des endroits différents, passez le contenu en tant que prop.</p>
+<h2 id="Slots"><a href="#Slots" class="headerlink" title="Slots"></a>Slots</h2><h3 id="Slots-dupliques-supprimes"><a href="#Slots-dupliques-supprimes" class="headerlink" title="Slots dupliqués supprimés"></a>Slots dupliqués <sup>supprimés</sup></h3><p>Il n’est plus possible d’avoir deux <code>&lt;slot&gt;</code> avec le même nom dans le même template. Quand le rendu d’un slot est fait, il est réputé déjà rendu et son rendu ne doit plus être refait dans le même arbre de rendu. Si vous devez faire le rendu d’un même contenu, à des endroits différents, passez le contenu en tant que prop.</p>
 
 <div class="upgrade-path">
   <h4>Comment procéder ?</h4>
   <p>Lancez votre suite de tests ou votre application après mise à jour et vérifiez les <strong>avertissements de console</strong> à propos de slots <code>v-model</code> dupliqué.</p>
 </div>
 
-<h3 id="Attribut-de-stylisation-slot-retire"><a href="#Attribut-de-stylisation-slot-retire" class="headerlink" title="Attribut de stylisation slot retiré"></a>Attribut de stylisation <code>slot</code> <sup>retiré</sup></h3><p>Le contenu inséré via un <code>&lt;slot&gt;</code> nommé ne préservera plus l’attribut <code>slot</code>. Utilisez un élément englobant pour le styliser, ou pour des cas avancés, modifiez le contenu inséré programmatiquement en utilisant des <a href="render-function.html">fonctions de rendu</a>.</p>
+<h3 id="Attribut-de-stylisation-slot-supprime"><a href="#Attribut-de-stylisation-slot-supprime" class="headerlink" title="Attribut de stylisation slot supprimé"></a>Attribut de stylisation <code>slot</code> <sup>supprimé</sup></h3><p>Le contenu inséré via un <code>&lt;slot&gt;</code> nommé ne préservera plus l’attribut <code>slot</code>. Utilisez un élément englobant pour le styliser, ou pour des cas avancés, modifiez le contenu inséré programmatiquement en utilisant des <a href="render-function.html">fonctions de rendu</a>.</p>
 
 <div class="upgrade-path">
   <h4>Comment procéder ?</h4>
@@ -1321,7 +1321,7 @@ new Vue({
   <p>Lancez l'<a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">outil d'aide à la migration</a> sur votre code pour trouver les attributs <code>keep-alive</code>.</p>
 </div>
 
-<h2 id="Interpolation"><a href="#Interpolation" class="headerlink" title="Interpolation"></a>Interpolation</h2><h3 id="Interpolation-dans-les-attributs-retiree"><a href="#Interpolation-dans-les-attributs-retiree" class="headerlink" title="Interpolation dans les attributs retirée"></a>Interpolation dans les attributs <sup>retirée</sup></h3><p>L’interpolation dans les attributs ne fonctionne plus. Par exemple :</p>
+<h2 id="Interpolation"><a href="#Interpolation" class="headerlink" title="Interpolation"></a>Interpolation</h2><h3 id="Interpolation-dans-les-attributs-supprimee"><a href="#Interpolation-dans-les-attributs-supprimee" class="headerlink" title="Interpolation dans les attributs supprimée"></a>Interpolation dans les attributs <sup>supprimée</sup></h3><p>L’interpolation dans les attributs ne fonctionne plus. Par exemple :</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"btn btn-&#123;&#123; size &#125;&#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>Doit maintenant être mis à jour pour être utilisé dans une expression avec <code>v-bind</code> :</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">v-bind:class</span>=<span class="string">"'btn btn-' + size"</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></div></pre></td></tr></table></figure>
@@ -1334,7 +1334,7 @@ new Vue({
   <p>Lancez l'<a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">outil d'aide à la migration</a> sur votre code pour trouver des exemples d'interpolation utilisée dans les attributs.</p>
 </div>
 
-<h3 id="Interpolation-HTML-retiree"><a href="#Interpolation-HTML-retiree" class="headerlink" title="Interpolation HTML retirée"></a>Interpolation HTML <sup>retirée</sup></h3><p>L’interpolations HTML (<code>{{{ foo }}}</code>) a été retirée. La <a href="../api/#v-html">directive <code>v-html</code></a> est maintenant préférée.</p>
+<h3 id="Interpolation-HTML-supprimee"><a href="#Interpolation-HTML-supprimee" class="headerlink" title="Interpolation HTML supprimée"></a>Interpolation HTML <sup>supprimée</sup></h3><p>L’interpolations HTML (<code>{{{ foo }}}</code>) a été retirée. La <a href="../api/#v-html">directive <code>v-html</code></a> est maintenant préférée.</p>
 
 <div class="upgrade-path">
   <h4>Comment procéder ?</h4>
@@ -1370,14 +1370,14 @@ new Vue({
   <p>Lancez l'<a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">outil d'aide à la migration</a> sur votre code pour trouver des exemples d'utilisations obsolètes.</p>
 </div>
 
-<h3 id="Array-prototype-set-retire"><a href="#Array-prototype-set-retire" class="headerlink" title="Array.prototype.$set retiré"></a><code>Array.prototype.$set</code> <sup>retiré</sup></h3><p>Utilisez <code>Vue.set</code> à la place.</p>
+<h3 id="Array-prototype-set-supprime"><a href="#Array-prototype-set-supprime" class="headerlink" title="Array.prototype.$set supprimé"></a><code>Array.prototype.$set</code> <sup>supprimé</sup></h3><p>Utilisez <code>Vue.set</code> à la place.</p>
 
 <div class="upgrade-path">
   <h4>Comment procéder ?</h4>
   <p>Lancez l'<a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">outil d'aide à la migration</a> sur votre code pour trouver des exemples de <code>.$set</code> sur un tableau. Si vous en oubliez, vous devriez voir des <strong>erreurs console</strong> sur la méthode manquante.</p>
 </div>
 
-<h3 id="Array-prototype-remove-retire"><a href="#Array-prototype-remove-retire" class="headerlink" title="Array.prototype.$remove retiré"></a><code>Array.prototype.$remove</code> <sup>retiré</sup></h3><p>Utilisez <code>Array.prototype.splice</code> à la place. Par exemple :</p>
+<h3 id="Array-prototype-remove-supprime"><a href="#Array-prototype-remove-supprime" class="headerlink" title="Array.prototype.$remove supprimé"></a><code>Array.prototype.$remove</code> <sup>supprimé</sup></h3><p>Utilisez <code>Array.prototype.splice</code> à la place. Par exemple :</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line">methods: &#123;</div><div class="line">  <span class="attr">removeTodo</span>: <span class="function"><span class="keyword">function</span> (<span class="params">todo</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> index = <span class="keyword">this</span>.todos.indexOf(todo)</div><div class="line">    <span class="keyword">this</span>.todos.splice(index, <span class="number">1</span>)</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>Ou encore mieux, passez simplement l’index de l’objet à retirer :</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line">methods: &#123;</div><div class="line">  <span class="attr">removeTodo</span>: <span class="function"><span class="keyword">function</span> (<span class="params">index</span>) </span>&#123;</div><div class="line">    <span class="keyword">this</span>.todos.splice(index, <span class="number">1</span>)</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -1387,28 +1387,28 @@ new Vue({
   <p>Lancez l'<a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">outil d'aide à la migration</a> sur votre code pour trouver des exemples de <code>.$remove</code> sur un tableau. Si vous en oubliez, vous devriez voir des <strong>erreurs console</strong> sur la méthode manquante.</p>
 </div>
 
-<h3 id="Vue-set-et-Vue-delete-sur-les-instances-de-Vue-retire"><a href="#Vue-set-et-Vue-delete-sur-les-instances-de-Vue-retire" class="headerlink" title="Vue.set et Vue.delete sur les instances de Vue retiré"></a><code>Vue.set</code> et <code>Vue.delete</code> sur les instances de Vue <sup>retiré</sup></h3><p><code>Vue.set</code> et <code>Vue.delete</code> ne fonctionnent plus avec les instances de Vue. Il est maintenant obligatoire de déclarer toutes les propriétés de haut niveau en tant que propriétés réactives dans l’option <code>data</code>. Si vous voulez supprimer des propriétés d’une instance de Vue ou des <code>$data</code>, mettez les à <code>null</code>.</p>
+<h3 id="Vue-set-et-Vue-delete-sur-les-instances-de-Vue-supprime"><a href="#Vue-set-et-Vue-delete-sur-les-instances-de-Vue-supprime" class="headerlink" title="Vue.set et Vue.delete sur les instances de Vue supprimé"></a><code>Vue.set</code> et <code>Vue.delete</code> sur les instances de Vue <sup>supprimé</sup></h3><p><code>Vue.set</code> et <code>Vue.delete</code> ne fonctionnent plus avec les instances de Vue. Il est maintenant obligatoire de déclarer toutes les propriétés de haut niveau en tant que propriétés réactives dans l’option <code>data</code>. Si vous voulez supprimer des propriétés d’une instance de Vue ou des <code>$data</code>, mettez les à <code>null</code>.</p>
 
 <div class="upgrade-path">
   <h4>Comment procéder ?</h4>
   <p>Lancez l'<a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">outil d'aide à la migration</a> sur votre code pour trouver des exemples de <code>Vue.set</code> ou <code>Vue.delete</code> sur une instance de Vue. Si vous en oubliez, vous devriez voir des <strong>erreurs console</strong> sur la méthode manquante.</p>
 </div>
 
-<h3 id="Remplacement-de-vm-data-retire"><a href="#Remplacement-de-vm-data-retire" class="headerlink" title="Remplacement de vm.$data retiré"></a>Remplacement de <code>vm.$data</code> <sup>retiré</sup></h3><p>Il est maintenant interdit de remplacer l’objet <code>$data</code> d’une instance racine de Vue. Cela permet d’éviter les effets de bord dans le système de réactivité et permet a l’état du composant d’être plus prévisible (spécialement avec les systèmes de vérification de type).</p>
+<h3 id="Remplacement-de-vm-data-supprime"><a href="#Remplacement-de-vm-data-supprime" class="headerlink" title="Remplacement de vm.$data supprimé"></a>Remplacement de <code>vm.$data</code> <sup>supprimé</sup></h3><p>Il est maintenant interdit de remplacer l’objet <code>$data</code> d’une instance racine de Vue. Cela permet d’éviter les effets de bord dans le système de réactivité et permet a l’état du composant d’être plus prévisible (spécialement avec les systèmes de vérification de type).</p>
 
 <div class="upgrade-path">
   <h4>Comment procéder ?</h4>
   <p>Lancez l'<a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">outil d'aide à la migration</a> sur votre code pour trouver des exemples de <code>vm.$data</code> écrasées. Si vous en oubliez, vous devriez voir des <strong>erreurs console</strong>.</p>
 </div>
 
-<h3 id="vm-get-retire"><a href="#vm-get-retire" class="headerlink" title="vm.$get retiré"></a><code>vm.$get</code> <sup>retiré</sup></h3><p>Retrouvez simplement la donnée réactive.</p>
+<h3 id="vm-get-supprime"><a href="#vm-get-supprime" class="headerlink" title="vm.$get supprimé"></a><code>vm.$get</code> <sup>supprimé</sup></h3><p>Retrouvez simplement la donnée réactive.</p>
 
 <div class="upgrade-path">
   <h4>Comment procéder ?</h4>
   <p>Lancez l'<a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">outil d'aide à la migration</a> sur votre code pour trouver des exemples de <code>vm.$get</code>. Si vous en oubliez, vous devriez voir des <strong>erreurs console</strong>.</p>
 </div>
 
-<h2 id="Methodes-d’intance-centres-sur-le-DOM"><a href="#Methodes-d’intance-centres-sur-le-DOM" class="headerlink" title="Méthodes d’intance centrés sur le DOM"></a>Méthodes d’intance centrés sur le DOM</h2><h3 id="vm-appendTo-retire"><a href="#vm-appendTo-retire" class="headerlink" title="vm.$appendTo retiré"></a><code>vm.$appendTo</code> <sup>retiré</sup></h3><p>Utilisez l’API native du DOM :</p>
+<h2 id="Methodes-d’intance-centres-sur-le-DOM"><a href="#Methodes-d’intance-centres-sur-le-DOM" class="headerlink" title="Méthodes d’intance centrés sur le DOM"></a>Méthodes d’intance centrés sur le DOM</h2><h3 id="vm-appendTo-supprime"><a href="#vm-appendTo-supprime" class="headerlink" title="vm.$appendTo supprimé"></a><code>vm.$appendTo</code> <sup>supprimé</sup></h3><p>Utilisez l’API native du DOM :</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line">myElement.appendChild(vm.$el)</div></pre></td></tr></table></figure>
 
 <div class="upgrade-path">
@@ -1416,7 +1416,7 @@ new Vue({
   <p>Lancez l'<a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">outil d'aide à la migration</a> sur votre code pour trouver des exemples de <code>vm.$appendTo</code>. Si vous en oubliez, vous devriez voir des <strong>erreurs console</strong>.</p>
 </div>
 
-<h3 id="vm-before-retire"><a href="#vm-before-retire" class="headerlink" title="vm.$before retiré"></a><code>vm.$before</code> <sup>retiré</sup></h3><p>Utilisez l’API native du DOM :</p>
+<h3 id="vm-before-supprime"><a href="#vm-before-supprime" class="headerlink" title="vm.$before supprimé"></a><code>vm.$before</code> <sup>supprimé</sup></h3><p>Utilisez l’API native du DOM :</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line">myElement.parentNode.insertBefore(vm.$el, myElement)</div></pre></td></tr></table></figure>
 
 <div class="upgrade-path">
@@ -1424,7 +1424,7 @@ new Vue({
   <p>Lancez l'<a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">outil d'aide à la migration</a> sur votre code pour trouver des exemples de <code>vm.$before</code>. Si vous en oubliez, vous devriez voir des <strong>erreurs console</strong>.</p>
 </div>
 
-<h3 id="vm-after-retire"><a href="#vm-after-retire" class="headerlink" title="vm.$after retiré"></a><code>vm.$after</code> <sup>retiré</sup></h3><p>Utilisez l’API native du DOM :</p>
+<h3 id="vm-after-supprime"><a href="#vm-after-supprime" class="headerlink" title="vm.$after supprimé"></a><code>vm.$after</code> <sup>supprimé</sup></h3><p>Utilisez l’API native du DOM :</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line">myElement.parentNode.insertBefore(vm.$el, myElement.nextSibling)</div></pre></td></tr></table></figure>
 <p>ou si <code>myElement</code> est le dernier enfant :</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line">myElement.parentNode.appendChild(vm.$el)</div></pre></td></tr></table></figure>
@@ -1434,7 +1434,7 @@ new Vue({
   <p>Lancez l'<a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">outil d'aide à la migration</a> sur votre code pour trouver des exemples de <code>vm.$after</code>. Si vous en oubliez, vous devriez voir des <strong>erreurs console</strong>.</p>
 </div>
 
-<h3 id="vm-remove-retire"><a href="#vm-remove-retire" class="headerlink" title="vm.$remove retiré"></a><code>vm.$remove</code> <sup>retiré</sup></h3><p>Utilisez l’API native du DOM :</p>
+<h3 id="vm-remove-supprime"><a href="#vm-remove-supprime" class="headerlink" title="vm.$remove supprimé"></a><code>vm.$remove</code> <sup>supprimé</sup></h3><p>Utilisez l’API native du DOM :</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line">vm.$el.remove()</div></pre></td></tr></table></figure>
 
 <div class="upgrade-path">
@@ -1442,28 +1442,28 @@ new Vue({
   <p>Lancez l'<a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">outil d'aide à la migration</a> sur votre code pour trouver des exemples de <code>vm.$remove</code>. Si vous en oubliez, vous devriez voir des <strong>erreurs console</strong>.</p>
 </div>
 
-<h2 id="Meta-methodes-d’instance"><a href="#Meta-methodes-d’instance" class="headerlink" title="Meta méthodes d’instance"></a>Meta méthodes d’instance</h2><h3 id="vm-eval-retire"><a href="#vm-eval-retire" class="headerlink" title="vm.$eval retiré"></a><code>vm.$eval</code> <sup>retiré</sup></h3><p>Pas réellement utile. Si vous avez des difficultés liés à cette fonctionnalité et que vous n’êtes pas certain de savoir comment faire autrement, vous pouvez poster sur <a href="https://forum.vuejs.org/c/french" target="_blank" rel="external">le forum</a> et partagez vos idées.</p>
+<h2 id="Meta-methodes-d’instance"><a href="#Meta-methodes-d’instance" class="headerlink" title="Meta méthodes d’instance"></a>Meta méthodes d’instance</h2><h3 id="vm-eval-supprime"><a href="#vm-eval-supprime" class="headerlink" title="vm.$eval supprimé"></a><code>vm.$eval</code> <sup>supprimé</sup></h3><p>Pas réellement utile. Si vous avez des difficultés liés à cette fonctionnalité et que vous n’êtes pas certain de savoir comment faire autrement, vous pouvez poster sur <a href="https://forum.vuejs.org/c/french" target="_blank" rel="external">le forum</a> et partagez vos idées.</p>
 
 <div class="upgrade-path">
   <h4>Comment procéder ?</h4>
   <p>Lancez l'<a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">outil d'aide à la migration</a> sur votre code pour trouver des exemples de <code>vm.$eval</code>. Si vous en oubliez, vous devriez voir des <strong>erreurs console</strong>.</p>
 </div>
 
-<h3 id="vm-interpolate-retire"><a href="#vm-interpolate-retire" class="headerlink" title="vm.$interpolate retiré"></a><code>vm.$interpolate</code> <sup>retiré</sup></h3><p>Pas réellement utile. Si vous avez des difficultés liées à cette fonctionnalité et que vous n’êtes pas certain de savoir comment faire autrement, vous pouvez poster sur <a href="https://forum.vuejs.org/c/french" target="_blank" rel="external">le forum</a> et partager vos idées.</p>
+<h3 id="vm-interpolate-supprime"><a href="#vm-interpolate-supprime" class="headerlink" title="vm.$interpolate supprimé"></a><code>vm.$interpolate</code> <sup>supprimé</sup></h3><p>Pas réellement utile. Si vous avez des difficultés liées à cette fonctionnalité et que vous n’êtes pas certain de savoir comment faire autrement, vous pouvez poster sur <a href="https://forum.vuejs.org/c/french" target="_blank" rel="external">le forum</a> et partager vos idées.</p>
 
 <div class="upgrade-path">
   <h4>Comment procéder ?</h4>
   <p>Lancez l'<a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">outil d'aide à la migration</a> sur votre code pour trouver des exemples de <code>vm.$interpolate</code>. Si vous en oubliez, vous devriez voir des <strong>erreurs console</strong>.</p>
 </div>
 
-<h3 id="vm-log-retire"><a href="#vm-log-retire" class="headerlink" title="vm.$log retiré"></a><code>vm.$log</code> <sup>retiré</sup></h3><p>Utilisez le <a href="https://github.com/vuejs/vue-devtools" target="_blank" rel="external">Devtools de Vue</a> pour une expérience de débogage optimale.</p>
+<h3 id="vm-log-supprime"><a href="#vm-log-supprime" class="headerlink" title="vm.$log supprimé"></a><code>vm.$log</code> <sup>supprimé</sup></h3><p>Utilisez le <a href="https://github.com/vuejs/vue-devtools" target="_blank" rel="external">Devtools de Vue</a> pour une expérience de débogage optimale.</p>
 
 <div class="upgrade-path">
   <h4>Comment procéder ?</h4>
   <p>Lancez l'<a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">outil d'aide à la migration</a> sur votre code pour trouver des exemples de <code>vm.$log</code>. Si vous en oubliez, vous devriez voir des <strong>erreurs console</strong>.</p>
 </div>
 
-<h2 id="Instance-DOM-Options"><a href="#Instance-DOM-Options" class="headerlink" title="Instance DOM Options"></a>Instance DOM Options</h2><h3 id="replace-false-retire"><a href="#replace-false-retire" class="headerlink" title="replace: false retiré"></a><code>replace: false</code> <sup>retiré</sup></h3><p>Les composants remplacent maintenant les éléments sur lesquels ils sont liés. Pour simuler le comportement de <code>replace: false</code>, vous devez encadrer votre composant racine avec un élément similaire à celui que vous remplacez. Par exemple :</p>
+<h2 id="Instance-DOM-Options"><a href="#Instance-DOM-Options" class="headerlink" title="Instance DOM Options"></a>Instance DOM Options</h2><h3 id="replace-false-supprime"><a href="#replace-false-supprime" class="headerlink" title="replace: false supprimé"></a><code>replace: false</code> <sup>supprimé</sup></h3><p>Les composants remplacent maintenant les éléments sur lesquels ils sont liés. Pour simuler le comportement de <code>replace: false</code>, vous devez encadrer votre composant racine avec un élément similaire à celui que vous remplacez. Par exemple :</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">  <span class="attr">el</span>: <span class="string">'#app'</span>,</div><div class="line">  <span class="attr">template</span>: <span class="string">'&lt;div id="app"&gt; ... &lt;/div&gt;'</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <p>Ou avec une fonction de rendu :</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">  <span class="attr">el</span>: <span class="string">'#app'</span>,</div><div class="line">  <span class="attr">render</span>: <span class="function"><span class="keyword">function</span> (<span class="params">h</span>) </span>&#123;</div><div class="line">    h(<span class="string">'div'</span>, &#123;</div><div class="line">      <span class="attr">attrs</span>: &#123;</div><div class="line">        <span class="attr">id</span>: <span class="string">'app'</span>,</div><div class="line">      &#125;</div><div class="line">    &#125;, <span class="comment">/* ... */</span>)</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
@@ -1473,14 +1473,14 @@ new Vue({
   <p>Lancez l'<a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">outil d'aide à la migration</a> sur votre code pour trouver des exemples de <code>replace: false</code>.</p>
 </div>
 
-<h2 id="Configuration-globale"><a href="#Configuration-globale" class="headerlink" title="Configuration globale"></a>Configuration globale</h2><h3 id="Vue-config-debug-retiree"><a href="#Vue-config-debug-retiree" class="headerlink" title="Vue.config.debug retirée"></a><code>Vue.config.debug</code> <sup>retirée</sup></h3><p>N’est plus nécessaire car les avertissements se trouvent dans la pile des traces par défaut maintenant.</p>
+<h2 id="Configuration-globale"><a href="#Configuration-globale" class="headerlink" title="Configuration globale"></a>Configuration globale</h2><h3 id="Vue-config-debug-supprimee"><a href="#Vue-config-debug-supprimee" class="headerlink" title="Vue.config.debug supprimée"></a><code>Vue.config.debug</code> <sup>supprimée</sup></h3><p>N’est plus nécessaire car les avertissements se trouvent dans la pile des traces par défaut maintenant.</p>
 
 <div class="upgrade-path">
   <h4>Comment procéder ?</h4>
   <p>Lancez l'<a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">outil d'aide à la migration</a> sur votre code pour trouver des exemples de <code>Vue.config.debug</code>.</p>
 </div>
 
-<h3 id="Vue-config-async-retiree"><a href="#Vue-config-async-retiree" class="headerlink" title="Vue.config.async retirée"></a><code>Vue.config.async</code> <sup>retirée</sup></h3><p>Async est maintenant requis pour les performances de rendu.</p>
+<h3 id="Vue-config-async-supprimee"><a href="#Vue-config-async-supprimee" class="headerlink" title="Vue.config.async supprimée"></a><code>Vue.config.async</code> <sup>supprimée</sup></h3><p>Async est maintenant requis pour les performances de rendu.</p>
 
 <div class="upgrade-path">
   <h4>Comment procéder ?</h4>
@@ -1494,28 +1494,28 @@ new Vue({
   <p>Lancez l'<a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">outil d'aide à la migration</a> sur votre code pour trouver des exemples de <code>Vue.config.delimiters</code>.</p>
 </div>
 
-<h3 id="Vue-config-unsafeDelimiters-retiree"><a href="#Vue-config-unsafeDelimiters-retiree" class="headerlink" title="Vue.config.unsafeDelimiters retirée"></a><code>Vue.config.unsafeDelimiters</code> <sup>retirée</sup></h3><p>L’interpolation HTML a été <a href="#Interpolation-HTML-retirée">retirée en faveur de <code>v-html</code></a>.</p>
+<h3 id="Vue-config-unsafeDelimiters-supprimee"><a href="#Vue-config-unsafeDelimiters-supprimee" class="headerlink" title="Vue.config.unsafeDelimiters supprimée"></a><code>Vue.config.unsafeDelimiters</code> <sup>supprimée</sup></h3><p>L’interpolation HTML a été <a href="#Interpolation-HTML-retirée">retirée en faveur de <code>v-html</code></a>.</p>
 
 <div class="upgrade-path">
   <h4>Comment procéder ?</h4>
   <p>Lancez l'<a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">outil d'aide à la migration</a> sur votre code pour trouver des exemples de <code>Vue.config.unsafeDelimiters</code>. Après cela, l'outil d'aide va aussi trouver les instances d'interpolation HTML, ainsi vous pourrez les remplacer avec `v-html`.</p>
 </div>
 
-<h2 id="API-globale"><a href="#API-globale" class="headerlink" title="API globale"></a>API globale</h2><h3 id="Vue-extend-avec-el-retiree"><a href="#Vue-extend-avec-el-retiree" class="headerlink" title="Vue.extend avec el retirée"></a><code>Vue.extend</code> avec <code>el</code> <sup>retirée</sup></h3><p>L’option <code>el</code> ne peut plus être utilisée avec <code>Vue.extend</code>. Elle est seulement valide en tant qu’option de création d’instance.</p>
+<h2 id="API-globale"><a href="#API-globale" class="headerlink" title="API globale"></a>API globale</h2><h3 id="Vue-extend-avec-el-supprimee"><a href="#Vue-extend-avec-el-supprimee" class="headerlink" title="Vue.extend avec el supprimée"></a><code>Vue.extend</code> avec <code>el</code> <sup>supprimée</sup></h3><p>L’option <code>el</code> ne peut plus être utilisée avec <code>Vue.extend</code>. Elle est seulement valide en tant qu’option de création d’instance.</p>
 
 <div class="upgrade-path">
   <h4>Comment procéder ?</h4>
   <p>Lancez votre suite de tests ou votre application après mise à jour et vérifiez les <strong>avertissements de console</strong> à propos de l'option <code>el</code> avec <code>Vue.extend</code>.</p>
 </div>
 
-<h3 id="Vue-elementDirective-retiree"><a href="#Vue-elementDirective-retiree" class="headerlink" title="Vue.elementDirective retirée"></a><code>Vue.elementDirective</code> <sup>retirée</sup></h3><p>Utilisez des composants à la place.</p>
+<h3 id="Vue-elementDirective-supprimee"><a href="#Vue-elementDirective-supprimee" class="headerlink" title="Vue.elementDirective supprimée"></a><code>Vue.elementDirective</code> <sup>supprimée</sup></h3><p>Utilisez des composants à la place.</p>
 
 <div class="upgrade-path">
   <h4>Comment procéder ?</h4>
   <p>Lancez l'<a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">outil d'aide à la migration</a> sur votre code pour trouver des exemples de <code>Vue.elementDirective</code>.</p>
 </div>
 
-<h3 id="Vue-partial-retiree"><a href="#Vue-partial-retiree" class="headerlink" title="Vue.partial retirée"></a><code>Vue.partial</code> <sup>retirée</sup></h3><p>Les partiels ont été retirés en faveur d’un flux de donnée plus explicite entre les composants, en utilisant les props. Partout où vous utilisiez des partiels dans des zones de performances critiques, la recommandation est simplement d’utiliser un <a href="components.html">composant normal</a> à la place. Au cas où vous liez dynamiquement le <code>name</code> du partiel, vous pouvez utiliser un <a href="components.html#Composants-dynamiques">composant dynamique</a>.</p>
+<h3 id="Vue-partial-supprimee"><a href="#Vue-partial-supprimee" class="headerlink" title="Vue.partial supprimée"></a><code>Vue.partial</code> <sup>supprimée</sup></h3><p>Les partiels ont été retirés en faveur d’un flux de donnée plus explicite entre les composants, en utilisant les props. Partout où vous utilisiez des partiels dans des zones de performances critiques, la recommandation est simplement d’utiliser un <a href="components.html">composant normal</a> à la place. Au cas où vous liez dynamiquement le <code>name</code> du partiel, vous pouvez utiliser un <a href="components.html#Composants-dynamiques">composant dynamique</a>.</p>
 <p>Si vous utilisiez des partiels dans des parties de votre application aux performances critiques, vous devriez les améliorer avec des <a href="render-function.html#Composants-fonctionnels">composants fonctionnels</a>. Ils seront entièrement en JavaScript ou JSX dans un fichier dédié (plutôt que dans un fichier <code>.vue</code>) et seront sans état et sans instance, exactement comme les partiels. Cela rendra le rendu extrêmement rapide.</p>
 <p>Le bénéfice des composants fonctionnels face aux partiels est qu’ils peuvent être bien plus dynamiques, car ils vous permettent d’accéder à toute la puissance de JavaScript. Il y a un coût à cette puissance cependant. Si vous n’avez jamais utilisé un framework avec des composants de rendu avant, cela peut prendre un peu de temps pour l’apprentissage.</p>
 
@@ -1529,7 +1529,7 @@ new Vue({
       <div class="guide-links">
         
         
-          <span style="float:right"><a href="/v2/guide/migration-vue-router.html">Migration from Vue Router 0.7.x (En)</a> →</span>
+          <span style="float: right;"><a href="/v2/guide/migration-vue-router.html">Migration depuis Vue Router 0.7.x</a> →</span>
         
       </div>
     

@@ -685,7 +685,7 @@
         
         
         <li>
-            <a href="/v2/guide/migration-vue-router.html" class="sidebar-link">Migration from Vue Router 0.7.x (En)</a>
+            <a href="/v2/guide/migration-vue-router.html" class="sidebar-link">Migration depuis Vue Router 0.7.x</a>
         </li>
     
         
@@ -869,7 +869,7 @@ new Vue({
 
 <h3 id="Composition-de-composants"><a href="#Composition-de-composants" class="headerlink" title="Composition de composants"></a>Composition de composants</h3><p>Les composants sont destinés à être utilisés ensemble, le plus souvent dans une relation parent-enfant : le composant A peut utiliser le composant B dans son propre template. Ils vont inévitablement avoir besoin de communiquer les uns avec les autres : le parent peut avoir besoin de passer des données à l’enfant, et l’enfant peut avoir besoin d’informer le parent que quelque chose s’est produit à l’intérieur. Cependant, il est également très important de garder le parent et l’enfant aussi découplés que possible via une interface clairement définie. Cela assure que le code de chaque composant peut être écrit de manière relativement isolée, cela les rend plus maintenables et potentiellement plus simples à ré-utiliser.</p>
 <p>Dans Vue.js, la relation parent-enfant peut être résumée ainsi : <strong>descente de props, remontée d’événements</strong>. Le parent passe les données à l’enfant via les <strong>props</strong>, et l’enfant envoie des messages à son parent via les <strong>événements</strong>. Voyons comment cela fonctionne ci-dessous.</p>
-<p style="text-align: center"><br>  <img style="width:300px" src="/images/props-events.png" alt="props down, events up"><br></p>
+<p style="text-align: center;"><br>  <img style="width: 300px;" src="/images/props-events.png" alt="props down, events up"><br></p>
 
 <h2 id="Props"><a href="#Props" class="headerlink" title="Props"></a>Props</h2><h3 id="Passer-des-donnees-avec-props"><a href="#Passer-des-donnees-avec-props" class="headerlink" title="Passer des données avec props"></a>Passer des données avec props</h3><p>Chaque instance de composant a sa propre <strong>portée isolée</strong>. Cela signifie qu’on ne peut (et ne devrait) pas directement référencer des données du parent dans un template de composant enfant. Les données doivent être passées aux composants enfants en utilisant <strong>props</strong>.</p>
 <p>Une prop est un attribut personnalisé permettant de passer des informations depuis des composants parents. Un composant enfant a besoin de déclarer explicitement quelles sont les props qu’il s’attend à recevoir en utilisant <a href="../api/#props">l’option <code>props</code></a> :</p>
