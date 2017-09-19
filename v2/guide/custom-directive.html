@@ -782,7 +782,7 @@
     
       <h1>Directives personnalisées</h1>
     
-    <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>En supplément de l’ensemble de directives fournies par défaut (<code>v-model</code> et <code>v-show</code>), Vue vous permet également d’enregistrer vos propres directives. Notez qu’avec Vue 2, les composants sont la forme principale de réutilisabilité et d’asbtraction du code. Il y a cependant des cas où vous aurez juste besoin d’un accès de bas niveau aux éléments du DOM, et c’est là que les directives personnalisées vous seraient utiles. Un exemple pourrait être la prise du focus sur un élément de champ, comme celui-ci :</p>
+    <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>En supplément de l’ensemble de directives fournies par défaut (<code>v-model</code> et <code>v-show</code>), Vue vous permet également d’enregistrer vos propres directives. Notez qu’avec Vue 2, les composants sont la forme principale de réutilisabilité et d’abstraction du code. Il y a cependant des cas où vous aurez juste besoin d’un accès de bas niveau aux éléments du DOM, et c’est là que les directives personnalisées vous seraient utiles. Un exemple pourrait être la prise du focus sur un élément de champ, comme celui-ci :</p>
 
 <div id="simplest-directive-example" class="demo">
   <input v-focus="">
@@ -820,18 +820,18 @@ new Vue({
 <p>Nous allons explorer les arguments passés à ces hooks (c.-à-d. <code>el</code>, <code>binding</code>, <code>vnode</code>, et <code>oldVnode</code>) dans la prochaine section.</p>
 <h2 id="Arguments-des-hooks-d’une-directive"><a href="#Arguments-des-hooks-d’une-directive" class="headerlink" title="Arguments des hooks d’une directive"></a>Arguments des hooks d’une directive</h2><p>Les hooks d’une directive ont accès à ces arguments :</p>
 <ul>
-<li><strong>el</strong>: L’élément sur lequel la directive est liée. Cela peut être utilisé pour directement manipuler le DOM.</li>
-<li><strong>binding</strong>: Un objet contenant les propriétés suivantes.<ul>
-<li><strong>name</strong>: Le nom de la directive, sans le préfixe <code>v-</code>.</li>
-<li><strong>value</strong>: La valeur passée à la directive. Par exemple dans <code>v-my-directive=&quot;1 + 1&quot;</code>, la valeur serait <code>2</code>.</li>
-<li><strong>oldValue</strong>: La valeur précédente, seulement disponible dans <code>update</code> et <code>componentUpdated</code>. Elle est disponible, que la valeur ait changé ou non.</li>
-<li><strong>expression</strong>: L’expression liée en tant que chaîne de caractères. Par exemple dans <code>v-my-directive=&quot;1 + 1&quot;</code>, l’expression serait <code>&quot;1 + 1&quot;</code>.</li>
-<li><strong>arg</strong>: L’argument passé à la directive, s’il y en a une. Par exemple dans <code>v-my-directive:foo</code>, l’argument serait <code>&quot;foo&quot;</code>.</li>
-<li><strong>modifiers</strong>: Un objet contenant les modificateurs, s’il y en a. Par exemple dans <code>v-my-directive.foo.bar</code>, l’objet des modificateurs serait <code>{ foo: true, bar: true }</code>.</li>
+<li><strong>el</strong>: l’élément sur lequel la directive est liée. Cela peut être utilisé pour directement manipuler le DOM.</li>
+<li><strong>binding</strong>: un objet contenant les propriétés suivantes.<ul>
+<li><strong>name</strong>: le nom de la directive, sans le préfixe <code>v-</code>.</li>
+<li><strong>value</strong>: la valeur passée à la directive. Par exemple dans <code>v-my-directive=&quot;1 + 1&quot;</code>, la valeur serait <code>2</code>.</li>
+<li><strong>oldValue</strong>: la valeur précédente, seulement disponible dans <code>update</code> et <code>componentUpdated</code>. Elle est disponible, que la valeur ait changé ou non.</li>
+<li><strong>expression</strong>: l’expression liée en tant que chaine de caractères. Par exemple dans <code>v-my-directive=&quot;1 + 1&quot;</code>, l’expression serait <code>&quot;1 + 1&quot;</code>.</li>
+<li><strong>arg</strong>: l’argument passé à la directive, s’il y en a une. Par exemple dans <code>v-my-directive:foo</code>, l’argument serait <code>&quot;foo&quot;</code>.</li>
+<li><strong>modifiers</strong>: un objet contenant les modificateurs, s’il y en a. Par exemple dans <code>v-my-directive.foo.bar</code>, l’objet des modificateurs serait <code>{ foo: true, bar: true }</code>.</li>
 </ul>
 </li>
-<li><strong>vnode</strong>: Le nœud virtuel produit par le compilateur Vue. Voir l’<a href="../api/#Interface-VNode">API VNode</a> pour tous les détails.</li>
-<li><strong>oldVnode</strong>: Le nœud virtuel précédent, seulement disponible dans les hooks <code>update</code> et <code>componentUpdated</code>.</li>
+<li><strong>vnode</strong>: le nœud virtuel produit par le compilateur Vue. Voir l’<a href="../api/#Interface-VNode">API VNode</a> pour tous les détails.</li>
+<li><strong>oldVnode</strong>: le nœud virtuel précédent, seulement disponible dans les hooks <code>update</code> et <code>componentUpdated</code>.</li>
 </ul>
 <p class="tip">À l’exception de <code>el</code>, vous devez traiter ces arguments comme étant en lecture seule (« read-only ») et ne jamais les modifier. Si vous souhaitez partager des informations entre les hooks, il est recommandé de le faire à travers les attributs de données sur mesure de ses éléments (voir <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset" target="_blank" rel="external">dataset</a>).</p>
 

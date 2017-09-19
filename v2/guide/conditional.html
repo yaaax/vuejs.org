@@ -782,7 +782,7 @@
     
       <h1>Rendu conditionnel</h1>
     
-    <h2 id="v-if"><a href="#v-if" class="headerlink" title="v-if"></a><code>v-if</code></h2><p>Dans les templates en chaîne de caractères, par exemple Handlebars, nous pouvons écrire une structure conditionnelle comme ceci :</p>
+    <h2 id="v-if"><a href="#v-if" class="headerlink" title="v-if"></a><code>v-if</code></h2><p>Dans les templates en chaine de caractères, par exemple Handlebars, nous pouvons écrire une structure conditionnelle comme ceci :</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- Template de Handlebars --&gt;</span></div><div class="line">&#123;&#123;#if ok&#125;&#125;</div><div class="line">  <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Oui<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line">&#123;&#123;/if&#125;&#125;</div></pre></td></tr></table></figure>
 <p>Dans Vue, nous utilisons la directive <code>v-if</code> pour obtenir la même chose :</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">h1</span> <span class="attr">v-if</span>=<span class="string">"ok"</span>&gt;</span>Oui<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div></pre></td></tr></table></figure>
@@ -796,7 +796,7 @@
 <h3 id="v-else-if"><a href="#v-else-if" class="headerlink" title="v-else-if"></a><code>v-else-if</code></h3><blockquote>
 <p>Nouveau dans la 2.1.0+</p>
 </blockquote>
-<p>Le <code>v-else-if</code>, comme le nom le suggère, sert comme une « structure sinon si » pour <code>v-if</code>. Il peut également être enchaîné plusieurs fois :</p>
+<p>Le <code>v-else-if</code>, comme le nom le suggère, sert comme une « structure sinon si » pour <code>v-if</code>. Il peut également être enchainé plusieurs fois :</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-if</span>=<span class="string">"type === 'A'"</span>&gt;</span></div><div class="line">  A</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-else-if</span>=<span class="string">"type === 'B'"</span>&gt;</span></div><div class="line">  B</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-else-if</span>=<span class="string">"type === 'C'"</span>&gt;</span></div><div class="line">  C</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-else</span>&gt;</span></div><div class="line">  Ni A, ni B et ni C</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>Semblable à <code>v-else</code>, un élément <code>v-else-if</code> doit immédiatement suivre un élément <code>v-if</code> ou un élément <code>v-else-if</code>.</p>
 <h3 id="Controle-des-elements-reutilisables-avec-key"><a href="#Controle-des-elements-reutilisables-avec-key" class="headerlink" title="Contrôle des éléments réutilisables avec key"></a>Contrôle des éléments réutilisables avec <code>key</code></h3><p>Vue tente de restituer les éléments aussi efficacement que possible, en les réutilisant souvent au lieu de faire de la restitution à partir de zéro. En plus de permettre à Vue d’être très rapide, cela peut avoir quelques avantages utiles. Par exemple, si vous autorisez les utilisateurs à choisir entre plusieurs types de connexion :</p>
@@ -862,16 +862,16 @@ new Vue({
 })
 </script>
 
-<p>Remarquez que les éléments <code>&lt;label&gt;</code> sont encore réutilisés efficacement, car ils n’ont pas d’attributs <code>key</code>.</p>
+<p>Remarquez que les éléments <code>&lt;label&gt;</code> sont réutilisés efficacement, car ils n’ont pas d’attributs <code>key</code>.</p>
 <h2 id="v-show"><a href="#v-show" class="headerlink" title="v-show"></a><code>v-show</code></h2><p>Une autre option pour afficher conditionnellement un élément est la directive <code>v-show</code>. L’utilisation est en grande partie la même :</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">h1</span> <span class="attr">v-show</span>=<span class="string">"ok"</span>&gt;</span>Bonjour !<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>La différence est qu’un élément avec <code>v-show</code> sera toujours restitué et restera dans le DOM ; <code>v-show</code> permute simplement la propriété CSS <code>display</code> de l’élément.</p>
 <p class="tip">Notez que <code>v-show</code> ne prend pas en charge la syntaxe de <code>&lt;template&gt;</code> et ne fonctionne pas avec <code>v-else</code>.</p>
 
-<h2 id="v-if-vs-v-show"><a href="#v-if-vs-v-show" class="headerlink" title="v-if vs v-show"></a><code>v-if</code> vs <code>v-show</code></h2><p><code>v-if</code> est un « vrai » rendu conditionnel car il garantit que les écouteurs d’événements et les composants enfants à l’intérieur de la structure conditionnelle sont correctement détruits et recréés lors des permutations.</p>
+<h2 id="v-if-vs-v-show"><a href="#v-if-vs-v-show" class="headerlink" title="v-if vs v-show"></a><code>v-if</code> vs <code>v-show</code></h2><p><code>v-if</code> est un « vrai » rendu conditionnel car il garantit que les écouteurs d’évènements et les composants enfants à l’intérieur de la structure conditionnelle sont correctement détruits et recréés lors des permutations.</p>
 <p><code>v-if</code> est également <strong>paresseux</strong> : si la condition est fausse sur le rendu initial, il ne fera rien (la structure conditionnelle sera rendue quand la condition sera vraie pour la première fois).</p>
 <p>En comparaison, <code>v-show</code> est beaucoup plus simple (l’élément est toujours rendu indépendamment de la condition initiale, avec juste une simple permutation basée sur du CSS).</p>
-<p>D’une manière générale, <code>v-if</code> a des coûts à la permutations plus élevés alors que <code>v-show</code> a des coûts au rendu initial plus élevés. Donc préférez <code>v-show</code> si vous avez besoin de permuter quelque chose très souvent et préférez <code>v-if</code> si la condition ne change probablement pas à l’exécution.</p>
+<p>D’une manière générale, <code>v-if</code> a des couts à la permutation plus élevés alors que <code>v-show</code> a des couts au rendu initial plus élevés. Donc préférez <code>v-show</code> si vous avez besoin de permuter quelque chose très souvent et préférez <code>v-if</code> si la condition ne change probablement pas à l’exécution.</p>
 <h2 id="v-if-avec-v-for"><a href="#v-if-avec-v-for" class="headerlink" title="v-if avec v-for"></a><code>v-if</code> avec <code>v-for</code></h2><p>Lorsqu’il est conjointement utilisé avec <code>v-for</code>, <code>v-for</code> a une priorité plus élevée que <code>v-if</code>. Consultez le <a href="../guide/list.html#v-for-avec-v-if">guide du rendu de liste</a> pour plus de détails.</p>
 
     
