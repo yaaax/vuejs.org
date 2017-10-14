@@ -937,7 +937,7 @@ new Vue({
 </ul>
 <p>Vous pouvez également <a href="../api/#keyCodes">définir des raccourcis personnalisés pour vos modificateurs</a> grâce à l’objet global <code>config.keyCodes</code> :</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// active v-on:keyup.f1</span></div><div class="line">Vue.config.keyCodes.f1 = <span class="number">112</span></div></pre></td></tr></table></figure>
-<h3 id="Modificateurs-de-raccourcis-clavier-automatique"><a href="#Modificateurs-de-raccourcis-clavier-automatique" class="headerlink" title="Modificateurs de raccourcis clavier automatique"></a>Modificateurs de raccourcis clavier automatique</h3><blockquote>
+<h2 id="Modificateurs-de-raccourcis-clavier-automatiques"><a href="#Modificateurs-de-raccourcis-clavier-automatiques" class="headerlink" title="Modificateurs de raccourcis clavier automatiques"></a>Modificateurs de raccourcis clavier automatiques</h2><blockquote>
 <p>Nouveau dans la 2.5.0+</p>
 </blockquote>
 <p>Vous pouvez également utiliser n’importe quelles noms de raccourcis clavier valide exposés via <a href="https://developer.mozilla.org/fr-FR/docs/Web/API/KeyboardEvent/key/Key_Values" target="_blank" rel="external"><code>KeyboardEvent.key</code></a> en tant que modificateur en les écrivant au format kebab-case :</p>
@@ -965,7 +965,7 @@ new Vue({
 <h3 id="Modificateur-exact"><a href="#Modificateur-exact" class="headerlink" title="Modificateur .exact"></a>Modificateur <code>.exact</code></h3><blockquote>
 <p>Nouveau dans la 2.5.0</p>
 </blockquote>
-<p>Le modificateur <code>.exact</code> devrait être utiliser en complément des autres modificateurs préconçu pour indiquer que la combinaison exacte de modificateur doit être pressé pour que le gestionnaire se déclenche.</p>
+<p>Le modificateur <code>.exact</code> devrait être utilisé en complément des autres modificateurs préconçus pour indiquer que la combinaison exacte de modificateur doit être pressé pour que le gestionnaire se déclenche.</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- ceci va émettre un évènement si les touches Alt et Shift sont aussi pressées --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">button</span> @<span class="attr">click.ctrl</span>=<span class="string">"onClick"</span>&gt;</span>A<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- ceci va émettre un évènement seulement si la touche Ctrl est pressée --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">button</span> @<span class="attr">click.ctrl.exact</span>=<span class="string">"onCtrlClick"</span>&gt;</span>A<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div></pre></td></tr></table></figure>
 <h3 id="Modificateurs-de-boutons-de-la-souris"><a href="#Modificateurs-de-boutons-de-la-souris" class="headerlink" title="Modificateurs de boutons de la souris"></a>Modificateurs de boutons de la souris</h3><blockquote>
 <p>Nouveau dans la 2.2.0+</p>
