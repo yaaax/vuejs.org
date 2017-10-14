@@ -368,12 +368,12 @@
 </li>
 </ul>
 <h3 id="ignoredElements"><a href="#ignoredElements" class="headerlink" title="ignoredElements"></a>ignoredElements</h3><ul>
-<li><p><strong>Type :</strong> <code>Array&lt;string&gt;</code></p>
+<li><p><strong>Type :</strong> <code>Array&lt;string | RegExp&gt;</code></p>
 </li>
 <li><p><strong>Par défaut :</strong> <code>[]</code></p>
 </li>
 <li><p><strong>Utilisation :</strong></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">Vue.config.ignoredElements = [</div><div class="line">  <span class="string">'mon-web-component'</span>, <span class="string">'un-autre-web-component'</span></div><div class="line">]</div></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="code"><pre><div class="line">Vue.config.ignoredElements = [</div><div class="line">  'mon-web-component',</div><div class="line">  'un-autre-web-component',</div><div class="line">  // Utilisez une `RegExp` pour ignorer tous les éléments qui commencent par « ion- »</div><div class="line">  // 2.5+ only</div><div class="line">  /^ion-/</div><div class="line">]</div></pre></td></tr></table></figure>
 <p>Indique à Vue d’ignorer les éléments personnalisés définis en dehors de Vue (ex. : en utilisant les API Web Components). Autrement, un message d’avertissement <code>Unknown custom element</code> sera affiché, supposant que vous avez oublié d’inscrire un composant global ou fait une faute de frappe dans son nom.</p>
 </li>
 </ul>
@@ -666,7 +666,7 @@
 <p>Un objet où les clés sont des expressions à surveiller et où la valeur associée est la fonction de rappel exécutée quand cette expression change. On parle alors d’observateur ou <em>watcher</em> pour décrire ce lien. La valeur peut également être une <code>String</code> correspondant au nom d’une méthode de l’instance, ou un objet avec des options avancées. L’instance de Vue appellera <code>$watch()</code> pour chaque clé de l’objet à l’initialisation.</p>
 </li>
 <li><p><strong>Exemple :</strong></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</div><div class="line">  <span class="attr">data</span>: &#123;</div><div class="line">    <span class="attr">a</span>: <span class="number">1</span>,</div><div class="line">    <span class="attr">b</span>: <span class="number">2</span>,</div><div class="line">    <span class="attr">c</span>: <span class="number">3</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">watch</span>: &#123;</div><div class="line">    <span class="attr">a</span>: <span class="function"><span class="keyword">function</span> (<span class="params">valeur, ancienneValeur</span>) </span>&#123;</div><div class="line">      <span class="built_in">console</span>.log(<span class="string">'nouveau: %s, ancien: %s'</span>, valeur, ancienneValeur)</div><div class="line">    &#125;,</div><div class="line">    <span class="comment">// nom d'une méthode</span></div><div class="line">    b: <span class="string">'uneMéthode'</span>,</div><div class="line">    <span class="comment">// observateur profond (deep watcher)</span></div><div class="line">    c: &#123;</div><div class="line">      <span class="attr">handler</span>: <span class="function"><span class="keyword">function</span> (<span class="params">valeur, ancienneValeur</span>) </span>&#123; <span class="comment">/* ... */</span> &#125;,</div><div class="line">      <span class="attr">deep</span>: <span class="literal">true</span></div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line">vm.a = <span class="number">2</span> <span class="comment">// =&gt; nouveau : 2, ancien : 1</span></div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</div><div class="line">  <span class="attr">data</span>: &#123;</div><div class="line">    <span class="attr">a</span>: <span class="number">1</span>,</div><div class="line">    <span class="attr">b</span>: <span class="number">2</span>,</div><div class="line">    <span class="attr">c</span>: <span class="number">3</span>,</div><div class="line">    <span class="attr">d</span>: <span class="number">4</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">watch</span>: &#123;</div><div class="line">    <span class="attr">a</span>: <span class="function"><span class="keyword">function</span> (<span class="params">valeur, ancienneValeur</span>) </span>&#123;</div><div class="line">      <span class="built_in">console</span>.log(<span class="string">'nouveau: %s, ancien: %s'</span>, valeur, ancienneValeur)</div><div class="line">    &#125;,</div><div class="line">    <span class="comment">// nom d'une méthode</span></div><div class="line">    b: <span class="string">'uneMéthode'</span>,</div><div class="line">    <span class="comment">// observateur profond (deep watcher)</span></div><div class="line">    c: &#123;</div><div class="line">      <span class="attr">handler</span>: <span class="function"><span class="keyword">function</span> (<span class="params">valeur, ancienneValeur</span>) </span>&#123; <span class="comment">/* ... */</span> &#125;,</div><div class="line">      <span class="attr">deep</span>: <span class="literal">true</span></div><div class="line">    &#125;,</div><div class="line">    <span class="comment">// la fonction de retour va être appelée immédiatement après le début de l'observation</span></div><div class="line">    d: &#123;</div><div class="line">      <span class="attr">handler</span>: <span class="function"><span class="keyword">function</span> (<span class="params">valeur, ancienneValeur</span>) </span>&#123; <span class="comment">/* ... */</span> &#125;,</div><div class="line">      <span class="attr">immediate</span>: <span class="literal">true</span></div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line">vm.a = <span class="number">2</span> <span class="comment">// =&gt; nouveau : 2, ancien : 1</span></div></pre></td></tr></table></figure>
 <p class="tip">Notez que <strong>vous ne devriez pas utiliser de fonctions fléchées pour définir un observateur</strong> (exemple: <code>saisie: nouvelleValeur =&gt; this.actualiserSuggestions(nouvelleValeur)</code>). La raison est que les fonctions fléchées sont liées au contexte parent, donc <code>this</code> ne correspondra pas à l’instance de Vue et <code>this.actualiserSuggestions</code> vaudra <code>undefined</code>.</p>
 </li>
 <li><p><strong>Voir aussi :</strong> <a href="#vm-watch">Méthodes et données d’instance - vm.$watch</a></p>
@@ -850,6 +850,29 @@
 <li><p><strong>Voir aussi :</strong> <a href="../guide/instance.html#Diagramme-du-cycle-de-vie">Diagramme du cycle de vie</a></p>
 </li>
 </ul>
+<h3 id="errorCaptured"><a href="#errorCaptured" class="headerlink" title="errorCaptured"></a>errorCaptured</h3><blockquote>
+<p>Nouveau dans la 2.5.0+</p>
+</blockquote>
+<ul>
+<li><p><strong>Type :</strong> <code>(err: Error, vm: Component, info: string) =&gt; ?boolean</code></p>
+</li>
+<li><p><strong>Détails :</strong></p>
+<p>Appelé quand une erreur depuis n’importe quel composant enfant est capturé. Le hook reçoit trois arguments : l’erreur, l’instance du composant qui a déclenché l’erreur et une chaine de caractères contenant des informations sur l’endroit où l’erreur a été capturée. Le hook peut retourner <code>false</code> pour arrêter la propagation de l’erreur.</p>
+<p class="tip">Vous pouvez modifier l’état du composant dans ce hook. Il est cependant important d’avoir une condition dans votre template ou fonction de rendu qui court-circuite les autres composants quand une erreur est capturée. Autrement le composant va partir dans une boucle de rendu infinie.</p>
+
+<p><strong>Règles de propagation d’erreur</strong></p>
+<ul>
+<li><p>Par défaut, toutes les erreurs sont toujours envoyées à l’objet global <code>config.errorHandler</code> si il est défini. Donc ces erreurs peuvent toujours être reportées à un service d’analyse centralisé.</p>
+</li>
+<li><p>Si des hooks <code>errorCaptured</code> multiples existent sur une chaine de composant hérité ou sur une chaine parente, toutes seront invoquées sur la même erreur.</p>
+</li>
+<li><p>Si le hook <code>errorCaptured</code> renvoi lui-même une erreur, l’erreur originalement capturée et l’erreur courante seront toutes deux envoyées au <code>config.errorHandler</code> global.</p>
+</li>
+<li><p>Un hook <code>errorCaptured</code> peut retourner <code>false</code> pour prévenir la propagation de l’erreur plus haut. Il est essentielle de dire « cette erreur a été traitée et doit être ignorée ». Cela empèchera n’importe quel hook <code>errorCaptured</code> supplémentaire ou le <code>config.errorHandler</code> d’être invoqué par cette erreur.</p>
+</li>
+</ul>
+</li>
+</ul>
 <h2 id="Options-Ressources"><a href="#Options-Ressources" class="headerlink" title="Options / Ressources"></a>Options / Ressources</h2><h3 id="directives"><a href="#directives" class="headerlink" title="directives"></a>directives</h3><ul>
 <li><p><strong>Type :</strong> <code>Object</code></p>
 </li>
@@ -917,7 +940,7 @@
 <li><p><strong>Type :</strong></p>
 <ul>
 <li><strong>provide :</strong> <code>Object | () =&gt; Object</code></li>
-<li><strong>inject :</strong> <code>Array&lt;string&gt; | { [key: string]: string | Symbol }</code></li>
+<li><strong>inject :</strong> <code>Array&lt;string&gt; | { [key: string]: string | Symbol | Object }</code></li>
 </ul>
 </li>
 <li><p><strong>Détails :</strong></p>
@@ -941,6 +964,14 @@
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">const</span> Enfant = &#123;</div><div class="line">  <span class="attr">inject</span>: [<span class="string">'foo'</span>],</div><div class="line">  <span class="attr">props</span>: &#123;</div><div class="line">    <span class="attr">bar</span>: &#123;</div><div class="line">      <span class="keyword">default</span> () &#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.foo</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>En utilisant une valeur injectée comme entrée de données :</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">const</span> Enfant = &#123;</div><div class="line">  <span class="attr">inject</span>: [<span class="string">'foo'</span>],</div><div class="line">  data () &#123;</div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">      <span class="attr">bar</span>: <span class="keyword">this</span>.foo</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>Dans la 2.5.0+ les injections peuvent être optionnelles avec une valeur par défaut :</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">const</span> Child = &#123;</div><div class="line">  <span class="attr">inject</span>: &#123;</div><div class="line">    <span class="attr">foo</span>: &#123; <span class="attr">default</span>: <span class="string">'foo'</span> &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>S’il est nécessaire de pouvoir être injecté depuis une propriété avec un nom différent, utilisez <code>from</code> pour indiquer la source de la propriété :</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">const</span> Child = &#123;</div><div class="line">  <span class="attr">inject</span>: &#123;</div><div class="line">    <span class="attr">foo</span>: &#123;</div><div class="line">      <span class="attr">from</span>: <span class="string">'bar'</span>,</div><div class="line">      <span class="attr">default</span>: <span class="string">'foo'</span></div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Similaire aux valeur par défaut des props, vous devez utiliser une fabrique de fonction pour les valeurs non primitives :</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">const</span> Child = &#123;</div><div class="line">  <span class="attr">inject</span>: &#123;</div><div class="line">    <span class="attr">foo</span>: &#123;</div><div class="line">      <span class="attr">from</span>: <span class="string">'bar'</span>,</div><div class="line">      <span class="attr">default</span>: <span class="function"><span class="params">()</span> =&gt;</span> [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 </ul>
 <h2 id="Options-Divers-1"><a href="#Options-Divers-1" class="headerlink" title="Options / Divers"></a>Options / Divers</h2><h3 id="name"><a href="#name" class="headerlink" title="name"></a>name</h3><ul>
@@ -1634,6 +1665,16 @@
 <p>Pour un usage détaillé, veuillez consulter la section du guide en lien ci-dessous.</p>
 </li>
 <li><p><strong>Voir aussi :</strong> <a href="../guide/components.html#Slots-nommes">Slots nommés</a></p>
+</li>
+</ul>
+<h3 id="slot-scope"><a href="#slot-scope" class="headerlink" title="slot-scope"></a>slot-scope</h3><ul>
+<li><p><strong>Attend comme valeur :</strong> <code>function argument expression</code></p>
+</li>
+<li><p><strong>Utilisation :</strong></p>
+<p>Utilisé pour indiquer qu’un élément ou un composant a un slot avec portée. La valeur de l’attribut doit être une expression JavaScript valide qui apparaît à la position d’un argument dans la déclaration d’une fonction. Cela signifie que dans les environnements qui le supporte, vous pouvez utiliser une expression de destructuration dans l’expression.</p>
+<p>Cet attribut ne supporte pas les liaisons dynamiques.</p>
+</li>
+<li><p><strong>Voir aussi :</strong> <a href="../guide/components.html#Scoped-Slots">Slots à portée limitée</a></p>
 </li>
 </ul>
 <h3 id="is"><a href="#is" class="headerlink" title="is"></a>is</h3><ul>

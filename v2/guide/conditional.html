@@ -919,7 +919,7 @@ new Vue({
 <h2 id="v-show"><a href="#v-show" class="headerlink" title="v-show"></a><code>v-show</code></h2><p>Une autre option pour afficher conditionnellement un élément est la directive <code>v-show</code>. L’utilisation est en grande partie la même :</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">h1</span> <span class="attr">v-show</span>=<span class="string">"ok"</span>&gt;</span>Bonjour !<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>La différence est qu’un élément avec <code>v-show</code> sera toujours restitué et restera dans le DOM ; <code>v-show</code> permute simplement la propriété CSS <code>display</code> de l’élément.</p>
-<p class="tip">Notez que <code>v-show</code> ne prend pas en charge la syntaxe de <code>&lt;template&gt;</code> et ne fonctionne pas avec <code>v-else</code>.</p>
+<p class="tip">Notez que <code>v-show</code> ne prend pas en charge la syntaxe de l’élément <code>&lt;template&gt;</code> et ne fonctionne pas avec <code>v-else</code>.</p>
 
 <h2 id="v-if-vs-v-show"><a href="#v-if-vs-v-show" class="headerlink" title="v-if vs v-show"></a><code>v-if</code> vs <code>v-show</code></h2><p><code>v-if</code> est un « vrai » rendu conditionnel car il garantit que les écouteurs d’évènements et les composants enfants à l’intérieur de la structure conditionnelle sont correctement détruits et recréés lors des permutations.</p>
 <p><code>v-if</code> est également <strong>paresseux</strong> : si la condition est fausse sur le rendu initial, il ne fera rien (la structure conditionnelle sera rendue quand la condition sera vraie pour la première fois).</p>
