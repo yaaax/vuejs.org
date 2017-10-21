@@ -373,7 +373,7 @@
 <li><p><strong>Par défaut :</strong> <code>[]</code></p>
 </li>
 <li><p><strong>Utilisation :</strong></p>
-<figure class="highlight"><table><tr><td class="code"><pre><div class="line">Vue.config.ignoredElements = [</div><div class="line">  'mon-web-component',</div><div class="line">  'un-autre-web-component',</div><div class="line">  // Utilisez une `RegExp` pour ignorer tous les éléments qui commencent par « ion- »</div><div class="line">  // 2.5+ only</div><div class="line">  /^ion-/</div><div class="line">]</div></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="code"><pre><div class="line">Vue.config.ignoredElements = [</div><div class="line">  'mon-web-component',</div><div class="line">  'un-autre-web-component',</div><div class="line">  // Utilisez une `RegExp` pour ignorer tous les éléments qui commencent par « ion- »</div><div class="line">  // 2.5+ seulement</div><div class="line">  /^ion-/</div><div class="line">]</div></pre></td></tr></table></figure>
 <p>Indique à Vue d’ignorer les éléments personnalisés définis en dehors de Vue (ex. : en utilisant les API Web Components). Autrement, un message d’avertissement <code>Unknown custom element</code> sera affiché, supposant que vous avez oublié d’inscrire un composant global ou fait une faute de frappe dans son nom.</p>
 </li>
 </ul>

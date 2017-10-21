@@ -963,7 +963,7 @@ new Vue({
 <p class="tip">Notez que ces modificateurs de raccourcis sont différents des modificateurs usuels utilisés avec l’évènement <code>keyup</code>, ils doivent être pressés quand l’évènement est émis. En d’autres mots, <code>keyup.ctrl</code> sera déclenché uniquement si vous maintenez la touche <code>ctrl</code> enfoncée. rien ne sera déclenché si vous relâchez uniquement la touche <code>Ctrl</code>.</p>
 
 <h3 id="Modificateur-exact"><a href="#Modificateur-exact" class="headerlink" title="Modificateur .exact"></a>Modificateur <code>.exact</code></h3><blockquote>
-<p>Nouveau dans la 2.5.0</p>
+<p>Nouveau dans la 2.5.0+</p>
 </blockquote>
 <p>Le modificateur <code>.exact</code> devrait être utilisé en complément des autres modificateurs de touches système pour indiquer que la combinaison exacte de touches doit être pressée pour que le gestionnaire se déclenche.</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- ceci va aussi émettre un évènement si les touches Alt et Shift sont pressées --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">button</span> @<span class="attr">click.ctrl</span>=<span class="string">"onClick"</span>&gt;</span>A<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- ceci va émettre un évènement seulement si la touche Ctrl est pressée --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">button</span> @<span class="attr">click.ctrl.exact</span>=<span class="string">"onCtrlClick"</span>&gt;</span>A<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div></pre></td></tr></table></figure>
