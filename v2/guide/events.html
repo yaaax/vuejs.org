@@ -258,9 +258,12 @@
     </ul>
     <div class="list">
       <div class="main-sponsor">
-        <span>Sponsor de platine</span><br>
+        <span>Sponsors de platine</span><br>
         <a href="https://stdlib.com" target="_blank" class="logo">
           <img src="/images/stdlib.png">
+        </a>
+        <a href="http://tooltwist.com/" target="_blank" class="logo">
+          <img src="/images/tooltwist.png">
         </a>
       </div>
       <a class="become-backer" href="/support-vuejs">
@@ -917,7 +920,7 @@ new Vue({
 <blockquote>
 <p>Nouveau dans la 2.1.4+</p>
 </blockquote>
-<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- l'évènement « click » sera déclenché au moins une fois --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">v-on:click.once</span>=<span class="string">"doThis"</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- l'évènement « click » sera déclenché au plus une fois --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">v-on:click.once</span>=<span class="string">"doThis"</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>Au contraire des autres modificateurs, qui sont exclusifs aux évènements natifs du DOM, le modificateur <code>.once</code> peut également être utilisé pour les <a href="components.html#Using-v-on-with-Custom-Events">évènements des composants</a>. Si vous n’avez pas encore lu la section concernant les composants, ne vous en inquiétez pas pour le moment.</p>
 <h2 id="Modificateurs-de-code-des-touches"><a href="#Modificateurs-de-code-des-touches" class="headerlink" title="Modificateurs de code des touches"></a>Modificateurs de code des touches</h2><p>Lorsque nous écoutons les évènements du clavier, nous avons régulièrement besoin de nous assurer du code des touches. Vue permet également d’ajouter un modificateur de touches pour <code>v-on</code>:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- faire appel à « vm.submit() » uniquement quand le code de la touche est `13` --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">v-on:keyup.13</span>=<span class="string">"submit"</span>&gt;</span></div></pre></td></tr></table></figure>

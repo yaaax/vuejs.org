@@ -258,9 +258,12 @@
     </ul>
     <div class="list">
       <div class="main-sponsor">
-        <span>Sponsor de platine</span><br>
+        <span>Sponsors de platine</span><br>
         <a href="https://stdlib.com" target="_blank" class="logo">
           <img src="/images/stdlib.png">
+        </a>
+        <a href="http://tooltwist.com/" target="_blank" class="logo">
+          <img src="/images/tooltwist.png">
         </a>
       </div>
       <a class="become-backer" href="/support-vuejs">
@@ -1159,7 +1162,7 @@ new Vue({
 <h3 id="Personnalisation-de-composant-avec-v-model"><a href="#Personnalisation-de-composant-avec-v-model" class="headerlink" title="Personnalisation de composant avec v-model"></a>Personnalisation de composant avec <code>v-model</code></h3><blockquote>
 <p>Nouveau dans la 2.2.0+</p>
 </blockquote>
-<p>Par défaut, <code>v-model</code> sur un composant utilise <code>value</code> en tant que prop et peuvent vouloir utiliser <code>input</code> en tant qu’évènement, mais plusieurs types de champ comme les cases à cocher et les boutons radio pourraient utiliser <code>value</code> pour un usage différent. Utiliser l’option <code>model</code> permet d’éviter les conflits dans ce genre de situations :</p>
+<p>Par défaut, <code>v-model</code> sur un composant utilise <code>value</code> en tant que prop et <code>input</code> en tant qu’évènement, mais plusieurs types de champ comme les cases à cocher et les boutons radio pourraient utiliser <code>value</code> pour un usage différent. Utiliser l’option <code>model</code> permet d’éviter les conflits dans ce genre de situations :</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line">Vue.component(<span class="string">'my-checkbox'</span>, &#123;</div><div class="line">  <span class="attr">model</span>: &#123;</div><div class="line">    <span class="attr">prop</span>: <span class="string">'checked'</span>,</div><div class="line">    <span class="attr">event</span>: <span class="string">'change'</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">props</span>: &#123;</div><div class="line">    <span class="attr">checked</span>: <span class="built_in">Boolean</span>,</div><div class="line">    <span class="comment">// ceci permet d'utiliser la prop `value` pour un usage différent</span></div><div class="line">    value: <span class="built_in">String</span></div><div class="line">  &#125;,</div><div class="line">  <span class="comment">// ...</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">my-checkbox</span> <span class="attr">v-model</span>=<span class="string">"foo"</span> <span class="attr">value</span>=<span class="string">"une valeur"</span>&gt;</span><span class="tag">&lt;/<span class="name">my-checkbox</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>La partie ci-dessus sera équivalente à :</p>
