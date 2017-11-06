@@ -159,6 +159,7 @@
     <li><a href="https://vuejs.org/v2/guide/filters.html" class="nav-link" target="_blank">English</a></li>
     <li><a href="https://br.vuejs.org/v2/guide/filters.html" class="nav-link" target="_blank">Português</a></li>
     <li><a href="https://ru.vuejs.org/v2/guide/filters.html" class="nav-link" target="_blank">Русский</a></li>
+    <li><a href="https://vi.vuejs.org/v2/guide/filters.html" class="nav-link" target="_blank">Tiếng Việt</a></li>
   </ul>
 </li>
 
@@ -251,6 +252,7 @@
     <li><a href="https://vuejs.org/v2/guide/filters.html" class="nav-link" target="_blank">English</a></li>
     <li><a href="https://br.vuejs.org/v2/guide/filters.html" class="nav-link" target="_blank">Português</a></li>
     <li><a href="https://ru.vuejs.org/v2/guide/filters.html" class="nav-link" target="_blank">Русский</a></li>
+    <li><a href="https://vi.vuejs.org/v2/guide/filters.html" class="nav-link" target="_blank">Tiếng Việt</a></li>
   </ul>
 </li>
 
@@ -840,8 +842,11 @@
   
   <p>Vue.js permet de définir des filtres qui peuvent être utilisés pour appliquer des formatages de textes courants. Les filtres sont utilisables à deux endroits : <strong>les interpolations à moustaches et les expressions de v-bind</strong> (ces dernières étant supportées depuis la 2.1.0+). Les filtres doivent être ajoutés à la fin de l’expression JavaScript, indiqués par le symbole de la barre verticale :</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- dans les moustaches --&gt;</span></div><div class="line">&#123;&#123; message | capitalize &#125;&#125;</div><div class="line"></div><div class="line"><span class="comment">&lt;!-- dans les v-bind --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-bind:id</span>=<span class="string">"rawId | formatId"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>Vous pouvez définir les filtres locaux dans les options d’un composant :</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">filters: &#123;</div><div class="line">  <span class="attr">capitalize</span>: <span class="function"><span class="keyword">function</span> (<span class="params">value</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (!value) <span class="keyword">return</span> <span class="string">''</span></div><div class="line">    value = value.toString()</div><div class="line">    <span class="keyword">return</span> value.charAt(<span class="number">0</span>).toUpperCase() + value.slice(<span class="number">1</span>)</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>or define a filter globally:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">Vue.filter(<span class="string">'capitalize'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">value</span>) </span>&#123;</div><div class="line">  <span class="keyword">if</span> (!value) <span class="keyword">return</span> <span class="string">''</span></div><div class="line">  value = value.toString()</div><div class="line">  <span class="keyword">return</span> value.charAt(<span class="number">0</span>).toUpperCase() + value.slice(<span class="number">1</span>)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <p>La fonction de filtre reçoit toujours la valeur de l’expression (le résultat de la chaine) comme premier argument. Dans cet exemple, la fonction de filtre <code>capitalize</code> va recevoir la valeur de <code>message</code> dans son argument.</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">  <span class="comment">// ...</span></div><div class="line">  filters: &#123;</div><div class="line">    <span class="attr">capitalize</span>: <span class="function"><span class="keyword">function</span> (<span class="params">value</span>) </span>&#123;</div><div class="line">      <span class="keyword">if</span> (!value) <span class="keyword">return</span> <span class="string">''</span></div><div class="line">      value = value.toString()</div><div class="line">      <span class="keyword">return</span> value.charAt(<span class="number">0</span>).toUpperCase() + value.slice(<span class="number">1</span>)</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <p>Les filtres peuvent être chainés :</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line">&#123;&#123; message | filterA | filterB &#125;&#125;</div></pre></td></tr></table></figure>
 <p>Dans ce cas, <code>filterA</code>, défini avec un seul argument, va recevoir la valeur de <code>message</code>. Puis la fonction <code>filterB</code> va être appelée avec le résultat de <code>filterA</code> passé dans <code>filterB</code> en tant que simple argument.</p>
