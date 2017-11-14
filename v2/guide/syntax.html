@@ -849,14 +849,32 @@
 <p>Vous pouvez également réaliser des interpolations à usage unique (qui ne se mettront pas à jour lors de la modification des données) en utilisant la <a href="../api/#v-once">directive v-once</a>, mais gardez à l’esprit que cela affectera toutes les liaisons de données présentes sur le même noeud :</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">v-once</span>&gt;</span>Ceci ne changera jamais : &#123;&#123; msg &#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div></pre></td></tr></table></figure>
 <h3 id="Interpretation-du-HTML"><a href="#Interpretation-du-HTML" class="headerlink" title="Interprétation du HTML"></a>Interprétation du HTML</h3><p>Les doubles moustaches interprètent la donnée en tant que texte brut, pas en tant que HTML. Pour afficher réellement du HTML, vous aurez besoin d’utiliser la directive <code>v-html</code></p>
-<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-html</span>=<span class="string">"rawHtml"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>Le contenu de cette <code>div</code> sera alors remplacée par la valeur de la propriété <code>rawHtml</code> en tant que HTML classique. Les liaisons de données sont ignorées. À noter que vous ne pouvez pas utiliser <code>v-html</code> pour composer des fragments de templates, parce que Vue n’est pas un moteur de template basé sur les chaines de caractères. À la place, les composants sont préférés en tant qu’unité fondamentale pour la réutilisabilité et la composition de l’interface utilisateur.</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Using mustaches: &#123;&#123; rawHtml &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Using v-html directive: <span class="tag">&lt;<span class="name">span</span> <span class="attr">v-html</span>=<span class="string">"rawHtml"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></div></pre></td></tr></table></figure>
+
+<div id="example1" class="demo">
+  <p>En utilisant les moustaches : {{ rawHtml }}</p>
+  <p>En utilisant la directive v-html : <span v-html="rawHtml"></span></p>
+</div>
+<script>
+new Vue({
+  el: '#example1',
+  data: function () {
+  	return {
+  	  rawHtml: '<span style="color: red">Ceci devrait être rouge.</span>'
+  	}
+  }
+})
+</script>
+
+<p>Le contenu de cette <code>span</code> sera alors remplacée par la valeur de la propriété <code>rawHtml</code> en tant que HTML classique. Les liaisons de données sont ignorées. À noter que vous ne pouvez pas utiliser <code>v-html</code> pour composer des fragments de templates, parce que Vue n’est pas un moteur de template basé sur les chaines de caractères. À la place, les composants sont préférés en tant qu’unité fondamentale pour la réutilisabilité et la composition de l’interface utilisateur.</p>
 <p class="tip">Générer dynamiquement du HTML arbitraire sur votre site peut être très dangereux car cela peut mener facilement à des <a href="https://fr.wikipedia.org/wiki/Cross-site_scripting" target="_blank" rel="external">vulnérabilités XSS</a>. Utilisez l’interpolation HTML uniquement sur du contenu de confiance et <strong>jamais</strong> sur du contenu fourni par l’utilisateur</p>
 
-<h3 id="Attributs"><a href="#Attributs" class="headerlink" title="Attributs"></a>Attributs</h3><p>Les moustaches ne peuvent pas être utilisées à l’intérieur des attributs HTML, à la place utilisez une <a href="../api/#v-bind">directive v-bind</a>:</p>
+<h3 id="Attributs"><a href="#Attributs" class="headerlink" title="Attributs"></a>Attributs</h3><p>Les moustaches ne peuvent pas être utilisées à l’intérieur des attributs HTML, à la place utilisez une <a href="../api/#v-bind">directive <code>v-bind</code></a> :</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-bind:id</span>=<span class="string">"dynamicId"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>Cela fonctionne également pour les attributs booléens - l’attribut sera retiré si la condition est évaluée fausse :</p>
+<p>Dans le cas des attributs booléens qui impliquent la présence d’une valeur évaluée à <code>true</code>, <code>v-bind</code> fonctionne un peu différemment. Dans cet exemple :</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">v-bind:disabled</span>=<span class="string">"isButtonDisabled"</span>&gt;</span>Button<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>Si <code>isButtonDisabled</code></p>
+<p>If <code>isButtonDisabled</code> has the value of <code>null</code>, <code>undefined</code>, or <code>false</code>, the <code>disabled</code> attribute will not even be included in the rendered <code>&lt;button&gt;</code> element.</p>
 <h3 id="Utilisation-des-expressions-JavaScript"><a href="#Utilisation-des-expressions-JavaScript" class="headerlink" title="Utilisation des expressions JavaScript"></a>Utilisation des expressions JavaScript</h3><p>Jusqu’ici, nous avons seulement lié de simples clés de propriétés dans nos templates. Mais Vue.js supporte en réalité toute la puissance des expressions JavaScript à l’intérieur de toutes les liaisons de données :</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line">&#123;&#123; number + 1 &#125;&#125;</div><div class="line"></div><div class="line">&#123;&#123; ok ? 'OUI' : 'NON' &#125;&#125;</div><div class="line"></div><div class="line">&#123;&#123; message.split('').reverse().join('') &#125;&#125;</div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-bind:id</span>=<span class="string">"'list-' + id"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>Ces expressions seront évaluées en tant que JavaScript au sein de la portée des données de l’instance de Vue propriétaire. Il y a une restriction : chacune de ces liaisons ne peut contenir <strong>qu’une seule expression</strong>, donc ce qui suit <strong>NE</strong> fonctionnera <strong>PAS</strong></p>

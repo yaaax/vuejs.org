@@ -856,8 +856,8 @@ new Vue({
 })
 </script>
 
-<p>Quand la page se charge, cet élément prend le focus (notez que l’autofocus ne fonctionne pas sur Safari mobile). En fait, si vous n’avez cliqué sur rien du tout depuis votre arrivée sur la page, le champ ci-dessous devrait avoir le focus. À présent, jetons un œil à la directive qui pourrait accomplir cela :</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// Enregistrer une directive globale appelée focus</span></div><div class="line">Vue.directive(<span class="string">'focus'</span>, &#123;</div><div class="line">  <span class="comment">// Quand l'élément lié est inséré dans le DOM...</span></div><div class="line">  inserted: <span class="function"><span class="keyword">function</span> (<span class="params">el</span>) </span>&#123;</div><div class="line">    <span class="comment">// L'élément prend le focus</span></div><div class="line">    el.focus()</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>Quand la page se charge, cet élément prend le focus (notez que <code>autofocus</code> ne fonctionne pas sur Safari mobile). En fait, si vous n’avez cliqué sur rien du tout depuis votre arrivée sur la page, le champ ci-dessous devrait avoir le focus. À présent, jetons un œil à la directive qui pourrait accomplir cela :</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// Enregistrer une directive globale appelée `v-focus`</span></div><div class="line">Vue.directive(<span class="string">'focus'</span>, &#123;</div><div class="line">  <span class="comment">// Quand l'élément lié est inséré dans le DOM...</span></div><div class="line">  inserted: <span class="function"><span class="keyword">function</span> (<span class="params">el</span>) </span>&#123;</div><div class="line">    <span class="comment">// L'élément prend le focus</span></div><div class="line">    el.focus()</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <p>Si vous préférez enregistrer à la place la directive en local, les composants acceptent également l’option <code>directives</code> :</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line">directives: &#123;</div><div class="line">  <span class="attr">focus</span>: &#123;</div><div class="line">    <span class="comment">// définition de la directive</span></div><div class="line">    inserted: <span class="function"><span class="keyword">function</span> (<span class="params">el</span>) </span>&#123;</div><div class="line">      el.focus()</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>Puis dans un template, vous pouvez utiliser le nouvel attribut <code>v-focus</code> sur n’importe quel élément, comme celui-ci :</p>
@@ -878,18 +878,18 @@ new Vue({
 <p>Nous allons explorer les arguments passés à ces hooks (c.-à-d. <code>el</code>, <code>binding</code>, <code>vnode</code>, et <code>oldVnode</code>) dans la prochaine section.</p>
 <h2 id="Arguments-des-hooks-d’une-directive"><a href="#Arguments-des-hooks-d’une-directive" class="headerlink" title="Arguments des hooks d’une directive"></a>Arguments des hooks d’une directive</h2><p>Les hooks d’une directive ont accès à ces arguments :</p>
 <ul>
-<li><strong>el</strong>: l’élément sur lequel la directive est liée. Cela peut être utilisé pour directement manipuler le DOM.</li>
-<li><strong>binding</strong>: un objet contenant les propriétés suivantes.<ul>
-<li><strong>name</strong>: le nom de la directive, sans le préfixe <code>v-</code>.</li>
-<li><strong>value</strong>: la valeur passée à la directive. Par exemple dans <code>v-my-directive=&quot;1 + 1&quot;</code>, la valeur serait <code>2</code>.</li>
-<li><strong>oldValue</strong>: la valeur précédente, seulement disponible dans <code>update</code> et <code>componentUpdated</code>. Elle est disponible, que la valeur ait changé ou non.</li>
-<li><strong>expression</strong>: l’expression liée en tant que chaine de caractères. Par exemple dans <code>v-my-directive=&quot;1 + 1&quot;</code>, l’expression serait <code>&quot;1 + 1&quot;</code>.</li>
-<li><strong>arg</strong>: l’argument passé à la directive, s’il y en a une. Par exemple dans <code>v-my-directive:foo</code>, l’argument serait <code>&quot;foo&quot;</code>.</li>
-<li><strong>modifiers</strong>: un objet contenant les modificateurs, s’il y en a. Par exemple dans <code>v-my-directive.foo.bar</code>, l’objet des modificateurs serait <code>{ foo: true, bar: true }</code>.</li>
+<li><code>el</code> : l’élément sur lequel la directive est liée. Cela peut être utilisé pour directement manipuler le DOM.</li>
+<li><code>binding</code> : un objet contenant les propriétés suivantes.<ul>
+<li><code>name</code> : le nom de la directive, sans le préfixe <code>v-</code>.</li>
+<li><code>value</code> : la valeur passée à la directive. Par exemple dans <code>v-my-directive=&quot;1 + 1&quot;</code>, la valeur serait <code>2</code>.</li>
+<li><code>oldValue</code> : la valeur précédente, seulement disponible dans <code>update</code> et <code>componentUpdated</code>. Elle est disponible, que la valeur ait changé ou non.</li>
+<li><code>expression</code> : l’expression liée en tant que chaine de caractères. Par exemple dans <code>v-my-directive=&quot;1 + 1&quot;</code>, l’expression serait <code>&quot;1 + 1&quot;</code>.</li>
+<li><code>arg</code> : l’argument passé à la directive, s’il y en a une. Par exemple dans <code>v-my-directive:foo</code>, l’argument serait <code>&quot;foo&quot;</code>.</li>
+<li><code>modifiers</code> : un objet contenant les modificateurs, s’il y en a. Par exemple dans <code>v-my-directive.foo.bar</code>, l’objet des modificateurs serait <code>{ foo: true, bar: true }</code>.</li>
 </ul>
 </li>
-<li><strong>vnode</strong>: le nœud virtuel produit par le compilateur Vue. Voir l’<a href="../api/#Interface-VNode">API VNode</a> pour tous les détails.</li>
-<li><strong>oldVnode</strong>: le nœud virtuel précédent, seulement disponible dans les hooks <code>update</code> et <code>componentUpdated</code>.</li>
+<li><code>vnode</code> : le nœud virtuel produit par le compilateur Vue. Voir l’<a href="../api/#Interface-VNode">API VNode</a> pour tous les détails.</li>
+<li><code>oldVnode</code> : le nœud virtuel précédent, seulement disponible dans les hooks <code>update</code> et <code>componentUpdated</code>.</li>
 </ul>
 <p class="tip">À l’exception de <code>el</code>, vous devez traiter ces arguments comme étant en lecture seule (« read-only ») et ne jamais les modifier. Si vous souhaitez partager des informations entre les hooks, il est recommandé de le faire à travers les attributs de données sur mesure de ses éléments (voir <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset" target="_blank" rel="external">dataset</a>).</p>
 

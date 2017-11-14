@@ -1422,8 +1422,10 @@
 <li><p><strong>Détails :</strong></p>
 <p>Met à jour le contenu HTML (<code>innerHTML</code>) de l’élément. <strong>Notez que les contenus sont insérés en pur HTML - ils ne seront pas compilés en tant que templates Vue</strong>. Si vous vous retrouvez à vouloir composer des templates avec <code>v-html</code>, essayez de repenser la solution en utilisant des composants à la place.</p>
 <p class="tip">Faire le rendu dynamique de code HTML arbitraire sur votre site web peut être très dangereux car cela peut mener facilement à des <a href="https://fr.wikipedia.org/wiki/Cross-site_scripting" target="_blank" rel="external">attaques XSS</a>. Utilisez <code>v-html</code> uniquement avec du contenu de confiance et <strong>jamais</strong> avec du contenu fourni par les utilisateurs.</p>
+
+<p class="tip">Dans les <a href="../guide/single-file-components.html">composants monofichiers</a>, les styles <code>scoped</code> ne seront pas appliqués aux contenus à l’intérieur de <code>v-html</code>, car ce HTML n’est pas gérer par le compilateur de template de Vue. Si vous voulez cibler le contenu <code>v-html</code> dans une CSS avec portée, vous devez utiliser à la place les <a href="https://vue-loader.vuejs.org/en/features/css-modules.html" target="_blank" rel="external">modules CSS</a> ou un élément <code>&lt;style&gt;</code> global supplémentaire avec une stratégie de portée manuelle comme avec BEM.</p>
 </li>
-<li><p><strong>Exemple:</strong></p>
+<li><p><strong>Exemple :</strong></p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-html</span>=<span class="string">"html"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
 </li>
 <li><p><strong>Voir aussi :</strong> <a href="../guide/syntax.html#Interpetation-du-HTML">Syntaxe de liaison de données - Interpolations</a></p>
@@ -1672,14 +1674,23 @@
 <li><p><strong>Voir aussi :</strong> <a href="../guide/components.html#Slots-nommes">Slots nommés</a></p>
 </li>
 </ul>
-<h3 id="slot-scope"><a href="#slot-scope" class="headerlink" title="slot-scope"></a>slot-scope</h3><ul>
+<h3 id="slot-scope"><a href="#slot-scope" class="headerlink" title="slot-scope"></a>slot-scope</h3><blockquote>
+<p>Nouveau dans la 2.5.0+</p>
+</blockquote>
+<ul>
 <li><p><strong>Attend comme valeur :</strong> <code>function argument expression</code></p>
 </li>
 <li><p><strong>Utilisation :</strong></p>
-<p>Utilisé pour indiquer qu’un élément ou un composant a un slot avec portée. La valeur de l’attribut doit être une expression JavaScript valide qui apparaît à la position d’un argument dans la déclaration d’une fonction. Cela signifie que dans les environnements qui la supportent, vous pouvez utiliser une expression de destructuration dans l’expression.</p>
+<p>Utilisé pour indiquer qu’un élément ou un composant a un slot avec portée. La valeur de l’attribut doit être une expression JavaScript valide qui apparaît à la position d’un argument dans la déclaration d’une fonction. Cela signifie que dans les environnements qui la supportent, vous pouvez utiliser une expression de destructuration dans l’expression. Remplace <a href="#scope-replaced"><code>scope</code></a> dans la 2.5.0+.</p>
 <p>Cet attribut ne supporte pas les liaisons dynamiques.</p>
 </li>
 <li><p><strong>Voir aussi :</strong> <a href="../guide/components.html#Slots-avec-portee">Slots avec portée</a></p>
+</li>
+</ul>
+<h3 id="scope-replaced"><a href="#scope-replaced" class="headerlink" title="scope replaced"></a>scope <sup>replaced</sup></h3><p>Used to denote a <code>&lt;template&gt;</code> element as a scoped slot, which is replaced by <a href="#slot-scope"><code>slot-scope</code></a> in 2.5.0+.</p>
+<ul>
+<li><p><strong>Usage:</strong></p>
+<p>Same as <a href="#slot-scope"><code>slot-scope</code></a> except that <code>scope</code> can only be used on <code>&lt;template&gt;</code> elements.</p>
 </li>
 </ul>
 <h3 id="is"><a href="#is" class="headerlink" title="is"></a>is</h3><ul>
