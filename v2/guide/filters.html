@@ -846,6 +846,30 @@
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line">filters: &#123;</div><div class="line">  <span class="attr">capitalize</span>: <span class="function"><span class="keyword">function</span> (<span class="params">value</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (!value) <span class="keyword">return</span> <span class="string">''</span></div><div class="line">    value = value.toString()</div><div class="line">    <span class="keyword">return</span> value.charAt(<span class="number">0</span>).toUpperCase() + value.slice(<span class="number">1</span>)</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>ou définir un filtre globalement:</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line">Vue.filter(<span class="string">'capitalize'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">value</span>) </span>&#123;</div><div class="line">  <span class="keyword">if</span> (!value) <span class="keyword">return</span> <span class="string">''</span></div><div class="line">  value = value.toString()</div><div class="line">  <span class="keyword">return</span> value.charAt(<span class="number">0</span>).toUpperCase() + value.slice(<span class="number">1</span>)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>Ci-dessous un exemple du filtre <code>capitalize</code> en action :</p>
+
+<div id="example_1" class="demo">
+  <input type="text" v-model="message">
+  <p>{{ message | capitalize }}</p>
+</div>
+<script>
+  new Vue({
+    el: '#example_1',
+    data: function () {
+      return {
+        message: 'john'
+      }
+    },
+    filters: {
+      capitalize: function (value) {
+        if (!value) return ''
+        value = value.toString()
+        return value.charAt(0).toUpperCase() + value.slice(1)
+      }
+    }
+  })
+</script>
+
 <p>La fonction de filtre reçoit toujours la valeur de l’expression (le résultat de la chaine) comme premier argument. Dans cet exemple, la fonction de filtre <code>capitalize</code> va recevoir la valeur de <code>message</code> dans son argument.</p>
 <p>Les filtres peuvent être chainés :</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line">&#123;&#123; message | filterA | filterB &#125;&#125;</div></pre></td></tr></table></figure>

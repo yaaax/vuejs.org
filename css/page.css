@@ -1220,24 +1220,31 @@ ul.demo li {
 .content h1 {
   margin: 0 0 1em;
 }
+.content h2,
+.content h3 {
+  pointer-events: none;
+}
+.content h2 a,
+.content h3 a {
+  pointer-events: auto;
+  color: #2c3e50;
+}
 .content h2:before,
 .content h3:before {
   content: "";
   display: block;
-  margin-top: -30px;
-  height: 30px;
+  margin-top: -91px;
+  height: 91px;
   visibility: hidden;
 }
 .content h2 {
   margin: 45px 0 0.8em;
   padding-bottom: 0.7em;
   border-bottom: 1px solid #ddd;
-  z-index: -1;
 }
 .content h3 {
   margin: 52px 0 1.2em;
   position: relative;
-  z-index: -1;
 }
 .content h3:after {
   content: "#";
@@ -1432,8 +1439,8 @@ ul.demo li {
   .content h3:before {
     content: "";
     display: block;
-    margin-top: -30px;
-    height: 30px;
+    margin-top: -70px;
+    height: 70px;
     visibility: hidden;
   }
   .footer {
