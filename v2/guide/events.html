@@ -265,7 +265,10 @@
           <img src="/images/stdlib.png">
         </a>
         <a href="http://tooltwist.com/" target="_blank" class="logo">
-          <img src="/images/tooltwist.png">
+          <img src="/images/tooltwist.png" style="margin-top:-5px">
+        </a>
+        <a href="https://www.infinitynewtab.com/donate/index.html" target="_blank" class="logo">
+          <img src="/images/infinitynewtab.png">
         </a>
       </div>
       <a class="become-backer" href="/support-vuejs">
@@ -970,8 +973,8 @@ new Vue({
 <h3 id="Modificateur-exact"><a href="#Modificateur-exact" class="headerlink" title="Modificateur .exact"></a>Modificateur <code>.exact</code></h3><blockquote>
 <p>Nouveau dans la 2.5.0+</p>
 </blockquote>
-<p>Le modificateur <code>.exact</code> devrait être utilisé en complément des autres modificateurs de touches système pour indiquer que la combinaison exacte de touches doit être pressée pour que le gestionnaire se déclenche.</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- ceci va aussi émettre un évènement si les touches Alt et Shift sont pressées --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">button</span> @<span class="attr">click.ctrl</span>=<span class="string">"onClick"</span>&gt;</span>A<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- ceci va émettre un évènement seulement si la touche Ctrl est pressée --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">button</span> @<span class="attr">click.ctrl.exact</span>=<span class="string">"onCtrlClick"</span>&gt;</span>A<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>Le modificateur <code>.exact</code> permet le contrôle de la combinaison de touches système exacte requise pour déclencher le gestionnaire d’évènements.</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- ceci va aussi émettre un évènement si les touches Alt et Shift sont pressées --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">button</span> @<span class="attr">click.ctrl</span>=<span class="string">"onClick"</span>&gt;</span>A<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- ceci va émettre un évènement seulement si la touche Ctrl est pressée sans aucune autre touche --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">button</span> @<span class="attr">click.ctrl.exact</span>=<span class="string">"onCtrlClick"</span>&gt;</span>A<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- ceci va émettre un évènement si aucune touche n'est pressée --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">button</span> @<span class="attr">click.exact</span>=<span class="string">"onClick"</span>&gt;</span>A<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div></pre></td></tr></table></figure>
 <h3 id="Modificateurs-de-boutons-de-la-souris"><a href="#Modificateurs-de-boutons-de-la-souris" class="headerlink" title="Modificateurs de boutons de la souris"></a>Modificateurs de boutons de la souris</h3><blockquote>
 <p>Nouveau dans la 2.2.0+</p>
 </blockquote>

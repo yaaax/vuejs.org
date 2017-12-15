@@ -265,7 +265,10 @@
           <img src="/images/stdlib.png">
         </a>
         <a href="http://tooltwist.com/" target="_blank" class="logo">
-          <img src="/images/tooltwist.png">
+          <img src="/images/tooltwist.png" style="margin-top:-5px">
+        </a>
+        <a href="https://www.infinitynewtab.com/donate/index.html" target="_blank" class="logo">
+          <img src="/images/infinitynewtab.png">
         </a>
       </div>
       <a class="become-backer" href="/support-vuejs">
@@ -966,6 +969,8 @@
 <blockquote>
 <p>Note : dans les versions avant 2.3.0, l’option <code>props</code> est requise si vous souhaitez accepter des props dans un composant fonctionnel. Dans les versions 2.3.0+ vous pouvez omettre l’option <code>props</code> et tous les attributs trouvés dans le nœud composant seront implicitement extraits comme des props.</p>
 </blockquote>
+<p>Dans la 2.5.0+, si vous utilisez les <a href="single-file-components.html">composants monofichiers</a>, les templates fonctionnels basés sur les composants peuvent être déclarés avec :</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">&lt;template functional&gt;</div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span></div></pre></td></tr></table></figure>
 <p>Tout ce dont le composant a besoin est passé dans l’objet <code>context</code>, qui est un objet contenant :</p>
 <ul>
 <li><code>props</code> : un objet avec les props fournies,</li>

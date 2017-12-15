@@ -265,7 +265,10 @@
           <img src="/images/stdlib.png">
         </a>
         <a href="http://tooltwist.com/" target="_blank" class="logo">
-          <img src="/images/tooltwist.png">
+          <img src="/images/tooltwist.png" style="margin-top:-5px">
+        </a>
+        <a href="https://www.infinitynewtab.com/donate/index.html" target="_blank" class="logo">
+          <img src="/images/infinitynewtab.png">
         </a>
       </div>
       <a class="become-backer" href="/support-vuejs">
@@ -1001,7 +1004,7 @@ new Vue({
 <p>Vous pourriez ajouter une nouvelle propriété <code>age</code> à l’objet imbriqué <code>userProfile</code> avec :</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line">Vue.set(vm.userProfile, <span class="string">'age'</span>, <span class="number">27</span>)</div></pre></td></tr></table></figure>
 <p>Vous pouvez également utiliser la méthode d’instance <code>vm.$set</code>, qui est juste un alias de la méthode globale <code>Vue.set</code> :</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">this</span>.$set(<span class="keyword">this</span>.userProfile, <span class="string">'age'</span>, <span class="number">27</span>)</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">vm.$set(<span class="keyword">this</span>.userProfile, <span class="string">'age'</span>, <span class="number">27</span>)</div></pre></td></tr></table></figure>
 <p>Parfois vous voudrez affecter plusieurs nouvelles propriétés à un objet existant, par exemple en utilisant <code>Object.assign()</code> ou <code>_.extend()</code>. Dans ce cas, vous devrez créer un nouvel objet avec les propriétés des deux objets. Donc au lieu de :</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="built_in">Object</span>.assign(<span class="keyword">this</span>.userProfile, &#123;</div><div class="line">  <span class="attr">age</span>: <span class="number">27</span>,</div><div class="line">  <span class="attr">favoriteColor</span>: <span class="string">'Vert Vue'</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <p>Vous ajouterez une nouvelle propriété réactive avec :</p>
