@@ -226,9 +226,24 @@ a.button {
   box-sizing: border-box;
   border: 1px solid #4fc08d;
 }
+a.button.has-icon {
+  position: relative;
+  text-indent: 1.4em;
+}
+a.button.has-icon > svg {
+  position: absolute;
+  left: 0.4em;
+  top: 0.4em;
+  width: 2em;
+}
 a.button.white {
   background-color: #fff;
   color: #42b983;
+}
+a.button.gray {
+  background-color: #f6f6f6;
+  color: #7f8c8d;
+  border-color: #f6f6f6;
 }
 .highlight {
   overflow-x: auto;
@@ -465,6 +480,7 @@ body.docs #nav {
 }
 .nav-link {
   padding-bottom: 3px;
+  white-space: nowrap;
 }
 .nav-link:hover,
 .nav-link.current {
@@ -827,14 +843,13 @@ ul.demo li {
 }
 .sidebar .main-sponsor .logo {
   color: #7f8c8d;
-  margin-top: 20px;
+  margin-top: 15px;
   text-align: center;
   font-weight: bold;
   display: block;
 }
 .sidebar .main-sponsor .logo:last-child {
-  margin-top: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 .sidebar .main-sponsor img,
 .sidebar .main-sponsor a {
