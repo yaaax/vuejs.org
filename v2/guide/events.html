@@ -147,9 +147,9 @@
   <a class="nav-link">Soutien</a><span class="arrow"></span>
   <ul class="nav-dropdown">
     <li><ul>
+      <li><a href="/support-vuejs/#One-time-Donations" class="nav-link">Don ponctuel</a></li>
+      <li><a href="/support-vuejs/#Recurring-Pledges" target="_blank" class="nav-link">Soutien récurrent</a></li>
       <li><a href="https://vue.threadless.com" target="_blank" class="nav-link">La boutique</a></li>
-      <li><a href="https://opencollective.com/vuejs" target="_blank" class="nav-link">Soutien de l'équipe sur OpenCollective</a></li>
-      <li><a href="https://www.patreon.com/evanyou" target="_blank" class="nav-link">Soutien d'Evan You sur Patreon</a></li>
     </ul></li>
   </ul>
 </li>
@@ -240,9 +240,9 @@
   <a class="nav-link">Soutien</a><span class="arrow"></span>
   <ul class="nav-dropdown">
     <li><ul>
+      <li><a href="/support-vuejs/#One-time-Donations" class="nav-link">Don ponctuel</a></li>
+      <li><a href="/support-vuejs/#Recurring-Pledges" target="_blank" class="nav-link">Soutien récurrent</a></li>
       <li><a href="https://vue.threadless.com" target="_blank" class="nav-link">La boutique</a></li>
-      <li><a href="https://opencollective.com/vuejs" target="_blank" class="nav-link">Soutien de l'équipe sur OpenCollective</a></li>
-      <li><a href="https://www.patreon.com/evanyou" target="_blank" class="nav-link">Soutien d'Evan You sur Patreon</a></li>
     </ul></li>
   </ul>
 </li>
@@ -931,6 +931,15 @@ new Vue({
 </blockquote>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- l'évènement « click » sera déclenché au plus une fois --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">v-on:click.once</span>=<span class="string">"doThis"</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>Au contraire des autres modificateurs, qui sont exclusifs aux évènements natifs du DOM, le modificateur <code>.once</code> peut également être utilisé pour les <a href="components.html#Using-v-on-with-Custom-Events">évènements des composants</a>. Si vous n’avez pas encore lu la section concernant les composants, ne vous en inquiétez pas pour le moment.</p>
+<blockquote>
+<p>Nouveau en 2.3.0+</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- l'évènement de défilement n'annule pas le comportement par défaut du défilement --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-on:scroll.passive</span>=<span class="string">"onScroll"</span>&gt;</span>...<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>En plus de ces modificateurs, Vue fournit le modificateur <code>.passive</code> qui améliore en particulier les performances sur mobile.</p>
+<p>Par exemple, quand on défile dans la page, celle-ci va défiler dans le navigateur après que le processus soit complété car il ne sait pas si l’évènement <code>event.preventDefault()</code> est en cours d’appel dans le gestionnaire.</p>
+<p>Le modificateur <code>.passive</code> peut être utilisé pour dire au navigateur que le navigateur ne doit pas désactiver le comportement de l’évènement à l’avance.</p>
+<p class="tip">N’utilisez pas <code>.passive</code> et <code>.prevent</code> ensemble. <code>.passive</code> ne peut pas annuler l’évènement par défaut.</p>
+
 <h2 id="Modificateurs-de-code-des-touches"><a href="#Modificateurs-de-code-des-touches" class="headerlink" title="Modificateurs de code des touches"></a>Modificateurs de code des touches</h2><p>Lorsque nous écoutons les évènements du clavier, nous avons régulièrement besoin de nous assurer du code des touches. Vue permet également d’ajouter un modificateur de touches pour <code>v-on</code>:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- faire appel à +vm.submit()+ uniquement quand le code de la touche est `13` --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">v-on:keyup.13</span>=<span class="string">"submit"</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>Se rappeler tous les codes des touches est compliqué, c’est pourquoi Vue propose des alias pour les touches les plus couramment employées :</p>
