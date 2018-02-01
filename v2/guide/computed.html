@@ -144,11 +144,11 @@
   <a href="/v2/guide/team.html" class="nav-link team">Équipe</a>
 </li>
 <li class="nav-dropdown-container support-vue">
-  <a class="nav-link">Soutien</a><span class="arrow"></span>
+  <a href="/support-vuejs/" class="nav-link">Soutien</a><span class="arrow"></span>
   <ul class="nav-dropdown">
     <li><ul>
       <li><a href="/support-vuejs/#One-time-Donations" class="nav-link">Don ponctuel</a></li>
-      <li><a href="/support-vuejs/#Recurring-Pledges" target="_blank" class="nav-link">Soutien récurrent</a></li>
+      <li><a href="/support-vuejs/#Recurring-Pledges" class="nav-link">Soutien récurrent</a></li>
       <li><a href="https://vue.threadless.com" target="_blank" class="nav-link">La boutique</a></li>
     </ul></li>
   </ul>
@@ -237,11 +237,11 @@
   <a href="/v2/guide/team.html" class="nav-link team">Équipe</a>
 </li>
 <li class="nav-dropdown-container support-vue">
-  <a class="nav-link">Soutien</a><span class="arrow"></span>
+  <a href="/support-vuejs/" class="nav-link">Soutien</a><span class="arrow"></span>
   <ul class="nav-dropdown">
     <li><ul>
       <li><a href="/support-vuejs/#One-time-Donations" class="nav-link">Don ponctuel</a></li>
-      <li><a href="/support-vuejs/#Recurring-Pledges" target="_blank" class="nav-link">Soutien récurrent</a></li>
+      <li><a href="/support-vuejs/#Recurring-Pledges" class="nav-link">Soutien récurrent</a></li>
       <li><a href="https://vue.threadless.com" target="_blank" class="nav-link">La boutique</a></li>
     </ul></li>
   </ul>
@@ -264,16 +264,21 @@
     </ul>
     <div class="list">
       <div class="main-sponsor">
-        <span>Sponsors de platine</span><br>
+        <span>Sponsors de platine</span>
+        <div>
         <a href="https://stdlib.com" target="_blank" class="logo">
           <img src="/images/stdlib.png">
         </a>
         <a href="http://tooltwist.com/" target="_blank" class="logo">
-          <img src="/images/tooltwist.png" style="margin-top:-5px">
+          <img src="/images/tooltwist.png">
         </a>
-        <a href="https://www.infinitynewtab.com/donate/index.html" target="_blank" class="logo">
-          <img src="/images/infinitynewtab.png">
+        <a href="https://vueschool.io/?utm_source=Vuejs.org&utm_medium=Banner&utm_campaign=Sponsored%20Banner&utm_content=V1" target="_blank" class="logo">
+          <img src="/images/vueschool.png">
         </a>
+        <a href="https://www.datacamp.com/careers?utm_source=vuejs&utm_medium=sidebar" target="_blank" class="logo">
+          <img src="/images/datacamp.png">
+        </a>
+        </div>
       </div>
       <a class="become-backer" href="/support-vuejs">
         Apporter son soutien
@@ -847,7 +852,8 @@
   
     <h1>Propriétés calculées et observateurs</h1>
   
-  <h2 id="Proprietes-calculees"><a href="#Proprietes-calculees" class="headerlink" title="Propriétés calculées"></a>Propriétés calculées</h2><p>Les expressions dans le template sont très pratiques, mais elles sont uniquement destinées à des opérations simples. Mettre trop de logique dans vos templates peut les rendre trop verbeux et difficiles à maintenir. Par exemple :</p>
+  
+    <h2 id="Proprietes-calculees"><a href="#Proprietes-calculees" class="headerlink" title="Propriétés calculées"></a>Propriétés calculées</h2><p>Les expressions dans le template sont très pratiques, mais elles sont uniquement destinées à des opérations simples. Mettre trop de logique dans vos templates peut les rendre trop verbeux et difficiles à maintenir. Par exemple :</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"example"</span>&gt;</span></span><br><span class="line">  &#123;&#123; message.split('').reverse().join('') &#125;&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>À ce stade, le template n’est ni simple ni déclaratif. Vous devez le regarder pendant une seconde avant de réaliser qu’il affiche <code>message</code> dans le sens inverse. Le problème s’aggrave lorsque vous souhaitez inclure le message inversé plusieurs fois dans votre template.</p>
 <p>C’est pourquoi vous devriez utiliser des <strong>propriétés calculées</strong> pour toute logique complexe.</p>
@@ -897,7 +903,7 @@ var vm = new Vue({
 <h2 id="Observateurs"><a href="#Observateurs" class="headerlink" title="Observateurs"></a>Observateurs</h2><p>Bien que les propriétés calculées soient plus appropriées dans la plupart des cas, parfois un observateur personnalisé est nécessaire. C’est pour cela que Vue fournit une façon plus générique de réagir aux changements de données à travers l’option <code>watch</code>. Ceci est très utile lorsque vous souhaitez exécuter des opérations asynchrones ou couteuses en réponse à des données changeantes.</p>
 <p>Par exemple :</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"watch-example"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">    Posez votre question (réponse par Oui ou Non) :</span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">v-model</span>=<span class="string">"question"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123; answer &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- Puisqu'il y a déjà un riche écosystème de bibliothèques ajax      --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- et de collections de méthodes d'utilité générale, en ne les       --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- réinventant pas, le noyau de Vue peut rester petit. Cela vous     --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- donne aussi la liberté d'utiliser tout ce qui vous est familier. --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript"><span class="keyword">var</span> watchExampleVM = <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="javascript">  el: <span class="string">'#watch-example'</span>,</span></span><br><span class="line"><span class="undefined">  data: &#123;</span></span><br><span class="line"><span class="javascript">    question: <span class="string">''</span>,</span></span><br><span class="line"><span class="javascript">    answer: <span class="string">'Je ne peux pas vous donner une réponse avant que vous ne posiez une question !'</span></span></span><br><span class="line"><span class="undefined">  &#125;,</span></span><br><span class="line"><span class="undefined">  watch: &#123;</span></span><br><span class="line"><span class="javascript">    <span class="comment">// à chaque fois que la question change, cette fonction s'exécutera</span></span></span><br><span class="line"><span class="javascript">    question: <span class="function"><span class="keyword">function</span> (<span class="params">newQuestion</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">      <span class="keyword">this</span>.answer = <span class="string">"J'attends que vous arrêtiez de taper..."</span></span></span><br><span class="line"><span class="javascript">      <span class="keyword">this</span>.getAnswer()</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">  &#125;,</span></span><br><span class="line"><span class="undefined">  methods: &#123;</span></span><br><span class="line"><span class="javascript">    <span class="comment">// _.debounce est une fonction fournie par lodash pour limiter la fréquence</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">// d'exécution d'une opération particulièrement couteuse.</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">// Dans ce cas, nous voulons limiter la fréquence d'accès à</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">// yesno.wtf/api, en attendant que l'utilisateur ait complètement</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">// fini de taper avant de faire la requête ajax. Pour en savoir</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">//  plus sur la fonction _.debounce (et sa cousine</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">// _.throttle), visitez : https://lodash.com/docs#debounce</span></span></span><br><span class="line"><span class="undefined">    getAnswer: _.debounce(</span></span><br><span class="line"><span class="javascript">      <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">if</span> (<span class="keyword">this</span>.question.indexOf(<span class="string">'?'</span>) === <span class="number">-1</span>) &#123;</span></span><br><span class="line"><span class="javascript">          <span class="keyword">this</span>.answer = <span class="string">"Les questions contiennent généralement un point d'interrogation. ;-)"</span></span></span><br><span class="line"><span class="javascript">          <span class="keyword">return</span></span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">this</span>.answer = <span class="string">'Je réfléchis...'</span></span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> vm = <span class="keyword">this</span></span></span><br><span class="line"><span class="javascript">        axios.get(<span class="string">'https://yesno.wtf/api'</span>)</span></span><br><span class="line"><span class="javascript">          .then(<span class="function"><span class="keyword">function</span> (<span class="params">response</span>) </span>&#123;</span></span><br><span class="line"><span class="undefined">            vm.answer = _.capitalize(response.data.answer)</span></span><br><span class="line"><span class="undefined">          &#125;)</span></span><br><span class="line"><span class="javascript">          .catch(<span class="function"><span class="keyword">function</span> (<span class="params">error</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            vm.answer = <span class="string">"Erreur ! Impossible d'accéder à l'API."</span> + error</span></span><br><span class="line"><span class="undefined">          &#125;)</span></span><br><span class="line"><span class="undefined">      &#125;,</span></span><br><span class="line"><span class="javascript">      <span class="comment">// C'est le nombre de millisecondes que nous attendons</span></span></span><br><span class="line"><span class="javascript">      <span class="comment">// pour que l’utilisateur arrête de taper.</span></span></span><br><span class="line"><span class="undefined">      500</span></span><br><span class="line"><span class="undefined">    )</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined">&#125;)</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- Puisqu'il y a déjà un riche écosystème de bibliothèques ajax      --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- et de collections de méthodes d'utilité générale, en ne les       --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- réinventant pas, le noyau de Vue peut rester petit. Cela vous     --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- donne aussi la liberté d'utiliser tout ce qui vous est familier. --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript"><span class="keyword">var</span> watchExampleVM = <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="javascript">  el: <span class="string">'#watch-example'</span>,</span></span><br><span class="line"><span class="undefined">  data: &#123;</span></span><br><span class="line"><span class="javascript">    question: <span class="string">''</span>,</span></span><br><span class="line"><span class="javascript">    answer: <span class="string">'Je ne peux pas vous donner une réponse avant que vous ne posiez une question !'</span></span></span><br><span class="line"><span class="undefined">  &#125;,</span></span><br><span class="line"><span class="undefined">  watch: &#123;</span></span><br><span class="line"><span class="javascript">    <span class="comment">// à chaque fois que la question change, cette fonction s'exécutera</span></span></span><br><span class="line"><span class="javascript">    question: <span class="function"><span class="keyword">function</span> (<span class="params">newQuestion, oldQuestion</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">      <span class="keyword">this</span>.answer = <span class="string">"J'attends que vous arrêtiez de taper..."</span></span></span><br><span class="line"><span class="javascript">      <span class="keyword">this</span>.getAnswer()</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">  &#125;,</span></span><br><span class="line"><span class="undefined">  methods: &#123;</span></span><br><span class="line"><span class="javascript">    <span class="comment">// _.debounce est une fonction fournie par lodash pour limiter la fréquence</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">// d'exécution d'une opération particulièrement couteuse.</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">// Dans ce cas, nous voulons limiter la fréquence d'accès à</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">// yesno.wtf/api, en attendant que l'utilisateur ait complètement</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">// fini de taper avant de faire la requête ajax. Pour en savoir</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">//  plus sur la fonction _.debounce (et sa cousine</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">// _.throttle), visitez : https://lodash.com/docs#debounce</span></span></span><br><span class="line"><span class="undefined">    getAnswer: _.debounce(</span></span><br><span class="line"><span class="javascript">      <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">if</span> (<span class="keyword">this</span>.question.indexOf(<span class="string">'?'</span>) === <span class="number">-1</span>) &#123;</span></span><br><span class="line"><span class="javascript">          <span class="keyword">this</span>.answer = <span class="string">"Les questions contiennent généralement un point d'interrogation. ;-)"</span></span></span><br><span class="line"><span class="javascript">          <span class="keyword">return</span></span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">this</span>.answer = <span class="string">'Je réfléchis...'</span></span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> vm = <span class="keyword">this</span></span></span><br><span class="line"><span class="javascript">        axios.get(<span class="string">'https://yesno.wtf/api'</span>)</span></span><br><span class="line"><span class="javascript">          .then(<span class="function"><span class="keyword">function</span> (<span class="params">response</span>) </span>&#123;</span></span><br><span class="line"><span class="undefined">            vm.answer = _.capitalize(response.data.answer)</span></span><br><span class="line"><span class="undefined">          &#125;)</span></span><br><span class="line"><span class="javascript">          .catch(<span class="function"><span class="keyword">function</span> (<span class="params">error</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            vm.answer = <span class="string">"Erreur ! Impossible d'accéder à l'API."</span> + error</span></span><br><span class="line"><span class="undefined">          &#125;)</span></span><br><span class="line"><span class="undefined">      &#125;,</span></span><br><span class="line"><span class="javascript">      <span class="comment">// C'est le nombre de millisecondes que nous attendons</span></span></span><br><span class="line"><span class="javascript">      <span class="comment">// pour que l’utilisateur arrête de taper.</span></span></span><br><span class="line"><span class="undefined">      500</span></span><br><span class="line"><span class="undefined">    )</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined">&#125;)</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>Résultat :</p>
 
 <div id="watch-example" class="demo">
@@ -917,7 +923,7 @@ var watchExampleVM = new Vue({
     answer: 'Je ne peux pas vous donner une réponse avant que vous ne posiez une question !'
   },
   watch: {
-    question: function (newQuestion) {
+    question: function (newQuestion, oldQuestion) {
       this.answer = "J'attends que vous arrêtiez de taper..."
       this.getAnswer()
     }
@@ -949,6 +955,7 @@ var watchExampleVM = new Vue({
 <p>En plus de l’option <code>watch</code>, vous pouvez aussi utiliser <a href="../api/#vm-watch">l’API vm.$watch</a>.</p>
 
   
+  
     <div class="guide-links">
       
         <span>← <a href="/v2/guide/syntax.html">Syntaxe de template</a></span>
@@ -959,7 +966,7 @@ var watchExampleVM = new Vue({
     </div>
   
   <div class="footer">
-    <script src="//m.servedby-buysellads.com/monetization.js" type="text/javascript"></script>
+      <script src="//m.servedby-buysellads.com/monetization.js" type="text/javascript"></script>
 <div class="bsa-cpc"></div>
 <script>
   (function(){
@@ -974,7 +981,7 @@ var watchExampleVM = new Vue({
 </script>
 
     Une erreur dans cette page ? Envie de contribuer à la traduction ?
-    <a href="https://github.com/vuejs/vuejs.org/blob/master/src/v2/guide/computed.md" target="_blank">
+    <a href="https://github.com/vuejs-fr/vuejs.org/blob/master/src/v2/guide/computed.md" target="_blank">
       Éditez cette page sur GitHub !
     </a>
   </div>

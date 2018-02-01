@@ -144,11 +144,11 @@
   <a href="/v2/guide/team.html" class="nav-link team">Équipe</a>
 </li>
 <li class="nav-dropdown-container support-vue">
-  <a class="nav-link">Soutien</a><span class="arrow"></span>
+  <a href="/support-vuejs/" class="nav-link">Soutien</a><span class="arrow"></span>
   <ul class="nav-dropdown">
     <li><ul>
       <li><a href="/support-vuejs/#One-time-Donations" class="nav-link">Don ponctuel</a></li>
-      <li><a href="/support-vuejs/#Recurring-Pledges" target="_blank" class="nav-link">Soutien récurrent</a></li>
+      <li><a href="/support-vuejs/#Recurring-Pledges" class="nav-link">Soutien récurrent</a></li>
       <li><a href="https://vue.threadless.com" target="_blank" class="nav-link">La boutique</a></li>
     </ul></li>
   </ul>
@@ -237,11 +237,11 @@
   <a href="/v2/guide/team.html" class="nav-link team">Équipe</a>
 </li>
 <li class="nav-dropdown-container support-vue">
-  <a class="nav-link">Soutien</a><span class="arrow"></span>
+  <a href="/support-vuejs/" class="nav-link">Soutien</a><span class="arrow"></span>
   <ul class="nav-dropdown">
     <li><ul>
       <li><a href="/support-vuejs/#One-time-Donations" class="nav-link">Don ponctuel</a></li>
-      <li><a href="/support-vuejs/#Recurring-Pledges" target="_blank" class="nav-link">Soutien récurrent</a></li>
+      <li><a href="/support-vuejs/#Recurring-Pledges" class="nav-link">Soutien récurrent</a></li>
       <li><a href="https://vue.threadless.com" target="_blank" class="nav-link">La boutique</a></li>
     </ul></li>
   </ul>
@@ -264,16 +264,21 @@
     </ul>
     <div class="list">
       <div class="main-sponsor">
-        <span>Sponsors de platine</span><br>
+        <span>Sponsors de platine</span>
+        <div>
         <a href="https://stdlib.com" target="_blank" class="logo">
           <img src="/images/stdlib.png">
         </a>
         <a href="http://tooltwist.com/" target="_blank" class="logo">
-          <img src="/images/tooltwist.png" style="margin-top:-5px">
+          <img src="/images/tooltwist.png">
         </a>
-        <a href="https://www.infinitynewtab.com/donate/index.html" target="_blank" class="logo">
-          <img src="/images/infinitynewtab.png">
+        <a href="https://vueschool.io/?utm_source=Vuejs.org&utm_medium=Banner&utm_campaign=Sponsored%20Banner&utm_content=V1" target="_blank" class="logo">
+          <img src="/images/vueschool.png">
         </a>
+        <a href="https://www.datacamp.com/careers?utm_source=vuejs&utm_medium=sidebar" target="_blank" class="logo">
+          <img src="/images/datacamp.png">
+        </a>
+        </div>
       </div>
       <a class="become-backer" href="/support-vuejs">
         Apporter son soutien
@@ -847,7 +852,8 @@
   
     <h1>Gestion des évènements</h1>
   
-  <h2 id="Ecouter-des-evenements"><a href="#Ecouter-des-evenements" class="headerlink" title="Écouter des évènements"></a>Écouter des évènements</h2><p>Nous pouvons utiliser l’instruction <code>v-on</code> pour écouter les évènements du DOM afin d’exécuter du JavaScript lorsque ces évènements surviennent.</p>
+  
+    <h2 id="Ecouter-des-evenements"><a href="#Ecouter-des-evenements" class="headerlink" title="Écouter des évènements"></a>Écouter des évènements</h2><p>Nous pouvons utiliser l’instruction <code>v-on</code> pour écouter les évènements du DOM afin d’exécuter du JavaScript lorsque ces évènements surviennent.</p>
 <p>Par exemple :</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"example-1"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">v-on:click</span>=<span class="string">"counter += 1"</span>&gt;</span>Add 1<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>Le bouton ci-dessus a été cliqué &#123;&#123; counter &#125;&#125; fois.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> example1 = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#example-1'</span>,</span><br><span class="line">  data: &#123;</span><br><span class="line">    counter: <span class="number">0</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
@@ -934,11 +940,10 @@ new Vue({
 <blockquote>
 <p>Nouveau en 2.3.0+</p>
 </blockquote>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- l'évènement de défilement n'annule pas le comportement par défaut du défilement --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-on:scroll.passive</span>=<span class="string">"onScroll"</span>&gt;</span>...<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>En plus de ces modificateurs, Vue fournit le modificateur <code>.passive</code> qui améliore en particulier les performances sur mobile.</p>
-<p>Par exemple, quand on défile dans la page, celle-ci va défiler dans le navigateur après que le processus soit complété car il ne sait pas si l’évènement <code>event.preventDefault()</code> est en cours d’appel dans le gestionnaire.</p>
-<p>Le modificateur <code>.passive</code> peut être utilisé pour dire au navigateur que le navigateur ne doit pas désactiver le comportement de l’évènement à l’avance.</p>
-<p class="tip">N’utilisez pas <code>.passive</code> et <code>.prevent</code> ensemble. <code>.passive</code> ne peut pas annuler l’évènement par défaut.</p>
+<p>Vue offre également un modificateur <code>.passive</code> correspondant à <a href="https://developer.mozilla.org/fr/docs/Web/API/EventTarget/addEventListener#Parameters" target="_blank" rel="noopener">l’option <code>passive</code> de <code>addEventListener</code></a>.</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- le comportement par défaut de l'évènement de défilement se produit immédiatement, --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- au lieu d'attendre que `onScroll` soit terminé --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- au cas où il contienne `event.preventDefault()` --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-on:scroll.passive</span>=<span class="string">"onScroll"</span>&gt;</span>...<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>Le modificateur <code>.passive</code> est particulièrement pratique pour améliorer les performances sur mobile.</p>
+<p class="tip">N’utilisez pas <code>.passive</code> et <code>.prevent</code> ensemble. <code>.passive</code> sera ignoré et votre navigateur va probablement vous montrer un message. Souvenez vous, <code>.passive</code> communique au navigateur que vous <em>ne voulez pas</em> prévenir le comportement de l’évènement par défaut.</p>
 
 <h2 id="Modificateurs-de-code-des-touches"><a href="#Modificateurs-de-code-des-touches" class="headerlink" title="Modificateurs de code des touches"></a>Modificateurs de code des touches</h2><p>Lorsque nous écoutons les évènements du clavier, nous avons régulièrement besoin de nous assurer du code des touches. Vue permet également d’ajouter un modificateur de touches pour <code>v-on</code>:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- faire appel à +vm.submit()+ uniquement quand le code de la touche est `13` --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">v-on:keyup.13</span>=<span class="string">"submit"</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -1008,6 +1013,7 @@ new Vue({
 </ol>
 
   
+  
     <div class="guide-links">
       
         <span>← <a href="/v2/guide/list.html">Rendu de liste</a></span>
@@ -1018,7 +1024,7 @@ new Vue({
     </div>
   
   <div class="footer">
-    <script src="//m.servedby-buysellads.com/monetization.js" type="text/javascript"></script>
+      <script src="//m.servedby-buysellads.com/monetization.js" type="text/javascript"></script>
 <div class="bsa-cpc"></div>
 <script>
   (function(){
@@ -1033,7 +1039,7 @@ new Vue({
 </script>
 
     Une erreur dans cette page ? Envie de contribuer à la traduction ?
-    <a href="https://github.com/vuejs/vuejs.org/blob/master/src/v2/guide/events.md" target="_blank">
+    <a href="https://github.com/vuejs-fr/vuejs.org/blob/master/src/v2/guide/events.md" target="_blank">
       Éditez cette page sur GitHub !
     </a>
   </div>

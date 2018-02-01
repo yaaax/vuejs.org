@@ -144,11 +144,11 @@
   <a href="/v2/guide/team.html" class="nav-link team">Équipe</a>
 </li>
 <li class="nav-dropdown-container support-vue">
-  <a class="nav-link">Soutien</a><span class="arrow"></span>
+  <a href="/support-vuejs/" class="nav-link">Soutien</a><span class="arrow"></span>
   <ul class="nav-dropdown">
     <li><ul>
       <li><a href="/support-vuejs/#One-time-Donations" class="nav-link">Don ponctuel</a></li>
-      <li><a href="/support-vuejs/#Recurring-Pledges" target="_blank" class="nav-link">Soutien récurrent</a></li>
+      <li><a href="/support-vuejs/#Recurring-Pledges" class="nav-link">Soutien récurrent</a></li>
       <li><a href="https://vue.threadless.com" target="_blank" class="nav-link">La boutique</a></li>
     </ul></li>
   </ul>
@@ -237,11 +237,11 @@
   <a href="/v2/guide/team.html" class="nav-link team">Équipe</a>
 </li>
 <li class="nav-dropdown-container support-vue">
-  <a class="nav-link">Soutien</a><span class="arrow"></span>
+  <a href="/support-vuejs/" class="nav-link">Soutien</a><span class="arrow"></span>
   <ul class="nav-dropdown">
     <li><ul>
       <li><a href="/support-vuejs/#One-time-Donations" class="nav-link">Don ponctuel</a></li>
-      <li><a href="/support-vuejs/#Recurring-Pledges" target="_blank" class="nav-link">Soutien récurrent</a></li>
+      <li><a href="/support-vuejs/#Recurring-Pledges" class="nav-link">Soutien récurrent</a></li>
       <li><a href="https://vue.threadless.com" target="_blank" class="nav-link">La boutique</a></li>
     </ul></li>
   </ul>
@@ -264,16 +264,21 @@
     </ul>
     <div class="list">
       <div class="main-sponsor">
-        <span>Sponsors de platine</span><br>
+        <span>Sponsors de platine</span>
+        <div>
         <a href="https://stdlib.com" target="_blank" class="logo">
           <img src="/images/stdlib.png">
         </a>
         <a href="http://tooltwist.com/" target="_blank" class="logo">
-          <img src="/images/tooltwist.png" style="margin-top:-5px">
+          <img src="/images/tooltwist.png">
         </a>
-        <a href="https://www.infinitynewtab.com/donate/index.html" target="_blank" class="logo">
-          <img src="/images/infinitynewtab.png">
+        <a href="https://vueschool.io/?utm_source=Vuejs.org&utm_medium=Banner&utm_campaign=Sponsored%20Banner&utm_content=V1" target="_blank" class="logo">
+          <img src="/images/vueschool.png">
         </a>
+        <a href="https://www.datacamp.com/careers?utm_source=vuejs&utm_medium=sidebar" target="_blank" class="logo">
+          <img src="/images/datacamp.png">
+        </a>
+        </div>
       </div>
       <a class="become-backer" href="/support-vuejs">
         Apporter son soutien
@@ -847,7 +852,8 @@
   
     <h1>Gestion de l'état</h1>
   
-  <h2 id="Implementation-officielle-semblable-a-Flux"><a href="#Implementation-officielle-semblable-a-Flux" class="headerlink" title="Implémentation officielle semblable à Flux"></a>Implémentation officielle semblable à Flux</h2><p>Les grosses applications peuvent souvent augmenter en complexité du fait des multiples parties d’état disséminées à travers divers composants et les interactions entre eux. Pour résoudre ce problème, Vue offre <a href="https://github.com/vuejs/vuex" target="_blank" rel="noopener">vuex</a> : notre propre bibliothèque de gestion d’état inspiré par Elm. Il est même intégré à <a href="https://github.com/vuejs/vue-devtools" target="_blank" rel="noopener">vue-devtools</a>, permettant le voyage dans le temps sans aucune configuration préalable.</p>
+  
+    <h2 id="Implementation-officielle-semblable-a-Flux"><a href="#Implementation-officielle-semblable-a-Flux" class="headerlink" title="Implémentation officielle semblable à Flux"></a>Implémentation officielle semblable à Flux</h2><p>Les grosses applications peuvent souvent augmenter en complexité du fait des multiples parties d’état disséminées à travers divers composants et les interactions entre eux. Pour résoudre ce problème, Vue offre <a href="https://github.com/vuejs/vuex" target="_blank" rel="noopener">vuex</a> : notre propre bibliothèque de gestion d’état inspiré par Elm. Il est même intégré à <a href="https://github.com/vuejs/vue-devtools" target="_blank" rel="noopener">vue-devtools</a>, permettant le voyage dans le temps sans aucune configuration préalable.</p>
 <h3 id="Information-pour-les-developpeurs-React"><a href="#Information-pour-les-developpeurs-React" class="headerlink" title="Information pour les développeurs React"></a>Information pour les développeurs React</h3><p>Si vous venez de React, vous pouvez vous demander comment Vuex se compare à <a href="https://github.com/reactjs/redux" target="_blank" rel="noopener">Redux</a> (l’implémentation de Flux la plus populaire dans cet écosystème). Redux est en fait agnostique de la couche vue, et peut donc être facilement utilisé avec Vue à l’aide de plusieurs <a href="https://github.com/egoist/revue" target="_blank" rel="noopener">liaisons simples</a>. Vuex est différent dans le sens où il <em>sait</em> qu’il est dans une application Vue. Cela lui permet de mieux s’intégrer avec Vue, offrant une API plus intuitive et une meilleure expérience de développement.</p>
 <h2 id="Gestion-d’etat-simple-a-partir-de-rien"><a href="#Gestion-d’etat-simple-a-partir-de-rien" class="headerlink" title="Gestion d’état simple à partir de rien"></a>Gestion d’état simple à partir de rien</h2><p>On n’insiste souvent pas assez sur le fait que, dans des applications Vue, c’est l’objet <code>data</code> qui fait office de « source de vérité ». Une instance de Vue ne fait que proxifier l’accès à cet objet. Par conséquent, si vous avez une partie d’état qui doit être partagée par plusieurs instances, vous pouvez simplement la partager par référence :</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> sourceOfTruth = &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> vmA = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  data: sourceOfTruth</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> vmB = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  data: sourceOfTruth</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
@@ -864,6 +870,7 @@
 <p>Nous avons fait le tour de la présentation de <a href="https://github.com/vuejs/vuex" target="_blank" rel="noopener">vuex</a>, aussi si vous êtes arrivé jusqu’ici, il est probablement temps de l’essayer !</p>
 
   
+  
     <div class="guide-links">
       
         <span>← <a href="/v2/guide/routing.html">Routage</a></span>
@@ -874,7 +881,7 @@
     </div>
   
   <div class="footer">
-    <script src="//m.servedby-buysellads.com/monetization.js" type="text/javascript"></script>
+      <script src="//m.servedby-buysellads.com/monetization.js" type="text/javascript"></script>
 <div class="bsa-cpc"></div>
 <script>
   (function(){
@@ -889,7 +896,7 @@
 </script>
 
     Une erreur dans cette page ? Envie de contribuer à la traduction ?
-    <a href="https://github.com/vuejs/vuejs.org/blob/master/src/v2/guide/state-management.md" target="_blank">
+    <a href="https://github.com/vuejs-fr/vuejs.org/blob/master/src/v2/guide/state-management.md" target="_blank">
       Éditez cette page sur GitHub !
     </a>
   </div>

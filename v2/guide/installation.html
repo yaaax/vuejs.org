@@ -144,11 +144,11 @@
   <a href="/v2/guide/team.html" class="nav-link team">Équipe</a>
 </li>
 <li class="nav-dropdown-container support-vue">
-  <a class="nav-link">Soutien</a><span class="arrow"></span>
+  <a href="/support-vuejs/" class="nav-link">Soutien</a><span class="arrow"></span>
   <ul class="nav-dropdown">
     <li><ul>
       <li><a href="/support-vuejs/#One-time-Donations" class="nav-link">Don ponctuel</a></li>
-      <li><a href="/support-vuejs/#Recurring-Pledges" target="_blank" class="nav-link">Soutien récurrent</a></li>
+      <li><a href="/support-vuejs/#Recurring-Pledges" class="nav-link">Soutien récurrent</a></li>
       <li><a href="https://vue.threadless.com" target="_blank" class="nav-link">La boutique</a></li>
     </ul></li>
   </ul>
@@ -237,11 +237,11 @@
   <a href="/v2/guide/team.html" class="nav-link team">Équipe</a>
 </li>
 <li class="nav-dropdown-container support-vue">
-  <a class="nav-link">Soutien</a><span class="arrow"></span>
+  <a href="/support-vuejs/" class="nav-link">Soutien</a><span class="arrow"></span>
   <ul class="nav-dropdown">
     <li><ul>
       <li><a href="/support-vuejs/#One-time-Donations" class="nav-link">Don ponctuel</a></li>
-      <li><a href="/support-vuejs/#Recurring-Pledges" target="_blank" class="nav-link">Soutien récurrent</a></li>
+      <li><a href="/support-vuejs/#Recurring-Pledges" class="nav-link">Soutien récurrent</a></li>
       <li><a href="https://vue.threadless.com" target="_blank" class="nav-link">La boutique</a></li>
     </ul></li>
   </ul>
@@ -264,16 +264,21 @@
     </ul>
     <div class="list">
       <div class="main-sponsor">
-        <span>Sponsors de platine</span><br>
+        <span>Sponsors de platine</span>
+        <div>
         <a href="https://stdlib.com" target="_blank" class="logo">
           <img src="/images/stdlib.png">
         </a>
         <a href="http://tooltwist.com/" target="_blank" class="logo">
-          <img src="/images/tooltwist.png" style="margin-top:-5px">
+          <img src="/images/tooltwist.png">
         </a>
-        <a href="https://www.infinitynewtab.com/donate/index.html" target="_blank" class="logo">
-          <img src="/images/infinitynewtab.png">
+        <a href="https://vueschool.io/?utm_source=Vuejs.org&utm_medium=Banner&utm_campaign=Sponsored%20Banner&utm_content=V1" target="_blank" class="logo">
+          <img src="/images/vueschool.png">
         </a>
+        <a href="https://www.datacamp.com/careers?utm_source=vuejs&utm_medium=sidebar" target="_blank" class="logo">
+          <img src="/images/datacamp.png">
+        </a>
+        </div>
       </div>
       <a class="become-backer" href="/support-vuejs">
         Apporter son soutien
@@ -847,7 +852,8 @@
   
     <h1>Installation</h1>
   
-  <h3 id="Compatibilite"><a href="#Compatibilite" class="headerlink" title="Compatibilité"></a>Compatibilité</h3><p>Vue <strong>ne</strong> supporte <strong>pas</strong> IE8 et les versions antérieures, car il utilise des fonctionnalités ECMAScript 5 qui ne peuvent pas être émulées sur IE8. Cela dit, Vue supporte tous les <a href="http://caniuse.com/#feat=es5" target="_blank" rel="noopener">navigateurs compatibles ECMAScript 5</a>.</p>
+  
+    <h3 id="Compatibilite"><a href="#Compatibilite" class="headerlink" title="Compatibilité"></a>Compatibilité</h3><p>Vue <strong>ne</strong> supporte <strong>pas</strong> IE8 et les versions antérieures, car il utilise des fonctionnalités ECMAScript 5 qui ne peuvent pas être émulées sur IE8. Cela dit, Vue supporte tous les <a href="https://caniuse.com/#feat=es5" target="_blank" rel="noopener">navigateurs compatibles ECMAScript 5</a>.</p>
 <h3 id="Notes-de-version"><a href="#Notes-de-version" class="headerlink" title="Notes de version"></a>Notes de version</h3><p>Dernière version stable : 2.5.13</p>
 <p>Les notes de version détaillées pour chaque version sont disponibles sur <a href="https://github.com/vuejs/vue/releases" target="_blank" rel="noopener">GitHub</a>.</p>
 <h2 id="Vue-Devtools"><a href="#Vue-Devtools" class="headerlink" title="Vue Devtools"></a>Vue Devtools</h2><p>Quand vous utilisez Vue, nous vous recommandons également d’installer <a href="https://github.com/vuejs/vue-devtools#vue-devtools" target="_blank" rel="noopener">Vue Devtools</a> dans votre navigateur. Cela vous permetta d’inspecter et de déboguer vos applications Vue dans une interface dédiée et intuitive.</p>
@@ -856,8 +862,11 @@
 
 <div id="downloads"><br><a class="button" href="../../js/vue.js" download="">Version de développement</a><span class="light info">Avec tous les avertissements et le mode de débogage</span><br><br><a class="button" href="../../js/vue.min.js" download="">Version de production</a><span class="light info">Avertissements retirés, 30.67ko min+gzip</span><br></div>
 
-<h3 id="CDN"><a href="#CDN" class="headerlink" title="CDN"></a>CDN</h3><p>Recommandé : <a href="https://cdn.jsdelivr.net/npm/vue" target="_blank" rel="noopener">https://cdn.jsdelivr.net/npm/vue</a>, qui reflète la dernière version aussitôt qu’elle est publiée sur npm. Vous pouvez également parcourir la source du package npm sur <a href="https://cdn.jsdelivr.net/npm/vue/" target="_blank" rel="noopener">https://cdn.jsdelivr.net/npm/vue/</a>.</p>
-<p>Également disponible sur <a href="https://unpkg.com/vue" target="_blank" rel="noopener">unpkg</a> ou <a href="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.13/vue.js" target="_blank" rel="noopener">cdnjs</a>, (cdnjs met du temps à se synchroniser ce qui signifie que la dernière version peut ne pas être encore disponible).</p>
+<h3 id="CDN"><a href="#CDN" class="headerlink" title="CDN"></a>CDN</h3><p>Nous vous recommandons d’utiliser une version spécifique numérotée que vous pourrez mettre à jour manuellement :</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>Vous pouvez parcourir la source du package npm à l’adresse : <a href="https://cdn.jsdelivr.net/npm/vue/" target="_blank" rel="noopener">cdn.jsdelivr.net/npm/vue</a>.</p>
+<p>Vue est également disponible sur <a href="https://unpkg.com/vue@2.5.13/dist/vue.js" target="_blank" rel="noopener">unpkg</a> et <a href="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.13/vue.js" target="_blank" rel="noopener">cdnjs</a> (cdnjs met du temps à se synchroniser ce qui signifie que la dernière version peut ne pas être encore disponible).</p>
+<p>Assurez vous de lire la partie dédiée <a href="#Explication-des-differents-builds">aux différents builds de Vue</a> et d’utiliser la <strong>version de production</strong> dans vos sites publiés, en remplaçant <code>vue.js</code> par <code>vue.min.js</code>. C’est un build plus léger optimisé pour la rapidité plutôt que l’expérience de développement.</p>
 <h2 id="npm"><a href="#npm" class="headerlink" title="npm"></a>npm</h2><p>npm est la méthode d’installation recommandée lors du développement de grosses applications avec Vue. Il s’associe bien avec des empaqueteurs de modules comme <a href="https://webpack.js.org/" target="_blank" rel="noopener">webpack</a> ou <a href="http://browserify.org/" target="_blank" rel="noopener">Browserify</a>. Vue fournit également des outils d’accompagnement pour la rédaction de <a href="single-file-components.html">Composants Mono-fichier</a>.</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># dernière version stable</span></span><br><span class="line">$ npm install vue</span><br></pre></td></tr></table></figure>
 <h2 id="CLI"><a href="#CLI" class="headerlink" title="CLI"></a>CLI</h2><p>Vue.js offre une <a href="https://github.com/vuejs/vue-cli" target="_blank" rel="noopener">CLI</a> (interface en ligne de commande) officielle pour mettre rapidement en place les bases d’une application monopage ambitieuse. Il offre une série de builds pré-configurés pour un <em>workflow frontend</em> moderne. Cela ne prend que quelques minutes pour commencer et lancer des rechargements à chaud, de l’analyse syntaxique à la sauvegarde, et des builds prêts pour la production :</p>
@@ -942,6 +951,7 @@
 <h2 id="Chargeurs-de-module-AMD"><a href="#Chargeurs-de-module-AMD" class="headerlink" title="Chargeurs de module AMD"></a>Chargeurs de module AMD</h2><p>Les versions standalone ou installées via Bower sont encapsulées selon UMD ce qui permet de directement les utiliser sous forme de module AMD.</p>
 
   
+  
     <div class="guide-links">
       
       
@@ -950,7 +960,7 @@
     </div>
   
   <div class="footer">
-    <script src="//m.servedby-buysellads.com/monetization.js" type="text/javascript"></script>
+      <script src="//m.servedby-buysellads.com/monetization.js" type="text/javascript"></script>
 <div class="bsa-cpc"></div>
 <script>
   (function(){
@@ -965,7 +975,7 @@
 </script>
 
     Une erreur dans cette page ? Envie de contribuer à la traduction ?
-    <a href="https://github.com/vuejs/vuejs.org/blob/master/src/v2/guide/installation.md" target="_blank">
+    <a href="https://github.com/vuejs-fr/vuejs.org/blob/master/src/v2/guide/installation.md" target="_blank">
       Éditez cette page sur GitHub !
     </a>
   </div>

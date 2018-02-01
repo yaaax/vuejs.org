@@ -144,11 +144,11 @@
   <a href="/v2/guide/team.html" class="nav-link team">Équipe</a>
 </li>
 <li class="nav-dropdown-container support-vue">
-  <a class="nav-link">Soutien</a><span class="arrow"></span>
+  <a href="/support-vuejs/" class="nav-link">Soutien</a><span class="arrow"></span>
   <ul class="nav-dropdown">
     <li><ul>
       <li><a href="/support-vuejs/#One-time-Donations" class="nav-link">Don ponctuel</a></li>
-      <li><a href="/support-vuejs/#Recurring-Pledges" target="_blank" class="nav-link">Soutien récurrent</a></li>
+      <li><a href="/support-vuejs/#Recurring-Pledges" class="nav-link">Soutien récurrent</a></li>
       <li><a href="https://vue.threadless.com" target="_blank" class="nav-link">La boutique</a></li>
     </ul></li>
   </ul>
@@ -237,11 +237,11 @@
   <a href="/v2/guide/team.html" class="nav-link team">Équipe</a>
 </li>
 <li class="nav-dropdown-container support-vue">
-  <a class="nav-link">Soutien</a><span class="arrow"></span>
+  <a href="/support-vuejs/" class="nav-link">Soutien</a><span class="arrow"></span>
   <ul class="nav-dropdown">
     <li><ul>
       <li><a href="/support-vuejs/#One-time-Donations" class="nav-link">Don ponctuel</a></li>
-      <li><a href="/support-vuejs/#Recurring-Pledges" target="_blank" class="nav-link">Soutien récurrent</a></li>
+      <li><a href="/support-vuejs/#Recurring-Pledges" class="nav-link">Soutien récurrent</a></li>
       <li><a href="https://vue.threadless.com" target="_blank" class="nav-link">La boutique</a></li>
     </ul></li>
   </ul>
@@ -264,16 +264,21 @@
     </ul>
     <div class="list">
       <div class="main-sponsor">
-        <span>Sponsors de platine</span><br>
+        <span>Sponsors de platine</span>
+        <div>
         <a href="https://stdlib.com" target="_blank" class="logo">
           <img src="/images/stdlib.png">
         </a>
         <a href="http://tooltwist.com/" target="_blank" class="logo">
-          <img src="/images/tooltwist.png" style="margin-top:-5px">
+          <img src="/images/tooltwist.png">
         </a>
-        <a href="https://www.infinitynewtab.com/donate/index.html" target="_blank" class="logo">
-          <img src="/images/infinitynewtab.png">
+        <a href="https://vueschool.io/?utm_source=Vuejs.org&utm_medium=Banner&utm_campaign=Sponsored%20Banner&utm_content=V1" target="_blank" class="logo">
+          <img src="/images/vueschool.png">
         </a>
+        <a href="https://www.datacamp.com/careers?utm_source=vuejs&utm_medium=sidebar" target="_blank" class="logo">
+          <img src="/images/datacamp.png">
+        </a>
+        </div>
       </div>
       <a class="become-backer" href="/support-vuejs">
         Apporter son soutien
@@ -299,13 +304,33 @@
     
     
       
-        <li><h3>Instance de Vue</h3></li>
+      <!-- Move cookbook sections here once they have -->
+      <!-- at least one recipe -->
+    
+    <li>
+      <a href="/v2/cookbook/form-validation.html" class="sidebar-link">Form Validation (EN)</a>
+    </li>
+  
+    
+    
+    
       
       <!-- Move cookbook sections here once they have -->
       <!-- at least one recipe -->
     
     <li>
       <a href="/v2/cookbook/adding-instance-properties.html" class="sidebar-link">Ajouter des propriétés aux instances</a>
+    </li>
+  
+    
+    
+    
+      
+      <!-- Move cookbook sections here once they have -->
+      <!-- at least one recipe -->
+    
+    <li>
+      <a href="/v2/cookbook/unit-testing-vue-components.html" class="sidebar-link">Unit Testing Vue Components (EN)</a>
     </li>
   
     
@@ -355,7 +380,8 @@
   
     <h1>Introduction</h1>
   
-  <h2 id="TRAVAIL-EN-COURS"><a href="#TRAVAIL-EN-COURS" class="headerlink" title="TRAVAIL EN COURS"></a>TRAVAIL EN COURS</h2><p>Ce livre de recettes (<em>cookbook</em>) en est encore à ses tout débuts. À ce stade, nous ne mettrons nulle part un lien vers celui-ci. Des pages peuvent être supprimées ou réorganisées à tout moment. Même les objectifs et le format global sont encore en mouvement.</p><p></p>
+  
+    <h2 id="TRAVAIL-EN-COURS"><a href="#TRAVAIL-EN-COURS" class="headerlink" title="TRAVAIL EN COURS"></a>TRAVAIL EN COURS</h2><p>Ce livre de recettes (<em>cookbook</em>) en est encore à ses tout débuts. À ce stade, nous ne mettrons nulle part un lien vers celui-ci. Des pages peuvent être supprimées ou réorganisées à tout moment. Même les objectifs et le format global sont encore en mouvement.</p><p></p>
 <h2 id="Le-cookbook-versus-le-guide"><a href="#Le-cookbook-versus-le-guide" class="headerlink" title="Le cookbook versus le guide"></a>Le <em>cookbook</em> versus le guide</h2><p>En quoi le <em>cookbook</em> est-il différent du guide ? Pourquoi est-ce nécessaire ?</p>
 <ul>
 <li><p><strong>Plus focalisé</strong> : Dans le guide, nous racontons essentiellement une histoire. Chaque section se construit sur la base des précédentes et présume la connaissance de celles-ci. Dans le <em>cookbook</em>, chaque recette peut et devrait se suffire à elle-même. Cela signifie que les recettes peuvent se focaliser sur un aspect spécifique de Vue, plutôt que d’avoir à donner un aperçu global.</p>
@@ -390,8 +416,9 @@
 </blockquote>
 
   
+  
   <div class="footer">
-    <script src="//m.servedby-buysellads.com/monetization.js" type="text/javascript"></script>
+      <script src="//m.servedby-buysellads.com/monetization.js" type="text/javascript"></script>
 <div class="bsa-cpc"></div>
 <script>
   (function(){
@@ -406,7 +433,7 @@
 </script>
 
     Une erreur dans cette page ? Envie de contribuer à la traduction ?
-    <a href="https://github.com/vuejs/vuejs.org/blob/master/src/v2/cookbook/index.md" target="_blank">
+    <a href="https://github.com/vuejs-fr/vuejs.org/blob/master/src/v2/cookbook/index.md" target="_blank">
       Éditez cette page sur GitHub !
     </a>
   </div>

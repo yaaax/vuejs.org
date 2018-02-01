@@ -144,11 +144,11 @@
   <a href="/v2/guide/team.html" class="nav-link team">Équipe</a>
 </li>
 <li class="nav-dropdown-container support-vue">
-  <a class="nav-link">Soutien</a><span class="arrow"></span>
+  <a href="/support-vuejs/" class="nav-link">Soutien</a><span class="arrow"></span>
   <ul class="nav-dropdown">
     <li><ul>
       <li><a href="/support-vuejs/#One-time-Donations" class="nav-link">Don ponctuel</a></li>
-      <li><a href="/support-vuejs/#Recurring-Pledges" target="_blank" class="nav-link">Soutien récurrent</a></li>
+      <li><a href="/support-vuejs/#Recurring-Pledges" class="nav-link">Soutien récurrent</a></li>
       <li><a href="https://vue.threadless.com" target="_blank" class="nav-link">La boutique</a></li>
     </ul></li>
   </ul>
@@ -237,11 +237,11 @@
   <a href="/v2/guide/team.html" class="nav-link team">Équipe</a>
 </li>
 <li class="nav-dropdown-container support-vue">
-  <a class="nav-link">Soutien</a><span class="arrow"></span>
+  <a href="/support-vuejs/" class="nav-link">Soutien</a><span class="arrow"></span>
   <ul class="nav-dropdown">
     <li><ul>
       <li><a href="/support-vuejs/#One-time-Donations" class="nav-link">Don ponctuel</a></li>
-      <li><a href="/support-vuejs/#Recurring-Pledges" target="_blank" class="nav-link">Soutien récurrent</a></li>
+      <li><a href="/support-vuejs/#Recurring-Pledges" class="nav-link">Soutien récurrent</a></li>
       <li><a href="https://vue.threadless.com" target="_blank" class="nav-link">La boutique</a></li>
     </ul></li>
   </ul>
@@ -264,16 +264,21 @@
     </ul>
     <div class="list">
       <div class="main-sponsor">
-        <span>Sponsors de platine</span><br>
+        <span>Sponsors de platine</span>
+        <div>
         <a href="https://stdlib.com" target="_blank" class="logo">
           <img src="/images/stdlib.png">
         </a>
         <a href="http://tooltwist.com/" target="_blank" class="logo">
-          <img src="/images/tooltwist.png" style="margin-top:-5px">
+          <img src="/images/tooltwist.png">
         </a>
-        <a href="https://www.infinitynewtab.com/donate/index.html" target="_blank" class="logo">
-          <img src="/images/infinitynewtab.png">
+        <a href="https://vueschool.io/?utm_source=Vuejs.org&utm_medium=Banner&utm_campaign=Sponsored%20Banner&utm_content=V1" target="_blank" class="logo">
+          <img src="/images/vueschool.png">
         </a>
+        <a href="https://www.datacamp.com/careers?utm_source=vuejs&utm_medium=sidebar" target="_blank" class="logo">
+          <img src="/images/datacamp.png">
+        </a>
+        </div>
       </div>
       <a class="become-backer" href="/support-vuejs">
         Apporter son soutien
@@ -847,7 +852,8 @@
   
     <h1>Tests unitaires</h1>
   
-  <h2 id="Outils-et-mise-en-place"><a href="#Outils-et-mise-en-place" class="headerlink" title="Outils et mise en place"></a>Outils et mise en place</h2><p>Tout ce qui est compatible avec un système de build basé sur des modules fonctionnera. Mais si vous cherchez une recommandation particulière, essayez le lanceur de tests <a href="http://karma-runner.github.io" target="_blank" rel="noopener">Karma</a>. Il y a beaucoup de plugins communautaires, incluant le support de <a href="https://github.com/webpack/karma-webpack" target="_blank" rel="noopener">webpack</a> et <a href="https://github.com/Nikku/karma-browserify" target="_blank" rel="noopener">Browserify</a>. Pour une mise en place détaillée, référez-vous à la documentation respective de chaque projet. Ces exemples de configuration de Karma pour <a href="https://github.com/vuejs-templates/webpack/blob/master/template/test/unit/karma.conf.js" target="_blank" rel="noopener">webpack</a> et <a href="https://github.com/vuejs-templates/browserify/blob/master/template/karma.conf.js" target="_blank" rel="noopener">Browserify</a> pourront vous aider à démarrer.</p>
+  
+    <h2 id="Outils-et-mise-en-place"><a href="#Outils-et-mise-en-place" class="headerlink" title="Outils et mise en place"></a>Outils et mise en place</h2><p>Tout ce qui est compatible avec un système de build basé sur des modules fonctionnera. Mais si vous cherchez une recommandation particulière, essayez le lanceur de tests <a href="http://karma-runner.github.io" target="_blank" rel="noopener">Karma</a>. Il y a beaucoup de plugins communautaires, incluant le support de <a href="https://github.com/webpack/karma-webpack" target="_blank" rel="noopener">webpack</a> et <a href="https://github.com/Nikku/karma-browserify" target="_blank" rel="noopener">Browserify</a>. Pour une mise en place détaillée, référez-vous à la documentation respective de chaque projet. Ces exemples de configuration de Karma pour <a href="https://github.com/vuejs-templates/webpack/blob/master/template/test/unit/karma.conf.js" target="_blank" rel="noopener">webpack</a> et <a href="https://github.com/vuejs-templates/browserify/blob/master/template/karma.conf.js" target="_blank" rel="noopener">Browserify</a> pourront vous aider à démarrer.</p>
 <h2 id="Des-assertions-simples"><a href="#Des-assertions-simples" class="headerlink" title="Des assertions simples"></a>Des assertions simples</h2><p>En termes de structure de code pour les tests, vous n’avez rien de spécial à faire dans vos composants pour les rendre testables. Exportez juste les options en l’état :</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span>&gt;</span>&#123;&#123; message &#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">  <span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="undefined">    data () &#123;</span></span><br><span class="line"><span class="javascript">      <span class="keyword">return</span> &#123;</span></span><br><span class="line"><span class="javascript">        message: <span class="string">'bonjour !'</span></span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="undefined">    &#125;,</span></span><br><span class="line"><span class="undefined">    created () &#123;</span></span><br><span class="line"><span class="javascript">      <span class="keyword">this</span>.message = <span class="string">'au revoir !'</span></span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>Quand vous testez ce composant, tout ce que vous avez à faire est d’importer l’objet d’options aux côtés de Vue pour faire une série d’assertions communes :</p>
@@ -861,6 +867,7 @@
 <p>Nous prévoyons de travailler sur une collection de fonctions utilitaires de tests communs pour rendre encore plus simple le rendu de composants avec différentes contraintes (par ex. des rendus peu profonds ignorant les composants enfants) et faire des assertions sur le code en sortie.</p>
 
   
+  
     <div class="guide-links">
       
         <span>← <a href="/v2/guide/single-file-components.html">Composants monofichiers</a></span>
@@ -871,7 +878,7 @@
     </div>
   
   <div class="footer">
-    <script src="//m.servedby-buysellads.com/monetization.js" type="text/javascript"></script>
+      <script src="//m.servedby-buysellads.com/monetization.js" type="text/javascript"></script>
 <div class="bsa-cpc"></div>
 <script>
   (function(){
@@ -886,7 +893,7 @@
 </script>
 
     Une erreur dans cette page ? Envie de contribuer à la traduction ?
-    <a href="https://github.com/vuejs/vuejs.org/blob/master/src/v2/guide/unit-testing.md" target="_blank">
+    <a href="https://github.com/vuejs-fr/vuejs.org/blob/master/src/v2/guide/unit-testing.md" target="_blank">
       Éditez cette page sur GitHub !
     </a>
   </div>
