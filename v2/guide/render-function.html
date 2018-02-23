@@ -263,27 +263,34 @@
 
     </ul>
     <div class="list">
-      <div class="main-sponsor">
-        <span>Sponsors de platine</span>
-        <div>
-        <a href="https://stdlib.com" target="_blank" class="logo">
-          <img src="/images/stdlib.png">
-        </a>
-        <a href="http://tooltwist.com/" target="_blank" class="logo">
-          <img src="/images/tooltwist.png">
-        </a>
-        <a href="https://vueschool.io/?utm_source=Vuejs.org&utm_medium=Banner&utm_campaign=Sponsored%20Banner&utm_content=V1" target="_blank" class="logo">
-          <img src="/images/vueschool.png">
-        </a>
-        <a href="https://www.datacamp.com/careers?utm_source=vuejs&utm_medium=sidebar" target="_blank" class="logo">
-          <img src="/images/datacamp.png">
-        </a>
-        </div>
-      </div>
-      <a class="become-backer" href="/support-vuejs">
-        Apporter son soutien
-      </a>
+      <div id="sidebar-sponsors">
+  <div class="main-sponsor">
+    <span>Sponsors</span>
+    <div>
+    <a href="https://stdlib.com" target="_blank" class="logo">
+      <img src="/images/stdlib.png">
+    </a>
+    <a href="https://www.bitsrc.io/?utm_source=vue&utm_medium=vue&utm_campaign=vue&utm_term=vue&utm_content=vue" target="_blank" class="logo">
+      <img src="/images/bit-wide.png">
+    </a>
+    <a href="http://tooltwist.com/" target="_blank" class="logo">
+      <img src="/images/tooltwist.png">
+    </a>
+    <a href="https://vueschool.io/?utm_source=Vuejs.org&utm_medium=Banner&utm_campaign=Sponsored%20Banner&utm_content=V1" target="_blank" class="logo">
+      <img src="/images/vueschool.png">
+    </a>
+    <a href="https://www.datacamp.com/careers?utm_source=vuejs&utm_medium=sidebar" target="_blank" class="logo">
+      <img src="/images/datacamp.png">
+    </a>
+    </div>
+  </div>
+  <a class="become-backer" href="/support-vuejs">
+    Devenez un sponsor
+  </a>
+</div>
+
       <h2>
+        
         Guide
         
           <select class="version-select">
@@ -924,7 +931,7 @@
 </tbody>
 </table>
 <p>Par exemple :</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">on: &#123;</span><br><span class="line">  <span class="string">'!click'</span>: <span class="keyword">this</span>.doThisInCapturingMode,</span><br><span class="line">  <span class="string">'~keyup'</span>: <span class="keyword">this</span>.doThisOnce,</span><br><span class="line">  <span class="string">`~!mouseover`</span>: <span class="keyword">this</span>.doThisOnceInCapturingMode</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">on: &#123;</span><br><span class="line">  <span class="string">'!click'</span>: <span class="keyword">this</span>.doThisInCapturingMode,</span><br><span class="line">  <span class="string">'~keyup'</span>: <span class="keyword">this</span>.doThisOnce,</span><br><span class="line">  <span class="string">'~!mouseover'</span>: <span class="keyword">this</span>.doThisOnceInCapturingMode</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>Pour tous les autres modificateurs d’évènement et de code de touche, aucun préfixe propriétaire n’est nécessaire car il suffit d’utiliser des méthodes d’évènement dans le gestionnaire :</p>
 <table>
 <thead>
@@ -980,7 +987,7 @@
 <p>Note : dans les versions avant 2.3.0, l’option <code>props</code> est requise si vous souhaitez accepter des props dans un composant fonctionnel. Dans les versions 2.3.0+ vous pouvez omettre l’option <code>props</code> et tous les attributs trouvés dans le nœud composant seront implicitement extraits comme des props.</p>
 </blockquote>
 <p>Dans la 2.5.0+, si vous utilisez les <a href="single-file-components.html">composants monofichiers</a>, les templates fonctionnels basés sur les composants peuvent être déclarés avec :</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;template functional&gt;</span><br><span class="line">&lt;<span class="regexp">/template&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span> <span class="attr">functional</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>Tout ce dont le composant a besoin est passé dans l’objet <code>context</code>, qui est un objet contenant :</p>
 <ul>
 <li><code>props</code> : un objet avec les props fournies,</li>
@@ -1000,6 +1007,10 @@
 </ul>
 <p>Voici un exemple d’un composant <code>smart-list</code> qui délègue à des composants plus spécifiques en fonction des props qui lui sont passées :</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> EmptyList = &#123; <span class="comment">/* ... */</span> &#125;</span><br><span class="line"><span class="keyword">var</span> TableList = &#123; <span class="comment">/* ... */</span> &#125;</span><br><span class="line"><span class="keyword">var</span> OrderedList = &#123; <span class="comment">/* ... */</span> &#125;</span><br><span class="line"><span class="keyword">var</span> UnorderedList = &#123; <span class="comment">/* ... */</span> &#125;</span><br><span class="line"></span><br><span class="line">Vue.component(<span class="string">'smart-list'</span>, &#123;</span><br><span class="line">  functional: <span class="literal">true</span>,</span><br><span class="line">  render: <span class="function"><span class="keyword">function</span> (<span class="params">createElement, context</span>) </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">appropriateListComponent</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> items = context.props.items</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span> (items.length === <span class="number">0</span>)           <span class="keyword">return</span> EmptyList</span><br><span class="line">      <span class="keyword">if</span> (<span class="keyword">typeof</span> items[<span class="number">0</span>] === <span class="string">'object'</span>) <span class="keyword">return</span> TableList</span><br><span class="line">      <span class="keyword">if</span> (context.props.isOrdered)      <span class="keyword">return</span> OrderedList</span><br><span class="line"></span><br><span class="line">      <span class="keyword">return</span> UnorderedList</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> createElement(</span><br><span class="line">      appropriateListComponent(),</span><br><span class="line">      context.data,</span><br><span class="line">      context.children</span><br><span class="line">    )</span><br><span class="line">  &#125;,</span><br><span class="line">  props: &#123;</span><br><span class="line">    items: &#123;</span><br><span class="line">      type: <span class="built_in">Array</span>,</span><br><span class="line">      required: <span class="literal">true</span></span><br><span class="line">    &#125;,</span><br><span class="line">    isOrdered: <span class="built_in">Boolean</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="Passer-des-attributs-et-evenements-aux-elements-composants-enfants"><a href="#Passer-des-attributs-et-evenements-aux-elements-composants-enfants" class="headerlink" title="Passer des attributs et évènements aux éléments / composants enfants"></a>Passer des attributs et évènements aux éléments / composants enfants</h3><p>Sur les composants normaux, les attributs qui ne sont pas définis comme props sont automatiquement ajoutés à l’élément racine du composant en remplaçant ou <a href="class-and-style.html">en étant intelligemment rajouté sur</a> n’importe quel attribut existant avec le même nom.</p>
+<p>Cependant les composants fonctionnels vous demande de définir explicitement ce comportement :</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">'my-functional-button'</span>, &#123;</span><br><span class="line">  functional: <span class="literal">true</span>,</span><br><span class="line">  render: <span class="function"><span class="keyword">function</span> (<span class="params">createElement, context</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// Passer de manière transparente n'importe quel attribut, écouteur d'évènement, enfant, etc.</span></span><br><span class="line">    <span class="keyword">return</span> createElement(<span class="string">'button'</span>, context.data, context.children)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>En passant <code>context.data</code> en tant que second paramètre à <code>createElement</code>, nous transferrons à l’enfant racine n’importe quel attribut ou écouteur d’évènement utilisé sur <code>my-functional-button</code>. C’est même tellement transparent que les évènements n’ont même pas besoin du modificateur <code>.native</code>.</p>
 <h3 id="slots-vs-children"><a href="#slots-vs-children" class="headerlink" title="slots() vs. children"></a><code>slots()</code> vs. <code>children</code></h3><p>Vous vous demandez peut-être l’utilité d’avoir <code>slot()</code> et <code>children</code> en même temps. <code>slots().default</code> n’est-il pas la même chose que <code>children</code> ? Dans la majorité des cas, oui. Mais que faire si vous avez un composant fonctionnel avec les enfants suivants ?</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">my-functional-component</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span> <span class="attr">slot</span>=<span class="string">"foo"</span>&gt;</span></span><br><span class="line">    premier</span><br><span class="line">  <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>second<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">my-functional-component</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>Pour ce composant, <code>children</code> va vous donner les deux paragraphes, <code>slots().default</code> ne vous donnera que le second, et <code>slots().foo</code> ne vous donnera que le premier. Avoir le choix entre <code>children</code> et <code>slots()</code> vous permet donc de choisir ce que le composant sait à propos du système de slot ou si vous déléguez peut-être la responsabilité à un autre composant en passant simplement <code>children</code>.</p>

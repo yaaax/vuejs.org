@@ -263,27 +263,34 @@
 
     </ul>
     <div class="list">
-      <div class="main-sponsor">
-        <span>Sponsors de platine</span>
-        <div>
-        <a href="https://stdlib.com" target="_blank" class="logo">
-          <img src="/images/stdlib.png">
-        </a>
-        <a href="http://tooltwist.com/" target="_blank" class="logo">
-          <img src="/images/tooltwist.png">
-        </a>
-        <a href="https://vueschool.io/?utm_source=Vuejs.org&utm_medium=Banner&utm_campaign=Sponsored%20Banner&utm_content=V1" target="_blank" class="logo">
-          <img src="/images/vueschool.png">
-        </a>
-        <a href="https://www.datacamp.com/careers?utm_source=vuejs&utm_medium=sidebar" target="_blank" class="logo">
-          <img src="/images/datacamp.png">
-        </a>
-        </div>
-      </div>
-      <a class="become-backer" href="/support-vuejs">
-        Apporter son soutien
-      </a>
+      <div id="sidebar-sponsors">
+  <div class="main-sponsor">
+    <span>Sponsors</span>
+    <div>
+    <a href="https://stdlib.com" target="_blank" class="logo">
+      <img src="/images/stdlib.png">
+    </a>
+    <a href="https://www.bitsrc.io/?utm_source=vue&utm_medium=vue&utm_campaign=vue&utm_term=vue&utm_content=vue" target="_blank" class="logo">
+      <img src="/images/bit-wide.png">
+    </a>
+    <a href="http://tooltwist.com/" target="_blank" class="logo">
+      <img src="/images/tooltwist.png">
+    </a>
+    <a href="https://vueschool.io/?utm_source=Vuejs.org&utm_medium=Banner&utm_campaign=Sponsored%20Banner&utm_content=V1" target="_blank" class="logo">
+      <img src="/images/vueschool.png">
+    </a>
+    <a href="https://www.datacamp.com/careers?utm_source=vuejs&utm_medium=sidebar" target="_blank" class="logo">
+      <img src="/images/datacamp.png">
+    </a>
+    </div>
+  </div>
+  <a class="become-backer" href="/support-vuejs">
+    Devenez un sponsor
+  </a>
+</div>
+
       <h2>
+        
         Guide
         
           <select class="version-select">
@@ -854,7 +861,7 @@
   
   
     <h2 id="Implementation-officielle-semblable-a-Flux"><a href="#Implementation-officielle-semblable-a-Flux" class="headerlink" title="Implémentation officielle semblable à Flux"></a>Implémentation officielle semblable à Flux</h2><p>Les grosses applications peuvent souvent augmenter en complexité du fait des multiples parties d’état disséminées à travers divers composants et les interactions entre eux. Pour résoudre ce problème, Vue offre <a href="https://github.com/vuejs/vuex" target="_blank" rel="noopener">vuex</a> : notre propre bibliothèque de gestion d’état inspiré par Elm. Il est même intégré à <a href="https://github.com/vuejs/vue-devtools" target="_blank" rel="noopener">vue-devtools</a>, permettant le voyage dans le temps sans aucune configuration préalable.</p>
-<h3 id="Information-pour-les-developpeurs-React"><a href="#Information-pour-les-developpeurs-React" class="headerlink" title="Information pour les développeurs React"></a>Information pour les développeurs React</h3><p>Si vous venez de React, vous pouvez vous demander comment Vuex se compare à <a href="https://github.com/reactjs/redux" target="_blank" rel="noopener">Redux</a> (l’implémentation de Flux la plus populaire dans cet écosystème). Redux est en fait agnostique de la couche vue, et peut donc être facilement utilisé avec Vue à l’aide de plusieurs <a href="https://github.com/egoist/revue" target="_blank" rel="noopener">liaisons simples</a>. Vuex est différent dans le sens où il <em>sait</em> qu’il est dans une application Vue. Cela lui permet de mieux s’intégrer avec Vue, offrant une API plus intuitive et une meilleure expérience de développement.</p>
+<h3 id="Information-pour-les-developpeurs-React"><a href="#Information-pour-les-developpeurs-React" class="headerlink" title="Information pour les développeurs React"></a>Information pour les développeurs React</h3><p>Si vous venez de React, vous pouvez vous demander comment Vuex se compare à <a href="https://github.com/reactjs/redux" target="_blank" rel="noopener">Redux</a>, l’implémentation de Flux la plus populaire dans cet écosystème. Redux est en fait agnostique de la couche vue, et peut donc être facilement utilisé avec Vue à l’aide de plusieurs <a href="https://yarnpkg.com/en/packages?q=redux%20vue&amp;p=1" target="_blank" rel="noopener">liaisons simples</a>. Vuex est différent dans le sens où il <em>sait</em> qu’il est dans une application Vue. Cela lui permet de mieux s’intégrer avec Vue, offrant une API plus intuitive et une meilleure expérience de développement.</p>
 <h2 id="Gestion-d’etat-simple-a-partir-de-rien"><a href="#Gestion-d’etat-simple-a-partir-de-rien" class="headerlink" title="Gestion d’état simple à partir de rien"></a>Gestion d’état simple à partir de rien</h2><p>On n’insiste souvent pas assez sur le fait que, dans des applications Vue, c’est l’objet <code>data</code> qui fait office de « source de vérité ». Une instance de Vue ne fait que proxifier l’accès à cet objet. Par conséquent, si vous avez une partie d’état qui doit être partagée par plusieurs instances, vous pouvez simplement la partager par référence :</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> sourceOfTruth = &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> vmA = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  data: sourceOfTruth</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> vmB = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  data: sourceOfTruth</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <p>Maintenant, quelle que soit la manière dont <code>sourceOfTruth</code> sera mutée, les instances <code>vmA</code> et <code>vmB</code> mettront à jour leurs vues automatiquement. Les sous-composants à l’intérieur de chacune de ces instances y auront aussi accès via la propriété <code>this.$root.$data</code>. Maintenant, nous avons une unique source de vérité, mais le débogage serait un cauchemar. N’importe quel fragment de donnée pourrait être changé par n’importe quelle partie de notre application, à n’importe quel moment, et sans laisser de trace.</p>

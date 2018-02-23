@@ -263,27 +263,34 @@
 
     </ul>
     <div class="list">
-      <div class="main-sponsor">
-        <span>Sponsors de platine</span>
-        <div>
-        <a href="https://stdlib.com" target="_blank" class="logo">
-          <img src="/images/stdlib.png">
-        </a>
-        <a href="http://tooltwist.com/" target="_blank" class="logo">
-          <img src="/images/tooltwist.png">
-        </a>
-        <a href="https://vueschool.io/?utm_source=Vuejs.org&utm_medium=Banner&utm_campaign=Sponsored%20Banner&utm_content=V1" target="_blank" class="logo">
-          <img src="/images/vueschool.png">
-        </a>
-        <a href="https://www.datacamp.com/careers?utm_source=vuejs&utm_medium=sidebar" target="_blank" class="logo">
-          <img src="/images/datacamp.png">
-        </a>
-        </div>
-      </div>
-      <a class="become-backer" href="/support-vuejs">
-        Apporter son soutien
-      </a>
+      <div id="sidebar-sponsors">
+  <div class="main-sponsor">
+    <span>Sponsors</span>
+    <div>
+    <a href="https://stdlib.com" target="_blank" class="logo">
+      <img src="/images/stdlib.png">
+    </a>
+    <a href="https://www.bitsrc.io/?utm_source=vue&utm_medium=vue&utm_campaign=vue&utm_term=vue&utm_content=vue" target="_blank" class="logo">
+      <img src="/images/bit-wide.png">
+    </a>
+    <a href="http://tooltwist.com/" target="_blank" class="logo">
+      <img src="/images/tooltwist.png">
+    </a>
+    <a href="https://vueschool.io/?utm_source=Vuejs.org&utm_medium=Banner&utm_campaign=Sponsored%20Banner&utm_content=V1" target="_blank" class="logo">
+      <img src="/images/vueschool.png">
+    </a>
+    <a href="https://www.datacamp.com/careers?utm_source=vuejs&utm_medium=sidebar" target="_blank" class="logo">
+      <img src="/images/datacamp.png">
+    </a>
+    </div>
+  </div>
+  <a class="become-backer" href="/support-vuejs">
+    Devenez un sponsor
+  </a>
+</div>
+
       <h2>
+        
         Guide
         
           <select class="version-select">
@@ -859,7 +866,7 @@
 <h2 id="Interpolations"><a href="#Interpolations" class="headerlink" title="Interpolations"></a>Interpolations</h2><h3 id="Texte"><a href="#Texte" class="headerlink" title="Texte"></a>Texte</h3><p>La forme la plus élémentaire de la liaison de données est l’interpolation de texte en utilisant la syntaxe “Mustache” (les doubles accolades)</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">span</span>&gt;</span>Message: &#123;&#123; msg &#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>La balise moustache sera remplacée par la valeur de la propriété <code>msg</code> de l’objet data correspondant. Elle sera également mise à jour à chaque fois que la propriété <code>msg</code> de l’objet data changera.</p>
-<p>Vous pouvez également réaliser des interpolations à usage unique (qui ne se mettront pas à jour lors de la modification des données) en utilisant la <a href="../api/#v-once">directive v-once</a>, mais gardez à l’esprit que cela affectera toutes les liaisons de données présentes sur le même noeud :</p>
+<p>Vous pouvez également réaliser des interpolations à usage unique qui ne se mettront pas à jour lors de la modification des données en utilisant la <a href="../api/#v-once">directive v-once</a>, mais gardez à l’esprit que cela affectera toutes les liaisons de données présentes sur le même nœud :</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">v-once</span>&gt;</span>Ceci ne changera jamais : &#123;&#123; msg &#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h3 id="Interpretation-du-HTML"><a href="#Interpretation-du-HTML" class="headerlink" title="Interprétation du HTML"></a>Interprétation du HTML</h3><p>Les doubles moustaches interprètent la donnée en tant que texte brut, pas en tant que HTML. Pour afficher réellement du HTML, vous aurez besoin d’utiliser la directive <code>v-html</code></p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Using mustaches: &#123;&#123; rawHtml &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Using v-html directive: <span class="tag">&lt;<span class="name">span</span> <span class="attr">v-html</span>=<span class="string">"rawHtml"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>

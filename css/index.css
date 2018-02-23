@@ -163,6 +163,11 @@ pre .xml .cdata {
 .bsa-cpc .default-ad {
   display: none;
 }
+@media print {
+  #ad {
+    display: none;
+  }
+}
 body {
   font-family: "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
   font-size: 15px;
@@ -390,7 +395,7 @@ sup.beta.beta {
   height: 40px;
   padding: 10px 60px;
   position: relative;
-  z-index: 2;
+  z-index: 100;
 }
 body.docs #header {
   position: fixed;
@@ -521,6 +526,11 @@ body.docs #nav {
   margin-left: -15px;
   background-size: 30px;
 }
+@media print {
+  #header {
+    display: none;
+  }
+}
 .sidebar {
   position: absolute;
   z-index: 10;
@@ -592,35 +602,6 @@ body.docs #nav {
   display: none;
   padding-left: 0;
 }
-.sidebar .main-sponsor {
-  color: #7f8c8d;
-  font-size: 0.85em;
-}
-.sidebar .main-sponsor .logo {
-  color: #7f8c8d;
-  margin-top: 15px;
-  text-align: center;
-  font-weight: bold;
-  display: block;
-}
-.sidebar .main-sponsor .logo:last-child {
-  margin-bottom: 15px;
-}
-.sidebar .main-sponsor img,
-.sidebar .main-sponsor a {
-  width: 125px;
-}
-.sidebar .become-backer {
-  border: 1px solid #42b983;
-  border-radius: 2em;
-  display: inline-block;
-  color: #42b983;
-  font-size: 0.8em;
-  width: 125px;
-  padding: 4px 0;
-  text-align: center;
-  margin-bottom: 20px;
-}
 .sidebar .nav-dropdown h4 {
   font-weight: normal;
   margin: 0;
@@ -655,6 +636,11 @@ body.docs #nav {
   .sidebar.open {
     -webkit-transform: translate(0, 0);
     transform: translate(0, 0);
+  }
+}
+@media print {
+  .sidebar {
+    display: none;
   }
 }
 #sponsors {
@@ -720,24 +706,6 @@ body.docs #nav {
 #sponsors.active img {
   filter: none;
   opacity: 1;
-}
-.content .sponsor-section {
-  text-align: center;
-  margin-top: 0;
-  margin-bottom: 60px;
-}
-.content .patreon-sponsors a,
-.content .patreon-sponsors img {
-  width: 120px;
-  display: inline-block;
-  vertical-align: middle;
-}
-.content .patreon-sponsors a {
-  margin: 10px 20px;
-}
-.content .open-collective-sponsors img {
-  max-height: 80px;
-  margin-right: 20px;
 }
 .modal {
   box-sizing: border-box;
@@ -855,19 +823,21 @@ body {
   text-align: center;
   padding-bottom: 30px;
 }
+#special-sponsor h3 {
+  margin: 0;
+}
 #special-sponsor a {
   color: #7f8c8d;
+  margin: 8px 0;
 }
+#special-sponsor a,
 #special-sponsor span,
 #special-sponsor img {
   display: inline-block;
   vertical-align: middle;
 }
 #special-sponsor img {
-  width: 150px;
-  position: relative;
-  top: -3px;
-  margin: 15px;
+  margin: 0 15px;
 }
 #highlights {
   background-color: #fff;

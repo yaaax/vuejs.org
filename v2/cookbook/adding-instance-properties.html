@@ -263,28 +263,35 @@
 
     </ul>
     <div class="list">
-      <div class="main-sponsor">
-        <span>Sponsors de platine</span>
-        <div>
-        <a href="https://stdlib.com" target="_blank" class="logo">
-          <img src="/images/stdlib.png">
-        </a>
-        <a href="http://tooltwist.com/" target="_blank" class="logo">
-          <img src="/images/tooltwist.png">
-        </a>
-        <a href="https://vueschool.io/?utm_source=Vuejs.org&utm_medium=Banner&utm_campaign=Sponsored%20Banner&utm_content=V1" target="_blank" class="logo">
-          <img src="/images/vueschool.png">
-        </a>
-        <a href="https://www.datacamp.com/careers?utm_source=vuejs&utm_medium=sidebar" target="_blank" class="logo">
-          <img src="/images/datacamp.png">
-        </a>
-        </div>
-      </div>
-      <a class="become-backer" href="/support-vuejs">
-        Apporter son soutien
-      </a>
+      <div id="sidebar-sponsors">
+  <div class="main-sponsor">
+    <span>Sponsors</span>
+    <div>
+    <a href="https://stdlib.com" target="_blank" class="logo">
+      <img src="/images/stdlib.png">
+    </a>
+    <a href="https://www.bitsrc.io/?utm_source=vue&utm_medium=vue&utm_campaign=vue&utm_term=vue&utm_content=vue" target="_blank" class="logo">
+      <img src="/images/bit-wide.png">
+    </a>
+    <a href="http://tooltwist.com/" target="_blank" class="logo">
+      <img src="/images/tooltwist.png">
+    </a>
+    <a href="https://vueschool.io/?utm_source=Vuejs.org&utm_medium=Banner&utm_campaign=Sponsored%20Banner&utm_content=V1" target="_blank" class="logo">
+      <img src="/images/vueschool.png">
+    </a>
+    <a href="https://www.datacamp.com/careers?utm_source=vuejs&utm_medium=sidebar" target="_blank" class="logo">
+      <img src="/images/datacamp.png">
+    </a>
+    </div>
+  </div>
+  <a class="become-backer" href="/support-vuejs">
+    Devenez un sponsor
+  </a>
+</div>
+
       <h2>
-        Cookbook
+        
+        
         
       </h2>
       <ul class="menu-root">
@@ -298,6 +305,17 @@
     
     <li>
       <a href="/v2/cookbook/index.html" class="sidebar-link">Introduction</a>
+    </li>
+  
+    
+    
+    
+      
+      <!-- Move cookbook sections here once they have -->
+      <!-- at least one recipe -->
+    
+    <li>
+      <a href="/v2/cookbook/cookbook-contributions.html" class="sidebar-link">Cookbook Contributions (EN)</a>
     </li>
   
     
@@ -341,7 +359,7 @@
       <!-- at least one recipe -->
     
     <li>
-      <a href="/v2/cookbook/cookbook-contributions.html" class="sidebar-link">Cookbook Contributions (EN)</a>
+      <a href="/v2/cookbook/editable-svg-icons.html" class="sidebar-link">Editable SVG Icon Systems (EN)</a>
     </li>
   
   
@@ -417,7 +435,7 @@
 <p>Cependant, il peut parfois semer la confusion auprès des autres développeurs. Ils peuvent voir <code>this.$http</code>, par exemple, et penser, “Oh, je ne savais pas qu’il s’agissait d’une fonctionnalité de Vue !”. Ensuite ils vont sur un projet différent et sont confus quand <code>this.$http</code> est non défini. Ou alors ils cherchent sur Google comment faire quelque chose, mais ne trouvent pas de résultats car ils ne réalisent pas qu’ils utilisent Axios sous un alias.</p>
 <p><strong>C’est certes plus commode mais moins explicite.</strong> En regardant simplement un composant, il est impossible de dire d’où <code>$http</code> vient. Vue lui-même ? Un plugin ? Un collègue ?</p>
 <p>Alors quelles sont les alternatives ?</p>
-<h2 id="Patterns-Alternatifs"><a href="#Patterns-Alternatifs" class="headerlink" title="Patterns Alternatifs"></a><em>Patterns</em> Alternatifs</h2><h3 id="Quand-ne-pas-utiliser-un-systeme-de-modules"><a href="#Quand-ne-pas-utiliser-un-systeme-de-modules" class="headerlink" title="Quand ne pas utiliser un système de modules"></a>Quand ne pas utiliser un système de modules</h3><p>Dans les applications <strong>sans</strong> systèmes de modules (ex. via webpack ou Browserify), il y a un <em>pattern</em> souvent utilisé dans <em>n’importe quel</em> <em>frontend</em> amélioré en JavaScript : un objet global <code>App</code>.</p>
+<h2 id="Patterns-Alternatifs"><a href="#Patterns-Alternatifs" class="headerlink" title="Patterns Alternatifs"></a><em>Patterns</em> Alternatifs</h2><h3 id="Quand-un-systeme-de-modules-n’est-pas-utilise"><a href="#Quand-un-systeme-de-modules-n’est-pas-utilise" class="headerlink" title="Quand un système de modules n’est pas utilisé"></a>Quand un système de modules n’est pas utilisé</h3><p>Dans les applications <strong>sans</strong> systèmes de modules (ex. via webpack ou Browserify), il y a un <em>pattern</em> souvent utilisé dans <em>n’importe quel</em> <em>frontend</em> amélioré en JavaScript : un objet global <code>App</code>.</p>
 <p>Si ce que vous voulez ajouter n’a rien à voir avec Vue spécifiquement, cela peut être une bonne alternative à étudier. Voici un exemple :</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> App = <span class="built_in">Object</span>.freeze(&#123;</span><br><span class="line">  name: <span class="string">'Mon App'</span>,</span><br><span class="line">  description: <span class="string">'2.1.4'</span>,</span><br><span class="line">  helpers: &#123;</span><br><span class="line">    <span class="comment">// Ceci est une version purement fonctionnelle</span></span><br><span class="line">    <span class="comment">// de la méthode $reverseText décrite plus haut</span></span><br><span class="line">    reverseText: <span class="function"><span class="keyword">function</span> (<span class="params">text</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> text.split(<span class="string">''</span>).reverse().join(<span class="string">''</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <p class="tip">Si vous avez levé un sourcil à <code>Object.freeze</code>, cela sert à empêcher l’objet d’être modifié dans le futur. Il s’agit essentiellement de rendre toutes ses propriétés constantes, les protégeant de futurs bugs d’état.</p>
@@ -425,7 +443,7 @@
 <p>Maintenant la source de ces propriétés partagées est bien plus évidente : il y a un objet <code>App</code> défini quelque part dans l’application. Pour le trouver, les développeurs ont seulement besoin de rechercher la référence dans le projet.</p>
 <p>Un autre avantage est que <code>App</code> peut maintenant être utilisé <em>n’importe où</em> dans le code, qu’il soit lié à Vue ou non. Cela inclue les valeurs attachées directement aux options des instances, plutôt qu’avoir à entrer dans une fonction pour accéder aux propriétés avec <code>this</code> :</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    appVersion: App.version</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    reverseText: App.helpers.reverseText</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<h3 id="Quand-utiliser-un-systeme-de-modules"><a href="#Quand-utiliser-un-systeme-de-modules" class="headerlink" title="Quand utiliser un système de modules"></a>Quand utiliser un système de modules</h3><p>Quand vous avez accès à un système de modules, vous pouvez facilement organiser le code partagé à travers des modules, puis <code>require</code> / <code>import</code> ces modules partout où ils sont nécessaires. C’est l’approche la plus explicite car chaque fichier obtient alors une liste de dépendances. Vous savez <em>exactement</em> d’où vient chacune d’entre elles.</p>
+<h3 id="Quand-un-systeme-de-modules-est-utilise"><a href="#Quand-un-systeme-de-modules-est-utilise" class="headerlink" title="Quand un système de modules est utilisé"></a>Quand un système de modules est utilisé</h3><p>Quand vous avez accès à un système de modules, vous pouvez facilement organiser le code partagé à travers des modules, puis <code>require</code> / <code>import</code> ces modules partout où ils sont nécessaires. C’est l’approche la plus explicite car chaque fichier obtient alors une liste de dépendances. Vous savez <em>exactement</em> d’où vient chacune d’entre elles.</p>
 <p>Bien que certainement plus verbeux, cette approche est assurément la plus maintenable, particulièrement quand vous travaillez avec d’autres développeurs et/ou construisez une grosse application.</p>
 
   
