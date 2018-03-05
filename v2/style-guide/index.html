@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Vue.js</title>
+    <title>Style Guide — Vue.js</title>
     <meta charset="utf-8">
     <meta name="description" content="Vue.js - Le Framework JavaScript Évolutif">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -17,12 +17,12 @@
     <link rel="alternate" hreflang="fr" href="https://fr.vuejs.org/v2/style-guide/index.html">
 
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Vue.js">
+    <meta property="og:title" content="Style Guide — Vue.js">
     <meta property="og:description" content="Vue.js - Le Framework JavaScript Évolutif">
     <meta property="og:image" content="https://vuejs.org//images/logo.png">
 
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Vue.js">
+    <meta name="twitter:title" content="Style Guide — Vue.js">
     <meta name="twitter:description" content="Vue.js - Le Framework JavaScript Évolutif">
     <meta name="twitter:image" content="https://vuejs.org/images/logo.png">
 
@@ -322,8 +322,10 @@
     
   
   
+    <h1>Style Guide</h1>
   
-    <h1 id="Conventions-beta"><a href="#Conventions-beta" class="headerlink" title="Conventions beta"></a>Conventions <sup class="beta">beta</sup></h1><p>Ceci est le guide des conventions officielles pour du code spécifique à Vue. Si vous utilisez Vue dans vos projets, c’est la référence pour éviter les erreurs, les discussions futiles ou les mauvais usages de code. Nous ne pensons cependant pas qu’un guide de conventions soit pertinent pour toutes les équipes ou tous les projets. Ce que nous encourageons ici est basé sur nos expériences passées, les technologies que nous côtoyons ainsi que nos valeurs personnelles.</p>
+  
+    <p>Ceci est le guide des conventions officielles pour du code spécifique à Vue. Si vous utilisez Vue dans vos projets, c’est la référence pour éviter les erreurs, les discussions futiles ou les mauvais usages de code. Nous ne pensons cependant pas qu’un guide de conventions soit pertinent pour toutes les équipes ou tous les projets, aussi nous encourageons les écarts pourvu qu’ils soient éclairés et basés sur vos expériences passées, les technologies que vous côtoyez ainsi que vos valeurs personnelles.</p>
 <p>Nous allons en grande partie éviter les conventions à propos du JavaScript ou du HTML en eux-mêmes. Nous ne nous soucions pas de votre utilisation des points-virgules ou de la place de la virgule en début de ligne. Nous ne nous soucierons pas non plus de savoir si votre HTML utilise des apostrophes ou des guillemets pour les valeurs des attributs. Quelques exceptions seront faites cependant, quand nous trouvons qu’une utilisation de code spécifique est utile dans le contexte de Vue.</p>
 <blockquote>
 <p><strong>Bientôt, nous fournirons des astuces pour la mise en application.</strong> Même si certains points sont une simple question de discipline, nous essayerons de vous montrer comment utiliser ESLint et d’autres processus automatisés pour mettre simplement en place ces conventions.</p>
@@ -909,7 +911,7 @@
 <h4 id="A-eviter-24"><a href="#A-eviter-24" class="headerlink" title="À éviter"></a>À éviter</h4><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-if</span>=<span class="string">"error"</span>&gt;</span></span><br><span class="line">  Error: &#123;&#123; error &#125;&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-else</span>&gt;</span></span><br><span class="line">  &#123;&#123; results &#125;&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </div>
 <div class="style-example example-good">
-<h4 id="Recommande-25"><a href="#Recommande-25" class="headerlink" title="Recommandé"></a>Recommandé</h4><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-if</span>=<span class="string">"error"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">key</span>=<span class="string">"search-status"</span></span></span><br><span class="line"><span class="tag">&gt;</span></span><br><span class="line">  Error: &#123;&#123; error &#125;&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> </span></span><br><span class="line"><span class="tag">  <span class="attr">v-else</span> </span></span><br><span class="line"><span class="tag">  <span class="attr">key</span>=<span class="string">"search-results"</span></span></span><br><span class="line"><span class="tag">&gt;</span></span><br><span class="line">  &#123;&#123; results &#125;&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="Recommande-25"><a href="#Recommande-25" class="headerlink" title="Recommandé"></a>Recommandé</h4><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-if</span>=<span class="string">"error"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">key</span>=<span class="string">"search-status"</span></span></span><br><span class="line"><span class="tag">&gt;</span></span><br><span class="line">  Error: &#123;&#123; error &#125;&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-else</span></span></span><br><span class="line"><span class="tag">  <span class="attr">key</span>=<span class="string">"search-results"</span></span></span><br><span class="line"><span class="tag">&gt;</span></span><br><span class="line">  &#123;&#123; results &#125;&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">v-if</span>=<span class="string">"error"</span>&gt;</span></span><br><span class="line">  Error: &#123;&#123; error &#125;&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-else</span>&gt;</span></span><br><span class="line">  &#123;&#123; results &#125;&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </div>
 <h3 id="Selecteurs-par-nom-de-balise-avec-scoped-faire-attention"><a href="#Selecteurs-par-nom-de-balise-avec-scoped-faire-attention" class="headerlink" title="Sélecteurs par nom de balise avec scoped faire attention"></a>Sélecteurs par nom de balise avec <code>scoped</code> <sup data-p="d">faire attention</sup></h3><p><strong>Les sélecteurs par nom de balise devraient être évités avec <code>scoped</code>.</strong></p>

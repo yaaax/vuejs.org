@@ -977,8 +977,9 @@ new Vue({
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- kebab-case en HTML --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">child</span> <span class="attr">my-message</span>=<span class="string">"bonjour !"</span>&gt;</span><span class="tag">&lt;/<span class="name">child</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>Encore une fois, si vous utilisez les templates sous forme de chaine de caractères, ces limitations ne s’appliquent pas.</p>
 <h3 id="Props-dynamiques"><a href="#Props-dynamiques" class="headerlink" title="Props dynamiques"></a>Props dynamiques</h3><p>Tout comme la liaison d’un attribut ordinaire avec une expression, nous pouvons aussi utiliser <code>v-bind</code> pour dynamiquement lier les props aux données de leurs parents. À chaque fois que les données sont mises à jour dans le parent, elles seront également mises à jour dans l’enfant :</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">v-model</span>=<span class="string">"parentMsg"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">child</span> <span class="attr">v-bind:my-message</span>=<span class="string">"parentMsg"</span>&gt;</span><span class="tag">&lt;/<span class="name">child</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>C’est souvent plus simple d’utiliser la syntaxe abrégée pour <code>v-bind</code> :</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"prop-example-2"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">v-model</span>=<span class="string">"parentMsg"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">child</span> <span class="attr">v-bind:my-message</span>=<span class="string">"parentMsg"</span>&gt;</span><span class="tag">&lt;/<span class="name">child</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#prop-example-2'</span>,</span><br><span class="line">  data: &#123;</span><br><span class="line">    parentMsg: <span class="string">'Message venant du parent'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>Vous pouvez aussi utiliser la syntaxe abrégée pour <code>v-bind</code>:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">child</span> <span class="attr">:my-message</span>=<span class="string">"parentMsg"</span>&gt;</span><span class="tag">&lt;/<span class="name">child</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>Résultat :</p>
 
@@ -996,7 +997,7 @@ new Vue({
   components: {
     child: {
       props: ['myMessage'],
-      template: '<span>{{myMessage}}</span>'
+      template: '<span>{{ myMessage }}</span>'
     }
   }
 })
@@ -1066,7 +1067,7 @@ new Vue({
 <h3 id="Utilisation-de-v-on-avec-les-evenements-personnalises"><a href="#Utilisation-de-v-on-avec-les-evenements-personnalises" class="headerlink" title="Utilisation de v-on avec les évènements personnalisés"></a>Utilisation de <code>v-on</code> avec les évènements personnalisés</h3><p>Chaque instance de Vue implémente une <a href="../api/#Instance-Methods-Events">interface d’évènements</a>, cela signifie qu’elle peut :</p>
 <ul>
 <li>Écouter un évènement en utilisant <code>$on(eventName)</code></li>
-<li>Déclencher un évènement en utilisant <code>$emit(eventName)</code></li>
+<li>Déclencher un évènement en utilisant <code>$emit(eventName, optionalPayload)</code></li>
 </ul>
 <p class="tip">Notez que le système d’évènement de Vue est différent de celui de l’API navigateur <a href="https://developer.mozilla.org/fr/docs/Web/API/EventTarget" target="_blank" rel="noopener">EventTarget</a>. Bien qu’il fonctionne de manière similaire, <code>$on</code> et <code>$emit</code> <strong>ne</strong> sont <strong>pas</strong> des alias pour <code>addEventListener</code> et <code>dispatchEvent</code>.</p>
 
@@ -1111,7 +1112,46 @@ new Vue({
 </script>
 
 <p>Dans cet exemple, il est important de noter que le composant enfant est toujours complètement découplé de ce qui se passe en dehors de celui-ci. Tout ce qu’il fait, c’est rapporter des informations sur sa propre activité, juste au cas où le composant parent écouterait.</p>
-<h4 id="Lier-des-evenements-natifs-aux-composants"><a href="#Lier-des-evenements-natifs-aux-composants" class="headerlink" title="Lier des évènements natifs aux composants"></a>Lier des évènements natifs aux composants</h4><p>Il y a des fois où vous souhaitez écouter un évènement natif sur l’élément racine d’un composant. Dans ce cas, vous devez utiliser le modificateur <code>.native</code> sur <code>v-on</code>. Par exemple :</p>
+<p>Voici comment utiliser des données complémentaires :</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"message-event-example"</span> <span class="attr">class</span>=<span class="string">"demo"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span> <span class="attr">v-for</span>=<span class="string">"msg in messages"</span>&gt;</span>&#123;&#123; msg &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button-message</span> <span class="attr">v-on:message</span>=<span class="string">"handleMessage"</span>&gt;</span><span class="tag">&lt;/<span class="name">button-message</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">'button-message'</span>, &#123;</span><br><span class="line">  template: <span class="string">`&lt;div&gt;</span></span><br><span class="line"><span class="string">    &lt;input type="text" v-model="message" /&gt;</span></span><br><span class="line"><span class="string">    &lt;button v-on:click="handleSendMessage"&gt;Envoyer&lt;/button&gt;</span></span><br><span class="line"><span class="string">  &lt;/div&gt;`</span>,</span><br><span class="line">  data: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      message: <span class="string">'message test'</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    handleSendMessage: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">this</span>.$emit(<span class="string">'message'</span>, &#123; <span class="attr">message</span>: <span class="keyword">this</span>.message &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#message-event-example'</span>,</span><br><span class="line">  data: &#123;</span><br><span class="line">    messages: []</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    handleMessage: <span class="function"><span class="keyword">function</span> (<span class="params">payload</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">this</span>.messages.push(payload.message)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<div id="message-event-example" class="demo">
+  <p v-for="msg in messages">{{ msg }}</p>
+  <button-message v-on:message="handleMessage"></button-message>
+</div>
+<script>
+Vue.component('button-message', {
+  template: `<div>
+    <input type="text" v-model="message" />
+    <button v-on:click="handleSendMessage">Envoyer</button>
+  </div>`,
+  data: function () {
+    return {
+      message: 'message test'
+    }
+  },
+  methods: {
+    handleSendMessage: function () {
+      this.$emit('message', { message: this.message })
+    }
+  }
+})
+new Vue({
+  el: '#message-event-example',
+  data: {
+    messages: []
+  },
+  methods: {
+    handleMessage: function (payload) {
+      this.messages.push(payload.message)
+    }
+  }
+})
+</script>
+
+<p>Dans le second exemple, il est important de noter que le composant enfant est toujours complètement découplé de ce qu’il peut se passer à l’extérieur. Tout ce qu’il fait c’est reporter l’information à propos de sa propre activité en incluant les données utiles dans le déclencheur d’évènement, au cas où le composant parant en aurait besoin.</p>
+<h3 id="Lier-des-evenements-natifs-aux-composants"><a href="#Lier-des-evenements-natifs-aux-composants" class="headerlink" title="Lier des évènements natifs aux composants"></a>Lier des évènements natifs aux composants</h3><p>Il y a des fois où vous souhaitez écouter un évènement natif sur l’élément racine d’un composant. Dans ce cas, vous devez utiliser le modificateur <code>.native</code> sur <code>v-on</code>. Par exemple :</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">my-component</span> <span class="attr">v-on:click.native</span>=<span class="string">"doTheThing"</span>&gt;</span><span class="tag">&lt;/<span class="name">my-component</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h3 id="Modificateur-sync"><a href="#Modificateur-sync" class="headerlink" title="Modificateur .sync"></a>Modificateur <code>.sync</code></h3><blockquote>
 <p>2.3.0+</p>
@@ -1125,6 +1165,9 @@ new Vue({
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">comp</span> <span class="attr">:foo</span>=<span class="string">"bar"</span> @<span class="attr">update:foo</span>=<span class="string">"val =&gt; bar = val"</span>&gt;</span><span class="tag">&lt;/<span class="name">comp</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>Pour un composant enfant qui met à jour la valeur de <code>foo</code>, il faut explicitement émettre un évènement au lieu de muter la prop :</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">this</span>.$emit(<span class="string">'update:foo'</span>, newValue)</span><br></pre></td></tr></table></figure>
+<p>Le modificateur <code>.sync</code> peut aussi être utilisé avec <code>v-bind</code> quand il utilise un objet pour affecter plusieurs propriétés en une seule fois :</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">comp</span> <span class="attr">v-bind.sync</span>=<span class="string">"&#123; foo: 1, bar: 2 &#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">comp</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>Cela a pour effet d’ajouter des écouteurs de mise à jour <code>v-on</code> sur <code>foo</code> et <code>bar</code>.</p>
 <h3 id="Composants-de-champ-de-formulaire-utilisant-les-evenements-personnalises"><a href="#Composants-de-champ-de-formulaire-utilisant-les-evenements-personnalises" class="headerlink" title="Composants de champ de formulaire utilisant les évènements personnalisés"></a>Composants de champ de formulaire utilisant les évènements personnalisés</h3><p>Les évènements personnalisés peuvent aussi être utilisés pour créer des champs personnalisés qui fonctionnent avec <code>v-model</code>. Rappelez-vous :</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">v-model</span>=<span class="string">"something"</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>est juste du sucre syntaxique pour :</p>
