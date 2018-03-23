@@ -98,6 +98,7 @@
       <li><a href="/v2/api/" class="nav-link">API</a></li>
       <li><a href="/v2/style-guide/" class="nav-link">Conventions</a></li>
       <li><a href="/v2/examples/" class="nav-link">Exemples</a></li>
+      <li><a href="/v2/cookbook/" class="nav-link current">Tutoriels</a></li>
     </ul></li>
   </ul>
 </li>
@@ -126,6 +127,7 @@
     </ul></li>
     <li><h4>Infos</h4></li>
     <li><ul>
+      <li><a href="https://news.vuejs.org" class="nav-link" target="_blank">Actualités (En)</a></li>
       <li><a href="https://github.com/vuejs/roadmap" class="nav-link" target="_blank">Plans futurs (En)</a></li>
       <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank">Twitter (En)</a></li>
       <li><a href="https://medium.com/the-vue-point" class="nav-link" target="_blank">Blog (En)</a></li>
@@ -191,6 +193,7 @@
       <li><a href="/v2/api/" class="nav-link">API</a></li>
       <li><a href="/v2/style-guide/" class="nav-link">Conventions</a></li>
       <li><a href="/v2/examples/" class="nav-link">Exemples</a></li>
+      <li><a href="/v2/cookbook/" class="nav-link current">Tutoriels</a></li>
     </ul></li>
   </ul>
 </li>
@@ -219,6 +222,7 @@
     </ul></li>
     <li><h4>Infos</h4></li>
     <li><ul>
+      <li><a href="https://news.vuejs.org" class="nav-link" target="_blank">Actualités (En)</a></li>
       <li><a href="https://github.com/vuejs/roadmap" class="nav-link" target="_blank">Plans futurs (En)</a></li>
       <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank">Twitter (En)</a></li>
       <li><a href="https://medium.com/the-vue-point" class="nav-link" target="_blank">Blog (En)</a></li>
@@ -263,9 +267,9 @@
 
     </ul>
     <div class="list">
-      <div id="sidebar-sponsors">
+      <div id="sidebar-sponsors-special">
   <div class="main-sponsor">
-    <span>Sponsors</span>
+    <span>Special Sponsors</span>
     <div>
     <a href="https://stdlib.com" target="_blank" class="logo">
       <img src="/images/stdlib.png">
@@ -273,6 +277,14 @@
     <a href="https://www.bitsrc.io/?utm_source=vue&utm_medium=vue&utm_campaign=vue&utm_term=vue&utm_content=vue" target="_blank" class="logo">
       <img src="/images/bit-wide.png">
     </a>
+    </div>
+  </div>
+</div>
+
+<div id="sidebar-sponsors-platinum">
+  <div class="main-sponsor">
+    <span>Patreon Sponsors</span>
+    <div>
     <a href="http://tooltwist.com/" target="_blank" class="logo">
       <img src="/images/tooltwist.png">
     </a>
@@ -291,17 +303,12 @@
 
       <h2>
         
-        
+        Tutoriels<sup class="beta">beta</sup>
         
       </h2>
       <ul class="menu-root">
   
     
-    
-    
-      
-      <!-- Move cookbook sections here once they have -->
-      <!-- at least one recipe -->
     
     <li>
       <a href="/v2/cookbook/index.html" class="sidebar-link">Introduction</a>
@@ -309,21 +316,11 @@
   
     
     
-    
-      
-      <!-- Move cookbook sections here once they have -->
-      <!-- at least one recipe -->
-    
     <li>
-      <a href="/v2/cookbook/cookbook-contributions.html" class="sidebar-link">Cookbook Contributions (EN)</a>
+      <a href="/v2/cookbook/adding-instance-properties.html" class="sidebar-link">Ajouter des propriétés aux instances</a>
     </li>
   
     
-    
-    
-      
-      <!-- Move cookbook sections here once they have -->
-      <!-- at least one recipe -->
     
     <li>
       <a href="/v2/cookbook/form-validation.html" class="sidebar-link">Form Validation (EN)</a>
@@ -331,21 +328,17 @@
   
     
     
-    
-      
-      <!-- Move cookbook sections here once they have -->
-      <!-- at least one recipe -->
-    
     <li>
-      <a href="/v2/cookbook/adding-instance-properties.html" class="sidebar-link">Ajouter des propriétés aux instances</a>
+      <a href="/v2/cookbook/editable-svg-icons.html" class="sidebar-link">Editable SVG Icon Systems (EN)</a>
     </li>
   
     
     
+    <li>
+      <a href="/v2/cookbook/serverless-blog.html" class="sidebar-link">Create a CMS-Powered Blog</a>
+    </li>
+  
     
-      
-      <!-- Move cookbook sections here once they have -->
-      <!-- at least one recipe -->
     
     <li>
       <a href="/v2/cookbook/unit-testing-vue-components.html" class="sidebar-link current">Unit Testing Vue Components (EN)</a>
@@ -353,23 +346,21 @@
   
     
     
-    
-      
-      <!-- Move cookbook sections here once they have -->
-      <!-- at least one recipe -->
-    
     <li>
-      <a href="/v2/cookbook/editable-svg-icons.html" class="sidebar-link">Editable SVG Icon Systems (EN)</a>
+      <a href="/v2/cookbook/creating-custom-scroll-directives.html" class="sidebar-link">Creating Custom Scroll Directives</a>
     </li>
   
+    
+    
+    <li>
+      <a href="/v2/cookbook/debugging-in-vscode.html" class="sidebar-link">Debugging in VS Code and Chrome</a>
+    </li>
   
-    <li><h3>Composants</h3></li>
-    <li><h4>Champs de formulaire</h4></li>
-    <li><h4>Integrations tierces</h4></li>
-    <li><h3>Transitions</h3></li>
-    <li><h3>Directives</h3></li>
-    <li><h3>Vue Router</h3></li>
-    <li><h3>Vuex</h3></li>
+    
+    
+    <li>
+      <a href="/v2/cookbook/using-axios-to-consume-apis.html" class="sidebar-link">Using Axios to Consume APIs</a>
+    </li>
   
 </ul>
 
@@ -399,11 +390,11 @@
     <h1>Unit Testing Vue Components (EN)</h1>
   
   
-    <h2 id="Simple-Example"><a href="#Simple-Example" class="headerlink" title="Simple Example"></a>Simple Example</h2><p><strong>Cette page est en cours de traduction française.</strong></p>
-<p>Unit testing is a fundamental part of software development. Unit tests execute the smallest units of code in isolation, in order to increase ease of adding new features and track down bugs. Vue’s <a href="./single-file-components.html">single-file components</a> make it straight forward to write unit tests for components in isolation. This lets you develop new features with confidence you are not breaking existing ones, and helps other developers understand what your component does.</p>
+    <h2 id="Base-Example"><a href="#Base-Example" class="headerlink" title="Base Example"></a>Base Example</h2><p>Cette page est en cours de traduction. Pour nous aider, vous pouvez participer sur <a href="https://github.com/vuejs-fr/vuejs.org" target="_blank">le dépôt GitHub dédié de Vuejs-FR</a>.</p><p>Unit testing is a fundamental part of software development. Unit tests execute the smallest units of code in isolation, in order to increase ease of adding new features and track down bugs. Vue’s <a href="../guide/single-file-components.html">single-file components</a> make it straight forward to write unit tests for components in isolation. This lets you develop new features with confidence you are not breaking existing ones, and helps other developers understand what your component does.</p>
+
 <p>This simple example tests whether some text is rendered:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">v-model</span>=<span class="string">"username"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> </span></span><br><span class="line"><span class="tag">      <span class="attr">v-if</span>=<span class="string">"error"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">class</span>=<span class="string">"error"</span></span></span><br><span class="line"><span class="tag">    &gt;</span></span><br><span class="line">      &#123;&#123; error &#125;&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="javascript">  name: <span class="string">'Hello'</span>,</span></span><br><span class="line"><span class="undefined">  data () &#123;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">return</span> &#123;</span></span><br><span class="line"><span class="javascript">      username: <span class="string">''</span></span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">  &#125;,</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">  computed: &#123;</span></span><br><span class="line"><span class="undefined">    error () &#123;</span></span><br><span class="line"><span class="javascript">      <span class="keyword">return</span> <span class="keyword">this</span>.username.trim().length &lt; <span class="number">7</span></span></span><br><span class="line"><span class="javascript">        ? <span class="string">'Please enter a longer username'</span></span></span><br><span class="line"><span class="javascript">        : <span class="string">''</span></span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; shallow &#125; <span class="keyword">from</span> <span class="string">'vue-test-utils'</span></span><br><span class="line"></span><br><span class="line">test(<span class="string">'Foo'</span>, () =&gt; &#123;</span><br><span class="line">  <span class="comment">// render the component</span></span><br><span class="line">  <span class="keyword">const</span> wrapper = shallow(Hello)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// should not allow for username less than 7 characters, excludes whitespace</span></span><br><span class="line">  wrapper.setData(&#123; <span class="attr">username</span>: <span class="string">' '</span>.repeat(<span class="number">7</span>) &#125;)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// assert the error is rendered</span></span><br><span class="line">  expect(wrapper.find(<span class="string">'.error'</span>).exists()).toBe(<span class="literal">true</span>)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// update the name to be long enough</span></span><br><span class="line">  wrapper.setData(&#123;</span><br><span class="line">    username: &#123;</span><br><span class="line">      <span class="string">'Lachlan'</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// assert the error has gone away</span></span><br><span class="line">  expect(wrapper.find(<span class="string">'.error'</span>).exists()).toBe(<span class="literal">false</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; shallow &#125; <span class="keyword">from</span> <span class="string">'@vue/test-utils'</span></span><br><span class="line"></span><br><span class="line">test(<span class="string">'Foo'</span>, () =&gt; &#123;</span><br><span class="line">  <span class="comment">// render the component</span></span><br><span class="line">  <span class="keyword">const</span> wrapper = shallow(Hello)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// should not allow for `username` less than 7 characters, excludes whitespace</span></span><br><span class="line">  wrapper.setData(&#123; <span class="attr">username</span>: <span class="string">' '</span>.repeat(<span class="number">7</span>) &#125;)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// assert the error is rendered</span></span><br><span class="line">  expect(wrapper.find(<span class="string">'.error'</span>).exists()).toBe(<span class="literal">true</span>)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// update the name to be long enough</span></span><br><span class="line">  wrapper.setData(&#123;</span><br><span class="line">    username: <span class="string">'Lachlan'</span></span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// assert the error has gone away</span></span><br><span class="line">  expect(wrapper.find(<span class="string">'.error'</span>).exists()).toBe(<span class="literal">false</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <p>The above code snippet shows how to test whether an error message is rendered based on the length of the username. It demonstrates the general idea of unit testing Vue components: render the component, and assert that the markup matches the state of the component.</p>
 <h2 id="Why-test"><a href="#Why-test" class="headerlink" title="Why test?"></a>Why test?</h2><p>Component unit tests have lots of benefits:</p>
 <ul>
@@ -413,30 +404,30 @@
 <li>Improve design</li>
 <li>Facilitate refactoring</li>
 </ul>
-<p>Automated testing allows large teams of developers to maintain complex codebases. </p>
-<h4 id="Getting-started"><a href="#Getting-started" class="headerlink" title="Getting started"></a>Getting started</h4><p><a href="https://github.com/vuejs/vue-test-utils" target="_blank" rel="noopener">vue-test-utils</a> is the official library for unit testing Vue components. The (vue-cli)[<a href="https://github.com/vuejs/vue-cli" target="_blank" rel="noopener">https://github.com/vuejs/vue-cli</a>] webpack template comes with either Karma or Jest, both well supported test runners, and there are some (guides)[<a href="https://vue-test-utils.vuejs.org/en/guides/" target="_blank" rel="noopener">https://vue-test-utils.vuejs.org/en/guides/</a>] in the <code>vue-test-utils</code> documentation.</p>
-<h2 id="Real-World-Example"><a href="#Real-World-Example" class="headerlink" title="Real-World Example"></a>Real-World Example</h2><p>Unit tests should be</p>
+<p>Automated testing allows large teams of developers to maintain complex codebases.</p>
+<h4 id="Getting-started"><a href="#Getting-started" class="headerlink" title="Getting started"></a>Getting started</h4><p><a href="https://github.com/vuejs/vue-test-utils" target="_blank" rel="noopener">Vue Test Utils</a> is the official library for unit testing Vue components. The <a href="https://github.com/vuejs/vue-cli" target="_blank" rel="noopener">vue-cli</a> <code>webpack</code> template comes with either Karma or Jest, both well supported test runners, and there are some <a href="https://vue-test-utils.vuejs.org/en/guides/" target="_blank" rel="noopener">guides</a> in the Vue Test Utils documentation.</p>
+<h2 id="Real-World-Example"><a href="#Real-World-Example" class="headerlink" title="Real-World Example"></a>Real-World Example</h2><p>Unit tests should be:</p>
 <ul>
 <li>Fast to run</li>
 <li>Easy to understand</li>
 <li>Only test a <em>single unit of work</em></li>
 </ul>
-<p>Let’s continue building on the previous example, while introducing the idea of a <a href="https://en.wikipedia.org/wiki/Factory_(object-oriented_programming" target="_blank" rel="noopener">factory function</a>) to make our test more compact and readable. The component should:</p>
+<p>Let’s continue building on the previous example, while introducing the idea of a <a href="https://en.wikipedia.org/wiki/Factory_(object-oriented_programming)" target="_blank" rel="noopener">factory function</a> to make our test more compact and readable. The component should:</p>
 <ul>
 <li>show a ‘Welcome to the Vue.js cookbook’ greeting.</li>
 <li>prompt the user to enter their username</li>
-<li>if the entered username is less than seven letters, display an error</li>
+<li>display an error if the entered username is less than seven letters</li>
 </ul>
 <p>Let’s take a look at the component code first:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"message"</span>&gt;</span></span><br><span class="line">      &#123;&#123; message &#125;&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    Enter your username: <span class="tag">&lt;<span class="name">input</span> <span class="attr">v-model</span>=<span class="string">"usernane"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> </span></span><br><span class="line"><span class="tag">      <span class="attr">v-if</span>=<span class="string">"error"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">class</span>=<span class="string">"error"</span></span></span><br><span class="line"><span class="tag">    &gt;</span></span><br><span class="line">      Please enter a username with at least seven letters.</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="javascript">  name: <span class="string">'Foo'</span>,</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">  data () &#123;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">return</span> &#123;</span></span><br><span class="line"><span class="javascript">      message: <span class="string">'Welcome to the Vue.js cookbook'</span>,</span></span><br><span class="line"><span class="javascript">      username: <span class="string">''</span></span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">  &#125;,</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">  computed: &#123;</span></span><br><span class="line"><span class="undefined">    error () &#123;</span></span><br><span class="line"><span class="javascript">      <span class="keyword">return</span> <span class="keyword">this</span>.username.trim().length &lt; <span class="number">7</span></span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"message"</span>&gt;</span></span><br><span class="line">      &#123;&#123; message &#125;&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    Enter your username: <span class="tag">&lt;<span class="name">input</span> <span class="attr">v-model</span>=<span class="string">"username"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> </span></span><br><span class="line"><span class="tag">      <span class="attr">v-if</span>=<span class="string">"error"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">class</span>=<span class="string">"error"</span></span></span><br><span class="line"><span class="tag">    &gt;</span></span><br><span class="line">      Please enter a username with at least seven letters.</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="javascript">  name: <span class="string">'Foo'</span>,</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">  data () &#123;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">return</span> &#123;</span></span><br><span class="line"><span class="javascript">      message: <span class="string">'Welcome to the Vue.js cookbook'</span>,</span></span><br><span class="line"><span class="javascript">      username: <span class="string">''</span></span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">  &#125;,</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">  computed: &#123;</span></span><br><span class="line"><span class="undefined">    error () &#123;</span></span><br><span class="line"><span class="javascript">      <span class="keyword">return</span> <span class="keyword">this</span>.username.trim().length &lt; <span class="number">7</span></span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>The things that we should test are:</p>
 <ul>
 <li>is the <code>message</code> rendered?</li>
-<li>if <code>error</code> is <code>true</code>, <code>&lt;div class=&quot;error&quot;</code>&gt; should be present</li>
-<li>if <code>error</code> is <code>false</code>, <code>&lt;div class=&quot;error&quot;</code>&gt; should not be present</li>
+<li>if <code>error</code> is <code>true</code>, <code>&lt;div class=&quot;error&quot;&gt;</code> should be present</li>
+<li>if <code>error</code> is <code>false</code>, <code>&lt;div class=&quot;error&quot;&gt;</code> should not be present</li>
 </ul>
-<p>And our first attempt at at test:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; shallow &#125; <span class="keyword">from</span> <span class="string">'vue-test-utils'</span></span><br><span class="line"></span><br><span class="line">describe(<span class="string">'Foo'</span>, () =&gt; &#123;</span><br><span class="line">  it(<span class="string">'renders a message and responds correctly to user input'</span>, () =&gt; &#123;</span><br><span class="line">      <span class="keyword">const</span> wrapper = shallow(Foo, &#123;</span><br><span class="line">    data: &#123;</span><br><span class="line">      message: <span class="string">'Hello World'</span>,</span><br><span class="line">      username: <span class="string">''</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// see if the message renders</span></span><br><span class="line">  expect(wrapper.find(<span class="string">'.message'</span>).text()).toEqual(<span class="string">'Hello World'</span>)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// assert the error is rendered</span></span><br><span class="line">  expect(wrapper.find(<span class="string">'.error'</span>).exists()).toBeTruthy()</span><br><span class="line"></span><br><span class="line">  <span class="comment">// update the username and assert error is longer rendered</span></span><br><span class="line">  wrapper.setData(&#123; <span class="attr">username</span>: <span class="string">'Lachlan'</span>  &#125;)</span><br><span class="line">  expect(wrapper.find(<span class="string">'.error'</span>).exists()).toBeFalsy()</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>And our first attempt at test:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; shallow &#125; <span class="keyword">from</span> <span class="string">'@vue/test-utils'</span></span><br><span class="line"></span><br><span class="line">describe(<span class="string">'Foo'</span>, () =&gt; &#123;</span><br><span class="line">  it(<span class="string">'renders a message and responds correctly to user input'</span>, () =&gt; &#123;</span><br><span class="line">      <span class="keyword">const</span> wrapper = shallow(Foo, &#123;</span><br><span class="line">    data: &#123;</span><br><span class="line">      message: <span class="string">'Hello World'</span>,</span><br><span class="line">      username: <span class="string">''</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// see if the message renders</span></span><br><span class="line">  expect(wrapper.find(<span class="string">'.message'</span>).text()).toEqual(<span class="string">'Hello World'</span>)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// assert the error is rendered</span></span><br><span class="line">  expect(wrapper.find(<span class="string">'.error'</span>).exists()).toBeTruthy()</span><br><span class="line"></span><br><span class="line">  <span class="comment">// update the `username` and assert error is longer rendered</span></span><br><span class="line">  wrapper.setData(&#123; <span class="attr">username</span>: <span class="string">'Lachlan'</span> &#125;)</span><br><span class="line">  expect(wrapper.find(<span class="string">'.error'</span>).exists()).toBeFalsy()</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <p>There are some problems with the above:</p>
 <ul>
 <li>a single test is making assertions about different things</li>
@@ -447,22 +438,22 @@
 <li>only making one assertion per <code>it</code> block</li>
 <li>having short, clear test descriptions</li>
 <li>providing only the minimum data requires for the test</li>
-<li>refactoring duplucated logic (creating the <code>wrapper</code> and setting the <code>username</code> variable) into a factory function</li>
+<li>refactoring duplicated logic (creating the <code>wrapper</code> and setting the <code>username</code> variable) into a factory function</li>
 </ul>
-<p><em>Updated test</em>:<br><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; shallow &#125; <span class="keyword">from</span> <span class="string">'vue-test-utils'</span></span><br><span class="line"><span class="keyword">import</span> Foo <span class="keyword">from</span> <span class="string">'./Foo'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> factory = <span class="function">(<span class="params">values = &#123;&#125;</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> shallow(Foo, &#123;</span><br><span class="line">    data: &#123; ...values  &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">describe(<span class="string">'Foo'</span>, () =&gt; &#123;</span><br><span class="line">  it(<span class="string">'renders a welcome message'</span>, () =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> wrapper = factory()</span><br><span class="line"></span><br><span class="line">    expect(wrapper.find(<span class="string">'.message'</span>).text()).toEqual(<span class="string">"Welcome to the Vue.js cookbook"</span>)</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">  it(<span class="string">'renders an error when username is less than 7 characters'</span>, () =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> wrapper = factory(&#123; <span class="attr">username</span>: <span class="string">''</span>  &#125;)</span><br><span class="line"></span><br><span class="line">    expect(wrapper.find(<span class="string">'.error'</span>).exists()).toBeTruthy()</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">  it(<span class="string">'renders an error when username is whitespace'</span>, () =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> wrapper = factory(&#123; <span class="attr">username</span>: <span class="string">' '</span>.repeat(<span class="number">7</span>)  &#125;)</span><br><span class="line"></span><br><span class="line">    expect(wrapper.find(<span class="string">'.error'</span>).exists()).toBeTruthy()</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">  it(<span class="string">'does not render an error when username is 7 characters or more'</span>, () =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> wrapper = factory(&#123; <span class="attr">username</span>: <span class="string">'Lachlan'</span>  &#125;)</span><br><span class="line"></span><br><span class="line">    expect(wrapper.find(<span class="string">'.error'</span>).exists()).toBeFalsy()</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p><em>Updated test</em>:<br><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; shallow &#125; <span class="keyword">from</span> <span class="string">'@vue/test-utils'</span></span><br><span class="line"><span class="keyword">import</span> Foo <span class="keyword">from</span> <span class="string">'./Foo'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> factory = <span class="function">(<span class="params">values = &#123;&#125;</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> shallow(Foo, &#123;</span><br><span class="line">    data: &#123; ...values  &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">describe(<span class="string">'Foo'</span>, () =&gt; &#123;</span><br><span class="line">  it(<span class="string">'renders a welcome message'</span>, () =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> wrapper = factory()</span><br><span class="line"></span><br><span class="line">    expect(wrapper.find(<span class="string">'.message'</span>).text()).toEqual(<span class="string">"Welcome to the Vue.js cookbook"</span>)</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">  it(<span class="string">'renders an error when username is less than 7 characters'</span>, () =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> wrapper = factory(&#123; <span class="attr">username</span>: <span class="string">''</span>  &#125;)</span><br><span class="line"></span><br><span class="line">    expect(wrapper.find(<span class="string">'.error'</span>).exists()).toBeTruthy()</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">  it(<span class="string">'renders an error when username is whitespace'</span>, () =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> wrapper = factory(&#123; <span class="attr">username</span>: <span class="string">' '</span>.repeat(<span class="number">7</span>) &#125;)</span><br><span class="line"></span><br><span class="line">    expect(wrapper.find(<span class="string">'.error'</span>).exists()).toBeTruthy()</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">  it(<span class="string">'does not render an error when username is 7 characters or more'</span>, () =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> wrapper = factory(&#123; <span class="attr">username</span>: <span class="string">'Lachlan'</span>  &#125;)</span><br><span class="line"></span><br><span class="line">    expect(wrapper.find(<span class="string">'.error'</span>).exists()).toBeFalsy()</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
 <p>Points to note:</p>
-<p>At the top, we declare the factory function which merges the <code>values</code> object into <code>data</code> and returns a new <code>wrapper</code> instance. This way, we don’t need to duplicate <code>const wrapper = shallow(Foo)</code> in every test. Another great benefit to this is when more complex components with a method or computed property you might want to mock or stub in every test, you only need to declare it once. </p>
-<h2 id="Additional-Context"><a href="#Additional-Context" class="headerlink" title="Additional Context"></a>Additional Context</h2><p>Thee above test is fairly simple, but in practise Vue components often have other behaviors you want to test, such as:</p>
+<p>At the top, we declare the factory function which merges the <code>values</code> object into <code>data</code> and returns a new <code>wrapper</code> instance. This way, we don’t need to duplicate <code>const wrapper = shallow(Foo)</code> in every test. Another great benefit to this is when more complex components with a method or computed property you might want to mock or stub in every test, you only need to declare it once.</p>
+<h2 id="Additional-Context"><a href="#Additional-Context" class="headerlink" title="Additional Context"></a>Additional Context</h2><p>The above test is fairly simple, but in practice Vue components often have other behaviors you want to test, such as:</p>
 <ul>
 <li>making API calls</li>
 <li>committing or dispatching mutations or actions with a <code>Vuex</code> store</li>
 <li>testing interaction</li>
 </ul>
-<p>There are more complete examples showing such tests in the <code>vue-test-utils</code> <a href="https://vue-test-utils.vuejs.org/en/guides/" target="_blank" rel="noopener">guides</a>.</p>
-<p><code>vue-test-utils</code> and the enormous JavaScript ecosystem provides plenty of tooling to facilitate almost 100% test coverage. Unit tests are only one part of the testing pyramid, though. Some other types of tests include e2e (end to end) tests, and snapshot tests. Unit tests are the smallest and most simple of tests - they make assertions on the smallest units of work, isolating each part of a single component. </p>
-<p>Snapshot tests save the markup of your Vue component, and compare to the new one generated each time the test runs. If something changes, the developer is notified, and can decide if the change was intentional (the component was updated) or accidentally (the component is behaving incorrectly).</p>
-<p>End to end tests involve ensure a number of components interact together well. They are more high level. Some examples might be testing if a user can sign up, log in, and update their username. These are slowly to run than unit tests or snapshot tests.</p>
-<p>Unit tests are most useful during development, either to help a developer think about how to design a component, or refactor an existing component, and are often run every time code is changed. </p>
+<p>There are more complete examples showing such tests in the Vue Test Utils <a href="https://vue-test-utils.vuejs.org/en/guides/" target="_blank" rel="noopener">guides</a>.</p>
+<p>Vue Test Utils and the enormous JavaScript ecosystem provides plenty of tooling to facilitate almost 100% test coverage. Unit tests are only one part of the testing pyramid, though. Some other types of tests include e2e (end to end) tests, and snapshot tests. Unit tests are the smallest and most simple of tests - they make assertions on the smallest units of work, isolating each part of a single component.</p>
+<p>Snapshot tests save the markup of your Vue component, and compare to the new one generated each time the test runs. If something changes, the developer is notified, and can decide if the change was intentional (the component was updated) or accidental (the component is behaving incorrectly).</p>
+<p>End to end tests ensure a number of components interact well together. They are more high level. Some examples might be testing if a user can sign up, log in, and update their username. These are slower to run than unit tests or snapshot tests.</p>
+<p>Unit tests are most useful during development, either to help a developer think about how to design a component, or refactor an existing component, and are often run every time code is changed.</p>
 <p>Higher level tests, such as end to end tests, run much slower. These usually run pre-deploy, to ensure each part of the system is working together correctly.</p>
 <p>More information about testing Vue components can be found in <a href="https://www.manning.com/books/testing-vuejs-applications" target="_blank" rel="noopener">Testing Vue.js Applications</a> by core team member <a href="https://eddyerburgh.me/" target="_blank" rel="noopener">Edd Yerburgh</a>.</p>
 <h2 id="When-To-Avoid-This-Pattern"><a href="#When-To-Avoid-This-Pattern" class="headerlink" title="When To Avoid This Pattern"></a>When To Avoid This Pattern</h2><p>Unit testing is an important part of any serious application. At first, when the vision of an application is not clear, unit testing might slow down development, but once a vision is established and real users will be interacting with the application, unit tests (and other types of automated tests) are absolutely essential to ensure the codebase is maintainable and scalable.</p>

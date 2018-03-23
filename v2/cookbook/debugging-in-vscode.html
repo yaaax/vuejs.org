@@ -3,26 +3,26 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Cookbook Contributions (EN) — Vue.js</title>
+    <title>Debugging in VS Code and Chrome — Vue.js</title>
     <meta charset="utf-8">
     <meta name="description" content="Vue.js - Le Framework JavaScript Évolutif">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
-    <link rel="alternate" hreflang="x-default" href="https://vuejs.org/v2/cookbook/cookbook-contributions.html">
-    <link rel="alternate" hreflang="zh" href="https://cn.vuejs.org/v2/cookbook/cookbook-contributions.html">
-    <link rel="alternate" hreflang="ja" href="https://jp.vuejs.org/v2/cookbook/cookbook-contributions.html">
-    <link rel="alternate" hreflang="ru" href="https://ru.vuejs.org/v2/cookbook/cookbook-contributions.html">
-    <link rel="alternate" hreflang="ko" href="https://kr.vuejs.org/v2/cookbook/cookbook-contributions.html">
-    <link rel="alternate" hreflang="pt-BR" href="https://br.vuejs.org/v2/cookbook/cookbook-contributions.html">
-    <link rel="alternate" hreflang="fr" href="https://fr.vuejs.org/v2/cookbook/cookbook-contributions.html">
+    <link rel="alternate" hreflang="x-default" href="https://vuejs.org/v2/cookbook/debugging-in-vscode.html">
+    <link rel="alternate" hreflang="zh" href="https://cn.vuejs.org/v2/cookbook/debugging-in-vscode.html">
+    <link rel="alternate" hreflang="ja" href="https://jp.vuejs.org/v2/cookbook/debugging-in-vscode.html">
+    <link rel="alternate" hreflang="ru" href="https://ru.vuejs.org/v2/cookbook/debugging-in-vscode.html">
+    <link rel="alternate" hreflang="ko" href="https://kr.vuejs.org/v2/cookbook/debugging-in-vscode.html">
+    <link rel="alternate" hreflang="pt-BR" href="https://br.vuejs.org/v2/cookbook/debugging-in-vscode.html">
+    <link rel="alternate" hreflang="fr" href="https://fr.vuejs.org/v2/cookbook/debugging-in-vscode.html">
 
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Cookbook Contributions (EN) — Vue.js">
+    <meta property="og:title" content="Debugging in VS Code and Chrome — Vue.js">
     <meta property="og:description" content="Vue.js - Le Framework JavaScript Évolutif">
     <meta property="og:image" content="https://vuejs.org//images/logo.png">
 
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Cookbook Contributions (EN) — Vue.js">
+    <meta name="twitter:title" content="Debugging in VS Code and Chrome — Vue.js">
     <meta name="twitter:description" content="Vue.js - Le Framework JavaScript Évolutif">
     <meta name="twitter:image" content="https://vuejs.org/images/logo.png">
 
@@ -98,6 +98,7 @@
       <li><a href="/v2/api/" class="nav-link">API</a></li>
       <li><a href="/v2/style-guide/" class="nav-link">Conventions</a></li>
       <li><a href="/v2/examples/" class="nav-link">Exemples</a></li>
+      <li><a href="/v2/cookbook/" class="nav-link current">Tutoriels</a></li>
     </ul></li>
   </ul>
 </li>
@@ -126,6 +127,7 @@
     </ul></li>
     <li><h4>Infos</h4></li>
     <li><ul>
+      <li><a href="https://news.vuejs.org" class="nav-link" target="_blank">Actualités (En)</a></li>
       <li><a href="https://github.com/vuejs/roadmap" class="nav-link" target="_blank">Plans futurs (En)</a></li>
       <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank">Twitter (En)</a></li>
       <li><a href="https://medium.com/the-vue-point" class="nav-link" target="_blank">Blog (En)</a></li>
@@ -157,13 +159,13 @@
 <li class="nav-dropdown-container language">
   <a class="nav-link">Langues</a><span class="arrow"></span>
   <ul class="nav-dropdown">
-    <li><a href="https://cn.vuejs.org/v2/cookbook/cookbook-contributions.html" class="nav-link" target="_blank">中文</a></li>
-    <li><a href="https://jp.vuejs.org/v2/cookbook/cookbook-contributions.html" class="nav-link" target="_blank">日本語</a></li>
-    <li><a href="https://kr.vuejs.org/v2/cookbook/cookbook-contributions.html" class="nav-link" target="_blank">한국어</a></li>
-    <li><a href="https://vuejs.org/v2/cookbook/cookbook-contributions.html" class="nav-link" target="_blank">English</a></li>
-    <li><a href="https://br.vuejs.org/v2/cookbook/cookbook-contributions.html" class="nav-link" target="_blank">Português</a></li>
-    <li><a href="https://ru.vuejs.org/v2/cookbook/cookbook-contributions.html" class="nav-link" target="_blank">Русский</a></li>
-    <li><a href="https://vi.vuejs.org/v2/cookbook/cookbook-contributions.html" class="nav-link" target="_blank">Tiếng Việt</a></li>
+    <li><a href="https://cn.vuejs.org/v2/cookbook/debugging-in-vscode.html" class="nav-link" target="_blank">中文</a></li>
+    <li><a href="https://jp.vuejs.org/v2/cookbook/debugging-in-vscode.html" class="nav-link" target="_blank">日本語</a></li>
+    <li><a href="https://kr.vuejs.org/v2/cookbook/debugging-in-vscode.html" class="nav-link" target="_blank">한국어</a></li>
+    <li><a href="https://vuejs.org/v2/cookbook/debugging-in-vscode.html" class="nav-link" target="_blank">English</a></li>
+    <li><a href="https://br.vuejs.org/v2/cookbook/debugging-in-vscode.html" class="nav-link" target="_blank">Português</a></li>
+    <li><a href="https://ru.vuejs.org/v2/cookbook/debugging-in-vscode.html" class="nav-link" target="_blank">Русский</a></li>
+    <li><a href="https://vi.vuejs.org/v2/cookbook/debugging-in-vscode.html" class="nav-link" target="_blank">Tiếng Việt</a></li>
   </ul>
 </li>
 
@@ -191,6 +193,7 @@
       <li><a href="/v2/api/" class="nav-link">API</a></li>
       <li><a href="/v2/style-guide/" class="nav-link">Conventions</a></li>
       <li><a href="/v2/examples/" class="nav-link">Exemples</a></li>
+      <li><a href="/v2/cookbook/" class="nav-link current">Tutoriels</a></li>
     </ul></li>
   </ul>
 </li>
@@ -219,6 +222,7 @@
     </ul></li>
     <li><h4>Infos</h4></li>
     <li><ul>
+      <li><a href="https://news.vuejs.org" class="nav-link" target="_blank">Actualités (En)</a></li>
       <li><a href="https://github.com/vuejs/roadmap" class="nav-link" target="_blank">Plans futurs (En)</a></li>
       <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank">Twitter (En)</a></li>
       <li><a href="https://medium.com/the-vue-point" class="nav-link" target="_blank">Blog (En)</a></li>
@@ -250,22 +254,22 @@
 <li class="nav-dropdown-container language">
   <a class="nav-link">Langues</a><span class="arrow"></span>
   <ul class="nav-dropdown">
-    <li><a href="https://cn.vuejs.org/v2/cookbook/cookbook-contributions.html" class="nav-link" target="_blank">中文</a></li>
-    <li><a href="https://jp.vuejs.org/v2/cookbook/cookbook-contributions.html" class="nav-link" target="_blank">日本語</a></li>
-    <li><a href="https://kr.vuejs.org/v2/cookbook/cookbook-contributions.html" class="nav-link" target="_blank">한국어</a></li>
-    <li><a href="https://vuejs.org/v2/cookbook/cookbook-contributions.html" class="nav-link" target="_blank">English</a></li>
-    <li><a href="https://br.vuejs.org/v2/cookbook/cookbook-contributions.html" class="nav-link" target="_blank">Português</a></li>
-    <li><a href="https://ru.vuejs.org/v2/cookbook/cookbook-contributions.html" class="nav-link" target="_blank">Русский</a></li>
-    <li><a href="https://vi.vuejs.org/v2/cookbook/cookbook-contributions.html" class="nav-link" target="_blank">Tiếng Việt</a></li>
+    <li><a href="https://cn.vuejs.org/v2/cookbook/debugging-in-vscode.html" class="nav-link" target="_blank">中文</a></li>
+    <li><a href="https://jp.vuejs.org/v2/cookbook/debugging-in-vscode.html" class="nav-link" target="_blank">日本語</a></li>
+    <li><a href="https://kr.vuejs.org/v2/cookbook/debugging-in-vscode.html" class="nav-link" target="_blank">한국어</a></li>
+    <li><a href="https://vuejs.org/v2/cookbook/debugging-in-vscode.html" class="nav-link" target="_blank">English</a></li>
+    <li><a href="https://br.vuejs.org/v2/cookbook/debugging-in-vscode.html" class="nav-link" target="_blank">Português</a></li>
+    <li><a href="https://ru.vuejs.org/v2/cookbook/debugging-in-vscode.html" class="nav-link" target="_blank">Русский</a></li>
+    <li><a href="https://vi.vuejs.org/v2/cookbook/debugging-in-vscode.html" class="nav-link" target="_blank">Tiếng Việt</a></li>
   </ul>
 </li>
 
 
     </ul>
     <div class="list">
-      <div id="sidebar-sponsors">
+      <div id="sidebar-sponsors-special">
   <div class="main-sponsor">
-    <span>Sponsors</span>
+    <span>Special Sponsors</span>
     <div>
     <a href="https://stdlib.com" target="_blank" class="logo">
       <img src="/images/stdlib.png">
@@ -273,6 +277,14 @@
     <a href="https://www.bitsrc.io/?utm_source=vue&utm_medium=vue&utm_campaign=vue&utm_term=vue&utm_content=vue" target="_blank" class="logo">
       <img src="/images/bit-wide.png">
     </a>
+    </div>
+  </div>
+</div>
+
+<div id="sidebar-sponsors-platinum">
+  <div class="main-sponsor">
+    <span>Patreon Sponsors</span>
+    <div>
     <a href="http://tooltwist.com/" target="_blank" class="logo">
       <img src="/images/tooltwist.png">
     </a>
@@ -291,17 +303,12 @@
 
       <h2>
         
-        
+        Tutoriels<sup class="beta">beta</sup>
         
       </h2>
       <ul class="menu-root">
   
     
-    
-    
-      
-      <!-- Move cookbook sections here once they have -->
-      <!-- at least one recipe -->
     
     <li>
       <a href="/v2/cookbook/index.html" class="sidebar-link">Introduction</a>
@@ -309,21 +316,11 @@
   
     
     
-    
-      
-      <!-- Move cookbook sections here once they have -->
-      <!-- at least one recipe -->
-    
     <li>
-      <a href="/v2/cookbook/cookbook-contributions.html" class="sidebar-link current">Cookbook Contributions (EN)</a>
+      <a href="/v2/cookbook/adding-instance-properties.html" class="sidebar-link">Ajouter des propriétés aux instances</a>
     </li>
   
     
-    
-    
-      
-      <!-- Move cookbook sections here once they have -->
-      <!-- at least one recipe -->
     
     <li>
       <a href="/v2/cookbook/form-validation.html" class="sidebar-link">Form Validation (EN)</a>
@@ -331,21 +328,17 @@
   
     
     
-    
-      
-      <!-- Move cookbook sections here once they have -->
-      <!-- at least one recipe -->
-    
     <li>
-      <a href="/v2/cookbook/adding-instance-properties.html" class="sidebar-link">Ajouter des propriétés aux instances</a>
+      <a href="/v2/cookbook/editable-svg-icons.html" class="sidebar-link">Editable SVG Icon Systems (EN)</a>
     </li>
   
     
     
+    <li>
+      <a href="/v2/cookbook/serverless-blog.html" class="sidebar-link">Create a CMS-Powered Blog</a>
+    </li>
+  
     
-      
-      <!-- Move cookbook sections here once they have -->
-      <!-- at least one recipe -->
     
     <li>
       <a href="/v2/cookbook/unit-testing-vue-components.html" class="sidebar-link">Unit Testing Vue Components (EN)</a>
@@ -353,23 +346,21 @@
   
     
     
-    
-      
-      <!-- Move cookbook sections here once they have -->
-      <!-- at least one recipe -->
-    
     <li>
-      <a href="/v2/cookbook/editable-svg-icons.html" class="sidebar-link">Editable SVG Icon Systems (EN)</a>
+      <a href="/v2/cookbook/creating-custom-scroll-directives.html" class="sidebar-link">Creating Custom Scroll Directives</a>
     </li>
   
+    
+    
+    <li>
+      <a href="/v2/cookbook/debugging-in-vscode.html" class="sidebar-link current">Debugging in VS Code and Chrome</a>
+    </li>
   
-    <li><h3>Composants</h3></li>
-    <li><h4>Champs de formulaire</h4></li>
-    <li><h4>Integrations tierces</h4></li>
-    <li><h3>Transitions</h3></li>
-    <li><h3>Directives</h3></li>
-    <li><h3>Vue Router</h3></li>
-    <li><h3>Vuex</h3></li>
+    
+    
+    <li>
+      <a href="/v2/cookbook/using-axios-to-consume-apis.html" class="sidebar-link">Using Axios to Consume APIs</a>
+    </li>
   
 </ul>
 
@@ -396,40 +387,49 @@
     
   
   
-    <h1>Cookbook Contributions (EN)</h1>
+    <h1>Debugging in VS Code and Chrome</h1>
   
   
-    <h2 id="What-we’re-looking-for"><a href="#What-we’re-looking-for" class="headerlink" title="What we’re looking for"></a>What we’re looking for</h2><p>Cette page est en cours de traduction. Pour nous aider, vous pouvez participer sur <a href="https://github.com/vuejs-fr/vuejs.org" target="_blank">le dépôt GitHub dédié de Vuejs-FR</a>.</p><p>The Cookbook gives developers examples to work off of that both cover common or interesting use cases, and also progressively explain more complex detail. Our goal is to move beyond a simple introductory example, and demonstrate concepts that are more widely applicable, as well as some caveats to the approach.</p>
+    <p>Cette page est en cours de traduction. Pour nous aider, vous pouvez participer sur <a href="https://github.com/vuejs-fr/vuejs.org" target="_blank">le dépôt GitHub dédié de Vuejs-FR</a>.</p><p>Every application reaches a point where it’s necessary to understand failures, small to large. In this recipe, we explore a few workflows for VS Code users, who are using Chrome to test.</p>
 
-<p>If you’re interested in contributing, please initiate collaboration by filing an issue under the tag <strong>cookbook idea</strong> with your concept so that we can help guide you to a successful pull request. After your idea has been approved, please follow the template below as much as possible. Some sections are required, and some are optional. Following the numerical order is strongly suggested, but not required.</p>
-<h2 id="Simple-Example"><a href="#Simple-Example" class="headerlink" title="Simple Example"></a>Simple Example</h2><p><em>required</em></p>
-<ol>
-<li>Articulate the problem in a sentence or two.</li>
-<li>Explain the simplest possible solution in a sentence or two.</li>
-<li>Show a small code sample.</li>
-<li>Explain what this accomplishes in a sentence.</li>
+<p>This recipe shows how to use the <a href="https://github.com/Microsoft/VSCode-chrome-debug" target="_blank" rel="noopener">Debugger for Chrome</a> extension with VS Code to debug Vue.js applications generated by the <a href="https://github.com/vuejs/vue-cli" target="_blank" rel="noopener">Vue CLI</a>.</p>
+<h2 id="Prerequisites"><a href="#Prerequisites" class="headerlink" title="Prerequisites"></a>Prerequisites</h2><p>You must have Chrome and VS Code installed. Make sure to get the latest version of <a href="https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome" target="_blank" rel="noopener">Debugger for Chrome</a> extension installed in VS Code.</p>
+<p>Install and create a project with the <a href="https://github.com/vuejs/vue-cli" target="_blank" rel="noopener">vue-cli</a>, with the instructions for installation documented in the readme of the project. Change into the newly created application directory and open VS Code.</p>
+<h3 id="Showing-Source-Code-in-the-Chrome-Devtools"><a href="#Showing-Source-Code-in-the-Chrome-Devtools" class="headerlink" title="Showing Source Code in the Chrome Devtools"></a>Showing Source Code in the Chrome Devtools</h3><p>Before you can debug your Vue components from VS Code you need to update the generated Webpack config to build sourcemaps. We do this so that our debugger has a way to map the code within a compressed file back to its position in the original file. This ensures that you can debug an application even after your assets have been optimized by Webpack.</p>
+<p>Go to <code>config/index.js</code> and find the <code>devtool</code> property. Update it to:</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">devtool: 'source-map',</span><br></pre></td></tr></table></figure>
+<h3 id="Launching-the-Application-from-VS-Code"><a href="#Launching-the-Application-from-VS-Code" class="headerlink" title="Launching the Application from VS Code"></a>Launching the Application from VS Code</h3><p>Click on the Debugging icon in the Activity Bar to bring up the Debug view, then click on the gear icon to configure a launch.json file, selecting <strong>Chrome</strong> for the environment. Replace content of the generated launch.json with the following two configurations:</p>
+<p><img src="/images/config_add.png" alt="Add Chrome Configuration"></p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"version"</span>: <span class="string">"0.2.0"</span>,</span><br><span class="line">  <span class="attr">"configurations"</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"type"</span>: <span class="string">"chrome"</span>,</span><br><span class="line">      <span class="attr">"request"</span>: <span class="string">"launch"</span>,</span><br><span class="line">      <span class="attr">"name"</span>: <span class="string">"vuejs: chrome"</span>,</span><br><span class="line">      <span class="attr">"url"</span>: <span class="string">"http://localhost:8080"</span>,</span><br><span class="line">      <span class="attr">"webRoot"</span>: <span class="string">"$&#123;workspaceFolder&#125;/src"</span>,</span><br><span class="line">      <span class="attr">"breakOnLoad"</span>: <span class="literal">true</span>,</span><br><span class="line">      <span class="attr">"sourceMapPathOverrides"</span>: &#123;</span><br><span class="line">        <span class="attr">"webpack:///src/*"</span>: <span class="string">"$&#123;webRoot&#125;/*"</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Setting-a-Breakpoint"><a href="#Setting-a-Breakpoint" class="headerlink" title="Setting a Breakpoint"></a>Setting a Breakpoint</h2><ol>
+<li>Set a breakpoint in <strong>src/components/HelloWorld.vue</strong> on <code>line 90</code> where the <code>data</code> function returns a string.</li>
 </ol>
-<h2 id="Details-about-the-Value"><a href="#Details-about-the-Value" class="headerlink" title="Details about the Value"></a>Details about the Value</h2><p><em>required</em></p>
+<p><img src="/images/breakpoint_set.png" alt="Breakpoint Renderer"></p>
 <ol>
-<li>Address common questions that one might have while looking at the example. (Blockquotes are great for this)</li>
-<li>Show examples of common missteps and how they can be avoided.</li>
-<li>Show very simple code samples of good and bad patterns.</li>
-<li>Discuss why this may be a compelling pattern. Links for reference are not required but encouraged.</li>
+<li>Open your favorite terminal at the root folder and serve the app using Vue CLI:</li>
 </ol>
-<h2 id="Real-World-Example"><a href="#Real-World-Example" class="headerlink" title="Real-World Example"></a>Real-World Example</h2><p><em>required</em></p>
-<p>Demonstrate the code that would power a common or interesting use case, either by:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm start</span><br></pre></td></tr></table></figure>
 <ol>
-<li>Walking through a few terse examples of setup, or</li>
-<li>Embedding a codepen/jsfiddle example</li>
+<li><p>Go to the Debug view, select the <strong>‘vuejs: chrome’</strong> configuration, then press F5 or click the green play button.</p>
+</li>
+<li><p>Your breakpoint should now be hit as the new instance of Chrome opens <code>http://localhost:8080</code>.</p>
+</li>
 </ol>
-<p>If you choose to do the latter, you should still talk through what it is and does.</p>
-<h2 id="Additional-Context"><a href="#Additional-Context" class="headerlink" title="Additional Context"></a>Additional Context</h2><p><em>optional</em></p>
-<p>It’s extremely helpful to write a bit about this pattern, where else it would apply, why it works well, and run through a bit of code as you do so or give people further reading materials here.</p>
-<h2 id="When-To-Avoid-This-Pattern"><a href="#When-To-Avoid-This-Pattern" class="headerlink" title="When To Avoid This Pattern"></a>When To Avoid This Pattern</h2><p><em>optional</em></p>
-<p>This section is not required, but heavily recommended. It won’t make sense to write it for something very simple such as toggling classes based on state change, but for more advanced patterns like mixins it’s vital. The answer to most questions about development is <a href="https://codepen.io/rachsmith/pen/YweZbG" target="_blank" rel="noopener">“It depends!”</a>, this section embraces that. Here, we’ll take an honest look at when the pattern is useful and when it should be avoided, or when something else makes more sense.</p>
-<h2 id="Alternative-Patterns"><a href="#Alternative-Patterns" class="headerlink" title="Alternative Patterns"></a>Alternative Patterns</h2><p><em>optional, except when the section above is provided</em></p>
-<p>This section is required when you’ve provided the section above about avoidance. It’s important to explore other methods so that people told that something is an antipattern in certain situations are not left wondering. In doing so, consider that the web is a big tent and that many people have different codebase structures and are solving different goals. Is the app large or small? Are they integrating Vue into an existing project, or are they building from scratch? Are their users only trying to achieve one goal or many? Is there a lot of asynchronous data? All of these concerns will impact alternative implementations. A good cookbook recipe gives developers this context.</p>
-<h2 id="Thank-you"><a href="#Thank-you" class="headerlink" title="Thank you"></a>Thank you</h2><p>It takes time to contribute to documentation, and if you spend the time to submit a PR this section of our docs, you do so with our gratitude.</p>
+<p><img src="/images/breakpoint_hit.png" alt="Breakpoint Hit"></p>
+<h2 id="Alternative-Patterns"><a href="#Alternative-Patterns" class="headerlink" title="Alternative Patterns"></a>Alternative Patterns</h2><h3 id="Vue-Devtools"><a href="#Vue-Devtools" class="headerlink" title="Vue Devtools"></a>Vue Devtools</h3><p>There are other methods of debugging, varying in complexity. The most popular and simple of which is to use the excellent <a href="https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd" target="_blank" rel="noopener">vue-devtools</a>. Some of the benefits of working with the devtools are that they enable you to live-edit data properties and see the changes reflected immediately. The other major benefit is the ability to do time travel debugging for Vuex.</p>
+<p><img src="/images/devtools-timetravel.gif" alt="Devtools Timetravel Debugger"></p>
+<p class="tip">Please note that if the page uses a production/minified build of Vue.js (such as the standard link from a CDN), devtools inspection is disabled by default so the Vue pane won’t show up. If you switch to an unminified version, you may have to give the page a hard refresh to see them.</p>
+
+<h3 id="Vuetron"><a href="#Vuetron" class="headerlink" title="Vuetron"></a>Vuetron</h3><p><a href="http://vuetron.io/" target="_blank" rel="noopener">Vuetron</a> is a really nice project that extends some of the work that vue-devtools has done. In addition to the normal devtools workflow, you are able to:</p>
+<ul>
+<li>Quickly view API Request/Response: if you’re using the fetch API for requests, this event is displayed for any request sent. The expanded card displays the request data as well as the response data.</li>
+<li>Subscribe to specific parts of your application’s state for faster debugging</li>
+<li>Visualize component hierarchy, and an animation allows you to collapse or expand the tree for specific hierarchy views.</li>
+</ul>
+<p><img src="/images/vuetron-heirarchy.gif" alt="Vuetron Heirarchy"></p>
+<h3 id="Simple-Debugger-Statement"><a href="#Simple-Debugger-Statement" class="headerlink" title="Simple Debugger Statement"></a>Simple Debugger Statement</h3><p>The example above has a great workflow. However, there is an alternative option where you can use the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/debugger" target="_blank" rel="noopener">native debugger statement</a> directly in your code. If you choose to work this way, it’s important that you remember to remove the statements when you’re done.</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  data() &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      message: <span class="string">''</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  mounted() &#123;</span><br><span class="line">    <span class="keyword">const</span> hello = <span class="string">'Hello World!'</span></span><br><span class="line">    <span class="keyword">debugger</span></span><br><span class="line">    <span class="keyword">this</span>.message = hello</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="Acknowledgements"><a href="#Acknowledgements" class="headerlink" title="Acknowledgements"></a>Acknowledgements</h2><p>This recipe was based on a contribution from <a href="https://twitter.com/auchenberg" target="_blank" rel="noopener">Kenneth Auchenberg</a>, <a href="https://github.com/Microsoft/VSCode-recipes/tree/master/vuejs-cli" target="_blank" rel="noopener">available here</a>.</p>
 
   
   
@@ -449,7 +449,7 @@
 </script>
 
     Une erreur dans cette page ? Envie de contribuer à la traduction ?
-    <a href="https://github.com/vuejs-fr/vuejs.org/blob/master/src/v2/cookbook/cookbook-contributions.md" target="_blank">
+    <a href="https://github.com/vuejs-fr/vuejs.org/blob/master/src/v2/cookbook/debugging-in-vscode.md" target="_blank">
       Éditez cette page sur GitHub !
     </a>
   </div>

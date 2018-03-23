@@ -98,6 +98,7 @@
       <li><a href="/v2/api/" class="nav-link current">API</a></li>
       <li><a href="/v2/style-guide/" class="nav-link">Conventions</a></li>
       <li><a href="/v2/examples/" class="nav-link">Exemples</a></li>
+      <li><a href="/v2/cookbook/" class="nav-link">Tutoriels</a></li>
     </ul></li>
   </ul>
 </li>
@@ -126,6 +127,7 @@
     </ul></li>
     <li><h4>Infos</h4></li>
     <li><ul>
+      <li><a href="https://news.vuejs.org" class="nav-link" target="_blank">Actualités (En)</a></li>
       <li><a href="https://github.com/vuejs/roadmap" class="nav-link" target="_blank">Plans futurs (En)</a></li>
       <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank">Twitter (En)</a></li>
       <li><a href="https://medium.com/the-vue-point" class="nav-link" target="_blank">Blog (En)</a></li>
@@ -191,6 +193,7 @@
       <li><a href="/v2/api/" class="nav-link current">API</a></li>
       <li><a href="/v2/style-guide/" class="nav-link">Conventions</a></li>
       <li><a href="/v2/examples/" class="nav-link">Exemples</a></li>
+      <li><a href="/v2/cookbook/" class="nav-link">Tutoriels</a></li>
     </ul></li>
   </ul>
 </li>
@@ -219,6 +222,7 @@
     </ul></li>
     <li><h4>Infos</h4></li>
     <li><ul>
+      <li><a href="https://news.vuejs.org" class="nav-link" target="_blank">Actualités (En)</a></li>
       <li><a href="https://github.com/vuejs/roadmap" class="nav-link" target="_blank">Plans futurs (En)</a></li>
       <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank">Twitter (En)</a></li>
       <li><a href="https://medium.com/the-vue-point" class="nav-link" target="_blank">Blog (En)</a></li>
@@ -263,9 +267,9 @@
 
     </ul>
     <div class="list">
-      <div id="sidebar-sponsors">
+      <div id="sidebar-sponsors-special">
   <div class="main-sponsor">
-    <span>Sponsors</span>
+    <span>Special Sponsors</span>
     <div>
     <a href="https://stdlib.com" target="_blank" class="logo">
       <img src="/images/stdlib.png">
@@ -273,6 +277,14 @@
     <a href="https://www.bitsrc.io/?utm_source=vue&utm_medium=vue&utm_campaign=vue&utm_term=vue&utm_content=vue" target="_blank" class="logo">
       <img src="/images/bit-wide.png">
     </a>
+    </div>
+  </div>
+</div>
+
+<div id="sidebar-sponsors-platinum">
+  <div class="main-sponsor">
+    <span>Patreon Sponsors</span>
+    <div>
     <a href="http://tooltwist.com/" target="_blank" class="logo">
       <img src="/images/tooltwist.png">
     </a>
@@ -302,7 +314,6 @@
         
       </h2>
       <ul class="menu-root">
-  
   
 </ul>
 
@@ -933,7 +944,7 @@
 </li>
 <li><p><strong>Détails :</strong></p>
 <p>Permet d’étendre déclarativement un autre composant (qui peut être un simple objet d’options ou un constructeur) sans avoir à utiliser <code>Vue.extend</code>. C’est destiné en premier lieu à rendre plus facile les extensions entre composants monofichiers.</p>
-<p>Cette option est similaire à <code>mixins</code>, la différence étant que les propres options du composant ont la priorité sur celles du composant source à étendre.</p>
+<p>Cette option est similaire à <code>mixins</code>.</p>
 </li>
 <li><p><strong>Exemple :</strong></p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> CompA = &#123; ... &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// étend `CompA` sans avoir à appeler `Vue.extend` sur l'un ou l'autre</span></span><br><span class="line"><span class="keyword">var</span> CompB = &#123;</span><br><span class="line">  extends: CompA,</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -954,7 +965,19 @@
 
 <p>Ces deux options sont utilisées ensemble pour permettre à un composant parent de servir d’injecteur de dépendances pour tous ses descendants, peu importe la profondeur de la hiérarchie de composants, tant qu’ils sont dans la même chaine parente. Si vous êtes familiers avec React, c’est très similaire à la fonctionnalité de contexte dans React.</p>
 <p>L’option <code>provide</code> doit être un objet ou une fonction retournant un objet. Cet objet contient les propriétés qui sont disponibles pour l’injection dans ses descendants. Vous pouvez utiliser des <code>Symbol</code> ES2015 comme clés dans cet objet, mais seulement dans les environnements supportant nativement <code>Symbol</code> et <code>Reflect.ownKeys</code>.</p>
-<p>L’option <code>inject</code> doit être soit un <code>Array</code> de <code>String</code>, soit un objet où les clés sont les noms des liaisons locales et où les valeurs sont les clés (<code>String</code> ou <code>Symbol</code>) à rechercher dans les injections disponibles.</p>
+<p>L’option <code>inject</code> doit être soit :</p>
+<ul>
+<li>un <code>Array</code> de <code>String</code>, ou</li>
+<li>un objet où les clés sont les noms des liaisons locales et où les valeurs sont :<ul>
+<li>les clés (<code>String</code> ou <code>Symbol</code>) à rechercher dans les injections disponibles, ou</li>
+<li>un objet où :<ul>
+<li>la propriété <code>name</code> est la clé (<code>String</code> ou <code>Symbol</code>) à rechercher dans les injections disponibles, et</li>
+<li>la propriété <code>default</code> est utilisé comme valeur de substitution.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 <blockquote>
 <p>Note : les liaisons <code>provide</code> et <code>inject</code> ne sont PAS réactives. C’est intentionnel. Cependant, si vous passez un objet observé, les propriétés sur cet objet resteront réactives.</p>
 </blockquote>
@@ -1506,7 +1529,7 @@
 <li><p><strong>Utilisation :</strong></p>
 <p>Attache un écouteur d’évènement à l’élément. Le type d’évènement écouté est indiqué comme argument. L’expression peut être soit un nom de méthode, soit une ligne d’instruction, ou simplement omise si des modificateurs sont présents.</p>
 <p>À partir de la 2.4.0+, <code>v-on</code> supporte aussi la liaison à un objet de paires évènement/écouteur sans argument. Notez que lorsque vous utilisez la syntaxe objet, elle ne supporte aucun modificateur.</p>
-<p>Quand utilisé sur un élément HTML standard, il écoute uniquement les <strong>évènements natifs du DOM</strong>. Quand utilisé sur un élément personnalisé de composant, il écoute également les <strong>évènements personnalisés</strong> émis depuis ce composant enfant.</p>
+<p>Quand utilisé sur un élément HTML standard, il écoute uniquement les <a href="https://developer.mozilla.org/fr/docs/Web/Events" target="_blank" rel="noopener"><strong>évènements natifs du DOM</strong></a>. Quand utilisé sur un élément personnalisé de composant, il écoute également les <strong>évènements personnalisés</strong> émis depuis ce composant enfant.</p>
 <p>Lorsque des évènements natifs du DOM sont écoutés, la méthode reçoit l’évènement natif comme unique argument. Si la valeur de la directive est une ligne d’instruction, l’instruction a accès à la propriété spéciale <code>$event</code> : <code>v-on:click=&quot;handle(&#39;ok&#39;, $event)&quot;</code>.</p>
 </li>
 <li><p><strong>Exemple :</strong></p>

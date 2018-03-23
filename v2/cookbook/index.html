@@ -98,6 +98,7 @@
       <li><a href="/v2/api/" class="nav-link">API</a></li>
       <li><a href="/v2/style-guide/" class="nav-link">Conventions</a></li>
       <li><a href="/v2/examples/" class="nav-link">Exemples</a></li>
+      <li><a href="/v2/cookbook/" class="nav-link current">Tutoriels</a></li>
     </ul></li>
   </ul>
 </li>
@@ -126,6 +127,7 @@
     </ul></li>
     <li><h4>Infos</h4></li>
     <li><ul>
+      <li><a href="https://news.vuejs.org" class="nav-link" target="_blank">Actualités (En)</a></li>
       <li><a href="https://github.com/vuejs/roadmap" class="nav-link" target="_blank">Plans futurs (En)</a></li>
       <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank">Twitter (En)</a></li>
       <li><a href="https://medium.com/the-vue-point" class="nav-link" target="_blank">Blog (En)</a></li>
@@ -191,6 +193,7 @@
       <li><a href="/v2/api/" class="nav-link">API</a></li>
       <li><a href="/v2/style-guide/" class="nav-link">Conventions</a></li>
       <li><a href="/v2/examples/" class="nav-link">Exemples</a></li>
+      <li><a href="/v2/cookbook/" class="nav-link current">Tutoriels</a></li>
     </ul></li>
   </ul>
 </li>
@@ -219,6 +222,7 @@
     </ul></li>
     <li><h4>Infos</h4></li>
     <li><ul>
+      <li><a href="https://news.vuejs.org" class="nav-link" target="_blank">Actualités (En)</a></li>
       <li><a href="https://github.com/vuejs/roadmap" class="nav-link" target="_blank">Plans futurs (En)</a></li>
       <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank">Twitter (En)</a></li>
       <li><a href="https://medium.com/the-vue-point" class="nav-link" target="_blank">Blog (En)</a></li>
@@ -263,9 +267,9 @@
 
     </ul>
     <div class="list">
-      <div id="sidebar-sponsors">
+      <div id="sidebar-sponsors-special">
   <div class="main-sponsor">
-    <span>Sponsors</span>
+    <span>Special Sponsors</span>
     <div>
     <a href="https://stdlib.com" target="_blank" class="logo">
       <img src="/images/stdlib.png">
@@ -273,6 +277,14 @@
     <a href="https://www.bitsrc.io/?utm_source=vue&utm_medium=vue&utm_campaign=vue&utm_term=vue&utm_content=vue" target="_blank" class="logo">
       <img src="/images/bit-wide.png">
     </a>
+    </div>
+  </div>
+</div>
+
+<div id="sidebar-sponsors-platinum">
+  <div class="main-sponsor">
+    <span>Patreon Sponsors</span>
+    <div>
     <a href="http://tooltwist.com/" target="_blank" class="logo">
       <img src="/images/tooltwist.png">
     </a>
@@ -291,17 +303,12 @@
 
       <h2>
         
-        
+        Tutoriels<sup class="beta">beta</sup>
         
       </h2>
       <ul class="menu-root">
   
     
-    
-    
-      
-      <!-- Move cookbook sections here once they have -->
-      <!-- at least one recipe -->
     
     <li>
       <a href="/v2/cookbook/index.html" class="sidebar-link current">Introduction</a>
@@ -309,21 +316,11 @@
   
     
     
-    
-      
-      <!-- Move cookbook sections here once they have -->
-      <!-- at least one recipe -->
-    
     <li>
-      <a href="/v2/cookbook/cookbook-contributions.html" class="sidebar-link">Cookbook Contributions (EN)</a>
+      <a href="/v2/cookbook/adding-instance-properties.html" class="sidebar-link">Ajouter des propriétés aux instances</a>
     </li>
   
     
-    
-    
-      
-      <!-- Move cookbook sections here once they have -->
-      <!-- at least one recipe -->
     
     <li>
       <a href="/v2/cookbook/form-validation.html" class="sidebar-link">Form Validation (EN)</a>
@@ -331,21 +328,17 @@
   
     
     
-    
-      
-      <!-- Move cookbook sections here once they have -->
-      <!-- at least one recipe -->
-    
     <li>
-      <a href="/v2/cookbook/adding-instance-properties.html" class="sidebar-link">Ajouter des propriétés aux instances</a>
+      <a href="/v2/cookbook/editable-svg-icons.html" class="sidebar-link">Editable SVG Icon Systems (EN)</a>
     </li>
   
     
     
+    <li>
+      <a href="/v2/cookbook/serverless-blog.html" class="sidebar-link">Create a CMS-Powered Blog</a>
+    </li>
+  
     
-      
-      <!-- Move cookbook sections here once they have -->
-      <!-- at least one recipe -->
     
     <li>
       <a href="/v2/cookbook/unit-testing-vue-components.html" class="sidebar-link">Unit Testing Vue Components (EN)</a>
@@ -353,23 +346,21 @@
   
     
     
-    
-      
-      <!-- Move cookbook sections here once they have -->
-      <!-- at least one recipe -->
-    
     <li>
-      <a href="/v2/cookbook/editable-svg-icons.html" class="sidebar-link">Editable SVG Icon Systems (EN)</a>
+      <a href="/v2/cookbook/creating-custom-scroll-directives.html" class="sidebar-link">Creating Custom Scroll Directives</a>
     </li>
   
+    
+    
+    <li>
+      <a href="/v2/cookbook/debugging-in-vscode.html" class="sidebar-link">Debugging in VS Code and Chrome</a>
+    </li>
   
-    <li><h3>Composants</h3></li>
-    <li><h4>Champs de formulaire</h4></li>
-    <li><h4>Integrations tierces</h4></li>
-    <li><h3>Transitions</h3></li>
-    <li><h3>Directives</h3></li>
-    <li><h3>Vue Router</h3></li>
-    <li><h3>Vuex</h3></li>
+    
+    
+    <li>
+      <a href="/v2/cookbook/using-axios-to-consume-apis.html" class="sidebar-link">Using Axios to Consume APIs</a>
+    </li>
   
 </ul>
 
@@ -399,39 +390,62 @@
     <h1>Introduction</h1>
   
   
-    <h2 id="TRAVAIL-EN-COURS"><a href="#TRAVAIL-EN-COURS" class="headerlink" title="TRAVAIL EN COURS"></a>TRAVAIL EN COURS</h2><p>Ce livre de recettes (<em>cookbook</em>) en est encore à ses tout débuts. À ce stade, nous ne mettrons nulle part un lien vers celui-ci. Des pages peuvent être supprimées ou réorganisées à tout moment. Même les objectifs et le format global sont encore en mouvement.</p><p></p>
-<h2 id="Le-cookbook-versus-le-guide"><a href="#Le-cookbook-versus-le-guide" class="headerlink" title="Le cookbook versus le guide"></a>Le <em>cookbook</em> versus le guide</h2><p>En quoi le <em>cookbook</em> est-il différent du guide ? Pourquoi est-ce nécessaire ?</p>
+    <h2 id="Les-tutoriels-versus-le-guide"><a href="#Les-tutoriels-versus-le-guide" class="headerlink" title="Les tutoriels versus le guide"></a>Les tutoriels versus le guide</h2><p>Cette page est en cours de traduction. Pour nous aider, vous pouvez participer sur <a href="https://github.com/vuejs-fr/vuejs.org" target="_blank">le dépôt GitHub dédié de Vuejs-FR</a>.</p><p>En quoi les tutoriels sont-ils différent du guide ? Pourquoi est-ce nécessaire ?</p>
+
 <ul>
-<li><p><strong>Plus focalisé</strong> : Dans le guide, nous racontons essentiellement une histoire. Chaque section se construit sur la base des précédentes et présume la connaissance de celles-ci. Dans le <em>cookbook</em>, chaque recette peut et devrait se suffire à elle-même. Cela signifie que les recettes peuvent se focaliser sur un aspect spécifique de Vue, plutôt que d’avoir à donner un aperçu global.</p>
+<li><p><strong>Plus focalisé</strong> : Dans le guide, nous racontons essentiellement une histoire. Chaque section se construit sur la base des précédentes et présume la connaissance de celles-ci. Dans les tutoriels, chaque tutoriel peut et devrait se suffire à lui-même. Cela signifie que les tutoriels peuvent se focaliser sur un aspect spécifique de Vue, plutôt que d’avoir à donner un aperçu global.</p>
 </li>
-<li><p><strong>Plus de profondeur</strong> : Pour éviter de rendre le guide trop long, nous essayons d’inclure seulement les exemples les plus simples possible pour vous aider à comprendre chaque fonctionnalité. Puis nous passons à autre chose. Dans le <em>cookbook</em>, nous pouvons inclure des exemples plus complexes, combinant les fonctionnalités de façon intéressante. Chaque recette peut être aussi longue et détaillée que besoin, afin de pleinement explorer son sujet.</p>
+<li><p><strong>Plus de profondeur</strong> : Pour éviter de rendre le guide trop long, nous essayons d’inclure seulement les exemples les plus simples possible pour vous aider à comprendre chaque fonctionnalité. Puis nous passons à autre chose. Dans les tutoriels, nous pouvons inclure des exemples plus complexes, combinant les fonctionnalités de façon intéressante. Chaque tutoriel peut être aussi long et détaillé que besoin, afin de pleinement explorer son sujet.</p>
 </li>
-<li><p><strong>Enseigner JavaScript</strong> : Dans le guide, nous supposons que le lecteur est au moins moyennement familier avec la norme ES5 de JavaScript. Par exemple, nous n’expliquerons pas comment <code>Array.prototype.filter</code> fonctionne au sein d’une propriété calculée qui filtre une liste. Dans le <em>cookbook</em> en revanche, des fonctionnalités essentielles de JavaScript (y-compris ES6/2015+) peuvent être explorées et expliquées pour montrer comment elles nous aident à construire de meilleures applications Vue.</p>
+<li><p><strong>Enseigner JavaScript</strong> : Dans le guide, nous supposons que le lecteur est au moins moyennement familier avec la norme ES5 de JavaScript. Par exemple, nous n’expliquerons pas comment <code>Array.prototype.filter</code> fonctionne au sein d’une propriété calculée qui filtre une liste. Dans les tutoriels en revanche, des fonctionnalités essentielles de JavaScript (y-compris ES6/2015+) peuvent être explorées et expliquées pour montrer comment elles nous aident à construire de meilleures applications Vue.</p>
 </li>
-<li><p><strong>Explorer l’écosystème</strong> : Pour les fonctionnalités avancées, nous supposons que le lecteur a quelques connaissances sur l’écosystème. Par exemple, si vous voulez utiliser des composants monofichiers avec webpack, nous n’expliquerons pas comment configurer les parties qui ne concernent pas Vue dans la configuration de webpack. Dans le <em>cookbook</em>, nous avons l’espace suffisant pour explorer plus en profondeur ces bibliothèques de l’écosystème - au moins dans la mesure où cela est universellement utile aux développeurs Vue.</p>
+<li><p><strong>Explorer l’écosystème</strong> : Pour les fonctionnalités avancées, nous supposons que le lecteur a quelques connaissances sur l’écosystème. Par exemple, si vous voulez utiliser des composants monofichiers avec webpack, nous n’expliquerons pas comment configurer les parties qui ne concernent pas Vue dans la configuration de webpack. Dans les tutoriels, nous avons l’espace suffisant pour explorer plus en profondeur ces bibliothèques de l’écosystème - au moins dans la mesure où cela est universellement utile aux développeurs Vue.</p>
 </li>
 </ul>
-<h2 id="Lignes-directrices-pour-les-recettes"><a href="#Lignes-directrices-pour-les-recettes" class="headerlink" title="Lignes directrices pour les recettes"></a>Lignes directrices pour les recettes</h2><p>Les recettes doivent généralement :</p>
+<h2 id="Contributions-au-tutoriels"><a href="#Contributions-au-tutoriels" class="headerlink" title="Contributions au tutoriels"></a>Contributions au tutoriels</h2><h3 id="What-we’re-looking-for"><a href="#What-we’re-looking-for" class="headerlink" title="What we’re looking for"></a>What we’re looking for</h3><p>The Cookbook gives developers examples to work off of that both cover common or interesting use cases, and also progressively explain more complex detail. Our goal is to move beyond a simple introductory example, and demonstrate concepts that are more widely applicable, as well as some caveats to the approach.</p>
+<p>If you’re interested in contributing, please initiate collaboration by filing an issue under the tag <strong>cookbook idea</strong> with your concept so that we can help guide you to a successful pull request. After your idea has been approved, please follow the template below as much as possible. Some sections are required, and some are optional. Following the numerical order is strongly suggested, but not required.</p>
+<p>Les tutoriels doivent généralement :</p>
 <blockquote>
-<ol>
-<li><p>Résoudre un problème spécifique et commun</p>
-</li>
-<li><p>Commencer avec l’exemple le plus simple possible</p>
-</li>
-<li><p>Introduire une complexité à la fois</p>
-</li>
-<li><p>Comporter des liens vers d’autres sections de la documentation, plutôt que de réexpliquer les concepts</p>
-</li>
-<li><p>Décrire le problème plutôt que de supposer que le lecteur est familier avec</p>
-</li>
-<li><p>Expliquer le processus au-delà du simple résultat final</p>
-</li>
-<li><p>Expliquer le pour et le contre de votre approche, en indiquant dans quels cas elle est appropriée ou non</p>
-</li>
-<li><p>Mentionner des solutions alternatives si c’est pertinent, mais garder les explications en profondeur pour une autre recette.</p>
-</li>
-</ol>
+<ul>
+<li>Résoudre un problème spécifique et commun</li>
+<li>Commencer avec l’exemple le plus simple possible</li>
+<li>Introduire une complexité à la fois</li>
+<li>Comporter des liens vers d’autres sections de la documentation, plutôt que de réexpliquer les concepts</li>
+<li>Décrire le problème plutôt que de supposer que le lecteur est familier avec</li>
+<li>Expliquer le processus au-delà du simple résultat final</li>
+<li>Expliquer le pour et le contre de votre approche, en indiquant dans quels cas elle est appropriée ou non</li>
+<li>Mentionner des solutions alternatives si c’est pertinent, mais garder les explications en profondeur pour une autre recette.</li>
+</ul>
 </blockquote>
+<p>We request that you follow the template below. We understand, however, that there are times when you may necessarily need to deviate for clarity or flow. Either way, all recipes should at some point discuss the nuance of the choice made using this pattern, preferably in the form of the alternative patterns section.</p>
+<h3 id="Base-Example"><a href="#Base-Example" class="headerlink" title="Base Example"></a>Base Example</h3><p><em>required</em></p>
+<ol>
+<li>Articulate the problem in a sentence or two.</li>
+<li>Explain the simplest possible solution in a sentence or two.</li>
+<li>Show a small code sample.</li>
+<li>Explain what this accomplishes in a sentence.</li>
+</ol>
+<h3 id="Details-about-the-Value"><a href="#Details-about-the-Value" class="headerlink" title="Details about the Value"></a>Details about the Value</h3><p><em>required</em></p>
+<ol>
+<li>Address common questions that one might have while looking at the example. (Blockquotes are great for this)</li>
+<li>Show examples of common missteps and how they can be avoided.</li>
+<li>Show very simple code samples of good and bad patterns.</li>
+<li>Discuss why this may be a compelling pattern. Links for reference are not required but encouraged.</li>
+</ol>
+<h3 id="Real-World-Example"><a href="#Real-World-Example" class="headerlink" title="Real-World Example"></a>Real-World Example</h3><p><em>required</em></p>
+<p>Demonstrate the code that would power a common or interesting use case, either by:</p>
+<ol>
+<li>Walking through a few terse examples of setup, or</li>
+<li>Embedding a codepen/jsfiddle example</li>
+</ol>
+<p>If you choose to do the latter, you should still talk through what it is and does.</p>
+<h3 id="Additional-Context"><a href="#Additional-Context" class="headerlink" title="Additional Context"></a>Additional Context</h3><p><em>optional</em></p>
+<p>It’s extremely helpful to write a bit about this pattern, where else it would apply, why it works well, and run through a bit of code as you do so or give people further reading materials here.</p>
+<h3 id="When-To-Avoid-This-Pattern"><a href="#When-To-Avoid-This-Pattern" class="headerlink" title="When To Avoid This Pattern"></a>When To Avoid This Pattern</h3><p><em>optional</em></p>
+<p>This section is not required, but heavily recommended. It won’t make sense to write it for something very simple such as toggling classes based on state change, but for more advanced patterns like mixins it’s vital. The answer to most questions about development is <a href="https://codepen.io/rachsmith/pen/YweZbG" target="_blank" rel="noopener">“It depends!”</a>, this section embraces that. Here, we’ll take an honest look at when the pattern is useful and when it should be avoided, or when something else makes more sense.</p>
+<h3 id="Alternative-Patterns"><a href="#Alternative-Patterns" class="headerlink" title="Alternative Patterns"></a>Alternative Patterns</h3><p><em>required</em></p>
+<p>This section is required when you’ve provided the section above about avoidance. It’s important to explore other methods so that people told that something is an antipattern in certain situations are not left wondering. In doing so, consider that the web is a big tent and that many people have different codebase structures and are solving different goals. Is the app large or small? Are they integrating Vue into an existing project, or are they building from scratch? Are their users only trying to achieve one goal or many? Is there a lot of asynchronous data? All of these concerns will impact alternative implementations. A good cookbook recipe gives developers this context.</p>
+<h2 id="Thank-you"><a href="#Thank-you" class="headerlink" title="Thank you"></a>Thank you</h2><p>It takes time to contribute to documentation, and if you spend the time to submit a PR to this section of our docs, you do so with our gratitude.</p>
 
   
   
