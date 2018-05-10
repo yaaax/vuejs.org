@@ -301,19 +301,20 @@
   </a>
 </div>
 
-      <h2>
-        
-        Guide
-        
-          <select class="version-select">
-            <option value="SELF" selected>2.x</option>
-            <option value="v1">1.0</option>
-            <option value="012">0.12</option>
-            <option value="011">0.11</option>
-          </select>
-        
-      </h2>
-      <ul class="menu-root">
+      
+        <h2>
+          
+          Guide
+          
+            <select class="version-select">
+              <option value="SELF" selected>2.x</option>
+              <option value="v1">1.0</option>
+              <option value="012">0.12</option>
+              <option value="011">0.11</option>
+            </select>
+          
+        </h2>
+        <ul class="menu-root">
   
     
     
@@ -943,6 +944,7 @@
   
 </ul>
 
+      
     </div>
   </div>
 </div>
@@ -997,7 +999,7 @@
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  focus: <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123; <span class="comment">/* ... */</span> &#125;</span><br><span class="line">  input: <span class="function"><span class="keyword">function</span> (<span class="params">value</span>) </span>&#123; <span class="comment">/* ... */</span> &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>En utilisant la propriété <code>$listeners</code>, vous pouvez renvoyer tous les écouteurs d’événements sur le composant vers un élément enfant spécifique avec <code>v-on=&quot;$listeners&quot;</code>. Pour les éléments tels que <code>&lt;input&gt;</code>, pour lesquels vous voulez aussi que <code>v-model</code> fonctionne, il est souvent utile de créer une nouvelle propriété calculée pour les écouteurs, tels que la propriété <code>inputListeners</code> ci-dessous:</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">'base-input'</span>, &#123;</span><br><span class="line">  inheritAttrs: <span class="literal">false</span>,</span><br><span class="line">  props: [<span class="string">'label'</span>, <span class="string">'value'</span>],</span><br><span class="line">  computed: &#123;</span><br><span class="line">    inputListeners: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> vm = <span class="keyword">this</span></span><br><span class="line">      <span class="comment">// `Object.assign` fusionne les objets ensemble pour en former un nouveau</span></span><br><span class="line">      <span class="keyword">return</span> <span class="built_in">Object</span>.assign(&#123;&#125;,</span><br><span class="line">        <span class="comment">// Nous ajoutons tous les écouteurs du parent</span></span><br><span class="line">        <span class="keyword">this</span>.$listeners,</span><br><span class="line">        <span class="comment">// Puis nous pouvons ajouter des écouteurs personnalisés</span></span><br><span class="line">        <span class="comment">// ou surcharger le comportement de certains écouteurs.</span></span><br><span class="line">        &#123;</span><br><span class="line">          <span class="comment">// Cela garantit que le composant fonctionne avec v-model</span></span><br><span class="line">          input: <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;</span><br><span class="line">            vm.$emit(<span class="string">'input'</span>, event.target.value)</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      )</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  template: <span class="string">`</span></span><br><span class="line"><span class="string">    &lt;label&gt;</span></span><br><span class="line"><span class="string">      &#123;&#123; label &#125;&#125;</span></span><br><span class="line"><span class="string">      &lt;input</span></span><br><span class="line"><span class="string">        v-bind="$attrs"</span></span><br><span class="line"><span class="string">        v-bind:value="value"</span></span><br><span class="line"><span class="string">        v-on="inputListeners"</span></span><br><span class="line"><span class="string">      &gt;</span></span><br><span class="line"><span class="string">    &lt;/label&gt;</span></span><br><span class="line"><span class="string">  `</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<p>À présent, le composant <code>&lt;base-input&gt;</code> est une <strong>enveloppe complètement transparente</strong>, c’est-à-dire qu’il peut être utilisé comme un élément <code>&lt;input&gt;</code> normal : tous les mêmes attributs et écouteurs d’événements fonctionneront.</p>
+<p>À présent, le composant <code>&lt;base-input&gt;</code> est une <strong>enveloppe complètement transparente</strong>, c’est-à-dire qu’il peut être utilisé comme un élément <code>&lt;input&gt;</code> normal : tous les mêmes attributs et écouteurs d’événements fonctionneront, sans le modificateur <code>.native</code>.</p>
 <h2 id="Modificateur-sync"><a href="#Modificateur-sync" class="headerlink" title="Modificateur .sync"></a>Modificateur <code>.sync</code></h2><blockquote>
 <p>Nouveauté de la 2.3.0+</p>
 </blockquote>

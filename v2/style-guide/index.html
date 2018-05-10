@@ -301,15 +301,17 @@
   </a>
 </div>
 
-      <h2>
-        
-        Conventions<sup class="beta">beta</sup>
-        
-      </h2>
-      <ul class="menu-root">
+      
+        <h2>
+          
+          Conventions<sup class="beta">beta</sup>
+          
+        </h2>
+        <ul class="menu-root">
   
 </ul>
 
+      
     </div>
   </div>
 </div>
@@ -496,7 +498,7 @@
 </summary>
 
 <p>Vue utilise le préfixe <code>_</code> pour définir ses propres propriétés privées. Aussi utiliser le même préfixe comme (par ex. <code>_update</code>) risque d’écraser les propriétés d’instance. Même si vous vérifiez que Vue n’utilise pas actuellement un nom de propriété particulier, il n’y a aucune garantie que le conflit n’apparaisse pas dans des versions futures.</p>
-<p>Concernant le préfixe <code>$</code>, il est réservé dans l’écosystème Vue à des propriétés spéciales d’instance exposées à l’utilisateur. L’utiliser pour des propriétés <em>privées</em> ne serait pas un bon choix non plus.</p>
+<p>Concernant le préfixe <code>$</code>, il est réservé dans l’écosystème Vue à des propriétés spéciales d’instance exposées à l’utilisateur. L’utiliser pour des propriétés <em>privées</em> ne serait pas approprié.</p>
 <p>À la place, nous recommandons de combiner les deux préfixes en un <code>$_</code>, comme une convention pour définir des propriétés personnelles privées et garantir qu’il n’y ait aucun conflit avec Vue.</p>
 </details>
 <div class="style-example example-bad">

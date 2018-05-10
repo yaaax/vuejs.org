@@ -301,19 +301,20 @@
   </a>
 </div>
 
-      <h2>
-        
-        Guide
-        
-          <select class="version-select">
-            <option value="SELF" selected>2.x</option>
-            <option value="v1">1.0</option>
-            <option value="012">0.12</option>
-            <option value="011">0.11</option>
-          </select>
-        
-      </h2>
-      <ul class="menu-root">
+      
+        <h2>
+          
+          Guide
+          
+            <select class="version-select">
+              <option value="SELF" selected>2.x</option>
+              <option value="v1">1.0</option>
+              <option value="012">0.12</option>
+              <option value="011">0.11</option>
+            </select>
+          
+        </h2>
+        <ul class="menu-root">
   
     
     
@@ -943,6 +944,7 @@
   
 </ul>
 
+      
     </div>
   </div>
 </div>
@@ -985,8 +987,7 @@
 <p>Assurez vous de lire la partie dédiée <a href="#Explication-des-differents-builds">aux différents builds de Vue</a> et d’utiliser la <strong>version de production</strong> dans vos sites publiés, en remplaçant <code>vue.js</code> par <code>vue.min.js</code>. C’est un build plus léger optimisé pour la rapidité plutôt que l’expérience de développement.</p>
 <h2 id="npm"><a href="#npm" class="headerlink" title="npm"></a>npm</h2><p>npm est la méthode d’installation recommandée lors du développement de grosses applications avec Vue. Il s’associe bien avec des empaqueteurs de modules comme <a href="https://webpack.js.org/" target="_blank" rel="noopener">webpack</a> ou <a href="http://browserify.org/" target="_blank" rel="noopener">Browserify</a>. Vue fournit également des outils d’accompagnement pour la rédaction de <a href="single-file-components.html">Composants Mono-fichier</a>.</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># dernière version stable</span></span><br><span class="line">$ npm install vue</span><br></pre></td></tr></table></figure>
-<h2 id="CLI"><a href="#CLI" class="headerlink" title="CLI"></a>CLI</h2><p>Vue.js offre une <a href="https://github.com/vuejs/vue-cli" target="_blank" rel="noopener">CLI</a> (interface en ligne de commande) officielle pour mettre rapidement en place les bases d’une application monopage ambitieuse. Il offre une série de builds pré-configurés pour un <em>workflow frontend</em> moderne. Cela ne prend que quelques minutes pour commencer et lancer des rechargements à chaud, de l’analyse syntaxique à la sauvegarde, et des builds prêts pour la production :</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># installer vue-cli</span></span><br><span class="line">$ npm install --global vue-cli</span><br><span class="line"><span class="comment"># créer un nouveau projet en utilisant le template "webpack"</span></span><br><span class="line">$ vue init webpack my-project</span><br><span class="line"><span class="comment"># installer les dépendances et c'est parti !</span></span><br><span class="line">$ <span class="built_in">cd</span> my-project</span><br><span class="line">$ npm run dev</span><br></pre></td></tr></table></figure>
+<h2 id="CLI"><a href="#CLI" class="headerlink" title="CLI"></a>CLI</h2><p>Vue.js offre une <a href="https://github.com/vuejs/vue-cli" target="_blank" rel="noopener">CLI</a> (interface en ligne de commande) officielle pour mettre rapidement en place les bases d’une application monopage ambitieuse. Il offre une série de builds pré-configurés pour un workflow frontend moderne. Cela ne prend que quelques minutes pour commencer et lancer des rechargements à chaud, de l’analyse syntaxique à la sauvegarde, et des builds prêts pour la production. Consultez <a href="https://github.com/vuejs/vue-cli/blob/dev/docs/README.md#introduction" target="_blank" rel="noopener">la documentation Vue CLI</a> pour plus de détails.</p>
 <p class="tip">Utiliser la CLI nécessite des connaissances préalables en Node.js et les outils de build associés. Si vous êtes nouveau sur Vue ou les outils de build front-end, nous vous recommandons fortement de parcourir <a href="./">le guide</a> sans aucun outil de build avant d’utiliser l’interface CLI.</p>
 
 <h2 id="Explication-des-differents-builds"><a href="#Explication-des-differents-builds" class="headerlink" title="Explication des différents builds"></a>Explication des différents builds</h2><p>Dans le <a href="https://cdn.jsdelivr.net/npm/vue/dist/" target="_blank" rel="noopener">dossier <code>dist/</code> du package npm</a> vous trouverrez plusieurs builds différents de Vue.js. Voici un aperçu des différences entre chacun d’eux :</p>
@@ -1048,10 +1049,14 @@
 <h4 id="Rollup"><a href="#Rollup" class="headerlink" title="Rollup"></a>Rollup</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> alias = <span class="built_in">require</span>(<span class="string">'rollup-plugin-alias'</span>)</span><br><span class="line"></span><br><span class="line">rollup(&#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  plugins: [</span><br><span class="line">    alias(&#123;</span><br><span class="line">      <span class="string">'vue'</span>: <span class="string">'vue/dist/vue.esm.js'</span></span><br><span class="line">    &#125;)</span><br><span class="line">  ]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <h4 id="Browserify"><a href="#Browserify" class="headerlink" title="Browserify"></a>Browserify</h4><p>Ajoutez au fichier <code>package.json</code> de votre projet :</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  <span class="string">"browser"</span>: &#123;</span><br><span class="line">    <span class="string">"vue"</span>: <span class="string">"vue/dist/vue.common.js"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Parcel"><a href="#Parcel" class="headerlink" title="Parcel"></a>Parcel</h4><p>Ajoutez au fichier <code>package.json</code> de votre projet :</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  <span class="string">"alias"</span>: &#123;</span><br><span class="line">    <span class="string">"vue"</span> : <span class="string">"./node_modules/vue/dist/vue.common.js"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="Mode-developement-vs-mode-production"><a href="#Mode-developement-vs-mode-production" class="headerlink" title="Mode dévelopement vs. mode production"></a>Mode dévelopement vs. mode production</h3><p>Les modes développement et production sont écrits en dur dans les builds UMD : les fichiers non minifiés sont pour le développement, et les fichier minifiés sont pour la production.</p>
 <p>Les builds CommonJS et ES Module sont prévus pour les outils de paquetage, donc nous ne fournissons pas de version minifié pour eux. Vous aurez à votre charge de minifier le paquetage final vous-même.</p>
 <p>Les builds CommonJS et ES Module contiennent une utilisation de <code>process.env.NODE_ENV</code> pour déterminer le mode qu’ils doivent suivre. Vous devriez utiliser une configuration d’outil d’empaquetage appropriée pour remplacer ces d’environnements afin de contrôler lequel des modes Vue exécutera. Remplacer <code>process.env.NODE_ENV</code> avec une chaîne de caractère littérale permet aux outils de minification comme UglifyJS de complètement retirer les pends de code réservés au développement, réduisant ainsi la taille du fichier final.</p>
-<h4 id="webpack-1"><a href="#webpack-1" class="headerlink" title="webpack"></a>webpack</h4><p>Utiliser la fonction <a href="https://webpack.js.org/plugins/define-plugin/" target="_blank" rel="noopener">DefinePlugin</a> de webpack :</p>
+<h4 id="webpack-1"><a href="#webpack-1" class="headerlink" title="webpack"></a>webpack</h4><p>Dans webpack 4+, vous pouvez utiliser l’option <code>mode</code> :</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  mode: <span class="string">'production'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Mais dans webpack 3 et précédent, vous devez utiliser la fonction <a href="https://webpack.js.org/plugins/define-plugin/" target="_blank" rel="noopener">DefinePlugin</a> :</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  plugins: [</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">    <span class="keyword">new</span> webpack.DefinePlugin(&#123;</span><br><span class="line">      <span class="string">'process.env'</span>: &#123;</span><br><span class="line">        NODE_ENV: <span class="built_in">JSON</span>.stringify(<span class="string">'production'</span>)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="Rollup-1"><a href="#Rollup-1" class="headerlink" title="Rollup"></a>Rollup</h4><p>Utilisez le <a href="https://github.com/rollup/rollup-plugin-replace" target="_blank" rel="noopener">rollup-plugin-replace</a> :</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> replace = <span class="built_in">require</span>(<span class="string">'rollup-plugin-replace'</span>)</span><br><span class="line"></span><br><span class="line">rollup(&#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  plugins: [</span><br><span class="line">    replace(&#123;</span><br><span class="line">      <span class="string">'process.env.NODE_ENV'</span>: <span class="built_in">JSON</span>.stringify(<span class="string">'production'</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">  ]</span><br><span class="line">&#125;).then(...)</span><br></pre></td></tr></table></figure>

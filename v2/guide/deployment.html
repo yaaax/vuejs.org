@@ -301,19 +301,20 @@
   </a>
 </div>
 
-      <h2>
-        
-        Guide
-        
-          <select class="version-select">
-            <option value="SELF" selected>2.x</option>
-            <option value="v1">1.0</option>
-            <option value="012">0.12</option>
-            <option value="011">0.11</option>
-          </select>
-        
-      </h2>
-      <ul class="menu-root">
+      
+        <h2>
+          
+          Guide
+          
+            <select class="version-select">
+              <option value="SELF" selected>2.x</option>
+              <option value="v1">1.0</option>
+              <option value="012">0.12</option>
+              <option value="011">0.11</option>
+            </select>
+          
+        </h2>
+        <ul class="menu-root">
   
     
     
@@ -943,6 +944,7 @@
   
 </ul>
 
+      
     </div>
   </div>
 </div>
@@ -972,8 +974,10 @@
     <h2 id="Passer-en-mode-production"><a href="#Passer-en-mode-production" class="headerlink" title="Passer en mode production"></a>Passer en mode production</h2><p>Pendant le développement, Vue fournit beaucoup d’avertissements pour vous aider avec les erreurs usuelles et les pièges. Ces messages d’avertissement deviennent cependant inutiles en production et gonflent la taille de votre application en production. De plus, certains de ces avertissements ont un léger cout d’exécution qui peut être évité en mode production.</p>
 <h3 id="Sans-outils-de-build"><a href="#Sans-outils-de-build" class="headerlink" title="Sans outils de build"></a>Sans outils de build</h3><p>Si vous utilisez la version complète, c.-à-d. en incluant directement Vue via une balise script sans outil de build, assurez-vous d’utiliser la version minifiée (<code>vue.min.js</code>) pour la production. Ces deux versions peuvent être trouvées dans le <a href="installation.html#Inclusion-directe-lt-script-gt">guide d’installation</a>.</p>
 <h3 id="Avec-outils-de-build"><a href="#Avec-outils-de-build" class="headerlink" title="Avec outils de build"></a>Avec outils de build</h3><p>Quand vous utilisez un outil de build comme webpack ou Browserify, le mode production sera déterminé par la valeur de <code>process.env.NODE_ENV</code> utilisée dans le code source de Vue, et sera en mode développement par défaut. Ces deux outils fournissent des moyens de surcharger cette variable pour activer le mode production de Vue, et les avertissements seront retirés par le minificateur pendant le build. Tous les templates <code>vue-cli</code> sont préconfigurés pour vous, mais il peut être utile de savoir comment cela fonctionne :</p>
-<h4 id="webpack"><a href="#webpack" class="headerlink" title="webpack"></a>webpack</h4><p>Utiliser le plugin <a href="https://webpack.js.org/plugins/define-plugin/" target="_blank" rel="noopener">DefinePlugin</a> de webpack pour indiquer un environnement de production, ainsi les blocs d’avertissements seront ignorés par UglifyJS pendant la minification. Un exemple de configuration :</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  plugins: [</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">    <span class="keyword">new</span> webpack.DefinePlugin(&#123;</span><br><span class="line">      <span class="string">'process.env'</span>: &#123;</span><br><span class="line">        NODE_ENV: <span class="string">'"production"'</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="webpack"><a href="#webpack" class="headerlink" title="webpack"></a>webpack</h4><p>Dans webpack 4+, vous pouvez utiliser l’option <code>mode</code> :</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  mode: <span class="string">'production'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Mais dans webpack 3 et précédent, vous devez utiliser la fonction <a href="https://webpack.js.org/plugins/define-plugin/" target="_blank" rel="noopener">DefinePlugin</a> :</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  plugins: [</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">    <span class="keyword">new</span> webpack.DefinePlugin(&#123;</span><br><span class="line">      <span class="string">'process.env'</span>: &#123;</span><br><span class="line">        NODE_ENV: <span class="built_in">JSON</span>.stringify(<span class="string">'production'</span>)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="Browserify"><a href="#Browserify" class="headerlink" title="Browserify"></a>Browserify</h4><ul>
 <li><p>Lancer votre commande d’empaquetage avec la variable d’environnement <code>NODE_ENV</code> assignée à <code>&quot;production&quot;</code>. Cela indique à <code>vueify</code> d’éviter d’inclure le code utilisé pour le rechargement à chaud ou lié au développement.</p>
 </li>
