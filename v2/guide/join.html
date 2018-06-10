@@ -58,7 +58,10 @@
 
     <!-- this needs to be loaded before guide's inline scripts -->
     <script src="/js/vue.js"></script>
-    <script>window.PAGE_TYPE = "guide"</script>
+    <script>
+      Vue.config.productionTip = false
+      window.PAGE_TYPE = "guide"
+    </script>
 
     <!-- ga -->
     <script>
@@ -954,14 +957,11 @@
   
     
       <div id="ad">
-  <script>
-    (function () {
-      var s = document.createElement('script')
-      s.setAttribute('async', '')
-      s.src = '//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=vuejs'
-      s.id = '_carbonads_js'
-      document.getElementById('ad').appendChild(s)
-    })()
+  <script
+    async
+    type="text/javascript"
+    src="//cdn.carbonads.com/carbon.js?serve=CKYIK2QU&placement=vuejsorg"
+    id="_carbonads_js">
   </script>
 </div>
 
@@ -975,7 +975,8 @@
 <p>Maintenant nous allons voir ensemble ce que la communauté peut faire pour vous et ce que vous pouvez faire pour la communauté.</p>
 <h2 id="Ressources-qui-te-plairont"><a href="#Ressources-qui-te-plairont" class="headerlink" title="Ressources qui te plairont"></a>Ressources qui te plairont</h2><h3 id="Obtenir-de-l’aide"><a href="#Obtenir-de-l’aide" class="headerlink" title="Obtenir de l’aide"></a>Obtenir de l’aide</h3><ul>
 <li><a href="https://forum.vuejs.org/french" target="_blank" rel="noopener">Forum</a> : Le meilleur endroit pour poser des questions et obtenir des réponses à propos de Vue et de son écosystème.</li>
-<li><a href="https://discordapp.com/channels/325477692906536972/360669119948783616" target="_blank" rel="noopener">Chat</a> | <a href="https://chat.vuejs.org/" target="_blank" rel="noopener">En</a> : Un lieu pour rencontrer et discuter avec des développeurs.</li>
+<li><a href="https://discordapp.com/channels/325477692906536972/360669119948783616" target="_blank" rel="noopener">Chat</a> | <a href="https://chat.vuejs.org/" target="_blank" rel="noopener">En</a> : Un lieu pour rencontrer et discuter en temps réel.</li>
+<li><a href="https://www.vuemeetups.org" target="_blank" rel="noopener">Meetups</a>: Envie de rencontrer des utilisateurs de Vue.js enthousiastes comme vous ? Intéressé pour devenir un leader de communauté ? Nous avons l’aide et le support qu’il vous faut juste ici !</li>
 <li><a href="https://github.com/vuejs" target="_blank" rel="noopener">GitHub</a> : Si vous avez un bogue à reporter ou une demande de nouvelle fonctionnalité à faire, les rapports de bogue (« issues ») GitHub sont là pour ça. Les propositions de fusion (« pull requests ») sont également les bienvenues !</li>
 </ul>
 <h3 id="Explorer-l’ecosysteme"><a href="#Explorer-l’ecosysteme" class="headerlink" title="Explorer l’écosystème"></a>Explorer l’écosystème</h3><ul>
@@ -997,7 +998,14 @@
 </ul>
 <h3 id="Traduire-les-documentations"><a href="#Traduire-les-documentations" class="headerlink" title="Traduire les documentations"></a>Traduire les documentations</h3><p>Vue s’est déjà répandu à travers le monde avec l’équipe principale présente dans au moins une demi-douzaine de fuseaux horaires. Le <a href="https://forum.vuejs.org/" target="_blank" rel="noopener">forum international</a> inclut bien des langues et beaucoup de nos documentations ont une <a href="https://github.com/vuejs?utf8=%E2%9C%93&amp;query=vuejs.org" target="_blank" rel="noopener">traduction maintenue activement</a>. Nous sommes extrêmement fiers de notre présence à l’international avec Vue, mais nous pouvons faire encore mieux.</p>
 <p>Nous espérons qu’en ce moment, vous êtes en train de lire cette phrase dans votre langue préférée. Si ce n’est pas le cas, que diriez-vous de nous aider à changer cela en répliquant le <a href="https://github.com/vuejs/vuejs.org/" target="_blank" rel="noopener">dépôt international</a> ?</p>
-<p>Et si maintenir la traduction que vous êtes en train de lire vous intéresse, n’hésitez pas à répliquer le <a href="https://github.com/vuejs-fr/vuejs.org/" target="_blank" rel="noopener">dépôt français</a> et à proposer vos traductions ou corrections en propositions de fusion.</p>
+<p>Et si maintenir la traduction que vous êtes en train de lire vous intéresse (ou toutes autres traduction officielles d’ailleurs), n’hésitez pas à répliquer le <a href="https://github.com/vuejs-fr/vuejs.org/" target="_blank" rel="noopener">dépôt français</a> et à proposer vos traductions ou corrections en propositions de fusion.</p>
+<h3 id="Devenir-un-leader-de-communaute"><a href="#Devenir-un-leader-de-communaute" class="headerlink" title="Devenir un leader de communauté"></a>Devenir un leader de communauté</h3><p>Il y a beaucoup de chose que vous pouvez faire pour aider Vue à grandir dans votre communauté :</p>
+<ul>
+<li><strong>Le présenter à vos meetup locaux.</strong> Chaque fois que vous donner un talk ou que vous faites un workshop, vous apportez beaucoup de valeur à la communauté en aidant aussi bien les nouveaux développeurs que les plus expérimentés.</li>
+<li><strong>Lancez votre propre meetup.</strong> S’il n’y a pas déjà un meetup Vue dans votre zone, vous pouvez créer le votre ! Utilisez <a href="https://www.vuemeetups.org/resources/#introduction" target="_blank" rel="noopener">les outils vuemeetups.org</a> pour vous aider à réussir !</li>
+<li><strong>Aider les organisateurs de meetup.</strong> Il n’y a jamais assez d’aide quand il s’agit de mettre en place un évènement, donc vous pouvez donner un coup de main pour aider vos organisateurs locaux pour aider à faire de chaque évènement un succès.</li>
+</ul>
+<p>Si vous avez la moindre question sur comment être plus impliqué dans votre communauté Vue locale, contactez <a href="mailto:hello@vuemeetups.org" target="_blank" rel="noopener">hello@vuemeetups.org</a> ou <a href="https://www.twitter.com/vuemeetups" target="_blank" rel="noopener">@VueMeetups</a> !</p>
 
   
   

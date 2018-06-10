@@ -58,7 +58,10 @@
 
     <!-- this needs to be loaded before guide's inline scripts -->
     <script src="/js/vue.js"></script>
-    <script>window.PAGE_TYPE = "guide"</script>
+    <script>
+      Vue.config.productionTip = false
+      window.PAGE_TYPE = "guide"
+    </script>
 
     <!-- ga -->
     <script>
@@ -954,14 +957,11 @@
   
     
       <div id="ad">
-  <script>
-    (function () {
-      var s = document.createElement('script')
-      s.setAttribute('async', '')
-      s.src = '//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=vuejs'
-      s.id = '_carbonads_js'
-      document.getElementById('ad').appendChild(s)
-    })()
+  <script
+    async
+    type="text/javascript"
+    src="//cdn.carbonads.com/carbon.js?serve=CKYIK2QU&placement=vuejsorg"
+    id="_carbonads_js">
   </script>
 </div>
 
@@ -976,12 +976,12 @@
 </blockquote>
 <h2 id="Declaration-officielle-dans-les-packages-npm"><a href="#Declaration-officielle-dans-les-packages-npm" class="headerlink" title="Déclaration officielle dans les packages npm"></a>Déclaration officielle dans les packages npm</h2><p>Un système de typage statique peut aider à prévenir des erreurs d’exécutions potentielles, et particulièrement quand les applications grandissent. C’est pourquoi Vue est fourni avec des <a href="https://github.com/vuejs/vue/tree/dev/types" target="_blank" rel="noopener">déclarations de types officielles</a> pour <a href="https://www.typescriptlang.org/" target="_blank" rel="noopener">TypeScript</a>, et pas seulement pour le cœur de Vue, mais aussi pour <a href="https://github.com/vuejs/vue-router/tree/dev/types" target="_blank" rel="noopener">vue-router</a> et <a href="https://github.com/vuejs/vuex/tree/dev/types" target="_blank" rel="noopener">vuex</a>.</p>
 <p>Puisque ceux-ci sont <a href="https://cdn.jsdelivr.net/npm/vue/types/" target="_blank" rel="noopener">publiés sur npm</a>, et que la dernière version de TypeScript sait comment résoudre des déclarations de type dans des packages npm, cela signifie qu’installer ceux-ci via npm ne requiert aucun outil supplémentaire pour utiliser TypeScript avec Vue.</p>
-<p>Nous avons également planifié de fournir prochainement une option dans <code>vue-cli</code> pour installer un projet Vue + TypeScript prêt à l’emploi.</p>
 <h2 id="Configuration-recommandee"><a href="#Configuration-recommandee" class="headerlink" title="Configuration recommandée"></a>Configuration recommandée</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// tsconfig.json</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"compilerOptions"</span>: &#123;</span><br><span class="line">    <span class="comment">// alignement avec le support navigateur de Vue</span></span><br><span class="line">    <span class="string">"target"</span>: <span class="string">"es5"</span>,</span><br><span class="line">    <span class="comment">// activation de la déduction stricte pour les propriétés de données sur `this`</span></span><br><span class="line">    <span class="string">"strict"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="comment">// si vous utilisez webpack 2+ ou rollup, permettre le tree shaking :</span></span><br><span class="line">    <span class="string">"module"</span>: <span class="string">"es2015"</span>,</span><br><span class="line">    <span class="string">"moduleResolution"</span>: <span class="string">"node"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>Notez que vous devez inclure <code>strict: true</code> (ou au moins <code>noImplicitThis: true</code> qui est une partie de <code>strict</code>) pour activer la vérification de type de <code>this</code> dans les méthodes de composant, autrement il sera toujours traité comme un type <code>any</code>.</p>
 <p>Voir <a href="https://www.typescriptlang.org/docs/handbook/compiler-options.html" target="_blank" rel="noopener">les options de compilation TypeScript</a> pour plus de détails.</p>
-<h2 id="Outils-de-developpement"><a href="#Outils-de-developpement" class="headerlink" title="Outils de développement"></a>Outils de développement</h2><p>Pour développer des applications Vue avec TypeScript, nous recommandons fortement d’utiliser <a href="https://code.visualstudio.com/" target="_blank" rel="noopener">Visual Studio Code</a> qui fournit un support de TypeScript nativement.</p>
-<p>Si vous utilisez des <a href="./single-file-components.html">composants monofichiers</a>, utilisez la super <a href="https://github.com/vuejs/vetur" target="_blank" rel="noopener">extension Vetur</a> qui fournit des déductions TypeScript à l’intérieur de vos composants monofichiers et bien d’autres fonctionnalités extras.</p>
+<h2 id="Outils-de-developpement"><a href="#Outils-de-developpement" class="headerlink" title="Outils de développement"></a>Outils de développement</h2><h3 id="Creation-de-projet"><a href="#Creation-de-projet" class="headerlink" title="Creation de projet"></a>Creation de projet</h3><p><a href="https://github.com/vuejs/vue-cli" target="_blank" rel="noopener">Vue CLI 3</a> peut générer de nouveaux projets qui utilise TypeScript. Pour commencer :</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 1. Installer Vue CLI s'il n'est pas déjà installé</span></span><br><span class="line">npm install --global @vue/cli</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. Créer un nouveau projet et choisir l'option "Manually select features"</span></span><br><span class="line">vue create my-project-name</span><br></pre></td></tr></table></figure>
+<h3 id="Support-d’edition"><a href="#Support-d’edition" class="headerlink" title="Support d’édition"></a>Support d’édition</h3><p>Pour développer des applications Vue avec TypeScript, nous recommandons fortement d’utiliser <a href="https://code.visualstudio.com/" target="_blank" rel="noopener">Visual Studio Code</a> qui fournit un support de TypeScript nativement. Si vous utilisez des <a href="./single-file-components.html">composants monofichiers</a>, utilisez la super <a href="https://github.com/vuejs/vetur" target="_blank" rel="noopener">extension Vetur</a> qui fournit des déductions TypeScript à l’intérieur de vos composants monofichiers et bien d’autres fonctionnalités extras.</p>
 <p><a href="https://www.jetbrains.com/webstorm/" target="_blank" rel="noopener">WebStorm</a> fournit également un support de base pour TypeScript et Vue.js.</p>
 <h2 id="Utilisation-de-base"><a href="#Utilisation-de-base" class="headerlink" title="Utilisation de base"></a>Utilisation de base</h2><p>Pour laisser TypeScript déduire proprement les types dans les options des composants Vue, vous devez définir vos composants avec <code>Vue.component</code> ou <code>Vue.extend</code> :</p>
 <figure class="highlight ts"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> Component = Vue.extend(&#123;</span><br><span class="line">  <span class="comment">// déduction de type activée</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> Component = &#123;</span><br><span class="line">  <span class="comment">// ceci N'aura PAS la déduction de type,</span></span><br><span class="line">  <span class="comment">// car TypeScript ne peut pas savoir qu'il s'agit d'options pour un composant Vue.</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>

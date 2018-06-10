@@ -58,7 +58,10 @@
 
     <!-- this needs to be loaded before guide's inline scripts -->
     <script src="/js/vue.js"></script>
-    <script>window.PAGE_TYPE = "guide"</script>
+    <script>
+      Vue.config.productionTip = false
+      window.PAGE_TYPE = "guide"
+    </script>
 
     <!-- ga -->
     <script>
@@ -954,14 +957,11 @@
   
     
       <div id="ad">
-  <script>
-    (function () {
-      var s = document.createElement('script')
-      s.setAttribute('async', '')
-      s.src = '//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=vuejs'
-      s.id = '_carbonads_js'
-      document.getElementById('ad').appendChild(s)
-    })()
+  <script
+    async
+    type="text/javascript"
+    src="//cdn.carbonads.com/carbon.js?serve=CKYIK2QU&placement=vuejsorg"
+    id="_carbonads_js">
   </script>
 </div>
 
@@ -983,7 +983,7 @@
 <h2 id="Assertions-sur-des-mises-a-jour-asynchrones"><a href="#Assertions-sur-des-mises-a-jour-asynchrones" class="headerlink" title="Assertions sur des mises à jour asynchrones"></a>Assertions sur des mises à jour asynchrones</h2><p>Parce que Vue <a href="reactivity.html#File-d’attente-de-mise-a-jour-asynchrone">fait les mises à jour du DOM de manière asynchrone</a>, les assertions sur les mises à jour du DOM résultant d’un changement d’état doivent être faites dans une fonction de rappel <code>Vue.nextTick</code> :</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Inspecter le HTML généré après une mise à jour d'état</span></span><br><span class="line">it(<span class="string">'met à jour le message rendu quand `vm.message` est mis à jour'</span>, done =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> vm = <span class="keyword">new</span> Vue(MyComponent).$mount()</span><br><span class="line">  vm.message = <span class="string">'foo'</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// attendre une boucle (« tick ») après le changement d'état avant de faire l'assertion des mises à jour du DOM</span></span><br><span class="line">  Vue.nextTick(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    expect(vm.$el.textContent).toBe(<span class="string">'foo'</span>)</span><br><span class="line">    done()</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <p>Nous prévoyons de travailler sur une collection de fonctions utilitaires de tests communs pour rendre encore plus simple le rendu de composants avec différentes contraintes (par ex. des rendus peu profonds ignorant les composants enfants) et faire des assertions sur le code en sortie.</p>
-<p>Pour des informations plus pointues sur les tests unitaires avec Vue, jeter un œil à <a href="https://vue-test-utils.vuejs.org/fr/" target="_blank" rel="noopener">vue-test-utils</a> et notre entrée du Cookbook à propos des <a href="https://vuejs.org/v2/cookbook/unit-testing-vue-components.html" target="_blank" rel="noopener">tests unitaires de composants Vue</a>.</p>
+<p>Pour des informations plus pointues sur les tests unitaires avec Vue, jeter un œil à <a href="https://vue-test-utils.vuejs.org/fr/" target="_blank" rel="noopener">vue-test-utils</a> et notre entrée des tutoriels à propos des <a href="https://vuejs.org/v2/cookbook/unit-testing-vue-components.html" target="_blank" rel="noopener">tests unitaires de composants Vue</a>.</p>
 
   
   

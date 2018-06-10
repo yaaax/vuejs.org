@@ -58,7 +58,10 @@
 
     <!-- this needs to be loaded before guide's inline scripts -->
     <script src="/js/vue.js"></script>
-    <script>window.PAGE_TYPE = ""</script>
+    <script>
+      Vue.config.productionTip = false
+      window.PAGE_TYPE = ""
+    </script>
 
     <!-- ga -->
     <script>
@@ -320,14 +323,11 @@
 </div>
 <div class="content with-sidebar blog post">
   <div id="ad">
-  <script>
-    (function () {
-      var s = document.createElement('script')
-      s.setAttribute('async', '')
-      s.src = '//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=vuejs'
-      s.id = '_carbonads_js'
-      document.getElementById('ad').appendChild(s)
-    })()
+  <script
+    async
+    type="text/javascript"
+    src="//cdn.carbonads.com/carbon.js?serve=CKYIK2QU&placement=vuejsorg"
+    id="_carbonads_js">
   </script>
 </div>
 

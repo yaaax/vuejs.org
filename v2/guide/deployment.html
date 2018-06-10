@@ -58,7 +58,10 @@
 
     <!-- this needs to be loaded before guide's inline scripts -->
     <script src="/js/vue.js"></script>
-    <script>window.PAGE_TYPE = "guide"</script>
+    <script>
+      Vue.config.productionTip = false
+      window.PAGE_TYPE = "guide"
+    </script>
 
     <!-- ga -->
     <script>
@@ -954,14 +957,11 @@
   
     
       <div id="ad">
-  <script>
-    (function () {
-      var s = document.createElement('script')
-      s.setAttribute('async', '')
-      s.src = '//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=vuejs'
-      s.id = '_carbonads_js'
-      document.getElementById('ad').appendChild(s)
-    })()
+  <script
+    async
+    type="text/javascript"
+    src="//cdn.carbonads.com/carbon.js?serve=CKYIK2QU&placement=vuejsorg"
+    id="_carbonads_js">
   </script>
 </div>
 
@@ -977,7 +977,7 @@
 <h4 id="webpack"><a href="#webpack" class="headerlink" title="webpack"></a>webpack</h4><p>Dans webpack 4+, vous pouvez utiliser l’option <code>mode</code> :</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  mode: <span class="string">'production'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>Mais dans webpack 3 et précédent, vous devez utiliser la fonction <a href="https://webpack.js.org/plugins/define-plugin/" target="_blank" rel="noopener">DefinePlugin</a> :</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  plugins: [</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">    <span class="keyword">new</span> webpack.DefinePlugin(&#123;</span><br><span class="line">      <span class="string">'process.env'</span>: &#123;</span><br><span class="line">        NODE_ENV: <span class="built_in">JSON</span>.stringify(<span class="string">'production'</span>)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  plugins: [</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">    <span class="keyword">new</span> webpack.DefinePlugin(&#123;</span><br><span class="line">      <span class="string">'process.env.NODE_ENV'</span>: <span class="built_in">JSON</span>.stringify(<span class="string">'production'</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="Browserify"><a href="#Browserify" class="headerlink" title="Browserify"></a>Browserify</h4><ul>
 <li><p>Lancer votre commande d’empaquetage avec la variable d’environnement <code>NODE_ENV</code> assignée à <code>&quot;production&quot;</code>. Cela indique à <code>vueify</code> d’éviter d’inclure le code utilisé pour le rechargement à chaud ou lié au développement.</p>
 </li>

@@ -58,7 +58,10 @@
 
     <!-- this needs to be loaded before guide's inline scripts -->
     <script src="/js/vue.js"></script>
-    <script>window.PAGE_TYPE = "guide"</script>
+    <script>
+      Vue.config.productionTip = false
+      window.PAGE_TYPE = "guide"
+    </script>
 
     <!-- ga -->
     <script>
@@ -954,14 +957,11 @@
   
     
       <div id="ad">
-  <script>
-    (function () {
-      var s = document.createElement('script')
-      s.setAttribute('async', '')
-      s.src = '//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=vuejs'
-      s.id = '_carbonads_js'
-      document.getElementById('ad').appendChild(s)
-    })()
+  <script
+    async
+    type="text/javascript"
+    src="//cdn.carbonads.com/carbon.js?serve=CKYIK2QU&placement=vuejsorg"
+    id="_carbonads_js">
   </script>
 </div>
 
@@ -981,7 +981,7 @@
 </ul>
 <p>Tous ces désavantages sont résolus par les <strong>composants monofichiers</strong> avec une extension <code>.vue</code>, rendus possibles par les outils de <em>build</em> tels que webpack ou Browserify.</p>
 <p>Voici un exemple simple de fichier que nous appellerons <code>Hello.vue</code> :</p>
-<p><img src="/images/vue-component.png" style="display: block; margin: 30px auto;"></p>
+<p><a href="https://gist.github.com/chrisvfritz/e2b6a6110e0829d78fa4aedf7cf6b235" target="_blank"><img src="/images/vue-component.png" alt="Single-file component example (click for code as text)" style="display: block; margin: 30px auto;"></a></p>
 <p>Maintenant nous avons :</p>
 <ul>
 <li><a href="https://github.com/vuejs/awesome-vue#source-code-editing" target="_blank" rel="noopener">Une coloration syntaxique complète</a></li>
@@ -989,7 +989,7 @@
 <li><a href="https://vue-loader.vuejs.org/en/features/scoped-css.html" target="_blank" rel="noopener">Du CSS dont la portée est limitée au composant</a></li>
 </ul>
 <p>Et comme promis, nous pouvons aussi utiliser des préprocesseurs tels que Pug, Babel (avec les modules ES2015), et Stylus pour obtenir des composants plus lisibles et plus riches en fonctionnalités.</p>
-<p><img src="/images/vue-component-with-preprocessors.png" style="display: block; margin: 30px auto;"></p>
+<p><a href="https://gist.github.com/chrisvfritz/1c9f2daea9bc078dcb47e9a82e5f7587" target="_blank"><img src="/images/vue-component-with-preprocessors.png" alt="Single-file component example with preprocessors (click for code as text)" style="display: block; margin: 30px auto;"></a></p>
 <p>Ces langages spécifiques ne sont que des exemples; vous pourriez tout aussi aisément utiliser Bublé, Typescript, SCSS, PostCSS - ou tout autre préprocesseur qui vous aide à être productif. Si vous utilisez webpack avec <code>vue-loader</code>, vous aurez aussi un outil de premier choix pour les modules CSS.</p>
 <h3 id="Qu’en-est-il-de-la-separation-des-preoccupations"><a href="#Qu’en-est-il-de-la-separation-des-preoccupations" class="headerlink" title="Qu’en est-il de la séparation des préoccupations ?"></a>Qu’en est-il de la séparation des préoccupations ?</h3><p>Une chose importante à souligner est que <strong>la séparation des préoccupations (« Separation of concerns ») n’est pas identique à la séparation des fichiers</strong>. Dans le développement des interfaces utilisateur modernes, nous avons constaté que plutôt que de diviser tout notre code en trois grosses couches distinctes interdépendantes, il était plus intuitif de le diviser en petits composants faiblement couplés, et de les combiner. Au sein d’un composant, son template, sa logique et ses styles sont intrinsèquement couplés, et les réunir rend en réalité le composant plus cohérent et facile à maintenir.</p>
 <p>Si vous n’aimez pas l’idée des composants monofichiers, vous pouvez toujours tirer parti du rechargement à chaud et la précompilation pour mettre le CSS et le JavaScript dans des fichiers séparés.</p>

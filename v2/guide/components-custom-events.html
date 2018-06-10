@@ -58,7 +58,10 @@
 
     <!-- this needs to be loaded before guide's inline scripts -->
     <script src="/js/vue.js"></script>
-    <script>window.PAGE_TYPE = "guide"</script>
+    <script>
+      Vue.config.productionTip = false
+      window.PAGE_TYPE = "guide"
+    </script>
 
     <!-- ga -->
     <script>
@@ -954,14 +957,11 @@
   
     
       <div id="ad">
-  <script>
-    (function () {
-      var s = document.createElement('script')
-      s.setAttribute('async', '')
-      s.src = '//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=vuejs'
-      s.id = '_carbonads_js'
-      document.getElementById('ad').appendChild(s)
-    })()
+  <script
+    async
+    type="text/javascript"
+    src="//cdn.carbonads.com/carbon.js?serve=CKYIK2QU&placement=vuejsorg"
+    id="_carbonads_js">
   </script>
 </div>
 
@@ -986,7 +986,7 @@
 <p>Par défaut, <code>v-model</code> sur un composant utilise <code>value</code> comme prop et <code>input</code> comme événement, mais certains types de champs input tels que les cases à cocher et les boutons radio peuvent vouloir utiliser l’attribut <code>value</code> à <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#Value" target="_blank" rel="noopener">d’autres fins</a>. Utiliser l’option <code>model</code> permet d’éviter un conflit dans ce genre de cas :</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">'base-checkbox'</span>, &#123;</span><br><span class="line">  model: &#123;</span><br><span class="line">    prop: <span class="string">'checked'</span>,</span><br><span class="line">    event: <span class="string">'change'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  props: &#123;</span><br><span class="line">    checked: <span class="built_in">Boolean</span></span><br><span class="line">  &#125;,</span><br><span class="line">  template: <span class="string">`</span></span><br><span class="line"><span class="string">    &lt;input</span></span><br><span class="line"><span class="string">      type="checkbox"</span></span><br><span class="line"><span class="string">      v-bind:checked="checked"</span></span><br><span class="line"><span class="string">      v-on:change="$emit('change', $event.target.checked)"</span></span><br><span class="line"><span class="string">    &gt;</span></span><br><span class="line"><span class="string">  `</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <p>À présent, quand vous utilisez <code>v-model</code> sur ce composant :</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;base-checkbox v-model=<span class="string">"lovingVue"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">base-checkbox</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">base-checkbox</span> <span class="attr">v-model</span>=<span class="string">"lovingVue"</span>&gt;</span><span class="tag">&lt;/<span class="name">base-checkbox</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>la valeur de <code>lovingVue</code> sera passée à la prop <code>checked</code>. La propriété <code>lovingVue</code> sera ensuite mise à jour quand <code>&lt;base-checkbox&gt;</code> émettra un événement <code>change</code> avec une nouvelle valeur.</p>
 <p class="tip">Notez que vous avez toujours besoin de déclarer la prop <code>checked</code> dans l’option <code>props</code> du composant.</p>
 

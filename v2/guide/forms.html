@@ -58,7 +58,10 @@
 
     <!-- this needs to be loaded before guide's inline scripts -->
     <script src="/js/vue.js"></script>
-    <script>window.PAGE_TYPE = "guide"</script>
+    <script>
+      Vue.config.productionTip = false
+      window.PAGE_TYPE = "guide"
+    </script>
 
     <!-- ga -->
     <script>
@@ -954,14 +957,11 @@
   
     
       <div id="ad">
-  <script>
-    (function () {
-      var s = document.createElement('script')
-      s.setAttribute('async', '')
-      s.src = '//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=vuejs'
-      s.id = '_carbonads_js'
-      document.getElementById('ad').appendChild(s)
-    })()
+  <script
+    async
+    type="text/javascript"
+    src="//cdn.carbonads.com/carbon.js?serve=CKYIK2QU&placement=vuejsorg"
+    id="_carbonads_js">
   </script>
 </div>
 
@@ -1162,7 +1162,7 @@ new Vue({
 <h2 id="v-model-avec-les-composants"><a href="#v-model-avec-les-composants" class="headerlink" title="v-model avec les composants"></a><code>v-model</code> avec les composants</h2><blockquote>
 <p>Si vous n’êtes pas encore familier avec les composants de Vue, passez cette section pour le moment.</p>
 </blockquote>
-<p>Les types de champ standards HTML ne couvriront pas toujours vos besoins. Heureusement, les composants de Vue vous permettent de construire des champs avec un comportement complètement personnalisé. Ces champs fonctionnent même avec <code>v-model</code> ! Pour en apprendre plus, lisez la section <a href="components.html#Composants-de-champ-de-formulaire-utilisant-les-evenements-personnalises">champs personnalisés</a> dans le guide des composants.</p>
+<p>Les types de champ standards HTML ne couvriront pas toujours vos besoins. Heureusement, les composants de Vue vous permettent de construire des champs avec un comportement complètement personnalisé. Ces champs fonctionnent même avec <code>v-model</code> ! Pour en apprendre plus, lisez la section <a href="components.html#Utiliser-v-model-sur-les-composants">champs personnalisés</a> dans le guide des composants.</p>
 
   
   

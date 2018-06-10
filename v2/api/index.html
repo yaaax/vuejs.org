@@ -58,7 +58,10 @@
 
     <!-- this needs to be loaded before guide's inline scripts -->
     <script src="/js/vue.js"></script>
-    <script>window.PAGE_TYPE = "api"</script>
+    <script>
+      Vue.config.productionTip = false
+      window.PAGE_TYPE = "api"
+    </script>
 
     <!-- ga -->
     <script>
@@ -328,14 +331,11 @@
   
     
       <div id="ad">
-  <script>
-    (function () {
-      var s = document.createElement('script')
-      s.setAttribute('async', '')
-      s.src = '//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=vuejs'
-      s.id = '_carbonads_js'
-      document.getElementById('ad').appendChild(s)
-    })()
+  <script
+    async
+    type="text/javascript"
+    src="//cdn.carbonads.com/carbon.js?serve=CKYIK2QU&placement=vuejsorg"
+    id="_carbonads_js">
   </script>
 </div>
 
@@ -1340,13 +1340,78 @@
 </ul>
 </li>
 </ul>
-<h3 id="vm-emit-event-…args"><a href="#vm-emit-event-…args" class="headerlink" title="vm.$emit( event, […args] )"></a>vm.$emit( event, […args] )</h3><ul>
+<h3 id="vm-emit-eventName-…args"><a href="#vm-emit-eventName-…args" class="headerlink" title="vm.$emit( eventName, […args] )"></a>vm.$emit( eventName, […args] )</h3><ul>
 <li><p><strong>Arguments :</strong></p>
 <ul>
-<li><code>{string} évènement</code></li>
+<li><code>{string} nom d&#39;évènement</code></li>
 <li><code>[...arguments]</code></li>
 </ul>
 <p>Déclenche un évènement sur l’instance actuelle. Tous les arguments additionnels sont passés à la fonction de rappel de l’écouteur.</p>
+</li>
+<li><p><strong>Exemples:</strong></p>
+<p>Utiliser <code>$emit</code> avec un nom d’évènement :</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">'welcome-button'</span>, &#123;</span><br><span class="line">  template: <span class="string">`</span></span><br><span class="line"><span class="string">    &lt;button v-on:click="$emit('welcome')"&gt;</span></span><br><span class="line"><span class="string">      Cliquez-moi pour être accueilli</span></span><br><span class="line"><span class="string">    &lt;/button&gt;</span></span><br><span class="line"><span class="string">  `</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"emit-example-simple"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">welcome-button</span> <span class="attr">v-on:welcome</span>=<span class="string">"sayHi"</span>&gt;</span><span class="tag">&lt;/<span class="name">welcome-button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#emit-example-simple'</span>,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    sayHi: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      alert(<span class="string">'Salut !'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+  <div id="emit-example-simple" class="demo">
+    <welcome-button v-on:welcome="sayHi"></welcome-button>
+  </div>
+  <script>
+    Vue.component('welcome-button', {
+      template: `
+        <button v-on:click="$emit('welcome')">
+          Cliquez-moi pour être accueilli
+        </button>
+      `
+    })
+    new Vue({
+      el: '#emit-example-simple',
+      methods: {
+        sayHi: function () {
+          alert('Salut !')
+        }
+      }
+    })
+  </script>
+  
+<p>Utiliser <code>$emit</code> avec des arguments additionnels :</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">'magic-eight-ball'</span>, &#123;</span><br><span class="line">  data: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      possibleAdvice: [<span class="string">'Oui'</span>, <span class="string">'Non'</span>, <span class="string">'Peut-être'</span>]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    giveAdvice: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> randomAdviceIndex = <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * <span class="keyword">this</span>.possibleAdvice.length)</span><br><span class="line">      <span class="keyword">this</span>.$emit(<span class="string">'give-advice'</span>, <span class="keyword">this</span>.possibleAdvice[randomAdviceIndex])</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  template: <span class="string">`</span></span><br><span class="line"><span class="string">    &lt;button v-on:click="giveAdvice"&gt;</span></span><br><span class="line"><span class="string">      Cliquez-moi pour un indice</span></span><br><span class="line"><span class="string">    &lt;/button&gt;</span></span><br><span class="line"><span class="string">  `</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"emit-example-argument"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">magic-eight-ball</span> <span class="attr">v-on:give-advice</span>=<span class="string">"showAdvice"</span>&gt;</span><span class="tag">&lt;/<span class="name">magic-eight-ball</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#emit-example-argument'</span>,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    showAdvice: <span class="function"><span class="keyword">function</span> (<span class="params">advice</span>) </span>&#123;</span><br><span class="line">      alert(advice)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+  <div id="emit-example-argument" class="demo">
+    <magic-eight-ball v-on:give-advice="showAdvice"></magic-eight-ball>
+  </div>
+  <script>
+    Vue.component('magic-eight-ball', {
+      data: function () {
+        return {
+          possibleAdvice: ['Oui', 'Non', 'Peut-être']
+        }
+      },
+      methods: {
+        giveAdvice: function () {
+          var randomAdviceIndex = Math.floor(Math.random() * this.possibleAdvice.length)
+          this.$emit('give-advice', this.possibleAdvice[randomAdviceIndex])
+        }
+      },
+      template: `
+        <button v-on:click="giveAdvice">
+          Cliquez-moi pour un indice
+        </button>
+      `
+    })
+    new Vue({
+      el: '#emit-example-argument',
+      methods: {
+        showAdvice: function (advice) {
+          alert(advice)
+        }
+      }
+    })
+  </script>
+  
 </li>
 </ul>
 <h2 id="Methodes-d’Instance-Cycle-de-Vie"><a href="#Methodes-d’Instance-Cycle-de-Vie" class="headerlink" title="Méthodes d’Instance / Cycle de Vie"></a>Méthodes d’Instance / Cycle de Vie</h2><h3 id="vm-mount-elementOuSelecteur"><a href="#vm-mount-elementOuSelecteur" class="headerlink" title="vm.$mount( [élémentOuSelecteur] )"></a>vm.$mount( [élémentOuSelecteur] )</h3><ul>
