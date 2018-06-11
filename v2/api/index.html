@@ -1350,7 +1350,7 @@
 </li>
 <li><p><strong>Exemples:</strong></p>
 <p>Utiliser <code>$emit</code> avec un nom d’évènement :</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">'welcome-button'</span>, &#123;</span><br><span class="line">  template: <span class="string">`</span></span><br><span class="line"><span class="string">    &lt;button v-on:click="$emit('welcome')"&gt;</span></span><br><span class="line"><span class="string">      Cliquez-moi pour être accueilli</span></span><br><span class="line"><span class="string">    &lt;/button&gt;</span></span><br><span class="line"><span class="string">  `</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">'welcome-button'</span>, &#123;</span><br><span class="line">  template: <span class="string">`</span></span><br><span class="line"><span class="string">    &lt;button v-on:click="$emit('welcome')"&gt;</span></span><br><span class="line"><span class="string">      Cliquez-moi pour être salué</span></span><br><span class="line"><span class="string">    &lt;/button&gt;</span></span><br><span class="line"><span class="string">  `</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"emit-example-simple"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">welcome-button</span> <span class="attr">v-on:welcome</span>=<span class="string">"sayHi"</span>&gt;</span><span class="tag">&lt;/<span class="name">welcome-button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#emit-example-simple'</span>,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    sayHi: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      alert(<span class="string">'Salut !'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
@@ -1361,7 +1361,7 @@
     Vue.component('welcome-button', {
       template: `
         <button v-on:click="$emit('welcome')">
-          Cliquez-moi pour être accueilli
+          Cliquez-moi pour être salué
         </button>
       `
     })
