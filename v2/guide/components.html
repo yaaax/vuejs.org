@@ -972,7 +972,7 @@
   
   
     <h2 id="Exemple-de-base"><a href="#Exemple-de-base" class="headerlink" title="Exemple de base"></a>Exemple de base</h2><p>Voici un exemple de composant Vue :</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Définition d'un nouveau composant appelé `button-counter`</span></span><br><span class="line">Vue.component(<span class="string">'button-counter'</span>, &#123;</span><br><span class="line">  data: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      count: <span class="number">0</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  template: <span class="string">'&lt;button v-on:click="count++"&gt;Vous m\'avez cliquez &#123;&#123; count &#125;&#125; fois.&lt;/button&gt;'</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Définition d'un nouveau composant appelé `button-counter`</span></span><br><span class="line">Vue.component(<span class="string">'button-counter'</span>, &#123;</span><br><span class="line">  data: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      count: <span class="number">0</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  template: <span class="string">'&lt;button v-on:click="count++"&gt;Vous m\'avez cliqué &#123;&#123; count &#125;&#125; fois.&lt;/button&gt;'</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <p>Les composants sont des instances de Vue réutilisables avec un nom : dans notre cas <code>&lt;button-counter&gt;</code>. Nous pouvons utiliser ce composant en tant qu’élément personnalisé à l’intérieure d’une instance de Vue racine créée avec <code>new Vue</code> :</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"components-demo"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button-counter</span>&gt;</span><span class="tag">&lt;/<span class="name">button-counter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> Vue(&#123; <span class="attr">el</span>: <span class="string">'#components-demo'</span> &#125;)</span><br></pre></td></tr></table></figure>
@@ -987,7 +987,7 @@ Vue.component('button-counter', {
       count: 0
     }
   },
-  template: '<button v-on:click="count += 1">Vous m\'avez cliquez {{ count }} fois.</button>'
+  template: '<button v-on:click="count += 1">Vous m\'avez cliqué {{ count }} fois.</button>'
 })
 new Vue({ el: '#components-demo' })
 </script>
@@ -1005,7 +1005,7 @@ new Vue({ el: '#components-demo' })
 new Vue({ el: '#components-demo2' })
 </script>
 
-<p>Notez que lors du clique sur les boutons, chacun d’entre eux maintient son propre compteur séparé des autres. C’est parce que chaque fois que vous utilisez un composant, une nouvelle <strong>instance</strong> est créée.</p>
+<p>Notez que lors du clic sur les boutons, chacun d’entre eux maintient son propre compteur séparé des autres. C’est parce que chaque fois que vous utilisez un composant, une nouvelle <strong>instance</strong> est créée.</p>
 <h3 id="data-doit-etre-une-fonction"><a href="#data-doit-etre-une-fonction" class="headerlink" title="data doit être une fonction"></a><code>data</code> doit être une fonction</h3><p>Quand vous définissez le composant <code>&lt;button-counter&gt;</code>, vous devez faire attention que <code>data</code> ne soit pas directement fourni en tant qu’objet, comme ceci :</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">data: &#123;</span><br><span class="line">  count: <span class="number">0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>À la place, <strong>la propriété du composant <code>data</code> doit être une fonction</strong>, afin que chaque instance puisse conserver une copie indépendante de l’objet retourné :</p>
@@ -1025,7 +1025,7 @@ Vue.component('button-counter2', {
   data: function () {
     return buttonCounter2Data
   },
-  template: '<button v-on:click="count++">Vous m\'avez cliquez {{ count }} fois.</button>'
+  template: '<button v-on:click="count++">Vous m\'avez cliqué {{ count }} fois.</button>'
 })
 new Vue({ el: '#components-demo3' })
 </script>
@@ -1033,7 +1033,7 @@ new Vue({ el: '#components-demo3' })
 <h2 id="Organisation-des-composants"><a href="#Organisation-des-composants" class="headerlink" title="Organisation des composants"></a>Organisation des composants</h2><p>Il est commun pour une application d’être organisée en un arbre de composants imbriqués :</p>
 <p><img src="/images/components.png" alt="Arbre de composant"></p>
 <p>Par exemple, vous pouvez avoir des composants pour l’entête, la barre latérale, la zone de contenu ; chacun contenant lui aussi d’autres composants pour la navigation, les liens, les billets de blog, etc.</p>
-<p>Pour utiliser ces composants dans des templates, ils doivent être enregistrés pour que Vue les connaissent. Il y a deux types d’enregistrement de composant : <strong>global</strong> et <strong>local</strong>. Jusqu’ici, nous avons uniquement enregistré des composants globalement en utilisant <code>Vue.component</code> :</p>
+<p>Pour utiliser ces composants dans des templates, ils doivent être enregistrés pour que Vue les connaisse. Il y a deux types d’enregistrement de composant : <strong>global</strong> et <strong>local</strong>. Jusqu’ici, nous avons uniquement enregistré des composants globalement en utilisant <code>Vue.component</code> :</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">'my-component-name'</span>, &#123;</span><br><span class="line">  <span class="comment">// ... options ...</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <p>Les composants enregistrés globalement peuvent être utilisés dans le template de n’importe quelle instance racine de Vue (<code>new Vue</code>) créée après coup, ainsi que dans les sous-composants de l’arbre des composants de cette instance de Vue.</p>
 <p>C’est tout ce que vous avez besoin de savoir à propos de l’enregistrement pour le moment, mais une fois que vous aurez fini de lire cette page et que vous vous sentirez à l’aise avec son contenu, nous vous recommandons de revenir pour lire le guide complet à propos de l’<a href="components-registration.html">Enregistrement de composant</a>.</p>
@@ -1088,7 +1088,7 @@ new Vue({ el: '#blog-post-demo' })
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span>&gt;</span></span><br><span class="line">  Élargir le texte</span><br><span class="line"><span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>Quand nous cliquons sur le bouton, nous avons besoin de communiquer au parent qu’il devrait élargir le texte de tous les billets. Heureusement, l’instance de Vue fournit un système d’évènements personnalisables pour résoudre ce problème. Pour émettre un évènement au parent, nous devons appeler la <a href="../api/#Methodes-et-Evenements-d’Instance">méthode préconçue <strong><code>$emit</code></strong></a>, en lui passant le nom de l’évènement :</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">v-on:click</span>=<span class="string">"$emit('enlarge-text')"</span>&gt;</span></span><br><span class="line">  Élargir le texte</span><br><span class="line"><span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>Quand nous somme sur notre billet de blog, nous pouvons écouter cet évènement avec <code>v-on</code>, exactement comme nous le ferrions avec un évènement natif du DOM :</p>
+<p>Quand nous sommes sur notre billet de blog, nous pouvons écouter cet évènement avec <code>v-on</code>, exactement comme nous le ferions avec un évènement natif du DOM :</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">blog-post</span></span></span><br><span class="line"><span class="tag">  <span class="attr">...</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-on:enlarge-text</span>=<span class="string">"postFontSize += 0.1"</span></span></span><br><span class="line"><span class="tag">&gt;</span><span class="tag">&lt;/<span class="name">blog-post</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <div id="blog-posts-events-demo" class="demo">
@@ -1246,7 +1246,7 @@ new Vue({
 <li><a href="single-file-components.html">Les composants monofichier (<code>.vue</code>)</a></li>
 <li><a href="components-edge-cases.html#X-Templates"><code>&lt;script type=&quot;text/x-template&quot;&gt;</code></a></li>
 </ul>
-<p>C’est tout ce que vous avez besoin de savoir à propos des cas particuliers pour le moment. Vous voilà arrivé à la fin de l’<em>Essentiel</em> de Vue. Félicitation ! Il reste encore beaucoup à apprendre, mais d’abord, nous vous recommandons de faire une pause pour jouer avec Vue par vous même et construire quelque chose d’amusant.</p>
+<p>C’est tout ce que vous avez besoin de savoir à propos des cas particuliers pour le moment. Vous voilà arrivé à la fin de l’<em>Essentiel</em> de Vue. Félicitations ! Il reste encore beaucoup à apprendre, mais d’abord, nous vous recommandons de faire une pause pour jouer avec Vue par vous-même et construire quelque chose d’amusant.</p>
 <p>Une fois que vous vous sentirez à l’aise avec les connaissances que vous venez fraichement d’acquérir, nous vous recommandons de revenir pour lire le guide complet à propos des <a href="components-dynamic-async.html">Composants dynamiques et asynchrones</a> ainsi que les autres pages dans la partie Au cœur des composants de la barre de navigation latérale.</p>
 
   
