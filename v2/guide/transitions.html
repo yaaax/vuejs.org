@@ -113,6 +113,7 @@
     <li><ul>
       <li><a href="https://forum.vuejs.org/c/french" class="nav-link" target="_blank">Forum</a></li>
       <li><a href="https://discordapp.com/channels/325477692906536972/360669119948783616" class="nav-link" target="_blank">Chat</a></li>
+      <li><a href="https://www.vuemeetups.org/" class="nav-link" target="_blank">Meetups (EN)</a></li>
     </ul></li>
     <li><h4>Outils</h4></li>
     <li>
@@ -208,6 +209,7 @@
     <li><ul>
       <li><a href="https://forum.vuejs.org/c/french" class="nav-link" target="_blank">Forum</a></li>
       <li><a href="https://discordapp.com/channels/325477692906536972/360669119948783616" class="nav-link" target="_blank">Chat</a></li>
+      <li><a href="https://www.vuemeetups.org/" class="nav-link" target="_blank">Meetups (EN)</a></li>
     </ul></li>
     <li><h4>Outils</h4></li>
     <li>
@@ -1490,10 +1492,8 @@ new Vue({
 </ul>
 <p>Alors, qu’en est-il lorsque nous avons une liste complète d’éléments où nous voulons faire un rendu simultané, par exemple avec <code>v-for</code> ? Dans ce cas, nous allons utiliser le composant <code>&lt;transition-group&gt;</code>. Cependant avant de plonger dans un exemple, il y a quelques éléments importants à connaitre sur ce composant :</p>
 <ul>
-<li>Contrairement à <code>&lt;transition&gt;</code>, il rend un élément réel : par défaut un <code>&lt;span&gt;</code>. Vous pouvez modifier l’élément rendu avec l’attribut <code>tag</code>.<ul>
+<li>Contrairement à <code>&lt;transition&gt;</code>, il rend un élément réel : par défaut un <code>&lt;span&gt;</code>. Vous pouvez modifier l’élément rendu avec l’attribut <code>tag</code>.</li>
 <li><a href="#Les-modes-de-transition">Les modes de transition</a> ne sont pas disponibles car nous ne pouvons plus alterner entre des éléments mutuellement exclusifs.</li>
-</ul>
-</li>
 <li>Les éléments à l’intérieur <strong>doivent toujours avoir</strong> un attribut <code>key</code> unique</li>
 </ul>
 <h3 id="Transitions-de-liste-entrantes-sortantes"><a href="#Transitions-de-liste-entrantes-sortantes" class="headerlink" title="Transitions de liste entrantes/sortantes"></a>Transitions de liste entrantes/sortantes</h3><p>Maintenant, nous allons nous plonger dans un exemple simple, faire des transitions entrantes et sortantes en utilisant les mêmes classes CSS que celles utilisées précédemment :</p>

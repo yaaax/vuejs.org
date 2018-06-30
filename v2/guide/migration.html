@@ -113,6 +113,7 @@
     <li><ul>
       <li><a href="https://forum.vuejs.org/c/french" class="nav-link" target="_blank">Forum</a></li>
       <li><a href="https://discordapp.com/channels/325477692906536972/360669119948783616" class="nav-link" target="_blank">Chat</a></li>
+      <li><a href="https://www.vuemeetups.org/" class="nav-link" target="_blank">Meetups (EN)</a></li>
     </ul></li>
     <li><h4>Outils</h4></li>
     <li>
@@ -208,6 +209,7 @@
     <li><ul>
       <li><a href="https://forum.vuejs.org/c/french" class="nav-link" target="_blank">Forum</a></li>
       <li><a href="https://discordapp.com/channels/325477692906536972/360669119948783616" class="nav-link" target="_blank">Chat</a></li>
+      <li><a href="https://www.vuemeetups.org/" class="nav-link" target="_blank">Meetups (EN)</a></li>
     </ul></li>
     <li><h4>Outils</h4></li>
     <li>
@@ -1165,7 +1167,7 @@
 <p>Par exemple :</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">template: <span class="string">'&lt;p&gt;message : &#123;&#123; timeMessage &#125;&#125;&lt;/p&gt;'</span>,</span><br><span class="line">computed: &#123;</span><br><span class="line">  timeMessage: &#123;</span><br><span class="line">    cache: <span class="literal">false</span>,</span><br><span class="line">    get: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="built_in">Date</span>.now() + <span class="keyword">this</span>.message</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>Devient dans une méthode :</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">template: <span class="string">'&lt;p&gt;message : &#123;&#123; getTimeMessage &#125;&#125;&lt;/p&gt;'</span>,</span><br><span class="line">methods: &#123;</span><br><span class="line">  getTimeMessage: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Date</span>.now() + <span class="keyword">this</span>.message</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">template: <span class="string">'&lt;p&gt;message : &#123;&#123; getTimeMessage() &#125;&#125;&lt;/p&gt;'</span>,</span><br><span class="line">methods: &#123;</span><br><span class="line">  getTimeMessage: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Date</span>.now() + <span class="keyword">this</span>.message</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <div class="upgrade-path">
   <h4>Comment procéder ?</h4>
