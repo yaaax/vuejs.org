@@ -84,7 +84,7 @@
     </div>
     <div id="header">
   <a id="logo" href="/">
-    <img src="/images/logo.png">
+    <img src="/images/logo.png" alt="vue logo">
     <span>Vue.js</span>
   </a>
   <ul id="nav">
@@ -274,13 +274,10 @@
     <div class="list">
       <div id="sidebar-sponsors-special">
   <div class="main-sponsor">
-    <span>Special Sponsors</span>
+    <span>Special Sponsor</span>
     <div>
     <a href="https://stdlib.com" target="_blank" class="logo">
-      <img src="/images/stdlib.png">
-    </a>
-    <a href="https://www.bitsrc.io/?utm_source=vue&utm_medium=vue&utm_campaign=vue&utm_term=vue&utm_content=vue" target="_blank" class="logo">
-      <img src="/images/bit-wide.png">
+      <img src="/images/stdlib.png" alt="">
     </a>
     </div>
   </div>
@@ -288,16 +285,19 @@
 
 <div id="sidebar-sponsors-platinum">
   <div class="main-sponsor">
-    <span>Patreon Sponsors</span>
+    <span>Platinum Sponsors</span>
     <div>
+    <a href="https://www.bitsrc.io/?utm_source=vue&utm_medium=vue&utm_campaign=vue&utm_term=vue&utm_content=vue" target="_blank" class="logo">
+      <img src="/images/bit-wide.png" alt="">
+    </a>
     <a href="http://tooltwist.com/" target="_blank" class="logo">
-      <img src="/images/tooltwist.png">
+      <img src="/images/tooltwist.png" alt="tooltwist">
     </a>
     <a href="https://vueschool.io/?utm_source=Vuejs.org&utm_medium=Banner&utm_campaign=Sponsored%20Banner&utm_content=V1" target="_blank" class="logo">
-      <img src="/images/vueschool.png">
+      <img src="/images/vueschool.png" alt="vue school">
     </a>
     <a href="https://vehikl.com/" target="_blank" class="logo">
-      <img src="/images/vehikl.png">
+      <img src="/images/vehikl.png" alt="vehikl">
     </a>
     </div>
   </div>
@@ -418,10 +418,10 @@
     <h1>Dockerize Vue.js App (EN)</h1>
   
   
-    <h2 id="Simple-Example"><a href="#Simple-Example" class="headerlink" title="Simple Example"></a>Simple Example</h2><p>Cette page est en cours de traduction. Pour nous aider, vous pouvez participer sur <a href="https://github.com/vuejs-fr/vuejs.org" target="_blank">le dépôt GitHub dédié de Vuejs-FR</a>.</p>So you built your first Vue.js app using the amazing <a href="https://github.com/vuejs-templates/webpack" target="_blank" rel="noopener">Vue.js webpack template</a> and now you really want to show off with your colleagues by demonstrating that you can also run it in a Docker container.<p></p>
+    <h2 id="Simple-Example"><a href="#Simple-Example" class="headerlink" title="Simple Example"></a>Simple Example</h2><p>Cette page est en cours de traduction. Pour nous aider, vous pouvez participer sur <a href="https://github.com/vuejs-fr/vuejs.org" target="_blank">le dépôt GitHub dédié de Vuejs-FR</a>.</p><p>So you built your first Vue.js app using the amazing <a href="https://github.com/vuejs-templates/webpack" target="_blank" rel="noopener">Vue.js webpack template</a> and now you really want to show off with your colleagues by demonstrating that you can also run it in a Docker container.</p>
 
 <p>Let’s start by creating a <code>Dockerfile</code> in the root folder of our project:</p>
-<figure class="highlight docker"><table><tr><td class="code"><pre><span class="line"><span class="keyword">FROM</span> node:<span class="number">9.11</span>.<span class="number">1</span>-alpine</span><br><span class="line"></span><br><span class="line"><span class="comment"># install simple http server for serving static content</span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> npm install -g http-server</span></span><br><span class="line"><span class="bash"></span></span><br><span class="line"><span class="bash"><span class="comment"># make the 'app' folder the current working directory</span></span></span><br><span class="line"><span class="bash">WORKDIR /app</span></span><br><span class="line"><span class="bash"></span></span><br><span class="line"><span class="bash"><span class="comment"># copy both 'package.json' and 'package-lock.json' (if available)</span></span></span><br><span class="line"><span class="bash">COPY package*.json ./</span></span><br><span class="line"><span class="bash"></span></span><br><span class="line"><span class="bash"><span class="comment"># install project dependencies</span></span></span><br><span class="line"><span class="bash">RUN npm install</span></span><br><span class="line"><span class="bash"></span></span><br><span class="line"><span class="bash"><span class="comment"># copy project files and folders to the current working directory (i.e. 'app' folder)</span></span></span><br><span class="line"><span class="bash">COPY . .</span></span><br><span class="line"><span class="bash"></span></span><br><span class="line"><span class="bash"><span class="comment"># build app for production with minification</span></span></span><br><span class="line"><span class="bash">RUN npm run build</span></span><br><span class="line"><span class="bash"></span></span><br><span class="line"><span class="bash">EXPOSE 8080</span></span><br><span class="line"><span class="bash">CMD [ <span class="string">"http-server"</span>, <span class="string">"dist"</span> ]</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight docker"><table><tr><td class="code"><pre><span class="line"><span class="keyword">FROM</span> node:<span class="number">9.11</span>.<span class="number">1</span>-alpine</span><br><span class="line"></span><br><span class="line"><span class="comment"># install simple http server for serving static content</span></span><br><span class="line"><span class="keyword">RUN</span> npm install -g http-server</span><br><span class="line"></span><br><span class="line"># make the 'app' folder the current working directory</span><br><span class="line">WORKDIR /app</span><br><span class="line"></span><br><span class="line"># copy both 'package.json' and 'package-lock.json' (if available)</span><br><span class="line">COPY package*.json ./</span><br><span class="line"></span><br><span class="line"># install project dependencies</span><br><span class="line">RUN npm install</span><br><span class="line"></span><br><span class="line"># copy project files and folders to the current working directory (i.e. 'app' folder)</span><br><span class="line">COPY . .</span><br><span class="line"></span><br><span class="line"># build app for production with minification</span><br><span class="line">RUN npm run build</span><br><span class="line"></span><br><span class="line">EXPOSE 8080</span><br><span class="line">CMD [ "http-server", "dist" ]</span><br></pre></td></tr></table></figure>
 <p>It may seem reduntant to first copy <code>package.json</code> and <code>package-lock.json</code> and then all project files and folders in two separate steps but there is actually <a href="http://bitjudo.com/blog/2014/03/13/building-efficient-dockerfiles-node-dot-js/" target="_blank" rel="noopener">a very good reason for that</a> (spoiler: it allows us to take advantage of cached Docker layers).</p>
 <p>Now let’s build the Docker image of our Vue.js app:</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker build -t vuejs-cookbook/dockerize-vuejs-app .</span><br></pre></td></tr></table></figure>
