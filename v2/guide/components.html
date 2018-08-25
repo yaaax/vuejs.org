@@ -372,7 +372,7 @@
       
     
     <li>
-      <a href="/v2/guide/instance.html" class="sidebar-link">L'instance de Vue</a>
+      <a href="/v2/guide/instance.html" class="sidebar-link">Instance de Vue</a>
     </li>
   
     
@@ -534,7 +534,7 @@
       
     
     <li>
-      <a href="/v2/guide/components-props.html" class="sidebar-link">Props (EN)</a>
+      <a href="/v2/guide/components-props.html" class="sidebar-link">Props</a>
     </li>
   
     
@@ -1096,7 +1096,7 @@ new Vue({ el: '#blog-post-demo' })
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">blog-post</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-for</span>=<span class="string">"post in posts"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-bind:key</span>=<span class="string">"post.id"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-bind:title</span>=<span class="string">"post.title"</span></span></span><br><span class="line"><span class="tag">&gt;</span><span class="tag">&lt;/<span class="name">blog-post</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>Vous voyez au-dessus que nous pouvons utiliser <code>v-bind</code> pour dynamiquement passer des props. Cela est particulièrement utile quand vous ne connaissez pas exactement le contenu dont vous êtes en train de faire le rendu à l’avance, comme dans le cas de <a href="https://jsfiddle.net/chrisvfritz/sbLgr0ad" target="_blank" rel="noopener">récupération de billets depuis une API</a>.</p>
 <p>C’est tout ce que vous avez besoin de savoir à propos des props pour le moment, mais une fois que vous aurez fini de lire cette page et que vous vous sentirez à l’aise avec son contenu, nous vous recommandons de revenir pour lire le guide complet à propos des <a href="components-props.html">props</a>.</p>
-<h2 id="Un-element-racine-unique"><a href="#Un-element-racine-unique" class="headerlink" title="Un élément racine unique"></a>Un élément racine unique</h2><p>Quand nous réalisons un composant <code>&lt;blog-post&gt;</code>, votre template va éventuellement contenir plus que juste le titre :</p>
+<h2 id="Element-racine-unique"><a href="#Element-racine-unique" class="headerlink" title="Élément racine unique"></a>Élément racine unique</h2><p>Quand nous réalisons un composant <code>&lt;blog-post&gt;</code>, votre template va éventuellement contenir plus que juste le titre :</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h3</span>&gt;</span>&#123;&#123; title &#125;&#125;<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>Vous allez au moins vouloir inclure le contenu du billet :</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h3</span>&gt;</span>&#123;&#123; title &#125;&#125;<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-html</span>=<span class="string">"content"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>

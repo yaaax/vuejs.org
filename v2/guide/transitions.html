@@ -372,7 +372,7 @@
       
     
     <li>
-      <a href="/v2/guide/instance.html" class="sidebar-link">L'instance de Vue</a>
+      <a href="/v2/guide/instance.html" class="sidebar-link">Instance de Vue</a>
     </li>
   
     
@@ -534,7 +534,7 @@
       
     
     <li>
-      <a href="/v2/guide/components-props.html" class="sidebar-link">Props (EN)</a>
+      <a href="/v2/guide/components-props.html" class="sidebar-link">Props</a>
     </li>
   
     
@@ -1284,7 +1284,7 @@ new Vue({
 <p>Qui pourrait aussi s’écrire ainsi :</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">transition</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">v-bind:key</span>=<span class="string">"docState"</span>&gt;</span></span><br><span class="line">    &#123;&#123; buttonMessage &#125;&#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">transition</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// ...</span></span><br><span class="line">computed: &#123;</span><br><span class="line">  buttonMessage: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">switch</span> (<span class="keyword">this</span>.docState) &#123;</span><br><span class="line">      <span class="keyword">case</span> <span class="string">'saved'</span>: <span class="keyword">return</span> <span class="string">'Modifier'</span></span><br><span class="line">      <span class="keyword">case</span> <span class="string">'edited'</span>: <span class="keyword">return</span> <span class="string">'Sauver'</span></span><br><span class="line">      <span class="keyword">case</span> <span class="string">'editing'</span>: <span class="keyword">return</span> <span class="string">'Annuler'</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="Les-modes-de-transition"><a href="#Les-modes-de-transition" class="headerlink" title="Les modes de transition"></a>Les modes de transition</h3><p>Cependant, il existe encore un problème. Essayez de cliquer sur le bouton ci-dessous :</p>
+<h3 id="Modes-de-transition"><a href="#Modes-de-transition" class="headerlink" title="Modes de transition"></a>Modes de transition</h3><p>Cependant, il existe encore un problème. Essayez de cliquer sur le bouton ci-dessous :</p>
 
 <div id="no-mode-demo" class="demo">
   <transition name="no-mode-fade">
@@ -1524,7 +1524,7 @@ new Vue({
 <p>Alors, qu’en est-il lorsque nous avons une liste complète d’éléments où nous voulons faire un rendu simultané, par exemple avec <code>v-for</code> ? Dans ce cas, nous allons utiliser le composant <code>&lt;transition-group&gt;</code>. Cependant avant de plonger dans un exemple, il y a quelques éléments importants à connaitre sur ce composant :</p>
 <ul>
 <li>Contrairement à <code>&lt;transition&gt;</code>, il rend un élément réel : par défaut un <code>&lt;span&gt;</code>. Vous pouvez modifier l’élément rendu avec l’attribut <code>tag</code>.</li>
-<li><a href="#Les-modes-de-transition">Les modes de transition</a> ne sont pas disponibles car nous ne pouvons plus alterner entre des éléments mutuellement exclusifs.</li>
+<li><a href="#Modes-de-transition">Les modes de transition</a> ne sont pas disponibles car nous ne pouvons plus alterner entre des éléments mutuellement exclusifs.</li>
 <li>Les éléments à l’intérieur <strong>doivent toujours avoir</strong> un attribut <code>key</code> unique</li>
 </ul>
 <h3 id="Transitions-de-liste-entrantes-sortantes"><a href="#Transitions-de-liste-entrantes-sortantes" class="headerlink" title="Transitions de liste entrantes/sortantes"></a>Transitions de liste entrantes/sortantes</h3><p>Maintenant, nous allons nous plonger dans un exemple simple, faire des transitions entrantes et sortantes en utilisant les mêmes classes CSS que celles utilisées précédemment :</p>
