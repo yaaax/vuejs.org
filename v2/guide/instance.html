@@ -283,9 +283,9 @@
   </div>
 </div>
 
-<div id="sidebar-sponsors-platinum">
+<div id="sidebar-sponsors-platinum-left">
   <div class="main-sponsor">
-    <span>Platinum Sponsors</span>
+    <span>Sponsors de platine</span>
     <div>
     <a href="https://www.bitsrc.io/?utm_source=vue&utm_medium=vue&utm_campaign=vue&utm_term=vue&utm_content=vue" target="_blank" class="logo">
       <img src="/images/bit-wide.png" alt="">
@@ -299,12 +299,16 @@
     <a href="https://vehikl.com/" target="_blank" class="logo">
       <img src="/images/vehikl.png" alt="vehikl">
     </a>
+    <a href="https://www.nativescript.org/vue?utm_source=vue-js-org&utm_medium=website&utm_campaign=nativescript-awareness" target="_blank" class="logo">
+      <img src="/images/nativescript.png" alt="nativescript">
+    </a>
     </div>
   </div>
   <a class="become-backer" href="/support-vuejs">
     Devenez un sponsor
   </a>
 </div>
+
 
       
         <h2>
@@ -954,6 +958,33 @@
   </div>
 </div>
 
+<div id="sidebar-sponsors-platinum-right">
+  <div class="main-sponsor">
+    <span>Sponsors de platine</span>
+    <div>
+    <a href="https://www.bitsrc.io/?utm_source=vue&utm_medium=vue&utm_campaign=vue&utm_term=vue&utm_content=vue" target="_blank" class="logo">
+      <img src="/images/bit-wide.png" alt="">
+    </a>
+    <a href="http://tooltwist.com/" target="_blank" class="logo">
+      <img src="/images/tooltwist.png" alt="tooltwist">
+    </a>
+    <a href="https://vueschool.io/?utm_source=Vuejs.org&utm_medium=Banner&utm_campaign=Sponsored%20Banner&utm_content=V1" target="_blank" class="logo">
+      <img src="/images/vueschool.png" alt="vue school">
+    </a>
+    <a href="https://vehikl.com/" target="_blank" class="logo">
+      <img src="/images/vehikl.png" alt="vehikl">
+    </a>
+    <a href="https://www.nativescript.org/vue?utm_source=vue-js-org&utm_medium=website&utm_campaign=nativescript-awareness" target="_blank" class="logo">
+      <img src="/images/nativescript.png" alt="nativescript">
+    </a>
+    </div>
+  </div>
+  <a class="become-backer" href="/support-vuejs">
+    Devenez un sponsor
+  </a>
+</div>
+
+
 
 <div class="content guide with-sidebar instance-guide">
   
@@ -986,7 +1017,7 @@
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">vm.b = <span class="string">'salut'</span></span><br></pre></td></tr></table></figure>
 <p>Les changements de <code>b</code> ne déclencheront aucune mise à jour. Si vous savez que vous allez avoir besoin d’une propriété plus tard qui n’a pas de valeur dès le début, vous avez juste besoin de la créer avec n’importe quelle valeur initiale. Par exemple :</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">data: &#123;</span><br><span class="line">  newTodoText: <span class="string">''</span>,</span><br><span class="line">  visitCount: <span class="number">0</span>,</span><br><span class="line">  hideCompletedTodos: <span class="literal">false</span>,</span><br><span class="line">  todos: [],</span><br><span class="line">  error: <span class="literal">null</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>La seule exception à cela est l’utilisation de <code>Object.freeze()</code>, qui prévient les propriétés existantes d’être changées, ce qui implique que le système de réactivité ne peut pas traquer les changements.</p>
+<p>La seule exception à cela est l’utilisation de <code>Object.freeze()</code>, qui empêche les propriétés existantes d’être changées, ce qui implique que le système de réactivité ne peut pas traquer les changements.</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  foo: <span class="string">'bar'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">Object</span>.freeze(obj)</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#app'</span>,</span><br><span class="line">  data: obj</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123; foo &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- cela ne va plus mettre à jour `foo` ! --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">v-on:click</span>=<span class="string">"foo = 'baz'"</span>&gt;</span>Change le<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>En plus des propriétés de données, les instances de Vue exposent de nombreuses méthodes et propriétés utiles. Ces propriétés et méthodes sont préfixées par <code>$</code> pour les différencier des propriétés proxifiées de data. Par exemple :</p>

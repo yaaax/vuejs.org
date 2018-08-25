@@ -283,9 +283,9 @@
   </div>
 </div>
 
-<div id="sidebar-sponsors-platinum">
+<div id="sidebar-sponsors-platinum-left">
   <div class="main-sponsor">
-    <span>Platinum Sponsors</span>
+    <span>Sponsors de platine</span>
     <div>
     <a href="https://www.bitsrc.io/?utm_source=vue&utm_medium=vue&utm_campaign=vue&utm_term=vue&utm_content=vue" target="_blank" class="logo">
       <img src="/images/bit-wide.png" alt="">
@@ -299,12 +299,16 @@
     <a href="https://vehikl.com/" target="_blank" class="logo">
       <img src="/images/vehikl.png" alt="vehikl">
     </a>
+    <a href="https://www.nativescript.org/vue?utm_source=vue-js-org&utm_medium=website&utm_campaign=nativescript-awareness" target="_blank" class="logo">
+      <img src="/images/nativescript.png" alt="nativescript">
+    </a>
     </div>
   </div>
   <a class="become-backer" href="/support-vuejs">
     Devenez un sponsor
   </a>
 </div>
+
 
       
         <h2>
@@ -954,6 +958,33 @@
   </div>
 </div>
 
+<div id="sidebar-sponsors-platinum-right">
+  <div class="main-sponsor">
+    <span>Sponsors de platine</span>
+    <div>
+    <a href="https://www.bitsrc.io/?utm_source=vue&utm_medium=vue&utm_campaign=vue&utm_term=vue&utm_content=vue" target="_blank" class="logo">
+      <img src="/images/bit-wide.png" alt="">
+    </a>
+    <a href="http://tooltwist.com/" target="_blank" class="logo">
+      <img src="/images/tooltwist.png" alt="tooltwist">
+    </a>
+    <a href="https://vueschool.io/?utm_source=Vuejs.org&utm_medium=Banner&utm_campaign=Sponsored%20Banner&utm_content=V1" target="_blank" class="logo">
+      <img src="/images/vueschool.png" alt="vue school">
+    </a>
+    <a href="https://vehikl.com/" target="_blank" class="logo">
+      <img src="/images/vehikl.png" alt="vehikl">
+    </a>
+    <a href="https://www.nativescript.org/vue?utm_source=vue-js-org&utm_medium=website&utm_campaign=nativescript-awareness" target="_blank" class="logo">
+      <img src="/images/nativescript.png" alt="nativescript">
+    </a>
+    </div>
+  </div>
+  <a class="become-backer" href="/support-vuejs">
+    Devenez un sponsor
+  </a>
+</div>
+
+
 
 <div class="content guide with-sidebar components-custom-events-guide">
   
@@ -1006,16 +1037,16 @@
 <p>Nouveauté de la 2.3.0+</p>
 </blockquote>
 <p>Dans certains cas, nous pouvons avoir besoin d’une « liaison à double sens » (<em>two-way binding</em>) pour une prop. Malheureusement, une vraie liaison à double sens peut créer des problèmes de maintenance, car les composants enfant peuvent faire muter le parent sans que la source de cette mutation soit explicite que ce soit dans le parent ou l’enfant.</p>
-<p>C’est pourquoi à la place, nous recommandons d’émettre des événements en suivant le modèle <code>update:mon-nom-de-prop</code>. Par exemple, dans un composant hypothétique avec une prop <code>titre</code>, nous pourrions communiquer l’intention d’assigner une nouvelle valeur avec :</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">this</span>.$emit(<span class="string">'update:titre'</span>, nouveauTitre)</span><br></pre></td></tr></table></figure>
+<p>C’est pourquoi à la place, nous recommandons d’émettre des événements en suivant le modèle <code>update:myPropName</code>. Par exemple, dans un composant hypothétique avec une prop <code>title</code>, nous pourrions communiquer l’intention d’assigner une nouvelle valeur avec :</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">this</span>.$emit(<span class="string">'update:title'</span>, nouveauTitre)</span><br></pre></td></tr></table></figure>
 <p>Ensuite le parent peut écouter cet événement et mettre à jour une propriété de donnée locale s’il le désire. Par exemple :</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">text-document</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-bind:titre</span>=<span class="string">"doc.titre"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-on:update:titre</span>=<span class="string">"doc.titre = $event"</span></span></span><br><span class="line"><span class="tag">&gt;</span><span class="tag">&lt;/<span class="name">text-document</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">text-document</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-bind:title</span>=<span class="string">"doc.title"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-on:update:title</span>=<span class="string">"doc.title = $event"</span></span></span><br><span class="line"><span class="tag">&gt;</span><span class="tag">&lt;/<span class="name">text-document</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>Pour plus de commodité, nous proposons un raccourci pour cette technique avec le modificateur <code>.sync</code> :</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">text-document</span> <span class="attr">v-bind:titre.sync</span>=<span class="string">"doc.titre"</span>&gt;</span><span class="tag">&lt;/<span class="name">text-document</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">text-document</span> <span class="attr">v-bind:title.sync</span>=<span class="string">"doc.title"</span>&gt;</span><span class="tag">&lt;/<span class="name">text-document</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>Le modificateur <code>.sync</code> peut également être utilisé avec <code>v-bind</code> quand on utilise un objet pour assigner plusieurs props à la fois :</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">text-document</span> <span class="attr">v-bind.sync</span>=<span class="string">"doc"</span>&gt;</span><span class="tag">&lt;/<span class="name">text-document</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>Cela passe chaque propriété dans l’objet <code>doc</code> (p. ex. <code>titre</code>) en tant que prop individuelle, puis ajoute des écouteurs <code>v-on</code> de mise à jour pour chacune.</p>
-<p class="tip">Utiliser <code>v-bind.sync</code> avec un objet littéral, par exemple <code>v-bind.sync=”{ titre: doc.titre }”</code>, ne fonctionnera pas. En effet, il y a trop de cas particuliers à considérer pour pouvoir analyser une telle expression.</p>
+<p>Cela passe chaque propriété dans l’objet <code>doc</code> (p. ex. <code>title</code>) en tant que prop individuelle, puis ajoute des écouteurs <code>v-on</code> de mise à jour pour chacune.</p>
+<p class="tip">Utiliser <code>v-bind.sync</code> avec un objet littéral, par exemple <code>v-bind.sync=”{ title: doc.title }”</code>, ne fonctionnera pas. En effet, il y a trop de cas particuliers à considérer pour pouvoir analyser une telle expression.</p>
 
   
   

@@ -283,9 +283,9 @@
   </div>
 </div>
 
-<div id="sidebar-sponsors-platinum">
+<div id="sidebar-sponsors-platinum-left">
   <div class="main-sponsor">
-    <span>Platinum Sponsors</span>
+    <span>Sponsors de platine</span>
     <div>
     <a href="https://www.bitsrc.io/?utm_source=vue&utm_medium=vue&utm_campaign=vue&utm_term=vue&utm_content=vue" target="_blank" class="logo">
       <img src="/images/bit-wide.png" alt="">
@@ -299,12 +299,16 @@
     <a href="https://vehikl.com/" target="_blank" class="logo">
       <img src="/images/vehikl.png" alt="vehikl">
     </a>
+    <a href="https://www.nativescript.org/vue?utm_source=vue-js-org&utm_medium=website&utm_campaign=nativescript-awareness" target="_blank" class="logo">
+      <img src="/images/nativescript.png" alt="nativescript">
+    </a>
     </div>
   </div>
   <a class="become-backer" href="/support-vuejs">
     Devenez un sponsor
   </a>
 </div>
+
 
       
         <h2>
@@ -954,6 +958,33 @@
   </div>
 </div>
 
+<div id="sidebar-sponsors-platinum-right">
+  <div class="main-sponsor">
+    <span>Sponsors de platine</span>
+    <div>
+    <a href="https://www.bitsrc.io/?utm_source=vue&utm_medium=vue&utm_campaign=vue&utm_term=vue&utm_content=vue" target="_blank" class="logo">
+      <img src="/images/bit-wide.png" alt="">
+    </a>
+    <a href="http://tooltwist.com/" target="_blank" class="logo">
+      <img src="/images/tooltwist.png" alt="tooltwist">
+    </a>
+    <a href="https://vueschool.io/?utm_source=Vuejs.org&utm_medium=Banner&utm_campaign=Sponsored%20Banner&utm_content=V1" target="_blank" class="logo">
+      <img src="/images/vueschool.png" alt="vue school">
+    </a>
+    <a href="https://vehikl.com/" target="_blank" class="logo">
+      <img src="/images/vehikl.png" alt="vehikl">
+    </a>
+    <a href="https://www.nativescript.org/vue?utm_source=vue-js-org&utm_medium=website&utm_campaign=nativescript-awareness" target="_blank" class="logo">
+      <img src="/images/nativescript.png" alt="nativescript">
+    </a>
+    </div>
+  </div>
+  <a class="become-backer" href="/support-vuejs">
+    Devenez un sponsor
+  </a>
+</div>
+
+
 
 <div class="content guide with-sidebar forms-guide">
   
@@ -1158,7 +1189,7 @@ new Vue({
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- synchronisé après le "change" au lieu du "input" --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">v-model.lazy</span>=<span class="string">"msg"</span> &gt;</span></span><br></pre></td></tr></table></figure>
 <h3 id="number"><a href="#number" class="headerlink" title=".number"></a><code>.number</code></h3><p>Si vous voulez que la saisie utilisateur soit automatiquement convertie en nombre, vous pouvez ajouter le modificateur <code>number</code> à vos champs gérés par <code>v-model</code> :</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">v-model.number</span>=<span class="string">"age"</span> <span class="attr">type</span>=<span class="string">"number"</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>C’est souvent utile, parce que même avec <code>type=&quot;number&quot;</code>, la valeur des éléments input HTML retourne toujours une chaine de caractères.</p>
+<p>C’est souvent utile, parce que même avec <code>type=&quot;number&quot;</code>, la valeur des éléments de saisie HTML retourne toujours une chaine de caractères. Si la valeur ne peut pas être transformer avec <code>parseFloat()</code>, alors la valeur originale est retournée.</p>
 <h3 id="trim"><a href="#trim" class="headerlink" title=".trim"></a><code>.trim</code></h3><p>Si vous voulez que les espaces superflus des saisies utilisateur soient automatiquement retirés, vous pouvez ajouter le modificateur <code>trim</code> à vos champs gérés par <code>v-model</code> :</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">v-model.trim</span>=<span class="string">"msg"</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h2 id="v-model-avec-les-composants"><a href="#v-model-avec-les-composants" class="headerlink" title="v-model avec les composants"></a><code>v-model</code> avec les composants</h2><blockquote>

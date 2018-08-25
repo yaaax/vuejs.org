@@ -283,9 +283,9 @@
   </div>
 </div>
 
-<div id="sidebar-sponsors-platinum">
+<div id="sidebar-sponsors-platinum-left">
   <div class="main-sponsor">
-    <span>Platinum Sponsors</span>
+    <span>Sponsors de platine</span>
     <div>
     <a href="https://www.bitsrc.io/?utm_source=vue&utm_medium=vue&utm_campaign=vue&utm_term=vue&utm_content=vue" target="_blank" class="logo">
       <img src="/images/bit-wide.png" alt="">
@@ -299,12 +299,16 @@
     <a href="https://vehikl.com/" target="_blank" class="logo">
       <img src="/images/vehikl.png" alt="vehikl">
     </a>
+    <a href="https://www.nativescript.org/vue?utm_source=vue-js-org&utm_medium=website&utm_campaign=nativescript-awareness" target="_blank" class="logo">
+      <img src="/images/nativescript.png" alt="nativescript">
+    </a>
     </div>
   </div>
   <a class="become-backer" href="/support-vuejs">
     Devenez un sponsor
   </a>
 </div>
+
 
       
         <h2>
@@ -954,6 +958,33 @@
   </div>
 </div>
 
+<div id="sidebar-sponsors-platinum-right">
+  <div class="main-sponsor">
+    <span>Sponsors de platine</span>
+    <div>
+    <a href="https://www.bitsrc.io/?utm_source=vue&utm_medium=vue&utm_campaign=vue&utm_term=vue&utm_content=vue" target="_blank" class="logo">
+      <img src="/images/bit-wide.png" alt="">
+    </a>
+    <a href="http://tooltwist.com/" target="_blank" class="logo">
+      <img src="/images/tooltwist.png" alt="tooltwist">
+    </a>
+    <a href="https://vueschool.io/?utm_source=Vuejs.org&utm_medium=Banner&utm_campaign=Sponsored%20Banner&utm_content=V1" target="_blank" class="logo">
+      <img src="/images/vueschool.png" alt="vue school">
+    </a>
+    <a href="https://vehikl.com/" target="_blank" class="logo">
+      <img src="/images/vehikl.png" alt="vehikl">
+    </a>
+    <a href="https://www.nativescript.org/vue?utm_source=vue-js-org&utm_medium=website&utm_campaign=nativescript-awareness" target="_blank" class="logo">
+      <img src="/images/nativescript.png" alt="nativescript">
+    </a>
+    </div>
+  </div>
+  <a class="become-backer" href="/support-vuejs">
+    Devenez un sponsor
+  </a>
+</div>
+
+
 
 <div class="content guide with-sidebar migration-guide">
   
@@ -1059,7 +1090,7 @@
   <p>Lancez l'<a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">outil d'aide à la migration</a> sur votre code pour trouver toutes les occurrences de ce hook.</p>
 </div>
 
-<h3 id="ready-remplace"><a href="#ready-remplace" class="headerlink" title="ready remplacé"></a><code>ready</code> <sup>remplacé</sup></h3><p>Utilisez le hook <code>mounted</code> à la place. Il est a noté qu’avec <code>mounted</code>, il n’y a aucune garantie de présence dans le document (DOM réel). Pour s’en assurer, il faut inclure <code>Vue.nextTick</code> / <code>vm.$nextTick</code>. Par exemple :</p>
+<h3 id="ready-remplace"><a href="#ready-remplace" class="headerlink" title="ready remplacé"></a><code>ready</code> <sup>remplacé</sup></h3><p>Utilisez la fonction hook <code>mounted</code> à la place. Il est a noté qu’avec <code>mounted</code>, il n’y a aucune garantie de présence dans le document (DOM réel). Pour s’en assurer, il faut inclure <code>Vue.nextTick</code> / <code>vm.$nextTick</code>. Par exemple :</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">mounted: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.$nextTick(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// code vous assurant que `this.$el` est dans le document.</span></span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <div class="upgrade-path">
@@ -1396,7 +1427,7 @@ new Vue({
 <h4 id="Remplacer-le-filtre-debounce"><a href="#Remplacer-le-filtre-debounce" class="headerlink" title="Remplacer le filtre debounce"></a>Remplacer le filtre <code>debounce</code></h4><p>Au lieu de :</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">v-on:keyup</span>=<span class="string">"doStuff | debounce 500"</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">methods: &#123;</span><br><span class="line">  doStuff: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>utilisez le <a href="https://lodash.com/docs/4.15.0#debounce" target="_blank" rel="noopener"><code>debounce</code> de lodash</a> (ou également <a href="https://lodash.com/docs/4.15.0#throttle" target="_blank" rel="noopener"><code>throttle</code></a>) pour limiter directement l’appel des méthodes couteuses en ressource. Vous pouvez ainsi arriver au même résultat qu’au-dessus ainsi :</p>
+<p>utilisez la fonction <a href="https://lodash.com/docs/4.15.0#debounce" target="_blank" rel="noopener"><code>debounce</code> de lodash</a> (ou également <a href="https://lodash.com/docs/4.15.0#throttle" target="_blank" rel="noopener"><code>throttle</code></a>) pour limiter directement l’appel des méthodes couteuses en ressource. Vous pouvez ainsi arriver au même résultat qu’au-dessus ainsi :</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">v-on:keyup</span>=<span class="string">"doStuff"</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">methods: &#123;</span><br><span class="line">  doStuff: _.debounce(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &#125;, <span class="number">500</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>Pour en savoir plus sur les avantages de cette stratégie, regardez <a href="#Parametre-dattribut-debounce-pour-v-model-retire">l’exemple ici avec <code>v-model</code></a>.</p>
@@ -1414,7 +1445,7 @@ new Vue({
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> self = <span class="keyword">this</span></span><br><span class="line">self.users.filter(<span class="function"><span class="keyword">function</span> (<span class="params">user</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> searchRegex = <span class="keyword">new</span> <span class="built_in">RegExp</span>(self.searchQuery, <span class="string">'i'</span>)</span><br><span class="line">  <span class="keyword">return</span> user.isActive &amp;&amp; (</span><br><span class="line">    searchRegex.test(user.name) ||</span><br><span class="line">    searchRegex.test(user.email)</span><br><span class="line">  )</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <h4 id="Remplacer-le-filtre-orderBy"><a href="#Remplacer-le-filtre-orderBy" class="headerlink" title="Remplacer le filtre orderBy"></a>Remplacer le filtre <code>orderBy</code></h4><p>Au lieu de :</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">v-for</span>=<span class="string">"user in users | orderBy 'name'"</span>&gt;</span>&#123;&#123; user.name &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>Utilisez le <a href="https://lodash.com/docs/4.15.0#orderBy" target="_blank" rel="noopener"><code>orderBy</code> de lodash</a> (ou également <a href="https://lodash.com/docs/4.15.0#sortBy" target="_blank" rel="noopener"><code>sortBy</code></a>) dans une propriété calculée :</p>
+<p>Utilisez la fonction <a href="https://lodash.com/docs/4.15.0#orderBy" target="_blank" rel="noopener"><code>orderBy</code> de lodash</a> (ou également <a href="https://lodash.com/docs/4.15.0#sortBy" target="_blank" rel="noopener"><code>sortBy</code></a>) dans une propriété calculée :</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">v-for</span>=<span class="string">"user in orderedUsers"</span>&gt;</span>&#123;&#123; user.name &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">computed: &#123;</span><br><span class="line">  orderedUsers: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> _.orderBy(<span class="keyword">this</span>.users, <span class="string">'name'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>Vous pouvez même ordonner par plusieurs colonnes :</p>
