@@ -119,7 +119,7 @@
     <li>
       <ul>
         <li><a href="https://github.com/vuejs/vue-devtools" class="nav-link" target="_blank">Devtools (En)</a></li>
-        <li><a href="https://vuejs-templates.github.io/webpack" class="nav-link" target="_blank">Template webpack (En)</a></li>
+        <li><a href="https://cli.vuejs.org/" class="nav-link" target="_blank">Vue CLI (En)</a></li>
         <li><a href="https://vue-loader.vuejs.org" class="nav-link" target="_blank">Vue Loader (En)</a></li>
       </ul>
     </li>
@@ -215,7 +215,7 @@
     <li>
       <ul>
         <li><a href="https://github.com/vuejs/vue-devtools" class="nav-link" target="_blank">Devtools (En)</a></li>
-        <li><a href="https://vuejs-templates.github.io/webpack" class="nav-link" target="_blank">Template webpack (En)</a></li>
+        <li><a href="https://cli.vuejs.org/" class="nav-link" target="_blank">Vue CLI (En)</a></li>
         <li><a href="https://vue-loader.vuejs.org" class="nav-link" target="_blank">Vue Loader (En)</a></li>
       </ul>
     </li>
@@ -276,8 +276,8 @@
   <div class="main-sponsor">
     <span>Special Sponsor</span>
     <div>
-    <a href="https://stdlib.com" target="_blank" class="logo">
-      <img src="/images/stdlib.png" alt="">
+    <a href="https://code.xyz/" target="_blank" class="logo">
+      <img src="/images/codexyz.png" alt="">
     </a>
     </div>
   </div>
@@ -566,7 +566,7 @@
       
     
     <li>
-      <a href="/v2/guide/components-slots.html" class="sidebar-link">Slots (EN)</a>
+      <a href="/v2/guide/components-slots.html" class="sidebar-link">Slots</a>
     </li>
   
     
@@ -1006,7 +1006,7 @@
   
     <h2 id="Exemple-de-base"><a href="#Exemple-de-base" class="headerlink" title="Exemple de base"></a>Exemple de base</h2><p>Voici un exemple de composant Vue :</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Définition d'un nouveau composant appelé `button-counter`</span></span><br><span class="line">Vue.component(<span class="string">'button-counter'</span>, &#123;</span><br><span class="line">  data: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      count: <span class="number">0</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  template: <span class="string">'&lt;button v-on:click="count++"&gt;Vous m\'avez cliqué &#123;&#123; count &#125;&#125; fois.&lt;/button&gt;'</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<p>Les composants sont des instances de Vue réutilisables avec un nom : dans notre cas <code>&lt;button-counter&gt;</code>. Nous pouvons utiliser ce composant en tant qu’élément personnalisé à l’intérieure d’une instance de Vue racine créée avec <code>new Vue</code> :</p>
+<p>Les composants sont des instances de Vue réutilisables avec un nom : dans notre cas <code>&lt;button-counter&gt;</code>. Nous pouvons utiliser ce composant en tant qu’élément personnalisé à l’intérieur d’une instance de Vue racine créée avec <code>new Vue</code> :</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"components-demo"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button-counter</span>&gt;</span><span class="tag">&lt;/<span class="name">button-counter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> Vue(&#123; <span class="attr">el</span>: <span class="string">'#components-demo'</span> &#125;)</span><br></pre></td></tr></table></figure>
 

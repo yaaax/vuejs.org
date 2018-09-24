@@ -119,7 +119,7 @@
     <li>
       <ul>
         <li><a href="https://github.com/vuejs/vue-devtools" class="nav-link" target="_blank">Devtools (En)</a></li>
-        <li><a href="https://vuejs-templates.github.io/webpack" class="nav-link" target="_blank">Template webpack (En)</a></li>
+        <li><a href="https://cli.vuejs.org/" class="nav-link" target="_blank">Vue CLI (En)</a></li>
         <li><a href="https://vue-loader.vuejs.org" class="nav-link" target="_blank">Vue Loader (En)</a></li>
       </ul>
     </li>
@@ -215,7 +215,7 @@
     <li>
       <ul>
         <li><a href="https://github.com/vuejs/vue-devtools" class="nav-link" target="_blank">Devtools (En)</a></li>
-        <li><a href="https://vuejs-templates.github.io/webpack" class="nav-link" target="_blank">Template webpack (En)</a></li>
+        <li><a href="https://cli.vuejs.org/" class="nav-link" target="_blank">Vue CLI (En)</a></li>
         <li><a href="https://vue-loader.vuejs.org" class="nav-link" target="_blank">Vue Loader (En)</a></li>
       </ul>
     </li>
@@ -276,8 +276,8 @@
   <div class="main-sponsor">
     <span>Special Sponsor</span>
     <div>
-    <a href="https://stdlib.com" target="_blank" class="logo">
-      <img src="/images/stdlib.png" alt="">
+    <a href="https://code.xyz/" target="_blank" class="logo">
+      <img src="/images/codexyz.png" alt="">
     </a>
     </div>
   </div>
@@ -1881,7 +1881,7 @@
 </ul>
 </li>
 <li><p><strong>Utilisation :</strong></p>
-<p><code>&lt;transition-group&gt;</code> sert d’effets de transition pour de <strong>multiples</strong> éléments/composants. Le rendu de <code>&lt;transition-group&gt;</code> donne un nouvel élément dans le DOM. Par défaut, il s’agit d’un <code>&lt;span&gt;</code>, mais vous pouvez configurer le type d’élément en sortie via l’attribut <code>tag</code>.</p>
+<p><code>&lt;transition-group&gt;</code> sert d’effets de transition pour de <strong>multiples</strong> éléments / composants. Le rendu de <code>&lt;transition-group&gt;</code> donne un nouvel élément dans le DOM. Par défaut, il s’agit d’un <code>&lt;span&gt;</code>, mais vous pouvez configurer le type d’élément en sortie via l’attribut <code>tag</code>.</p>
 <p>Notez que chaque enfant dans un <code>&lt;transition-group&gt;</code> doit avoir une <strong>clé unique</strong> pour que les animations fonctionnent correctement.</p>
 <p><code>&lt;transition-group&gt;</code> supporte les déplacements de transition via les transformations CSS. Quand la position à l’écran d’un élément enfant a changé après une mise à jour, une classe CSS de déplacement (auto générée à partir de l’attribut <code>name</code> ou configurée via l’attribut <code>move-class</code>) est appliquée. Si la propriété CSS <code>transform</code> permet les transitions quand la classe de déplacement est appliquée, l’élément sera animé de façon fluide jusqu’à sa destination en utilisant la <a href="https://aerotwist.com/blog/flip-your-animations/" target="_blank" rel="noopener">technique FLIP</a>.</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">transition-group</span> <span class="attr">tag</span>=<span class="string">"ul"</span> <span class="attr">name</span>=<span class="string">"slide"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"item in items"</span> <span class="attr">:key</span>=<span class="string">"item.id"</span>&gt;</span></span><br><span class="line">    &#123;&#123; item.text &#125;&#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">transition-group</span>&gt;</span></span><br></pre></td></tr></table></figure>

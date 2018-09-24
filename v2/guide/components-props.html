@@ -119,7 +119,7 @@
     <li>
       <ul>
         <li><a href="https://github.com/vuejs/vue-devtools" class="nav-link" target="_blank">Devtools (En)</a></li>
-        <li><a href="https://vuejs-templates.github.io/webpack" class="nav-link" target="_blank">Template webpack (En)</a></li>
+        <li><a href="https://cli.vuejs.org/" class="nav-link" target="_blank">Vue CLI (En)</a></li>
         <li><a href="https://vue-loader.vuejs.org" class="nav-link" target="_blank">Vue Loader (En)</a></li>
       </ul>
     </li>
@@ -215,7 +215,7 @@
     <li>
       <ul>
         <li><a href="https://github.com/vuejs/vue-devtools" class="nav-link" target="_blank">Devtools (En)</a></li>
-        <li><a href="https://vuejs-templates.github.io/webpack" class="nav-link" target="_blank">Template webpack (En)</a></li>
+        <li><a href="https://cli.vuejs.org/" class="nav-link" target="_blank">Vue CLI (En)</a></li>
         <li><a href="https://vue-loader.vuejs.org" class="nav-link" target="_blank">Vue Loader (En)</a></li>
       </ul>
     </li>
@@ -276,8 +276,8 @@
   <div class="main-sponsor">
     <span>Special Sponsor</span>
     <div>
-    <a href="https://stdlib.com" target="_blank" class="logo">
-      <img src="/images/stdlib.png" alt="">
+    <a href="https://code.xyz/" target="_blank" class="logo">
+      <img src="/images/codexyz.png" alt="">
     </a>
     </div>
   </div>
@@ -566,7 +566,7 @@
       
     
     <li>
-      <a href="/v2/guide/components-slots.html" class="sidebar-link">Slots (EN)</a>
+      <a href="/v2/guide/components-slots.html" class="sidebar-link">Slots</a>
     </li>
   
     
@@ -1080,7 +1080,7 @@
 <li><code>form-control</code>, qui va être appliqué dans le template du composant,</li>
 <li><code>date-picker-theme-dark</code>, qui va être passé au composant depuis son parent.</li>
 </ul>
-<p>Pour la plupart des attributs, la valeur fournie par le composant va remplacer la valeur définie par le composant. Aussi par exemple, passer <code>type=&quot;text&quot;</code> va remplacer <code>type=&quot;date&quot;</code> et probablement tout casser ! Heureusement, les attributs <code>class</code> et <code>style</code> sont plus malins. Ces deux valeurs sont fusionnées, fournissant la valeur finale <code>form-control date-picker-theme-dark</code>.</p>
+<p>Pour la plupart des attributs, la valeur fournie par le parent va remplacer la valeur définie par le composant. Aussi par exemple, passer <code>type=&quot;text&quot;</code> va remplacer <code>type=&quot;date&quot;</code> et probablement tout casser ! Heureusement, les attributs <code>class</code> et <code>style</code> sont plus malins. Ces deux valeurs sont fusionnées, fournissant la valeur finale <code>form-control date-picker-theme-dark</code>.</p>
 <h3 id="Desactiver-l’heritage-d’attribut"><a href="#Desactiver-l’heritage-d’attribut" class="headerlink" title="Désactiver l’héritage d’attribut"></a>Désactiver l’héritage d’attribut</h3><p>Si vous <strong>ne</strong> voulez <strong>pas</strong> que l’élément racine d’un composant hérite de tels attributs, vous pouvez mettre <code>inheritAttrs: false</code> dans les options de votre composant. Par exemple :</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">'my-component'</span>, &#123;</span><br><span class="line">  inheritAttrs: <span class="literal">false</span>,</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <p>Cela est particulièrement utile avec l’utilisation combinée de la propriété d’instance <code>$attrs</code> qui contient les noms et valeurs passés à un composant comme ceci :</p>
