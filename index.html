@@ -415,6 +415,9 @@
 <a href="https://kintohub.com" target="_blank" style="width: 120px;">
   <img src="/images/kintohub.png" style="width: 120px;" alt="kinto hub">
 </a>
+<a href="https://opteo.com/vue" target="_blank" style="width: 120px;">
+  <img src="/images/opteo.png" style="width: 120px;" alt="opteo">
+</a>
 <br>
 
 <a class="become-sponsor button white" href="/support-vuejs/">Devenir sponsor !</a>
@@ -471,6 +474,40 @@ window.addEventListener('load', function () {
 })
 </script>
 
+  </div>
+</div>
+
+<div id="news">
+  <div class="inner">
+    <h3>S'inscrire à notre newsletter hebdomadaire</h3>
+    <form
+      class="newsletter-form"
+      id="revue-form"
+      name="revue-form"
+      target="_blank"
+      action="https://www.getrevue.co/profile/vuenewsletter/add_subscriber"
+      method="post"
+      @submit="subscribe"
+    >
+      <input
+        class="newsletter-input"
+        type="email"
+        name="member[email]"
+        id="member_email"
+        required
+        placeholder="Email address"
+      >
+      <input
+        class="button newsletter-button"
+        type="submit"
+        value="Subscribe"
+        name="member[subscribe]"
+        id="member_submit"
+      >
+    </form>
+    <p>
+      Vous pourvez lire nos précédentes problématiques et écouter notre podcast sur <a href="https://news.vuejs.org" target="_blank">news.vuejs.org</a>.
+    </p>
   </div>
 </div>
 

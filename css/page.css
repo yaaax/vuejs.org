@@ -221,7 +221,8 @@ em {
 p {
   word-spacing: 0.05em;
 }
-a.button {
+a.button,
+input.button {
   padding: 0.75em 2em;
   border-radius: 2em;
   display: inline-block;
@@ -231,21 +232,25 @@ a.button {
   box-sizing: border-box;
   border: 1px solid #4fc08d;
 }
-a.button.has-icon {
+a.button.has-icon,
+input.button.has-icon {
   position: relative;
   text-indent: 1.4em;
 }
-a.button.has-icon > svg {
+a.button.has-icon > svg,
+input.button.has-icon > svg {
   position: absolute;
   left: 0.4em;
   top: 0.4em;
   width: 2em;
 }
-a.button.white {
+a.button.white,
+input.button.white {
   background-color: #fff;
   color: #42b983;
 }
-a.button.gray {
+a.button.gray,
+input.button.gray {
   background-color: #f6f6f6;
   color: #7f8c8d;
   border-color: #f6f6f6;
@@ -813,10 +818,10 @@ ul.demo li {
   display: block;
 }
 .main-sponsor .logo:first-child {
-  margin-top: 12px;
+  margin-top: 18px;
 }
 .main-sponsor .logo:last-child {
-  margin-bottom: 14px;
+  margin-bottom: 20px;
 }
 .main-sponsor img,
 .main-sponsor a {
@@ -1169,7 +1174,7 @@ ul.demo li {
 }
 #team-members .vuer .profile li::after {
   display: inline-block;
-  content: "Â·";
+  content: "·";
   margin: 0 8px;
 }
 #team-members .vuer .profile li:last-child::after {
@@ -1478,6 +1483,12 @@ ul.demo li {
 .content ol {
   padding-left: 1.5em;
   position: inherit;
+}
+.content ul ul,
+.content ol ul,
+.content ul ol,
+.content ol ol {
+  margin: 0;
 }
 .content a {
   color: #42b983;

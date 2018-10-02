@@ -602,7 +602,8 @@
 </ul>
 </li>
 <li><p><strong>Utilisation :</strong></p>
-<p>Installe un plugin Vue.js. Si l’argument plugin est de type Object, il doit exposer une méthode  <code>install</code>. S’il s’agit d’une fonction, elle sera utilisée comme méthode d’installation. Cette méthode d’installation sera appelée avec Vue en tant qu’argument.</p>
+<p>Installe un plugin Vue.js. Si l’argument plugin est de type <code>Object</code>, il doit exposer une méthode  <code>install</code>. S’il s’agit d’une fonction, elle sera utilisée comme méthode d’installation. Cette méthode d’installation sera appelée avec Vue en tant qu’argument.</p>
+<p>Cette méthode doit être appelée avant d’appeler <code>new Vue()</code></p>
 <p>Quand cette méthode est appelée avec le même plugin plusieurs fois, le plugin ne sera installé qu’une seule fois.</p>
 </li>
 <li><p><strong>Voir aussi :</strong> <a href="../guide/plugins.html">Plugins</a></p>
