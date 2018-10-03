@@ -14,13 +14,13 @@ Des comportements qui contribuent à créer un environnement positif sont par ex
 - Se concentrer sur ce qu'il y a de mieux pour la communauté.
 - Faire preuve d'empathie envers les autres membres de la communauté.
 
-Des comportements innacceptable des participants sont par exemple :
+Des comportements innacceptables des participants sont par exemple :
 
-- L'utilisation du langage ou d'image sexualisée et le harcèlement ou avence sexuelles.
-- Troll, commentaires insultants et attaques personnelles ou politiques.
-- Harcèlement public ou privé.
-- Publier des informations personnelles de tiers, telles que des informations physiques ou électroniques sans permission explicite.
-- Autres comportements pouvant raisonnablement être considérés comme inappropriés dans un cadre professionnel.
+- L'utilisation de langage ou d'image sexualisée ainsi que le harcèlement ou les avences sexuelles.
+- Le troll, les commentaires insultants et attaques personnelles ou politiques.
+- Le harcèlement public ou privé.
+- La publication d'informations personnelles de tiers, telles que des informations physiques ou électroniques sans permission explicite.
+- D'autres comportements pouvant raisonnablement être considérés comme inappropriés dans un cadre professionnel.
 
 ## Nos responsabilités
 
@@ -30,11 +30,11 @@ Les responsables de projet ont le droit et la responsabilité de supprimer, édi
 
 ## Champ d'action
 
-Ce code de conduite s'applique aussi bien dans les espaces de projet que dans les espaces publics lorsqu'un individu représente le projet ou sa communauté. Exemples de représentant un projet ou une communauté inclut l’utilisation d’un e-mail officiel du projet adresse, en postant via un compte officiel sur les médias sociaux, ou en agissant en tant que représentant à un événement en ligne ou hors ligne. La représentation d'un projet peut être davantage défini et clarifié par les responsables du projet.
+Ce code de conduite s'applique aussi bien dans les espaces de projet que dans les espaces publics lorsqu'un individu représente le projet ou sa communauté. Exemples de représentant un projet ou une communauté inclut l'utilisation d'un e-mail officiel du projet adresse, en postant via un compte officiel sur les médias sociaux, ou en agissant en tant que représentant à un événement en ligne ou hors ligne. La représentation d'un projet peut être davantage défini et clarifié par les responsables du projet.
 
 ## Enforcement
 
-Des cas de comportement abusif, de harcèlement ou autrement inacceptable peuvent être signalé en contactant l’équipe du projet à vuejscommunity@gmail.com. Tout les plaintes seront examinées et donneront lieu à une réponse qui est jugé nécessaire et approprié aux circonstances. L'équipe du projet est obligé de maintenir la confidentialité à l'égard du déclarant d'un incident. Des détails supplémentaires sur les politiques d’application spécifiques peuvent être affichés séparément.
+Des cas de comportement abusif, de harcèlement ou autrement inacceptable peuvent être signalé en contactant l'équipe du projet à vuejscommunity@gmail.com. Tout les plaintes seront examinées et donneront lieu à une réponse qui est jugé nécessaire et approprié aux circonstances. L'équipe du projet est obligé de maintenir la confidentialité à l'égard du déclarant d'un incident. Des détails supplémentaires sur les politiques d'application spécifiques peuvent être affichés séparément.
 
 Les responsables de projet qui ne respectent pas le code de conduite ou ne le font pas respecter de bonne foi peuvent faire face à des répercussions temporaires ou permanentes, déterminées par les autres membres de la direction du projet.
 
