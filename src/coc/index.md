@@ -2,7 +2,7 @@
 
 ## Notre engagement
 
-Afin de favoriser un environnement ouvert et accueillant, nous nous engageons en tant que contributeurs et mainteneurs à veiller que notre projet soit mené sans harcèlement pour quiconque, peu importe l'âge, la corpulance, les handicaps, les origines ethnique, les caractéristiques sexuelles, l'identité et l'expression de genre, le niveau d'expérience, l'éducation, le statut socio-économique, la nationalité, l'identité personnelle, le phénotype, la religion ou l'identité et l'orientation sexuelles.
+Afin de favoriser un environnement ouvert et accueillant, nous nous engageons en tant que contributeurs et mainteneurs à veiller que notre projet soit mené sans harcèlement pour quiconque, peu importe l'âge, la corpulance, les handicaps, les origines ethniques, les caractéristiques sexuelles, l'identité et l'expression de genre, le niveau d'expérience, l'éducation, le statut socio-économique, la nationalité, l'identité personnelle, les génotype et phénotype, la religion, les opinions politiques ou l'identité et l'orientation sexuelles.
 
 ## Nos standards
 
