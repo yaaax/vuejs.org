@@ -32,7 +32,7 @@ Les responsables de projet ont le droit et la responsabilité de supprimer, édi
 
 Ce code de conduite s'applique aussi bien dans les espaces de projet que dans les espaces publics lorsqu'un individu représente le projet ou sa communauté. Exemples de représentant un projet ou une communauté inclut l'utilisation d'un e-mail officiel du projet adresse, en postant via un compte officiel sur les médias sociaux, ou en agissant en tant que représentant à un évènement en ligne ou hors ligne. La représentation d'un projet peut être davantage définie et clarifiée par les responsables du projet.
 
-## Enforcement
+## Sanctions
 
 Des cas de comportement abusif, de harcèlement ou autrement inacceptables peuvent être signalés en contactant l'équipe du projet à vuejscommunity@gmail.com. Toutes les plaintes seront examinées et donneront lieu à une réponse qui est jugée nécessaire et appropriée aux circonstances. L'équipe du projet est obligée de maintenir la confidentialité à l'égard du déclarant d'un incident. Des détails supplémentaires sur les politiques d'application spécifiques peuvent être affichés séparément.
 
