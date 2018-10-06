@@ -2,7 +2,7 @@
 
 ## Notre engagement
 
-Afin de favoriser un environnement ouvert et accueillant, nous nous engageons en tant que contributeurs et mainteneurs à veiller à ce que notre projet soit mené sans harcèlement pour quiconque, peu importe l'âge, la corpulence, les handicaps, les origines ethniques, les caractéristiques sexuelles, l'identité et l'expression de genre, le niveau d'expérience, l'éducation, le statut socioéconomique, la nationalité, l'identité personnelle, les génotype et phénotype, la religion, les opinions politiques ou l'identité et l'orientation sexuelles.
+Afin de favoriser un environnement ouvert et accueillant, nous nous engageons en tant que contributeurs et mainteneurs à veiller à ce que notre projet soit mené sans harcèlement pour quiconque, peu importe l'âge, la corpulence, les handicaps, les origines ethniques, les caractéristiques sexuelles, l'identité et l'expression de genre, le niveau d'expérience, l'éducation, le statut socioéconomique, la nationalité, l'identité personnelle, les génotype et phénotype, la religion, les opinions politiques ou l'identité et l'orientation sexuelle.
 
 ## Nos standards
 
@@ -30,7 +30,7 @@ Les responsables de projet ont le droit et la responsabilité de supprimer, édi
 
 ## Champ d'action
 
-Ce code de conduite s'applique aussi bien dans les espaces de projet que dans les espaces publics lorsqu'un individu représente le projet ou sa communauté. Exemples de représentant un projet ou une communauté inclut l'utilisation d'un e-mail officiel du projet adresse, en postant via un compte officiel sur les médias sociaux, ou en agissant en tant que représentant à un évènement en ligne ou hors ligne. La représentation d'un projet peut être davantage définie et clarifiée par les responsables du projet.
+Ce code de conduite s'applique aussi bien dans les espaces de projet que dans les espaces publics lorsqu'un individu représente le projet ou sa communauté. Les exemples de représentation d'un projet ou d'une communauté incluent l'utilisation d'une adresse électronique officielle du projet, en postant via un compte officiel sur les médias sociaux, ou en agissant en tant que représentant à un évènement en ligne ou hors ligne. La représentation d'un projet peut être davantage définie et clarifiée par les responsables du projet.
 
 ## Application
 
