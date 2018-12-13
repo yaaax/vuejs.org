@@ -276,8 +276,8 @@
   <div class="main-sponsor">
     <span>Special Sponsor</span>
     <div>
-    <a href="https://code.xyz/" target="_blank" class="logo">
-      <img src="/images/codexyz.png" alt="">
+    <a href="https://stdlib.com/" target="_blank" class="logo">
+      <img src="/images/stdlib.png" alt="">
     </a>
     </div>
   </div>
@@ -1028,7 +1028,7 @@
 <p>Il ne peut y avoir qu’un seul <strong>slot par défaut</strong> qui recevra tous les éléments qui ne correspondent à aucun des slots nommés. Dans l’exemple précédent, le rendu HTML produit sera :</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">header</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Le titre de ma page<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">header</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">main</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>Un paragraphe pour le slot par défaut.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>Un autre paragraphe.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">main</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">footer</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>Ici les infos de contact<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">footer</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h2 id="Les-slots-avec-contenu-par-defaut"><a href="#Les-slots-avec-contenu-par-defaut" class="headerlink" title="Les slots avec contenu par défaut"></a>Les slots avec contenu par défaut</h2><p>Dans certains cas, il peut être intéressant de fournir un contenu par défaut pour vos slots. Par exemple, qu’un composant <code>&lt;submit-button&gt;</code> contienne le texte ‘Envoyer’ par défaut et que ce contenu soit facilement modifié par ‘Sauvegarder’, ‘Télécharger’, ou autre.</p>
-<p>Pour procéder de la sorte, il est possible de spécifier le contenu par défaut d’une balise <code>&lt;slot&gt;</code>.</p>
+<p>Pour procéder de la sorte, il est possible de spécifier le contenu par défaut d’une balise <code>&lt;slot&gt;</code> dans votre template de composant :</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"submit"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">slot</span>&gt;</span>Envoyer<span class="tag">&lt;/<span class="name">slot</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>Si le <code>&lt;slot&gt;</code> est rempli dans le composant parent, le contenu par défaut est remplacé.</p>
 <h2 id="Portee-de-compilation-du-template"><a href="#Portee-de-compilation-du-template" class="headerlink" title="Portée de compilation du template"></a>Portée de compilation du template</h2><p>Quand on utilise des données dans le slot, comme dans l’exemple suivant :</p>

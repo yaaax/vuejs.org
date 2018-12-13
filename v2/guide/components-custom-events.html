@@ -276,8 +276,8 @@
   <div class="main-sponsor">
     <span>Special Sponsor</span>
     <div>
-    <a href="https://code.xyz/" target="_blank" class="logo">
-      <img src="/images/codexyz.png" alt="">
+    <a href="https://stdlib.com/" target="_blank" class="logo">
+      <img src="/images/stdlib.png" alt="">
     </a>
     </div>
   </div>
@@ -1043,6 +1043,8 @@
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">text-document</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-bind:title</span>=<span class="string">"doc.title"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-on:update:title</span>=<span class="string">"doc.title = $event"</span></span></span><br><span class="line"><span class="tag">&gt;</span><span class="tag">&lt;/<span class="name">text-document</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>Pour plus de commodité, nous proposons un raccourci pour cette technique avec le modificateur <code>.sync</code> :</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">text-document</span> <span class="attr">v-bind:title.sync</span>=<span class="string">"doc.title"</span>&gt;</span><span class="tag">&lt;/<span class="name">text-document</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p class="tip">Notez que  <code>v-bind</code> avec le modificateur <code>.sync</code> <strong>ne</strong> fonctionne <strong>pas</strong> avec des expressions (par ex. <code>v-bind:title.sync=”doc.title + ‘!’”</code> est invalide). À la place, vous devez seulement fournir le nom de la propriété que vous voulez lier, similaire à <code>v-model</code>.</p>
+
 <p>Le modificateur <code>.sync</code> peut également être utilisé avec <code>v-bind</code> quand on utilise un objet pour assigner plusieurs props à la fois :</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">text-document</span> <span class="attr">v-bind.sync</span>=<span class="string">"doc"</span>&gt;</span><span class="tag">&lt;/<span class="name">text-document</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>Cela passe chaque propriété dans l’objet <code>doc</code> (p. ex. <code>title</code>) en tant que prop individuelle, puis ajoute des écouteurs <code>v-on</code> de mise à jour pour chacune.</p>

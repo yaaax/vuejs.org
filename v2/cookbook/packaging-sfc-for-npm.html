@@ -276,8 +276,8 @@
   <div class="main-sponsor">
     <span>Special Sponsor</span>
     <div>
-    <a href="https://code.xyz/" target="_blank" class="logo">
-      <img src="/images/codexyz.png" alt="">
+    <a href="https://stdlib.com/" target="_blank" class="logo">
+      <img src="/images/stdlib.png" alt="">
     </a>
     </div>
   </div>
@@ -333,7 +333,7 @@
     
     
     <li>
-      <a href="/v2/cookbook/form-validation.html" class="sidebar-link">Form Validation (EN)</a>
+      <a href="/v2/cookbook/form-validation.html" class="sidebar-link">Form Validation</a>
     </li>
   
     
@@ -363,7 +363,7 @@
     
     
     <li>
-      <a href="/v2/cookbook/debugging-in-vscode.html" class="sidebar-link">Debugging in VS Code and Chrome (EN)</a>
+      <a href="/v2/cookbook/debugging-in-vscode.html" class="sidebar-link">Debugging in VS Code (EN)</a>
     </li>
   
     
@@ -394,6 +394,12 @@
     
     <li>
       <a href="/v2/cookbook/dockerize-vuejs-app.html" class="sidebar-link">Dockeriser une app Vue.js</a>
+    </li>
+  
+    
+    
+    <li>
+      <a href="/v2/cookbook/practical-use-of-scoped-slots.html" class="sidebar-link">Practical use of scoped slots with GoogleMaps (EN)</a>
     </li>
   
 </ul>
@@ -478,7 +484,7 @@
 <figure class="highlight"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"name"</span>: <span class="string">"my-component"</span>,</span><br><span class="line">  <span class="attr">"version"</span>: <span class="string">"1.2.3"</span>,</span><br><span class="line">  <span class="attr">"main"</span>: <span class="string">"dist/my-component.umd.js"</span>,</span><br><span class="line">  <span class="attr">"module"</span>: <span class="string">"dist/my-component.esm.js"</span>,</span><br><span class="line">  <span class="attr">"unpkg"</span>: <span class="string">"dist/my-component.min.js"</span>,</span><br><span class="line">  <span class="attr">"browser"</span>: &#123;</span><br><span class="line">    <span class="attr">"./sfc"</span>: <span class="string">"src/my-component.vue"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"scripts"</span>: &#123;</span><br><span class="line">    <span class="attr">"build"</span>: <span class="string">"npm run build:umd &amp; npm run build:es &amp; npm run build:unpkg"</span>,</span><br><span class="line">    <span class="attr">"build:umd"</span>: <span class="string">"rollup --config build/rollup.config.js --format umd --file dist/my-component.umd.js"</span>,</span><br><span class="line">    <span class="attr">"build:es"</span>: <span class="string">"rollup --config build/rollup.config.js --format es --file dist/my-component.esm.js"</span>,</span><br><span class="line">    <span class="attr">"build:unpkg"</span>: <span class="string">"rollup --config build/rollup.config.js --format iife --file dist/my-component.min.js"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"devDependencies"</span>: &#123;</span><br><span class="line">    <span class="attr">"rollup"</span>: <span class="string">"^0.57.1"</span>,</span><br><span class="line">    <span class="attr">"rollup-plugin-buble"</span>: <span class="string">"^0.19.2"</span>,</span><br><span class="line">    <span class="attr">"rollup-plugin-vue"</span>: <span class="string">"^3.0.0"</span>,</span><br><span class="line">    <span class="attr">"vue"</span>: <span class="string">"^2.5.16"</span>,</span><br><span class="line">    <span class="attr">"vue-template-compiler"</span>: <span class="string">"^2.5.16"</span>,</span><br><span class="line">    ...</span><br><span class="line">  &#125;,</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p class="tip">Remember, if you have an existing package.json file, it will likely contain a lot more than this one does. This merely illustrates a starting point. Also, the <i>packages</i> listed in devDependencies (not their versions) are the minimum requirements for rollup to create the three separate builds (umd, es, and unpkg) mentioned. As newer versions become available, they should be updated as necessary.</p>
 
-<p>Our changes to package.json are complete. Next, we need a small wrapper to export/auto-install the actual SFC, plus a mimimal Rollup configuration, and we’re set!</p>
+<p>Our changes to package.json are complete. Next, we need a small wrapper to export/auto-install the actual SFC, plus a minimal Rollup configuration, and we’re set!</p>
 <h3 id="What-does-my-packaged-component-look-like"><a href="#What-does-my-packaged-component-look-like" class="headerlink" title="What does my packaged component look like?"></a>What does my packaged component look like?</h3><p>Depending on how your component is being used, it needs to be exposed as either a <a href="https://medium.freecodecamp.org/javascript-modules-a-beginner-s-guide-783f7d7a5fcc#c33a" target="_blank" rel="noopener">CommonJS/UMD</a> javascript module, an <a href="https://medium.freecodecamp.org/javascript-modules-a-beginner-s-guide-783f7d7a5fcc#4f5e" target="_blank" rel="noopener">ES6 javascript</a> module, or in the case of a <code>&lt;script&gt;</code> tag, it will be automatically loaded into Vue via <code>Vue.use(...)</code> so it’s immediately available to the page. This is accomplished by a simple wrapper.js file which handles the module export and auto-install. That wrapper, in its entirety, looks like this:</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Import vue component</span></span><br><span class="line"><span class="keyword">import</span> component <span class="keyword">from</span> <span class="string">'./my-component.vue'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Declare install function executed by Vue.use()</span></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">install</span>(<span class="params">Vue</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (install.installed) <span class="keyword">return</span>;</span><br><span class="line">	install.installed = <span class="literal">true</span>;</span><br><span class="line">	Vue.component(<span class="string">'MyComponent'</span>, component);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Create module definition for Vue.use()</span></span><br><span class="line"><span class="keyword">const</span> plugin = &#123;</span><br><span class="line">	install,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Auto-install when vue is found (eg. in browser via &lt;script&gt; tag)</span></span><br><span class="line"><span class="keyword">let</span> GlobalVue = <span class="literal">null</span>;</span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="built_in">window</span> !== <span class="string">'undefined'</span>) &#123;</span><br><span class="line">	GlobalVue = <span class="built_in">window</span>.Vue;</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">typeof</span> global !== <span class="string">'undefined'</span>) &#123;</span><br><span class="line">	GlobalVue = global.Vue;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (GlobalVue) &#123;</span><br><span class="line">	GlobalVue.use(plugin);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// To allow use as module (npm/webpack/etc.) export component</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> component;</span><br></pre></td></tr></table></figure>
 <p>Notice the first line directly imports your SFC, and the last line exports it unchanged. As indicated by the comments in the rest of the code, the wrapper provides an <code>install</code> function for Vue, then attempts to detect Vue and automatically install the component. With 90% of the work done, it’s time to sprint to the finish!</p>
