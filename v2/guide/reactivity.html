@@ -1,0 +1,1162 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Réactivité dans le détail — Vue.js</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Vue.js - Le Framework JavaScript Évolutif">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <link rel="alternate" hreflang="x-default" href="https://vuejs.org/v2/guide/reactivity.html">
+    <link rel="alternate" hreflang="zh" href="https://cn.vuejs.org/v2/guide/reactivity.html">
+    <link rel="alternate" hreflang="ja" href="https://jp.vuejs.org/v2/guide/reactivity.html">
+    <link rel="alternate" hreflang="ru" href="https://ru.vuejs.org/v2/guide/reactivity.html">
+    <link rel="alternate" hreflang="ko" href="https://kr.vuejs.org/v2/guide/reactivity.html">
+    <link rel="alternate" hreflang="pt-BR" href="https://br.vuejs.org/v2/guide/reactivity.html">
+    <link rel="alternate" hreflang="fr" href="https://fr.vuejs.org/v2/guide/reactivity.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Réactivité dans le détail — Vue.js">
+    <meta property="og:description" content="Vue.js - Le Framework JavaScript Évolutif">
+    <meta property="og:image" content="https://vuejs.org//images/logo.png">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Réactivité dans le détail — Vue.js">
+    <meta name="twitter:description" content="Vue.js - Le Framework JavaScript Évolutif">
+    <meta name="twitter:image" content="https://vuejs.org/images/logo.png">
+
+    <link rel="apple-touch-icon" sizes="57x57" href="/images/icons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/images/icons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/icons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/icons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/icons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/icons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/images/icons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/images/icons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
+    <meta name="msapplication-TileImage" content="/images/icons/ms-icon-144x144.png">
+    <link rel="icon" href="/images/logo.png" type="image/png">
+
+    <meta name="msapplication-TileColor" content="#4fc08d">
+    <meta name="theme-color" content="#4fc08d">
+
+    <meta name="msapplication-config" content="browserconfig.xml">
+    <link rel="manifest" href="/manifest.json">
+
+    <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Roboto Mono' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js' rel='stylesheet' type='text/css'>
+
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- main page styles -->
+    <link rel="stylesheet" href="/css/page.css">
+
+    <!-- this needs to be loaded before guide's inline scripts -->
+    <script src="/js/vue.js"></script>
+    <script>
+      Vue.config.productionTip = false
+      window.PAGE_TYPE = "guide"
+    </script>
+
+    <!-- ga -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-46852172-1', 'vuejs.org');
+      ga('send', 'pageview');
+    </script>
+
+    <!-- vimeo analytics -->
+    <script type="text/javascript" defer="defer" src="https://extend.vimeocdn.com/ga/72160148.js"></script>
+  </head>
+  <body class="docs">
+    <div id="mobile-bar" >
+      <a class="menu-button"></a>
+      <a class="logo" href="/"></a>
+    </div>
+    <div id="header">
+  <a id="logo" href="/">
+    <img src="/images/logo.png" alt="vue logo">
+    <span>Vue.js</span>
+  </a>
+  <ul id="nav">
+    <li>
+  <form id="search-form">
+    <input type="text" id="search-query-nav" class="search-query st-default-search-input">
+  </form>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link current">Doc</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/v2/guide/" class="nav-link current">Guide</a></li>
+      <li><a href="/v2/api/" class="nav-link">API</a></li>
+      <li><a href="/v2/style-guide/" class="nav-link">Conventions</a></li>
+      <li><a href="/v2/examples/" class="nav-link">Exemples</a></li>
+      <li><a href="/v2/cookbook/" class="nav-link">Tutoriels</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container ecosystem">
+  <a class="nav-link">Écosystème</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><h4>Aide</h4></li>
+    <li><ul>
+      <li><a href="https://forum.vuejs.org/c/french" class="nav-link" target="_blank">Forum</a></li>
+      <li><a href="https://discordapp.com/channels/325477692906536972/360669119948783616" class="nav-link" target="_blank">Chat</a></li>
+      <li><a href="https://www.vuemeetups.org/" class="nav-link" target="_blank">Meetups (EN)</a></li>
+    </ul></li>
+    <li><h4>Outils</h4></li>
+    <li>
+      <ul>
+        <li><a href="https://github.com/vuejs/vue-devtools" class="nav-link" target="_blank">Devtools (En)</a></li>
+        <li><a href="https://cli.vuejs.org/" class="nav-link" target="_blank">Vue CLI (En)</a></li>
+        <li><a href="https://vue-loader.vuejs.org" class="nav-link" target="_blank">Vue Loader (En)</a></li>
+      </ul>
+    </li>
+    <li><h4>Bibliothèques officielles</h4></li>
+    <li><ul>
+      <li><a href="https://router.vuejs.org/" class="nav-link" target="_blank">Vue Router</a></li>
+      <li><a href="https://vuex.vuejs.org/" class="nav-link" target="_blank">Vuex</a></li>
+      <li><a href="https://ssr.vuejs.org/" class="nav-link" target="_blank">Vue Server Renderer</a></li>
+    </ul></li>
+    <li><h4>Infos</h4></li>
+    <li><ul>
+      <li><a href="https://news.vuejs.org" class="nav-link" target="_blank">Actualités (En)</a></li>
+      <li><a href="https://github.com/vuejs/vue/projects/6" class="nav-link" target="_blank">Plans futurs (En)</a></li>
+      <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank">Twitter (En)</a></li>
+      <li><a href="https://medium.com/the-vue-point" class="nav-link" target="_blank">Blog (En)</a></li>
+      <li><a href="https://vuejobs.com/?ref=vuejs" class="nav-link" target="_blank">Offres d'emploi (En)</a></li>
+    </ul></li>
+    <li><h4>Liste de ressources</h4></li>
+    <li><ul>
+      <li><a href="https://github.com/vuejs" class="nav-link" target="_blank">Dépôt officiel (En)</a></li>
+      <li><a href="https://curated.vuejs.org/" class="nav-link" target="_blank">Curation Vue (En)</a></li>
+      <li><a href="https://github.com/vuejs/awesome-vue" class="nav-link" target="_blank">Awesome Vue (En)</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li>
+  <a href="/v2/guide/team.html" class="nav-link team">Équipe</a>
+</li>
+<li class="nav-dropdown-container support-vue">
+  <a href="/support-vuejs/" class="nav-link">Soutien</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/support-vuejs/#One-time-Donations" class="nav-link">Don ponctuel</a></li>
+      <li><a href="/support-vuejs/#Recurring-Pledges" class="nav-link">Soutien récurrent</a></li>
+      <li><a href="https://vue.threadless.com" target="_blank" class="nav-link">La boutique</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container language">
+  <a class="nav-link">Langues</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><a href="https://cn.vuejs.org/v2/guide/reactivity.html" class="nav-link" target="_blank">中文</a></li>
+    <li><a href="https://jp.vuejs.org/v2/guide/reactivity.html" class="nav-link" target="_blank">日本語</a></li>
+    <li><a href="https://kr.vuejs.org/v2/guide/reactivity.html" class="nav-link" target="_blank">한국어</a></li>
+    <li><a href="https://vuejs.org/v2/guide/reactivity.html" class="nav-link" target="_blank">English</a></li>
+    <li><a href="https://br.vuejs.org/v2/guide/reactivity.html" class="nav-link" target="_blank">Português</a></li>
+    <li><a href="https://ru.vuejs.org/v2/guide/reactivity.html" class="nav-link" target="_blank">Русский</a></li>
+    <li><a href="https://vi.vuejs.org/v2/guide/reactivity.html" class="nav-link" target="_blank">Tiếng Việt</a></li>
+  </ul>
+</li>
+
+
+  </ul>
+</div>
+
+    
+      <div id="main" class="fix-sidebar">
+        
+          
+  <div class="sidebar">
+  <div class="sidebar-inner">
+    <ul class="main-menu">
+      <li>
+  <form id="search-form">
+    <input type="text" id="search-query-sidebar" class="search-query st-default-search-input">
+  </form>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link current">Doc</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/v2/guide/" class="nav-link current">Guide</a></li>
+      <li><a href="/v2/api/" class="nav-link">API</a></li>
+      <li><a href="/v2/style-guide/" class="nav-link">Conventions</a></li>
+      <li><a href="/v2/examples/" class="nav-link">Exemples</a></li>
+      <li><a href="/v2/cookbook/" class="nav-link">Tutoriels</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container ecosystem">
+  <a class="nav-link">Écosystème</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><h4>Aide</h4></li>
+    <li><ul>
+      <li><a href="https://forum.vuejs.org/c/french" class="nav-link" target="_blank">Forum</a></li>
+      <li><a href="https://discordapp.com/channels/325477692906536972/360669119948783616" class="nav-link" target="_blank">Chat</a></li>
+      <li><a href="https://www.vuemeetups.org/" class="nav-link" target="_blank">Meetups (EN)</a></li>
+    </ul></li>
+    <li><h4>Outils</h4></li>
+    <li>
+      <ul>
+        <li><a href="https://github.com/vuejs/vue-devtools" class="nav-link" target="_blank">Devtools (En)</a></li>
+        <li><a href="https://cli.vuejs.org/" class="nav-link" target="_blank">Vue CLI (En)</a></li>
+        <li><a href="https://vue-loader.vuejs.org" class="nav-link" target="_blank">Vue Loader (En)</a></li>
+      </ul>
+    </li>
+    <li><h4>Bibliothèques officielles</h4></li>
+    <li><ul>
+      <li><a href="https://router.vuejs.org/" class="nav-link" target="_blank">Vue Router</a></li>
+      <li><a href="https://vuex.vuejs.org/" class="nav-link" target="_blank">Vuex</a></li>
+      <li><a href="https://ssr.vuejs.org/" class="nav-link" target="_blank">Vue Server Renderer</a></li>
+    </ul></li>
+    <li><h4>Infos</h4></li>
+    <li><ul>
+      <li><a href="https://news.vuejs.org" class="nav-link" target="_blank">Actualités (En)</a></li>
+      <li><a href="https://github.com/vuejs/vue/projects/6" class="nav-link" target="_blank">Plans futurs (En)</a></li>
+      <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank">Twitter (En)</a></li>
+      <li><a href="https://medium.com/the-vue-point" class="nav-link" target="_blank">Blog (En)</a></li>
+      <li><a href="https://vuejobs.com/?ref=vuejs" class="nav-link" target="_blank">Offres d'emploi (En)</a></li>
+    </ul></li>
+    <li><h4>Liste de ressources</h4></li>
+    <li><ul>
+      <li><a href="https://github.com/vuejs" class="nav-link" target="_blank">Dépôt officiel (En)</a></li>
+      <li><a href="https://curated.vuejs.org/" class="nav-link" target="_blank">Curation Vue (En)</a></li>
+      <li><a href="https://github.com/vuejs/awesome-vue" class="nav-link" target="_blank">Awesome Vue (En)</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li>
+  <a href="/v2/guide/team.html" class="nav-link team">Équipe</a>
+</li>
+<li class="nav-dropdown-container support-vue">
+  <a href="/support-vuejs/" class="nav-link">Soutien</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/support-vuejs/#One-time-Donations" class="nav-link">Don ponctuel</a></li>
+      <li><a href="/support-vuejs/#Recurring-Pledges" class="nav-link">Soutien récurrent</a></li>
+      <li><a href="https://vue.threadless.com" target="_blank" class="nav-link">La boutique</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container language">
+  <a class="nav-link">Langues</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><a href="https://cn.vuejs.org/v2/guide/reactivity.html" class="nav-link" target="_blank">中文</a></li>
+    <li><a href="https://jp.vuejs.org/v2/guide/reactivity.html" class="nav-link" target="_blank">日本語</a></li>
+    <li><a href="https://kr.vuejs.org/v2/guide/reactivity.html" class="nav-link" target="_blank">한국어</a></li>
+    <li><a href="https://vuejs.org/v2/guide/reactivity.html" class="nav-link" target="_blank">English</a></li>
+    <li><a href="https://br.vuejs.org/v2/guide/reactivity.html" class="nav-link" target="_blank">Português</a></li>
+    <li><a href="https://ru.vuejs.org/v2/guide/reactivity.html" class="nav-link" target="_blank">Русский</a></li>
+    <li><a href="https://vi.vuejs.org/v2/guide/reactivity.html" class="nav-link" target="_blank">Tiếng Việt</a></li>
+  </ul>
+</li>
+
+
+    </ul>
+    <div class="list">
+      <div id="sidebar-sponsors-special">
+  <div class="main-sponsor">
+    <span>Special Sponsor</span>
+    <div>
+    <a href="https://stdlib.com/" target="_blank" class="logo">
+      <img src="/images/stdlib.png" alt="">
+    </a>
+    </div>
+  </div>
+</div>
+
+<div id="sidebar-sponsors-platinum-left">
+  <div class="main-sponsor">
+    <span>Sponsors de platine</span>
+    <div>
+    <a href="https://www.bitsrc.io/?utm_source=vue&utm_medium=vue&utm_campaign=vue&utm_term=vue&utm_content=vue" target="_blank" class="logo">
+      <img src="/images/bit.png" alt="Bit">
+    </a>
+    <a href="http://tooltwist.com/" target="_blank" class="logo">
+      <img src="/images/tooltwist.png" alt="Tooltwist">
+    </a>
+    <a href="https://vueschool.io/?utm_source=Vuejs.org&utm_medium=Banner&utm_campaign=Sponsored%20Banner&utm_content=V1" target="_blank" class="logo">
+      <img src="/images/vueschool.png" alt="VueSchool">
+    </a>
+    <a href="https://vehikl.com/" target="_blank" class="logo">
+      <img src="/images/vehikl.png" alt="Vehikl">
+    </a>
+    <a href="https://www.nativescript.org/vue?utm_source=vue-js-org&utm_medium=website&utm_campaign=nativescript-awareness" target="_blank" class="logo">
+      <img src="/images/nativescript.png" alt="NativeScript">
+    </a>
+    </div>
+  </div>
+  <a class="become-backer" href="/support-vuejs">
+    Devenez un sponsor
+  </a>
+</div>
+
+
+      
+        <h2>
+          
+          Guide
+          
+            <select class="version-select">
+              <option value="SELF" selected>2.x</option>
+              <option value="v1">1.0</option>
+              <option value="012">0.12</option>
+              <option value="011">0.11</option>
+            </select>
+          
+        </h2>
+        <ul class="menu-root">
+  
+    
+    
+      
+        <li><h3>Essentiel</h3></li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="/v2/guide/installation.html" class="sidebar-link">Installation</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="/v2/guide/index.html" class="sidebar-link">Introduction</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="/v2/guide/instance.html" class="sidebar-link">Instance de Vue</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="/v2/guide/syntax.html" class="sidebar-link">Syntaxe de template</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="/v2/guide/computed.html" class="sidebar-link">Propriétés calculées et observateurs</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="/v2/guide/class-and-style.html" class="sidebar-link">Liaisons de classes et de styles</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="/v2/guide/conditional.html" class="sidebar-link">Rendu conditionnel</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="/v2/guide/list.html" class="sidebar-link">Rendu de liste</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="/v2/guide/events.html" class="sidebar-link">Gestion des évènements</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="/v2/guide/forms.html" class="sidebar-link">Liaisons sur les champs de formulaire</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="/v2/guide/components.html" class="sidebar-link">Composants</a>
+    </li>
+  
+    
+    
+      
+      
+        <li><h3>Composants en détail</h3></li>
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="/v2/guide/components-registration.html" class="sidebar-link">Création de composants</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="/v2/guide/components-props.html" class="sidebar-link">Props</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="/v2/guide/components-custom-events.html" class="sidebar-link">Évènements personnalisés</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="/v2/guide/components-slots.html" class="sidebar-link">Slots</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="/v2/guide/components-dynamic-async.html" class="sidebar-link">Composants dynamiques et asynchrones</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="/v2/guide/components-edge-cases.html" class="sidebar-link">Gérer les cas limites</a>
+    </li>
+  
+    
+    
+      
+      
+      
+        <li><h3>Transitions & animation</h3></li>
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="/v2/guide/transitions.html" class="sidebar-link">Transitions d'entrée, de sortie et de liste</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="/v2/guide/transitioning-state.html" class="sidebar-link">Transitions d'état</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+        <li><h3>Réusabilité & composition</h3></li>
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="/v2/guide/mixins.html" class="sidebar-link">Mixins</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="/v2/guide/custom-directive.html" class="sidebar-link">Directives personnalisées</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="/v2/guide/render-function.html" class="sidebar-link">Fonctions de rendu et JSX</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="/v2/guide/plugins.html" class="sidebar-link">Plugins</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="/v2/guide/filters.html" class="sidebar-link">Filtres</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+        <li><h3>Outils</h3></li>
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="/v2/guide/single-file-components.html" class="sidebar-link">Composants monofichiers</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="/v2/guide/unit-testing.html" class="sidebar-link">Tests unitaires</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="/v2/guide/typescript.html" class="sidebar-link">Support de TypeScript</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="/v2/guide/deployment.html" class="sidebar-link">Déploiement en production</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+        <li><h3>Évolutions</h3></li>
+      
+      
+      
+      
+    
+    <li>
+      <a href="/v2/guide/routing.html" class="sidebar-link">Routage</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="/v2/guide/state-management.html" class="sidebar-link">Gestion de l'état</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="/v2/guide/ssr.html" class="sidebar-link">Rendu côté serveur</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+        <li><h3>Mécanismes</h3></li>
+      
+      
+      
+    
+    <li>
+      <a href="/v2/guide/reactivity.html" class="sidebar-link current">Réactivité dans le détail</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+        <li><h3>Migration</h3></li>
+      
+      
+    
+    <li>
+      <a href="/v2/guide/migration.html" class="sidebar-link">Migration depuis Vue 1.x</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="/v2/guide/migration-vue-router.html" class="sidebar-link">Migration depuis Vue Router 0.7.x</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="/v2/guide/migration-vuex.html" class="sidebar-link">Migration depuis Vuex 0.6.x à 1.0</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+        <li><h3>Meta</h3></li>
+      
+    
+    <li>
+      <a href="/v2/guide/comparison.html" class="sidebar-link">Comparaison avec les autres frameworks</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="/v2/guide/join.html" class="sidebar-link">Rejoignez la communauté Vue.js !</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="/v2/guide/team.html" class="sidebar-link">Rencontrer l'équipe</a>
+    </li>
+  
+</ul>
+
+      
+    </div>
+  </div>
+</div>
+
+<div id="sidebar-sponsors-platinum-right">
+  <div class="main-sponsor">
+    <span>Sponsors de platine</span>
+    <div>
+    <a href="https://www.bitsrc.io/?utm_source=vue&utm_medium=vue&utm_campaign=vue&utm_term=vue&utm_content=vue" target="_blank" class="logo">
+      <img src="/images/bit.png" alt="Bit">
+    </a>
+    <a href="http://tooltwist.com/" target="_blank" class="logo">
+      <img src="/images/tooltwist.png" alt="Tooltwist">
+    </a>
+    <a href="https://vueschool.io/?utm_source=Vuejs.org&utm_medium=Banner&utm_campaign=Sponsored%20Banner&utm_content=V1" target="_blank" class="logo">
+      <img src="/images/vueschool.png" alt="VueSchool">
+    </a>
+    <a href="https://vehikl.com/" target="_blank" class="logo">
+      <img src="/images/vehikl.png" alt="Vehikl">
+    </a>
+    <a href="https://www.nativescript.org/vue?utm_source=vue-js-org&utm_medium=website&utm_campaign=nativescript-awareness" target="_blank" class="logo">
+      <img src="/images/nativescript.png" alt="NativeScript">
+    </a>
+    </div>
+  </div>
+  <a class="become-backer" href="/support-vuejs">
+    Devenez un sponsor
+  </a>
+</div>
+
+
+
+<div class="content guide with-sidebar reactivity-guide">
+  
+    
+      <div id="ad">
+  <script
+    async
+    type="text/javascript"
+    src="//cdn.carbonads.com/carbon.js?serve=CKYIK2QU&placement=vuejsorg"
+    id="_carbonads_js">
+  </script>
+</div>
+
+    
+  
+  
+    <h1>Réactivité dans le détail</h1>
+  
+  
+    <p>C’est maintenant l’heure du grand plongeon ! L’une des fonctionnalités les plus emblématiques de Vue est le système de réactivité non obstrusif. Les modèles sont simplement des objets JavaScript. Lorsque vous les modifiez, la vue se met à jour. Cela rend la gestion d’état très simple et intuitive, mais il est également important de comprendre comment cela fonctionne pour éviter quelques erreurs classiques. Dans cette section, nous allons nous pencher sur certains détails de bas niveau du système de réactivité de Vue.</p>
+<div class="vue-mastery"><a href="https://www.vuemastery.com/courses/advanced-components/build-a-reactivity-system" target="_blank" rel="noopener" title="Vue Reactivity">Regardez une vidéo de cours gratuite sur Vue Mastery (EN)</a></div>
+
+<h2 id="Comment-les-modifications-sont-tracees"><a href="#Comment-les-modifications-sont-tracees" class="headerlink" title="Comment les modifications sont tracées ?"></a>Comment les modifications sont tracées ?</h2><p>Lorsque vous passez un simple objet JavaScript à une instance de Vue via son option <code>data</code>, Vue parcourra toutes ses propriétés et les convertira en accesseurs / mutateurs (« <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Guide/Utiliser_les_objets#Defining_getters_and_setters" target="_blank" rel="noopener">getters/setters</a> ») en utilisant <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Object/defineProperty" target="_blank" rel="noopener">Object.defineProperty</a>. Il s’agit d’une fonctionnalité ES5 uniquement et qui ne peut pas être émulée, c’est pourquoi Vue ne prend pas en charge IE8 et les versions antérieures.</p>
+<p>Les accesseurs/mutateurs sont invisibles pour l’utilisateur, mais sous le capot, ils permettent à Vue d’effectuer le suivi des dépendances et la notification de changement quand les propriétés sont accédées ou modifiées. Une des limitations est que les consoles des navigateurs formatent les accesseurs/mutateurs différemment lorsque les objets de données convertis sont logués, vous pouvez donc installer <a href="https://github.com/vuejs/vue-devtools" target="_blank" rel="noopener">vue-devtools</a> pour avoir une interface plus sympathique lors de l’inspection.</p>
+<p>Chaque instance de composant a une instance d’<strong>observateur</strong> correspondante, qui enregistre comme dépendances toutes les propriétés « touchées » pendant le rendu du composant. Plus tard, lorsque le mutateur d’une dépendance est déclenché, il en avertit l’observateur, ce qui provoque à son tour un nouveau rendu du composant.</p>
+<p><img src="/images/data.png" alt="Reactivity Cycle"></p>
+<h2 id="Limitations-de-la-detection-de-changement"><a href="#Limitations-de-la-detection-de-changement" class="headerlink" title="Limitations de la détection de changement"></a>Limitations de la détection de changement</h2><p>En raison des limites du JavaScript moderne (et de l’abandon de <code>Object.observe</code>), Vue <strong>ne peut pas détecter l’ajout et la suppression de propriété</strong>. Étant donné que Vue effectue le processus de conversion en accesseur/mutateur lors de l’initialisation de l’instance, une propriété doit être présente dans l’objet <code>data</code> afin que Vue puisse la convertir et la rendre réactive. Par exemple :</p>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> Vue(&#123;
+  <span class="hljs-attr">data</span>: &#123;
+    <span class="hljs-attr">a</span>: <span class="hljs-number">1</span>
+  &#125;
+&#125;)
+<span class="hljs-comment">// `vm.a` est maintenant réactive</span>
+
+vm.b = <span class="hljs-number">2</span>
+<span class="hljs-comment">// `vm.b` N'est PAS réactive</span></code></pre>
+<p>Vue n’autorise pas l’ajout dynamique de nouvelles propriétés réactives au niveau de la racine dans une instance déjà créée. Toutefois, il est possible d’ajouter des propriétés réactives à un objet imbriqué à l’aide de la méthode <code>Vue.set(object, key, value)</code> :</p>
+<pre><code class="hljs js">Vue.set(vm.someObject, <span class="hljs-string">'b'</span>, <span class="hljs-number">2</span>)</code></pre>
+<p>Vous pouvez aussi utiliser la méthode d’instance <code>vm.$set</code>, qui est juste un alias de la méthode globale <code>Vue.set</code> :</p>
+<pre><code class="hljs js"><span class="hljs-keyword">this</span>.$set(<span class="hljs-keyword">this</span>.someObject, <span class="hljs-string">'b'</span>, <span class="hljs-number">2</span>)</code></pre>
+<p>Parfois vous voudrez affecter un certain nombre de propriétés à un objet existant, par exemple à l’aide de <code>Object.assign()</code> ou <code>_.extend()</code>. Pourtant, les nouvelles propriétés ajoutées à l’objet ne déclencheront pas de changements. Dans de tels cas, créez un nouvel objet avec à la fois les propriétés de l’objet d’origine et celles de l’objet à intégrer :</p>
+<pre><code class="hljs js"><span class="hljs-comment">// Au lieu de `Object.assign(this.someObject, &#123; a: 1, b: 2 &#125;)`</span>
+<span class="hljs-keyword">this</span>.someObject = <span class="hljs-built_in">Object</span>.assign(&#123;&#125;, <span class="hljs-keyword">this</span>.someObject, &#123; <span class="hljs-attr">a</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">b</span>: <span class="hljs-number">2</span> &#125;)</code></pre>
+<p>Il y a également quelques limitations liées aux tableaux, qui ont été expliquées précédemment dans la <a href="list.html#Limitations">section du rendu de liste</a>.</p>
+<h2 id="Declaration-de-proprietes-reactives"><a href="#Declaration-de-proprietes-reactives" class="headerlink" title="Déclaration de propriétés réactives"></a>Déclaration de propriétés réactives</h2><p>Étant donné que Vue ne permet pas d’ajouter dynamiquement des propriétés réactives au niveau de la racine, vous devez initialiser les instances de Vue en déclarant dès le départ toutes les propriétés des données réactives au niveau de la racine, même avec juste une valeur vide :</p>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> Vue(&#123;
+  <span class="hljs-attr">data</span>: &#123;
+    <span class="hljs-comment">// déclare message avec une valeur vide</span>
+    message: <span class="hljs-string">''</span>
+  &#125;,
+  <span class="hljs-attr">template</span>: <span class="hljs-string">'&lt;div&gt;&#123;&#123; message &#125;&#125;&lt;/div&gt;'</span>
+&#125;)
+<span class="hljs-comment">// définit plus tard `message`</span>
+vm.message = <span class="hljs-string">'Bonjour !'</span></code></pre>
+<p>Si vous ne déclarez pas <code>message</code> dans l’option data, Vue vous avertira que la fonction de rendu tente d’accéder à une propriété qui n’existe pas.</p>
+<p>Il y a des raisons techniques derrière cette restriction (ça élimine toute une série de cas particuliers dans le système de suivi, et permet également aux instances de Vue de mieux s’intégrer avec les systèmes de vérification de type). Mais il y a aussi une considération importante en termes de maintenance de code : l’objet <code>data</code> est comme le schéma de l’état de votre composant. Déclarer toutes les propriétés réactives dès le départ rend le code du composant plus facile à comprendre lorsqu’il sera reparcouru plus tard ou lu par un autre développeur.</p>
+<h2 id="File-d’attente-de-mise-a-jour-asynchrone"><a href="#File-d’attente-de-mise-a-jour-asynchrone" class="headerlink" title="File d’attente de mise à jour asynchrone"></a>File d’attente de mise à jour asynchrone</h2><p>Au cas où vous ne l’auriez pas encore remarqué, Vue effectue les mises à jour du DOM de façon <strong>asynchrone</strong>. Chaque fois qu’un changement de données est observé, cela ouvrira une file d’attente et mettra en mémoire toutes les modifications de données qui se sont produites dans la même boucle des évènements. Si le même observateur est déclenché plusieurs fois, il ne sera ajouté qu’une seule fois dans la file d’attente. Cette suppression des doublons en mémoire est primordiale car elle évite des calculs et des manipulations du DOM inutiles. Puis, lors du prochain tour (« tick ») de la boucle des évènements, Vue vide la file d’attente et effectue le travail (déjà dédoublonné). En interne, Vue essaie d’utiliser les fonctions natives <code>Promise.then</code> et <code>MessageChannel</code> pour la file d’attente asynchrone et se rabat sur <code>setTimeout(fn, 0)</code> si elles ne sont pas supportées.</p>
+<p>Par exemple, lorsque vous définissez <code>vm.someData = &#39;nouvelle valeur&#39;</code>, le composant ne sera pas rendu de nouveau immédiatement. Il se mettra à jour au prochain « tour » (tick), lorsque la file d’attente sera vidée. La plupart du temps nous n’avons pas besoin de nous en soucier, mais cela peut être délicat lorsque vous voulez faire quelque chose qui dépend de l’état du DOM après sa mise à jour. Bien que Vue.js encourage généralement les développeurs à penser dans un mode « piloté par les données » (« data-driven ») en évitant de toucher le DOM directement, parfois il peut être nécessaire de se salir les mains. Afin d’attendre que Vue.js ait terminé la mise à jour du DOM après un changement de données, vous pouvez utiliser <code>Vue.nextTick (callback)</code> immédiatement après la modification des données. La fonction de retour sera appelée après que le DOM ait été mis à jour. Par exemple :</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"example"</span>&gt;</span>&#123;&#123; message &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> Vue(&#123;
+  <span class="hljs-attr">el</span>: <span class="hljs-string">'#example'</span>,
+  <span class="hljs-attr">data</span>: &#123;
+    <span class="hljs-attr">message</span>: <span class="hljs-string">'123'</span>
+  &#125;
+&#125;)
+vm.message = <span class="hljs-string">'nouveau message'</span> <span class="hljs-comment">// change les données</span>
+vm.$el.textContent === <span class="hljs-string">'nouveau message'</span> <span class="hljs-comment">// false</span>
+Vue.nextTick(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+  vm.$el.textContent === <span class="hljs-string">'nouveau message'</span> <span class="hljs-comment">// true</span>
+&#125;)</code></pre>
+<p>Il y a aussi la méthode d’instance <code>vm.$nextTick()</code>, qui est particulièrement pratique à l’intérieur des composants, car elle n’a pas besoin de la variable globale de <code>Vue</code> et le contexte <code>this</code> de sa fonction de rappel sera automatiquement lié à l’instance de Vue actuelle :</p>
+<pre><code class="hljs js">Vue.component(<span class="hljs-string">'example'</span>, &#123;
+  <span class="hljs-attr">template</span>: <span class="hljs-string">'&lt;span&gt;&#123;&#123; message &#125;&#125;&lt;/span&gt;'</span>,
+  <span class="hljs-attr">data</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-keyword">return</span> &#123;
+      <span class="hljs-attr">message</span>: <span class="hljs-string">'pas mis à jour'</span>
+    &#125;
+  &#125;,
+  <span class="hljs-attr">methods</span>: &#123;
+    <span class="hljs-attr">updateMessage</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+      <span class="hljs-keyword">this</span>.message = <span class="hljs-string">'mis à jour'</span>
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.$el.textContent) <span class="hljs-comment">// =&gt; 'pas mis à jour'</span>
+      <span class="hljs-keyword">this</span>.$nextTick(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.$el.textContent) <span class="hljs-comment">// =&gt; 'mis à jour'</span>
+      &#125;)
+    &#125;
+  &#125;
+&#125;)</code></pre>
+<p>Depuis que <code>$nextTick()</code> retourne une promesse, vous pouvez parvenir au même résultat que ci-dessus avec la nouvelle syntaxe <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function" target="_blank" rel="noopener">async/await de ES2016</a> :</p>
+<pre><code class="hljs js">methods: &#123;
+  <span class="hljs-attr">updateMessage</span>: <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-keyword">this</span>.message = <span class="hljs-string">'mise à jour'</span>
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.$el.textContent) <span class="hljs-comment">// =&gt; 'pas mis à jour'</span>
+    <span class="hljs-keyword">await</span> <span class="hljs-keyword">this</span>.$nextTick()
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.$el.textContent) <span class="hljs-comment">// =&gt; 'mis à jour'</span>
+  &#125;
+&#125;</code></pre>
+
+  
+  
+    <div class="guide-links">
+      
+      
+        <span>← <a href="/v2/guide/ssr.html">Rendu côté serveur</a></span>
+      
+      
+      
+        <span style="float: right;"><a href="/v2/guide/migration.html">Migration depuis Vue 1.x</a> →</span>
+      
+    </div>
+  
+  <div class="footer">
+      <script src="//m.servedby-buysellads.com/monetization.js" type="text/javascript"></script>
+<div class="bsa-cpc"></div>
+<script>
+  (function(){
+    if(typeof _bsa !== 'undefined' && _bsa) {
+    _bsa.init('default', 'CKYD62QM', 'placement:vuejsorg', {
+      target: '.bsa-cpc',
+      align: 'horizontal',
+      disable_css: 'true'
+    });
+      }
+  })();
+</script>
+
+    Une erreur dans cette page ? Envie de contribuer à la traduction ?
+    <a href="https://github.com/vuejs-fr/vuejs.org/blob/master/src/v2/guide/reactivity.md" target="_blank">
+      Éditez cette page sur GitHub !
+    </a>
+  </div>
+</div>
+
+        
+      </div>
+      <script src="/js/smooth-scroll.min.js"></script>
+    
+
+    <!-- main custom script for sidebars, version selects etc. -->
+    <script src="/js/css.escape.js"></script>
+    <script src="/js/common.js"></script>
+
+    <!-- search -->
+    <link href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/css/search.css">
+    <script src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
+    <script>
+    [
+      '#search-query-nav',
+      '#search-query-sidebar',
+      '#search-query-menu'
+    ].forEach(function (selector) {
+      if (!document.querySelector(selector)) return
+      // search index defaults to v2
+      var match = window.location.pathname.match(/^\/(v\d+)/)
+      var version = match ? match[1] : 'v2'
+      docsearch({
+      appId: 'BH4D9OD16A',
+      apiKey: '85cc3221c9f23bfbaa4e3913dd7625ea',
+      indexName: 'vuejs',
+      inputSelector: selector,
+      algoliaOptions: { facetFilters: ["version:" + version] }
+      })
+    })
+    </script>
+
+    <!-- fastclick -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      FastClick.attach(document.body)
+    }, false)
+    </script>
+  </body>
+</html>
