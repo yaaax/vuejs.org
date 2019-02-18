@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Using Axios to Consume APIs (EN) — Vue.js</title>
+    <title>Utiliser Axios pour consommer des API — Vue.js</title>
     <meta charset="utf-8">
     <meta name="description" content="Vue.js - Le Framework JavaScript Évolutif">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -17,12 +17,12 @@
     <link rel="alternate" hreflang="fr" href="https://fr.vuejs.org/v2/cookbook/using-axios-to-consume-apis.html">
 
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Using Axios to Consume APIs (EN) — Vue.js">
+    <meta property="og:title" content="Utiliser Axios pour consommer des API — Vue.js">
     <meta property="og:description" content="Vue.js - Le Framework JavaScript Évolutif">
     <meta property="og:image" content="https://vuejs.org//images/logo.png">
 
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Using Axios to Consume APIs (EN) — Vue.js">
+    <meta name="twitter:title" content="Utiliser Axios pour consommer des API — Vue.js">
     <meta name="twitter:description" content="Vue.js - Le Framework JavaScript Évolutif">
     <meta name="twitter:image" content="https://vuejs.org/images/logo.png">
 
@@ -369,7 +369,7 @@
     
     
     <li>
-      <a href="/v2/cookbook/using-axios-to-consume-apis.html" class="sidebar-link current">Using Axios to Consume APIs (EN)</a>
+      <a href="/v2/cookbook/using-axios-to-consume-apis.html" class="sidebar-link current">Utiliser Axios pour consommer des API</a>
     </li>
   
     
@@ -452,50 +452,131 @@
     
   
   
-    <h1>Using Axios to Consume APIs (EN)</h1>
+    <h1>Utiliser Axios pour consommer des API</h1>
   
   
-    <h2 id="Base-Example"><a href="#Base-Example" class="headerlink" title="Base Example"></a>Base Example</h2><p>Cette page est en cours de traduction. Pour nous aider, vous pouvez participer sur <a href="https://github.com/vuejs-fr/vuejs.org" target="_blank">le dépôt GitHub dédié de Vuejs-FR</a>.</p><p>There are many times when building application for the web that you may want to consume and display data from an API. There are several ways to do so, but a very popular approach is to use <a href="https://github.com/axios/axios" target="_blank" rel="noopener">axios</a>, a promise-based HTTP client.</p>
-
-<p>In this exercise, we’ll use the <a href="https://www.coindesk.com/api/" target="_blank" rel="noopener">CoinDesk API</a> to walk through displaying Bitcoin prices, updated every minute. First, we’d install axios with either npm/yarn or through a CDN link.</p>
-<p>There are a number of ways we can request information from the API, but it’s nice to first find out what the shape of the data looks like, in order to know what to display. In order to do so, we’ll make a call to the API endpoint and output it so we can see it. We can see in the CoinDesk API documentation, that this call will be made to <code>https://api.coindesk.com/v1/bpi/currentprice.json</code>. So first, we’ll create a data property that will eventually house our information, and we’ll retrieve the data and assign it using the <code>mounted</code> lifecycle hook:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#app'</span>,</span><br><span class="line">  data () &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      info: <span class="literal">null</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  mounted () &#123;</span><br><span class="line">    axios</span><br><span class="line">      .get(<span class="string">'https://api.coindesk.com/v1/bpi/currentprice.json'</span>)</span><br><span class="line">      .then(<span class="function"><span class="params">response</span> =&gt;</span> (<span class="keyword">this</span>.info = response))</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">  &#123;&#123; info &#125;&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>And what we get is this:</p>
-<p></p><p data-height="350" data-theme-id="32763" data-slug-hash="80043dfdb7b90f138f5585ade1a5286f" data-default-tab="result" data-user="Vue" data-embed-version="2" data-pen-title="First Step Axios and Vue" class="codepen">See the Pen <a href="https://codepen.io/team/Vue/pen/80043dfdb7b90f138f5585ade1a5286f/" target="_blank" rel="noopener">First Step Axios and Vue</a> by Vue (<a href="https://codepen.io/Vue" target="_blank" rel="noopener">@Vue</a>) on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.</p><p></p>
+    <h2 id="Exemple-simple"><a href="#Exemple-simple" class="headerlink" title="Exemple simple"></a>Exemple simple</h2><p>Lors de la création d’une application Web, il est fréquent que vous souhaitiez utiliser et afficher les données provenant d’une API. Il existe plusieurs manières de le faire, mais une approche très populaire consiste à utiliser <a href="https://github.com/axios/axios" target="_blank" rel="noopener">axios</a>, un client HTTP basé sur les Promesses.</p><p></p>
+<p>Dans cet exemple, nous allons utiliser l’<a href="https://www.coindesk.com/api/" target="_blank" rel="noopener">API CoinDesk</a> pour afficher les prix du Bitcoin qui sont mis à jour toutes les minutes. Premièrement, nous devons installer axios avec npm/yarn ou à partir d’un lien CDN.</p>
+<p>Il existe plusieurs manières d’interroger une API, mais il est préférable de d’abord connaitre la structure des données qu’elle renvoie afin de savoir ce qu’elle va afficher. Pour ce faire, nous allons appeler le point de terminaison de l’API et afficher le résultat afin que nous puissions connaître sa structure et son contenu. Nous pouvons voir dans la documentation de l’API de CoinDesk que l’appel doit être effectué à l’adresse <code>https://api.coindesk.com/v1/bpi/currentprice.json</code>. Nous allons donc commencer par créer une donnée qui gardera nos informations, puis nous récupérerons les données et les attribuerons à l’aide de l’étape <code>mounted</code> du cycle de vie :</p>
+<pre><code class="hljs js"><span class="hljs-keyword">new</span> Vue(&#123;
+  <span class="hljs-attr">el</span>: <span class="hljs-string">'#app'</span>,
+  data () &#123;
+    <span class="hljs-keyword">return</span> &#123;
+      <span class="hljs-attr">info</span>: <span class="hljs-literal">null</span>
+    &#125;
+  &#125;,
+  mounted () &#123;
+    axios
+      .get(<span class="hljs-string">'https://api.coindesk.com/v1/bpi/currentprice.json'</span>)
+      .then(<span class="hljs-function"><span class="hljs-params">response</span> =&gt;</span> (<span class="hljs-keyword">this</span>.info = response))
+  &#125;
+&#125;)</code></pre>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>&gt;</span>
+  &#123;&#123; info &#125;&#125;
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+<p>Nous obtenons ceci :</p>
+<p></p><p data-height="350" data-theme-id="32763" data-slug-hash="80043dfdb7b90f138f5585ade1a5286f" data-default-tab="result" data-user="Vue" data-embed-version="2" data-pen-title="Premiere étape Axios et Vue" class="codepen">Voir l’exemple <a href="https://codepen.io/team/Vue/pen/80043dfdb7b90f138f5585ade1a5286f/" target="_blank" rel="noopener">Premiere étape Axios et Vue</a> par Vue (<a href="https://codepen.io/Vue" target="_blank" rel="noopener">@Vue</a>) sur <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.</p><p></p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
-<p>Excellent! We’ve got some data. But it looks pretty messy right now so let’s display it properly and add some error handling in case things aren’t working as expected or it takes longer than we thought to get the information.</p>
-<h2 id="Real-World-Example-Working-with-the-Data"><a href="#Real-World-Example-Working-with-the-Data" class="headerlink" title="Real-World Example: Working with the Data"></a>Real-World Example: Working with the Data</h2><h3 id="Displaying-Data-from-an-API"><a href="#Displaying-Data-from-an-API" class="headerlink" title="Displaying Data from an API"></a>Displaying Data from an API</h3><p>It’s pretty typical that the information we’ll need is within the response, and we’ll have to traverse what we’ve just stored to access it properly. In our case, we can see that the price information we need lives in <code>response.data.bpi</code>. If we use this instead, our output is as follows:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">axios</span><br><span class="line">  .get(<span class="string">'https://api.coindesk.com/v1/bpi/currentprice.json'</span>)</span><br><span class="line">  .then(<span class="function"><span class="params">response</span> =&gt;</span> (<span class="keyword">this</span>.info = response.data.bpi))</span><br></pre></td></tr></table></figure>
-<p></p><p data-height="200" data-theme-id="32763" data-slug-hash="6100b10f1b4ac2961208643560ba7d11" data-default-tab="result" data-user="Vue" data-embed-version="2" data-pen-title="Second Step Axios and Vue" class="codepen">See the Pen <a href="https://codepen.io/team/Vue/pen/6100b10f1b4ac2961208643560ba7d11/" target="_blank" rel="noopener">Second Step Axios and Vue</a> by Vue (<a href="https://codepen.io/Vue" target="_blank" rel="noopener">@Vue</a>) on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.</p><p></p>
+<p>Parfait ! Nous avons des données. Mais cela semble assez désordonné pour le moment, alors affichons-les correctement et ajoutons un traitement d’erreur si les choses ne fonctionnent pas comme prévu, ou s’il faut plus de temps que nécessaire pour obtenir les informations.</p>
+<h2 id="Exemple-concret-l’utilisation-des-donnees"><a href="#Exemple-concret-l’utilisation-des-donnees" class="headerlink" title="Exemple concret : l’utilisation des données"></a>Exemple concret : l’utilisation des données</h2><h3 id="Affichage-des-donnees-d’une-API"><a href="#Affichage-des-donnees-d’une-API" class="headerlink" title="Affichage des données d’une API"></a>Affichage des données d’une API</h3><p>Il est assez courant que les informations dont nous avons besoin se trouvent dans la réponse. Nous devons parcourir ce que nous venons de stocker pour y accéder correctement. Dans notre cas, nous pouvons voir que les informations de prix dont nous avons besoin sont stockées dans <code>response.data.bpi</code>. Si nous l’utilisons, notre sortie sera :</p>
+<pre><code class="hljs js">axios
+  .get(<span class="hljs-string">'https://api.coindesk.com/v1/bpi/currentprice.json'</span>)
+  .then(<span class="hljs-function"><span class="hljs-params">response</span> =&gt;</span> (<span class="hljs-keyword">this</span>.info = response.data.bpi))</code></pre>
+<p></p><p data-height="200" data-theme-id="32763" data-slug-hash="6100b10f1b4ac2961208643560ba7d11" data-default-tab="result" data-user="Vue" data-embed-version="2" data-pen-title="Deuxième étape Axios et Vue" class="codepen">Voir l’exemple <a href="https://codepen.io/team/Vue/pen/6100b10f1b4ac2961208643560ba7d11/" target="_blank" rel="noopener">Premiere étape Axios et Vue</a> par Vue (<a href="https://codepen.io/Vue" target="_blank" rel="noopener">@Vue</a>) sur <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.</p><p></p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
-<p>This is a lot easier for us to display, so we can now update our HTML to display only the information we need from the data we’ve received, and we’ll create a <a href="../api/#Vue-filter">filter</a> to make sure that the decimal is in the appropriate place as well.</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Bitcoin Price Index<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span></span></span><br><span class="line"><span class="tag">    <span class="attr">v-for</span>=<span class="string">"currency in info"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">class</span>=<span class="string">"currency"</span></span></span><br><span class="line"><span class="tag">  &gt;</span></span><br><span class="line">    &#123;&#123; currency.description &#125;&#125;:</span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"lighten"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">span</span> <span class="attr">v-html</span>=<span class="string">"currency.symbol"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span>&#123;&#123; currency.rate_float | currencydecimal &#125;&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">filters: &#123;</span><br><span class="line">  currencydecimal (value) &#123;</span><br><span class="line">    <span class="keyword">return</span> value.toFixed(<span class="number">2</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
-<p></p><p data-height="300" data-theme-id="32763" data-slug-hash="9d59319c09eaccfaf35d9e9f11990f0f" data-default-tab="result" data-user="Vue" data-embed-version="2" data-pen-title="Third Step Axios and Vue" class="codepen">See the Pen <a href="https://codepen.io/team/Vue/pen/9d59319c09eaccfaf35d9e9f11990f0f/" target="_blank" rel="noopener">Third Step Axios and Vue</a> by Vue (<a href="https://codepen.io/Vue" target="_blank" rel="noopener">@Vue</a>) on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.</p><p></p>
+<p>C’est beaucoup plus facile à afficher ; nous pouvons donc mettre à jour notre code HTML pour n’afficher que les informations dont nous avons besoin à partir des données reçues. Pour ce faire, nous allons créer un <a href="../api/#Vue-filter">filtre</a> pour nous assurer que la décimale se trouve également à la place appropriée.</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Bitcoin Price Index<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>
+    <span class="hljs-attr">v-for</span>=<span class="hljs-string">"currency in info"</span>
+    <span class="hljs-attr">class</span>=<span class="hljs-string">"currency"</span>
+  &gt;</span>
+    &#123;&#123; currency.description &#125;&#125;:
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"lighten"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">v-html</span>=<span class="hljs-string">"currency.symbol"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>&#123;&#123; currency.rate_float | currencydecimal &#125;&#125;
+    <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+<pre><code class="hljs js">filters: &#123;
+  currencydecimal (value) &#123;
+    <span class="hljs-keyword">return</span> value.toFixed(<span class="hljs-number">2</span>)
+  &#125;
+&#125;,</code></pre>
+<p></p><p data-height="300" data-theme-id="32763" data-slug-hash="9d59319c09eaccfaf35d9e9f11990f0f" data-default-tab="result" data-user="Vue" data-embed-version="2" data-pen-title="Troisieme étape Axios et Vue" class="codepen">Voir l’exemple <a href="https://codepen.io/team/Vue/pen/9d59319c09eaccfaf35d9e9f11990f0f/" target="_blank" rel="noopener">Troisieme étape Axios et Vue</a> par Vue (<a href="https://codepen.io/Vue" target="_blank" rel="noopener">@Vue</a>) sur <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.</p><p></p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
-<h3 id="Dealing-with-Errors"><a href="#Dealing-with-Errors" class="headerlink" title="Dealing with Errors"></a>Dealing with Errors</h3><p>There are times when we might not get the data we need from the API. There are several reasons that our axios call might fail, including but not limited to:</p>
+<h3 id="Travailler-avec-des-erreurs"><a href="#Travailler-avec-des-erreurs" class="headerlink" title="Travailler avec des erreurs"></a>Travailler avec des erreurs</h3><p>Parfois, nous ne pouvons pas recevoir de données de l’API. Il peut y avoir de nombreuses raisons pour qu’un appel puisse échouer. Par exemple :  </p>
 <ul>
-<li>The API is down.</li>
-<li>The request was made incorrectly.</li>
-<li>The API isn’t giving us the information in the format that we anticipated.</li>
+<li>L’API est hors-service.</li>
+<li>La requête a mal été réalisée.</li>
+<li>L’API ne nous donne pas les informations dans le format attendu.</li>
 </ul>
-<p>When making this request, we should be checking for just such circumstances, and giving ourselves information in every case so we know how to handle the problem. In an axios call, we’ll do so by using <code>catch</code>.</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">axios</span><br><span class="line">  .get(<span class="string">'https://api.coindesk.com/v1/bpi/currentprice.json'</span>)</span><br><span class="line">  .then(<span class="function"><span class="params">response</span> =&gt;</span> (<span class="keyword">this</span>.info = response.data.bpi))</span><br><span class="line">  .catch(<span class="function"><span class="params">error</span> =&gt;</span> <span class="built_in">console</span>.log(error))</span><br></pre></td></tr></table></figure>
-<p>This will let us know if something failed during the API request, but what if the data is mangled or the API is down? Right now the user will just see nothing. We might want to build a loader for this case, and then tell the user if we’re not able to get the data at all.</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#app'</span>,</span><br><span class="line">  data () &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      info: <span class="literal">null</span>,</span><br><span class="line">      loading: <span class="literal">true</span>,</span><br><span class="line">      errored: <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  filters: &#123;</span><br><span class="line">    currencydecimal (value) &#123;</span><br><span class="line">      <span class="keyword">return</span> value.toFixed(<span class="number">2</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  mounted () &#123;</span><br><span class="line">    axios</span><br><span class="line">      .get(<span class="string">'https://api.coindesk.com/v1/bpi/currentprice.json'</span>)</span><br><span class="line">      .then(<span class="function"><span class="params">response</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">this</span>.info = response.data.bpi</span><br><span class="line">      &#125;)</span><br><span class="line">      .catch(<span class="function"><span class="params">error</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(error)</span><br><span class="line">        <span class="keyword">this</span>.errored = <span class="literal">true</span></span><br><span class="line">      &#125;)</span><br><span class="line">      .finally(<span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">this</span>.loading = <span class="literal">false</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Bitcoin Price Index<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">section</span> <span class="attr">v-if</span>=<span class="string">"errored"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>We're sorry, we're not able to retrieve this information at the moment, please try back later<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">section</span> <span class="attr">v-else</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">v-if</span>=<span class="string">"loading"</span>&gt;</span>Loading...<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span></span></span><br><span class="line"><span class="tag">      <span class="attr">v-else</span></span></span><br><span class="line"><span class="tag">      <span class="attr">v-for</span>=<span class="string">"currency in info"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">class</span>=<span class="string">"currency"</span></span></span><br><span class="line"><span class="tag">    &gt;</span></span><br><span class="line">      &#123;&#123; currency.description &#125;&#125;:</span><br><span class="line">      <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"lighten"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span> <span class="attr">v-html</span>=<span class="string">"currency.symbol"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span>&#123;&#123; currency.rate_float | currencydecimal &#125;&#125;</span><br><span class="line">      <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>You can hit the rerun button on this pen to see the loading status briefly while we gather data from the API:</p>
-<p></p><p data-height="300" data-theme-id="32763" data-slug-hash="6c01922c9af3883890fd7393e8147ec4" data-default-tab="result" data-user="Vue" data-embed-version="2" data-pen-title="Fourth Step Axios and Vue" class="codepen">See the Pen <a href="https://codepen.io/team/Vue/pen/6c01922c9af3883890fd7393e8147ec4/" target="_blank" rel="noopener">Fourth Step Axios and Vue</a> by Vue (<a href="https://codepen.io/Vue" target="_blank" rel="noopener">@Vue</a>) on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.</p><p></p>
+<p>Quand nous créons cette requête, nous devrions vérifier si de tels cas se produisent et nous informer pour traiter ce problème. Dans un appel axios, nous pouvons le faire en utilisant <code>catch</code>.</p>
+<pre><code class="hljs js">axios
+  .get(<span class="hljs-string">'https://api.coindesk.com/v1/bpi/currentprice.json'</span>)
+  .then(<span class="hljs-function"><span class="hljs-params">response</span> =&gt;</span> (<span class="hljs-keyword">this</span>.info = response.data.bpi))
+  .catch(<span class="hljs-function"><span class="hljs-params">error</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(error))</code></pre>
+<p>Cela nous permettra de savoir si quelque chose a échoué lors de la requête à l’API, mais que se passerait-il si les données sont endommagées ou si l’API est en panne ? Pour l’instant, l’utilisateur ne verra rien. Nous devrions peut-être créer un loader pour ce cas, puis informer l’utilisateur si nous ne pouvons pas obtenir les données.</p>
+<pre><code class="hljs js"><span class="hljs-keyword">new</span> Vue(&#123;
+  <span class="hljs-attr">el</span>: <span class="hljs-string">'#app'</span>,
+  data () &#123;
+    <span class="hljs-keyword">return</span> &#123;
+      <span class="hljs-attr">info</span>: <span class="hljs-literal">null</span>,
+      <span class="hljs-attr">loading</span>: <span class="hljs-literal">true</span>,
+      <span class="hljs-attr">errored</span>: <span class="hljs-literal">false</span>
+    &#125;
+  &#125;,
+  <span class="hljs-attr">filters</span>: &#123;
+    currencydecimal (value) &#123;
+      <span class="hljs-keyword">return</span> value.toFixed(<span class="hljs-number">2</span>)
+    &#125;
+  &#125;,
+  mounted () &#123;
+    axios
+      .get(<span class="hljs-string">'https://api.coindesk.com/v1/bpi/currentprice.json'</span>)
+      .then(<span class="hljs-function"><span class="hljs-params">response</span> =&gt;</span> &#123;
+        <span class="hljs-keyword">this</span>.info = response.data.bpi
+      &#125;)
+      .catch(<span class="hljs-function"><span class="hljs-params">error</span> =&gt;</span> &#123;
+        <span class="hljs-built_in">console</span>.log(error)
+        <span class="hljs-keyword">this</span>.errored = <span class="hljs-literal">true</span>
+      &#125;)
+      .finally(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-keyword">this</span>.loading = <span class="hljs-literal">false</span>)
+  &#125;
+&#125;)</code></pre>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Bitcoin Price Index<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">"errored"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Nous sommes désolés, nous ne sommes pas en mesure de récupérer ces informations pour le moment. Veuillez réessayer ultérieurement.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">v-else</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">"loading"</span>&gt;</span>Chargement...<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>
+      <span class="hljs-attr">v-else</span>
+      <span class="hljs-attr">v-for</span>=<span class="hljs-string">"currency in info"</span>
+      <span class="hljs-attr">class</span>=<span class="hljs-string">"currency"</span>
+    &gt;</span>
+      &#123;&#123; currency.description &#125;&#125;:
+      <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"lighten"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">v-html</span>=<span class="hljs-string">"currency.symbol"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>&#123;&#123; currency.rate_float | currencydecimal &#125;&#125;
+      <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+<p>Vous pouvez appuyer sur le bouton de réexécution de cet exemple pour connaitre brièvement l’état du chargement pendant la collecte des données à partir de l’API :</p>
+<p></p><p data-height="300" data-theme-id="32763" data-slug-hash="6c01922c9af3883890fd7393e8147ec4" data-default-tab="result" data-user="Vue" data-embed-version="2" data-pen-title="Quatrième étape Axios et Vue" class="codepen">Voir l’exemple <a href="https://codepen.io/team/Vue/pen/6c01922c9af3883890fd7393e8147ec4/" target="_blank" rel="noopener">Quatrième étape Axios et Vue</a> par Vue (<a href="https://codepen.io/Vue" target="_blank" rel="noopener">@Vue</a>) sur <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.</p><p></p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
-<p>This can be even further improved with the use of components for different sections and more distinct error reporting, depending on the API you’re using and the complexity of your application.</p>
-<h2 id="Alternative-Patterns"><a href="#Alternative-Patterns" class="headerlink" title="Alternative Patterns"></a>Alternative Patterns</h2><h3 id="Fetch-API"><a href="#Fetch-API" class="headerlink" title="Fetch API"></a>Fetch API</h3><p>The <a href="https://developers.google.com/web/updates/2015/03/introduction-to-fetch" target="_blank" rel="noopener">Fetch API</a> is a powerful native API for these types of requests. You may have heard that one of the benefits of the Fetch API is that you don’t need to load an external resource in order to use it, which is true! Except… that it’s not fully supported yet, so you will still need to use a polyfill. There are also some gotchas when working with this API, which is why many prefer to use axios for now. This may very well change in the future though.</p>
-<p>If you’re interested in using the Fetch API, there are some <a href="https://scotch.io/@bedakb/lets-build-type-ahead-component-with-vuejs-2-and-fetch-api" target="_blank" rel="noopener">very good articles</a> explaining how to do so.</p>
-<h2 id="Wrapping-Up"><a href="#Wrapping-Up" class="headerlink" title="Wrapping Up"></a>Wrapping Up</h2><p>There are many ways to work with Vue and axios beyond consuming and displaying an API. You can also communicate with Serverless Functions, post/edit/delete from an API where you have write access, and many other benefits. Due to the straightforward integration of these two libraries, it’s become a very common choice for developers who need to integrate HTTP clients into their workflow.</p>
+<p>Cela peut encore être amélioré avec l’utilisation de composants pour différentes sections et un rapport d’erreurs plus distinct, en fonction de l’API utilisée et de la complexité de votre application.</p>
+<h2 id="Modeles-alternatifs"><a href="#Modeles-alternatifs" class="headerlink" title="Modèles alternatifs"></a>Modèles alternatifs</h2><h3 id="Fetch-API"><a href="#Fetch-API" class="headerlink" title="Fetch API"></a>Fetch API</h3><p>L’<a href="https://developers.google.com/web/updates/2015/03/introduction-to-fetch" target="_blank" rel="noopener">API Fetch</a> est une API native puissante pour ces types de demandes. Vous avez peut-être entendu dire que l’un des avantages de l’API Fetch est qu’il n’est pas nécessaire de charger une ressource externe pour l’utiliser, ce qui est vrai ! Sauf que… ce n’est pas encore complètement supporté, vous aurez donc toujours besoin d’utiliser un polyfill. Il y a aussi quelques pièges à éviter avec cette API, raison pour laquelle beaucoup préfèrent utiliser axios pour le moment. Cela pourrait cependant très bien changer dans le futur.</p>
+<p>Si vous êtes intéressé par l’utilisation de l’API Fetch vous trouverez de <a href="https://scotch.io/@bedakb/lets-build-type-ahead-component-with-vuejs-2-and-fetch-api" target="_blank" rel="noopener">très bons articles</a> expliquant comment faire.</p>
+<h2 id="Aller-plus-loin"><a href="#Aller-plus-loin" class="headerlink" title="Aller plus loin"></a>Aller plus loin</h2><p>Il existe de nombreuses façons de travailler avec Vue et axios au-delà de la consommation et de l’affichage d’une API. Vous pouvez également communiquer avec des Fonctions Sans Serveur, publier / éditer / supprimer à partir d’une API où vous disposez d’un accès en écriture, et de nombreux autres avantages. En raison de l’intégration directe de ces deux bibliothèques, c’est devenu un choix très courant pour les développeurs qui doivent intégrer des clients HTTP à leur workflow.</p>
 
   
   
