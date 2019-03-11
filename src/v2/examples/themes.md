@@ -1,12 +1,10 @@
 ---
-title: Themes
+title: Thèmes
 type: examples
 is_new: true
 order: 13
 ---
-<p>Cette page est en cours de traduction. Pour nous aider, vous pouvez participer sur <a href="https://github.com/vuejs-fr/vuejs.org" target="_blank">le dépôt GitHub dédié de Vuejs-FR</a>.</p><p>
-
-> With the examples below built by our partners from [Creative Tim](https://creative-tim.com?affiliate_id=116187) you can see how a real world application is built, the technology stack behind it and how most of the concepts you've learned so far apply in a real world application.
+> Avec les exemples ci-dessous construit par nos partenaires de chez [Creative Tim](https://creative-tim.com?affiliate_id=116187) vous pouvez voir comment une réelle application est construite, la technologie utilisée derrière and quels sont les concepts principaux à apprendre pour réaliser de vraie application.
 
 {% raw %}
 <div id="themes-example" class="themes-grid">
@@ -22,7 +20,7 @@ order: 13
    <div class="see-more-container">
     <a :href="`https://www.creative-tim.com/bootstrap-themes/vuejs-themes?affiliate_id=${affiliateId}`"
        class="button white see-more-link">
-       See More Themes
+       Voir plus de thèmes
     </a>
    </div>
 </div>
