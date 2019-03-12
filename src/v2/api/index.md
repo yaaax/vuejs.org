@@ -429,7 +429,7 @@ type: api
   }
   ```
 
-  <p class="tip">Dans Vue 2.x, `Vue.observable` mute directement l'objet qui lui est passé, ainsi cela est équivalent à l'objet retourné, comme [démontré ici](../guide/instance.html#Donnees-et-methodes). Dans Vue 3.x, un proxy réactif sera retourné à la place, laissant l'objet original non réactif s'il est muté directement. Cependant, pour de future compatibilité, nous recommandons toujours de travailler avec l'objet retourné par `Vue.observable`, au lieu de l'objet originalement passé.</p>
+  <p class="tip">Dans Vue 2.x, `Vue.observable` mute directement l'objet qui lui est passé, ainsi cela est équivalent à l'objet retourné, comme [démontré ici](../guide/instance.html#Donnees-et-methodes). Dans Vue 3.x, un proxy réactif sera retourné à la place, laissant l'objet original non réactif s'il est muté directement. Cependant, pour de future compatibilité, nous recommandons toujours de travailler avec l'objet retourné par `Vue.observable`, au lieu de l'objet originel.</p>
 
 - **Voir aussi :** [Réactivité dans le détail](../guide/reactivity.html)
 
