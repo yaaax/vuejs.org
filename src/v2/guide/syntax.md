@@ -150,7 +150,7 @@ De manière similaire, donc, quand la valeur `eventName` est `"focus"`, par exem
 
 #### Contrainte des valeurs d'argument dynamique
 
-Les arguments dynamiques sont destinés à être évalué comme des chaines de caractères à l'exception de `null`. La valeur spéciale `null` peut être utiliser pour explicitement retirer la liaison. N'importe qu'elle autre valeur n'étant pas une chaine de caractères lèvera un avertissement.
+Les arguments dynamiques sont destinés à être évalués comme des chaînes de caractères à l'exception de `null`. La valeur spéciale `null` peut être utilisée pour explicitement retirer la liaison. N'importe quelle autre valeur n'étant pas une chaîne de caractères lèvera un avertissement.
 
 #### Contraintes des expressions d'argument dynamique
 
