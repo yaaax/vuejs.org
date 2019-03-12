@@ -132,7 +132,7 @@ Ici l'argument est le nom de l'évènement à écouter. Nous parlerons aussi plu
 
 > Nouveau dans la 2.6.0+
 
-Introduit dans la version 2.6.0, il est aussi possible d'utiliser des expressions JavaScript dans un argument de directive inclu entre parenthèses droites :
+Introduit dans la version 2.6.0, il est aussi possible d'utiliser des expressions JavaScript dans un argument de directive inclus entre crochets :
 
 ``` html
 <a v-bind:[attributeName]="url"> ... </a>

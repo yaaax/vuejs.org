@@ -512,11 +512,11 @@ type: api
   Avec la syntaxe objet, vous pouvez passer les options suivantes :
     - Le **type** peut être l'un des constructeurs natifs suivants : `String`, `Number`, `Boolean`, `Array`, `Object`, `Date`, `Function`, `Symbol` ainsi que n'importe quelle fonction de construction ou tableau de ces types. Les types des props seront vérifiés. Un avertissement sera fourni si une prop n'est pas du bon type. [Plus d'information](../guide/components-props.html#Types-des-props) sur les types des props.
     - **default:** `any`
-    Spécifie la valeur par défaut de la prop. Si la prop n'est pas passé, cette valeur sera utilisée à la place. Les objet ou tableau par défaut doivent être retourné depuis une fonction de fabrique.
+    Spécifie la valeur par défaut de la prop. Si la prop n'est pas passée, cette valeur sera utilisée à la place. Les objets ou tableaux par défaut doivent être retournés depuis une fonction de fabrique.
     - **required:** `Boolean`
     Définie si la prop est requise. Dans un environnement autre que de production, un avertissement sera affiché dans la console si cette valeur est évaluée à vrai mais n'est pas passée.
     - **validator:** `Function`
-    Une fonction de validation personnalisée qui prend la valeur de prop comme seul argument. Dans un environnement autre que de production, un avertissement sera affiché dans la console si cette fonction retourne une valeur évaluée à faux. (c.-à-d. que la validation à échouée). Vous pouvez en lire plus à propos de la validation des props [ici](../guide/components-props.html#Validation-des-props).
+    Une fonction de validation personnalisée qui prend la valeur de prop comme seul argument. Dans un environnement autre que de production, un avertissement sera affiché dans la console si cette fonction retourne une valeur évaluée à faux. (c.-à-d. que la validation a échoué). Vous pouvez en lire plus à propos de la validation des props [ici](../guide/components-props.html#Validation-des-props).
 
 - **Exemple :**
 
@@ -1445,7 +1445,7 @@ type: api
 
   1. Les fonctions de slot avec portée garantissent de retourner un tableau de VNodes, sauf si la valeur de retour est invalide, auquel cas la fonction retournera `undefined`.
 
-  2. Tous les `$slots` sont maintenant exposés via `$scopedSlots` en tant que fonctions. Si vous travaillez avec des fonctions de rendu, il est maintenant recommandé de toujours accéder aux slots via `$scopedSlots`, si elles utilisent actuellement une portée ou non. Cela ne va pas seullement permettre d'ajouter des scopes simplement lors de futures refactorisation, mais également de faciliter votre éventuelle migration vers Vue 3, où tous les slots seront des fonctions.
+  2. Tous les `$slots` sont maintenant exposés via `$scopedSlots` en tant que fonctions. Si vous travaillez avec des fonctions de rendu, il est maintenant recommandé de toujours accéder aux slots via `$scopedSlots`, si elles utilisent actuellement une portée ou non. Cela ne va pas seullement permettre d'ajouter des scopes simplement lors de futures refactorisations, mais également de faciliter votre éventuelle migration vers Vue 3, où tous les slots seront des fonctions.
 
 - **Voir aussi :**
   - [Composant `<slot>`](#slot-1)
