@@ -75,7 +75,7 @@ Le slot a accès à la même propriété d'instance (c.-à-d. la même « porté
 </navigation-link>
 ```
 
-Souvenez vous de cette règle :
+Souvenez-vous de cette règle :
 
 > Tout ce qui est dans le template parent est compilé dans la portée parente, tout ce qui est dans le template enfant est compilé dans la portée enfant.
 
@@ -97,13 +97,13 @@ Nous pourrions vouloir que le texte « Envoyer » soit rendu à l'intérieur de 
 </button>
 ```
 
-Maintenant quand nous utilisons `<submit-button>` dans le composant parent, nous ne fournissont aucuno contenu pour le slot :
+Maintenant quand nous utilisons `<submit-button>` dans le composant parent, nous ne fournissont aucun contenu pour le slot :
 
 ```html
 <submit-button></submit-button>
 ```
 
-ce qui ferra le rendu du contenu par défaut « Envoyer » :
+ce qui fera le rendu du contenu par défaut « Envoyer » :
 
 ```html
 <button type="submit">
@@ -165,7 +165,7 @@ Dans le cas suivant, l'élément `<slot>` à un l'attribut spécial `name` , qui
 
 Un `<slot>` sans `name` obtient implicitement le nom "default".
 
-Pour fournir du contenu à des slots nommées, nous pouvons utiliser la directive `v-slot` sur un `<template>`, fournissant le nom du slot en tant qu'argument de `v-slot` :
+Pour fournir du contenu à des slots nommés, nous pouvons utiliser la directive `v-slot` sur un `<template>`, fournissant le nom du slot en tant qu'argument de `v-slot` :
 
 ```html
 <base-layout>
@@ -184,7 +184,7 @@ Pour fournir du contenu à des slots nommées, nous pouvons utiliser la directiv
 
 Maintenant, tout a l'intérieur des éléments `<template>` sera passé aux slots correspondants. Tout contenu non inclu dans un `<template>` utilisant `v-slot` est considéré comme étant destiné au slot par défaut `default`.
 
-Cependant, vous pouvez toujours entourée le contenu du slot par défaut dans un `<template>` si vous désirez que cela soit plus explicite :
+Cependant, vous pouvez toujours entourer le contenu du slot par défaut dans un `<template>` si vous désirez que cela soit plus explicite :
 
 ```html
 <base-layout>
@@ -226,7 +226,7 @@ Notez que **`v-slot` ne peut seulement être ajouté à un `<template>`** (avec 
 
 > Mis à jour dans la 2.6.0+. [Voir ici](#Syntaxe-dépréciée) pour la syntaxe dépréciée en utilisant l'attribut `slot-scope`.
 
-Parfois, il est utile pour les contenus de slot d'avoir accès aux données uniquement disponible dans le composant enfant. Par exemple, imaginez un composant `<current-user>` avec le template suivant :
+Parfois, il est utile pour les contenus de slot d'avoir accès aux données uniquement disponibles dans le composant enfant. Par exemple, imaginez un composant `<current-user>` avec le template suivant :
 
 ```html
 <span>
@@ -234,7 +234,7 @@ Parfois, il est utile pour les contenus de slot d'avoir accès aux données uniq
 </span>
 ```
 
-Nous souhaiterions remplacer le contenu par défaut pour afficher le nom de famille de l'utilisateur à la place de son prénon comme ceci :
+Nous souhaiterions remplacer le contenu par défaut pour afficher le nom de famille de l'utilisateur à la place de son prénom comme ceci :
 
 ``` html
 <current-user>
@@ -244,7 +244,7 @@ Nous souhaiterions remplacer le contenu par défaut pour afficher le nom de fami
 
 Ce qui ne fonctionnera pas puisque le composant `<current-user>` n'a pas accès à `user` ni au contenu que nous avons fourni lors du rendu du parent.
 
-Pour rendre `user` disponible dans le contenu du slot dans le parent, nous pouvons lié `user` comme un attribu de l'élément `<slot>` :
+Pour rendre `user` disponible dans le contenu du slot dans le parent, nous pouvons lier `user` comme un attribut de l'élément `<slot>` :
 
 ``` html
 <span>
@@ -254,7 +254,7 @@ Pour rendre `user` disponible dans le contenu du slot dans le parent, nous pouvo
 </span>
 ```
 
-Les attribus liés à l'élément `<slot>` sont appelé des **props de slot**. Maintenant, dans la portée parente, nous pouvons utiliser `v-slot` avec une valeur pour définir un nom pour les props de slot que nous avons fourni :
+Les attribus liés à l'élément `<slot>` sont appelés des **props de slot**. Maintenant, dans la portée parente, nous pouvons utiliser `v-slot` avec une valeur pour définir un nom pour les props de slot qui nous ont été fournies :
 
 ``` html
 <current-user>
@@ -264,11 +264,11 @@ Les attribus liés à l'élément `<slot>` sont appelé des **props de slot**. M
 </current-user>
 ```
 
-Dans cet exemple, nous avons choisi de nommer l'objet contenant tous nos props de slot `slotProps` mais vous pouvez choisir n'importe quel nom que vous voulez.
+Dans cet exemple, nous avons choisi de nommer l'objet contenant tous nos props de slot `slotProps` mais vous pouvez choisir n'importe quel nom.
 
 ### Syntaxe abrégée pour les slots par défault uniques
 
-Dans les cas comme au dessus, quand _uniquement_ le slot par défaut a un contenu fourni, la balise du composant peut utiliser le template de slot. Cela nous permet d'utiliser `v-slot` directement sur le composant :
+Dans les cas comme au-dessus, quand _uniquement_ le slot par défaut a un contenu fourni, la balise du composant peut utiliser le template de slot. Cela nous permet d'utiliser `v-slot` directement sur le composant :
 
 ``` html
 <current-user v-slot:default="slotProps">
@@ -284,7 +284,7 @@ Cela peut même être raccourci encore plus. Comme un contenu non spécifié est
 </current-user>
 ```
 
-Notez que la syntaxe abrégée pour le slot par défaut **ne** peut **pas** être mélangé avec les slots nommées, ce qui mênerait à une ambiguité de portée :
+Notez que la syntaxe abrégée pour le slot par défaut **ne** peut **pas** être mélangée avec les slots nommées, ce qui mênerait à une ambiguïté de portée :
 
 ``` html
 <!-- INVALIDE, résultera en un avertissement -->

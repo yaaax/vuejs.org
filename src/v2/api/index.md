@@ -413,7 +413,7 @@ type: api
 
 - **Utilisation :**
 
-  Rend un objet réactif. En interne, Vue utilise cela sur l'objet retourné par la fonction `data`.
+  Rend un objet réactif. En interne, Vue l'utilise sur l'objet retourné par la fonction `data`.
 
   L'objet retourné peut être directement à l'intérieur des [fonctions de rendu](../guide/render-function.html) et [propriétés calculées](../guide/computed.html) et déclenchera les mises à jour appropriées lors de mutations. Il peut également être utilisé comme un store minimal inter-composant dans des scénarios basiques :
 
@@ -2238,12 +2238,12 @@ type: api
 
 - **Utilisation :**
 
-  Indiquez les slots nommées ou slots qui attendent de recevoir des props.
+  Indiquez les slots nommés ou slots qui attendent de recevoir des props.
 
 - **Exemple :**
 
   ```html
-  <!-- Slots nommées -->
+  <!-- Slots nommés -->
   <base-layout>
     <template v-slot:header>
       Contenu d'en-tête
@@ -2427,7 +2427,7 @@ type: api
 
 - **Attend comme valeur :** `string`
 
-  Utilisez sur un contenu insérré dans un composant enfant pour indiquer à quel slot nommé le contenu appartient.
+  Utilisez sur un contenu inséré dans un composant enfant pour indiquer à quel slot nommé le contenu appartient.
 
 - **Voir aussi :** [Slots nommés avec `slot`](../guide/components.html#Slots-nommés-avec-slot)
 
