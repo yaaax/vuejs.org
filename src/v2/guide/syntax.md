@@ -146,7 +146,7 @@ De manière similaire, vous pouvez utiliser les arguments dynamiques pour lier u
 <a v-on:[eventName]="doSomething"> ... </a>
 ```
 
-De manière similaire, donc, quand la valeur `eventName` est `"focus"`, par exemple, `v-on:[eventName]` sera équivaleun à `v-on:focus`.
+De manière similaire, donc, quand la valeur `eventName` est `"focus"`, par exemple, `v-on:[eventName]` sera équivalent à `v-on:focus`.
 
 #### Contrainte des valeurs d'argument dynamique
 
