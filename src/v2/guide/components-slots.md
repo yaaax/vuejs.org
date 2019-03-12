@@ -312,7 +312,7 @@ Notez que la syntaxe abrégée pour le slot par défaut **ne** peut **pas** êtr
 
 ### Décomposition de props de slot
 
-En interne, les slots avec portée fonctionne en entourant votre contenu de slot dans une fonction avec un seul argument :
+En interne, les slots avec portée fonctionnent en entourant votre contenu de slot dans une fonction avec un seul argument :
 
 ```js
 function (slotProps) {
