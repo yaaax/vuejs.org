@@ -2022,7 +2022,7 @@ type: api
   </div>
   ```
 
-  En 2.6+, `v-for` peut également travailler sur des valeurs qui implémente le [protocole Iterable](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Les_protocoles_iteration#The_iterable_protocol), incluant les natifs `Map` et `Set`. Cependant, il est a noté que Vue 2.x ne supporte pour le moment pas la réactivité sur les valeurs de `Map` et `Set` et ne pourra pas automatiquement détecter les changements.
+  En 2.6+, `v-for` peut également travailler sur des valeurs qui implémentent le [protocole Iterable](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Les_protocoles_iteration#The_iterable_protocol), incluant les natifs `Map` et `Set`. Cependant, il est a noté que Vue 2.x ne supporte pour le moment pas la réactivité sur les valeurs de `Map` et `Set` et ne pourra pas automatiquement détecter les changements.
 
   <p class="tip">Quand utilisé conjointement avec v-if, v-for a une plus grande priorité que v-if. Consultez le <a href="../guide/list.html#v-for-with-v-if">guide de rendu de listes</a> pour plus de détails.</p>
 
