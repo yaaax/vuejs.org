@@ -1445,7 +1445,7 @@ type: api
 
   1. Les fonctions de slot avec portée garantissent de retourner un tableau de VNodes, sauf si la valeur de retour est invalide, auquel cas la fonction retournera `undefined`.
 
-  2. Tous les `$slots` sont maintenant exposés via `$scopedSlots` en tant que fonctions. Si vous travaillez avec des fonctions de rendu, il est maintenant recommandé de toujours accéder aux slots via `$scopedSlots`, si elles utilisent actuellement une portée ou non. Cela ne va pas seullement permettre d'ajouter des scopes simplement lors de futures refactorisations, mais également de faciliter votre éventuelle migration vers Vue 3, où tous les slots seront des fonctions.
+  2. Tous les `$slots` sont maintenant exposés via `$scopedSlots` en tant que fonctions. Si vous travaillez avec des fonctions de rendu, il est maintenant recommandé de toujours accéder aux slots via `$scopedSlots`, si elles utilisent actuellement une portée ou non. Cela ne va pas seulement permettre d'ajouter des scopes simplement lors de futures refactorisations, mais également de faciliter votre éventuelle migration vers Vue 3, où tous les slots seront des fonctions.
 
 - **Voir aussi :**
   - [Composant `<slot>`](#slot-1)
@@ -2022,7 +2022,7 @@ type: api
   </div>
   ```
 
-  En 2.6+, `v-for` peut également travailler sur des valeurs qui implémentent le [protocole Iterable](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Les_protocoles_iteration#The_iterable_protocol), incluant les natifs `Map` et `Set`. Cependant, il est a noté que Vue 2.x ne supporte pour le moment pas la réactivité sur les valeurs de `Map` et `Set` et ne pourra pas automatiquement détecter les changements.
+  En 2.6+, `v-for` peut également travailler sur des valeurs qui implémentent le [protocole Iterable](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Les_protocoles_iteration#The_iterable_protocol), incluant les natifs `Map` et `Set`. Cependant, il est a noter que Vue 2.x ne supporte pour le moment pas la réactivité sur les valeurs de `Map` et `Set` et ne pourra pas automatiquement détecter les changements.
 
   <p class="tip">Quand utilisé conjointement avec v-if, v-for a une plus grande priorité que v-if. Consultez le <a href="../guide/list.html#v-for-with-v-if">guide de rendu de listes</a> pour plus de détails.</p>
 
