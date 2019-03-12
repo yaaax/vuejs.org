@@ -429,7 +429,7 @@ type: api
   }
   ```
 
-  <p class="tip">Dans Vue 2.x, `Vue.observable` mute directement l'objet qui lui est passé, ainsi cela est équivalent à l'objet retourné, comme [démontré ici](../guide/instance.html#Donnees-et-methodes). Dans Vue 3.x, un proxy réactif sera retourné à la place, laissant l'objet original non réactif s'il est muté directement. Cependant, pour de future compatibilité, nous recommandons toujours de travailler avec l'objet retourné par `Vue.observable`, au lieu de l'objet originel.</p>
+  <p class="tip">Dans Vue 2.x, `Vue.observable` mute directement l'objet qui lui est transmis, de sorte qu'il soit équivalent à l'objet renvoyé, comme [démontré ici](../guide/instance.html#Donnees-et-methodes). Dans Vue 3.x, un proxy réactif sera retourné à la place, laissant l'objet original non réactif s'il est muté directement. Cependant, pour de future compatibilité, nous recommandons toujours de travailler avec l'objet retourné par `Vue.observable`, au lieu de l'objet originel.</p>
 
 - **Voir aussi :** [Réactivité dans le détail](../guide/reactivity.html)
 
@@ -514,7 +514,7 @@ type: api
     - **default:** `any`
     Spécifie la valeur par défaut de la prop. Si la prop n'est pas passée, cette valeur sera utilisée à la place. Les objets ou tableaux par défaut doivent être retournés depuis une fonction de fabrique.
     - **required:** `Boolean`
-    Définie si la prop est requise. Dans un environnement autre que de production, un avertissement sera affiché dans la console si cette valeur est évaluée à vrai mais n'est pas passée.
+    Définie si la prop est requise. Dans un environnement autre que de production, un avertissement sera affiché dans la console si cette valeur est évaluée à vrai et que la prop n'est pas passée.
     - **validator:** `Function`
     Une fonction de validation personnalisée qui prend la valeur de prop comme seul argument. Dans un environnement autre que de production, un avertissement sera affiché dans la console si cette fonction retourne une valeur évaluée à faux. (c.-à-d. que la validation a échoué). Vous pouvez en lire plus à propos de la validation des props [ici](../guide/components-props.html#Validation-des-props).
 
