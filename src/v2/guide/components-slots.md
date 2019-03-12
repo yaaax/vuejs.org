@@ -6,7 +6,7 @@ order: 104
 
 > Cette page suppose que vous avez déjà lu les principes de base des [composants](components.html). Lisez-les en premier si les composants sont quelque chose de nouveau pour vous.
 
-> En 2.6.0, nous introduisons une nouvelle syntaxe unifiée (la directive `v-slot`) pour nommé vos slots avec portée. Il remplace les attributs `slot` et `slot-scope` qui sont a présent dépréciés mais _non_ retiré et toujours documenté [ici](#Syntaxe-dépréciée). La raison à l'introduction de la nouvelle syntaxe est décrite dans cette [RFC](https://github.com/vuejs/rfcs/blob/master/active-rfcs/0001-new-slot-syntax.md).
+> En 2.6.0, nous introduisons une nouvelle syntaxe unifiée (la directive `v-slot`) pour nommer vos slots avec portée. Il remplace les attributs `slot` et `slot-scope` qui sont a présent dépréciés mais _non_ retirés et toujours documentés [ici](#Syntaxe-dépréciée). La raison à l'introduction de la nouvelle syntaxe est décrite dans cette [RFC](https://github.com/vuejs/rfcs/blob/master/active-rfcs/0001-new-slot-syntax.md).
 
 ## Les contenus de slot
 
