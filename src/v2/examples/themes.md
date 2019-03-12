@@ -4,7 +4,7 @@ type: examples
 is_new: true
 order: 13
 ---
-> Avec les exemples ci-dessous construit par nos partenaires de chez [Creative Tim](https://creative-tim.com?affiliate_id=116187) vous pouvez voir comment une réelle application est construite, la technologie utilisée derrière and quels sont les concepts principaux à apprendre pour réaliser de vraie application.
+> Avec les exemples ci-dessous construits par nos partenaires de chez [Creative Tim](https://creative-tim.com?affiliate_id=116187) vous pouvez voir comment une réelle application est construite, la technologie utilisée derrière et quels sont les concepts principaux à apprendre pour réaliser une vraie application.
 
 {% raw %}
 <div id="themes-example" class="themes-grid">
