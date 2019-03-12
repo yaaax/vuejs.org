@@ -84,7 +84,7 @@ type: api
 
   > En 2.4.0+ ce hook capture également les erreurs lancées depuis un gestionnaire d'évènement Vue personnalisé.
 
-  > En 2.6.0+, ce hook capture également les erreurs lancées depuis les écouteurs de DOM `v-on`. De plus, si les hooks couverts ou gestionnaires retournent une chaine de Promesse, (par exemple les fonctions async), l'erreur sera également remontée depuis cette Promesse.
+  > En 2.6.0+, ce hook capture également les erreurs lancées depuis les écouteurs de DOM `v-on`. De plus, si les hooks couverts ou gestionnaires retournent une chaine de Promesse (par exemple les fonctions async), l'erreur sera également remontée depuis cette Promesse.
 
   > [Sentry](https://sentry.io) et [Bugsnag](https://docs.bugsnag.com/platforms/browsers/vue/) fournissent une intégration officielle utilisant cette option.
 
