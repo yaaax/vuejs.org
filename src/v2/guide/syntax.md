@@ -154,7 +154,7 @@ Les arguments dynamiques sont destinés à être évalués comme des chaînes de
 
 #### Contraintes des expressions d'argument dynamique
 
-<p class="tip">Les expressions d'argument dynamique on quelques contraintes de syntaxe car certain caractères sont invalides à l'intérieur d'un nom d'attribut HTML comme les espaces et les guillements. Vous devez également éviter les majuscules quand vous utiliser des templates dans le DOM.</p>
+<p class="tip">Les expressions d'argument dynamique ont quelques contraintes de syntaxe car certains caractères sont invalides à l'intérieur d'un nom d'attribut HTML comme les espaces et les guillemets. Vous devez également éviter les majuscules quand vous utilisez des templates dans le DOM.</p>
 
 Par exemple, ce qui suit est invalide :
 
