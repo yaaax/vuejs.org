@@ -165,7 +165,7 @@ Par exemple, ce qui suit est invalide :
 
 La solution consiste à utiliser des expressions sans espaces ni guillemets, ou à remplacer l'expression complexe par une propriété calculée.
 
-De plus, si vous utiliser des templates dans le DOM (templates directement écrit dans un fichier HTML), vous devrez être attentif au navigateur qui convertit les noms d'attribut en lettre minuscule :
+De plus, si vous utilisez des templates dans le DOM (templates directement écrit dans un fichier HTML), vous devrez être attentif au navigateur qui convertit les noms d'attribut en lettre minuscule :
 
 ``` html
 <!-- Ceci va être converti en v-bind:[someattr] dans un templates dans le DOM. -->
