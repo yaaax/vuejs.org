@@ -516,7 +516,7 @@ type: api
     - **required:** `Boolean`
     Définie si la prop est requise. Dans un environnement autre que de production, un avertissement sera affiché dans la console si cette valeur est évaluée à vrai mais n'est pas passée.
     - **validator:** `Function`
-    Une fonction de validation personnalisée qui prend la valeur de prop comme seul argument. Dans un environnement autre que de production, un avertissement sera affiché dans la console si cette fonction retourne une valeur évaluée à faux. (c.-à-d. que la validation à échouée). Vous pouvez en lire plus à propos de la validation des props [ici](../guide/components-props.html#Validation-des-props).
+    Une fonction de validation personnalisée qui prend la valeur de prop comme seul argument. Dans un environnement autre que de production, un avertissement sera affiché dans la console si cette fonction retourne une valeur évaluée à faux. (c.-à-d. que la validation a échoué). Vous pouvez en lire plus à propos de la validation des props [ici](../guide/components-props.html#Validation-des-props).
 
 - **Exemple :**
 
