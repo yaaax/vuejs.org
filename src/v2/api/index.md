@@ -510,7 +510,7 @@ type: api
   Une liste ou un objet décrivant les attributs exposés par le composant afin de passer des données depuis le composant parent. Ce paramètre a une syntaxe simple basée sur un tableau (`Array`) et une syntaxe alternative basée sur un objet (`Object`) qui permet une configuration avancée telle qu'une vérification de typage, des contrôles de validation personnalisés et des valeurs par défaut.
 
   Avec la syntaxe objet, vous pouvez passer les options suivantes :
-    - Le **type** peut être l'un des constructeurs natifs suivants : `String`, `Number`, `Boolean`, `Array`, `Object`, `Date`, `Function`, `Symbol` ainsi que n'importe quelle fonction de construction ou tableau de ces types. Il va être vérifié si une prop est de l'un de ces types et un avertissement sera fourni s'il n'en est pas un. [Plus d'information](../guide/components-props.html#Types-des-props) sur les types des props.
+    - Le **type** peut être l'un des constructeurs natifs suivants : `String`, `Number`, `Boolean`, `Array`, `Object`, `Date`, `Function`, `Symbol` ainsi que n'importe quelle fonction de construction ou tableau de ces types. Les types des props seront vérifiés. Un avertissement sera fourni si une prop n'est pas du bon type. [Plus d'information](../guide/components-props.html#Types-des-props) sur les types des props.
     - **default:** `any`
     Spécifie la valeur par défaut de la prop. Si la prop n'est pas passé, cette valeur sera utilisée à la place. Les objet ou tableau par défaut doivent être retourné depuis une fonction de fabrique.
     - **required:** `Boolean`
