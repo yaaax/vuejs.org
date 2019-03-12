@@ -415,7 +415,7 @@ type: api
 
   Rend un objet réactif. En interne, Vue l'utilise sur l'objet retourné par la fonction `data`.
 
-  L'objet retourné peut être directement à l'intérieur des [fonctions de rendu](../guide/render-function.html) et [propriétés calculées](../guide/computed.html) et déclenchera les mises à jour appropriées lors de mutations. Il peut également être utilisé comme un store minimal inter-composant dans des scénarios basiques :
+  L'objet retourné peut être directement utilisé à l'intérieur des [fonctions de rendu](../guide/render-function.html) ainsi que des [propriétés calculées](../guide/computed.html). Il déclenchera les mises à jour appropriées lors de mutations. Il peut également être utilisé comme un store minimal inter-composant dans des scénarios basiques :
 
   ``` js
   const state = Vue.observable({ count: 0 })
