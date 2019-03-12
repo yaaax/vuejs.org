@@ -40,13 +40,13 @@ Pour du prototypage ou de l'apprentissage, vous pouvez utiliser la dernière ver
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 ```
 
-Pour la production, nous vous recommandons de vous figer a une version et un build défini pour éviter les changements non compatibles des nouvelles versions :
+Pour la production, nous vous recommandons de vous figer à une version et un build défini pour éviter les changements non compatibles des nouvelles versions :
 
 ``` html
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0/dist/vue.js"></script>
 ```
 
-Si vous utiliser des Modules ES natif, il y a également un build compatible avec les Modules ES :
+Si vous utilisez des Modules ES natif, il y a également un build compatible avec les Modules ES :
 
 ``` html
 <script type="module">

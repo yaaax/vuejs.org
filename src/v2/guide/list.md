@@ -441,7 +441,7 @@ De la même manière qu'avec `v-if`, vous pouvez également utiliser la balise `
 
 ## `v-for` avec `v-if`
 
-<p class="tip">Notez qu'il n'est **pas** recommandé d'utiliser `v-if` et `v-for` ensemble. Réferrez vous au [Conventions](/v2/style-guide/#Eviter-v-if-avec-v-for-essentiel) pour plus de détails.</p>
+<p class="tip">Notez qu'il n'est **pas** recommandé d'utiliser `v-if` et `v-for` ensemble. Réferrez-vous aux [Conventions](/v2/style-guide/#Eviter-v-if-avec-v-for-essentiel) pour plus de détails.</p>
 
 Quand ils existent sur le même nœud, `v-for` a une priorité plus élevée que `v-if`. Cela signifie que `v-if` va être exécuté indépendamment à chaque itération de boucle. C'est très utile quand vous voulez faire le rendu de seulement _certains_ noeuds, comme ci-dessous :
 

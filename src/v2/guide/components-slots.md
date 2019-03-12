@@ -312,7 +312,7 @@ Notez que la syntaxe abrégée pour le slot par défaut **ne** peut **pas** êtr
 
 ### Décomposition de props de slot
 
-En interne, les slots avec portée fonctionne en entourant votre contenu de slot dans une fonction avec un seul argument :
+En interne, les slots avec portée fonctionnent en entourant votre contenu de slot dans une fonction avec un seul argument :
 
 ```js
 function (slotProps) {
@@ -320,7 +320,7 @@ function (slotProps) {
 }
 ```
 
-Cela signifie que la valeur de `v-slot` peut accepté n'importe quel expression JavaScript valide pouvant apparaitre à la position d'un argument lors de la défénition d'une fonction. Également, pour les environnements qui le supportent ([composants monofichier](single-file-components.html) ou les [navigateurs modernes](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Op%C3%A9rateurs)), vous pouvez utiliser la [décomposition ES2015](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Op%C3%A9rateurs/Affecter_par_d%C3%A9composition#Object_destructuring) pour définir une collection de props de slot comme suit :
+Cela signifie que la valeur de `v-slot` peut accepter n'importe quelle expression JavaScript valide pouvant apparaître à la position d'un argument lors de la définition d'une fonction. Également, pour les environnements qui le supportent ([composants monofichier](single-file-components.html) ou les [navigateurs modernes](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Op%C3%A9rateurs)), vous pouvez utiliser la [décomposition ES2015](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Op%C3%A9rateurs/Affecter_par_d%C3%A9composition#Object_destructuring) pour définir une collection de props de slot comme suit :
 
 ``` html
 <current-user v-slot="{ user }">
@@ -328,7 +328,7 @@ Cela signifie que la valeur de `v-slot` peut accepté n'importe quel expression 
 </current-user>
 ```
 
-Cela rend les template vraiment propre, spécialement quand un slot fournit divers props. Cela agrandit les possibilités, comme le rennomage de props, par ex. `user` to `person`:
+Cela rend les templates vraiment propres, en particulier quand un slot fournit divers props. Cela agrandit les possibilités, comme le renommage de props, par ex. `user` à `person`:
 
 ``` html
 <current-user v-slot="{ user: person }">
@@ -336,7 +336,7 @@ Cela rend les template vraiment propre, spécialement quand un slot fournit dive
 </current-user>
 ```
 
-Vous pouvez même définir des valeurs par défaut à utiliser dans le cas ou les prop de slot sont `undefined` :
+Vous pouvez même définir des valeurs par défaut à utiliser dans le cas où les props de slot sont `undefined` :
 
 ``` html
 <current-user v-slot="{ user = { firstName: 'Guest' } }">
@@ -344,7 +344,7 @@ Vous pouvez même définir des valeurs par défaut à utiliser dans le cas ou le
 </current-user>
 ```
 
-## Noms de slot dynamique
+## Noms de slot dynamiques
 
 > Nouveau dans la 2.6.0+
 
