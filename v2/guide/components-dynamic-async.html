@@ -113,7 +113,7 @@
     <li><ul>
       <li><a href="https://forum.vuejs.org/c/french" class="nav-link" target="_blank">Forum</a></li>
       <li><a href="https://discordapp.com/channels/325477692906536972/360669119948783616" class="nav-link" target="_blank">Chat</a></li>
-      <li><a href="https://www.vuemeetups.org/" class="nav-link" target="_blank">Meetups (EN)</a></li>
+      <li><a href="https://events.vuejs.org/meetups/" class="nav-link" target="_blank">Meetups (EN)</a></li>
     </ul></li>
     <li><h4>Outils</h4></li>
     <li>
@@ -133,9 +133,11 @@
     <li><ul>
       <li><a href="https://news.vuejs.org" class="nav-link" target="_blank">Actualités (En)</a></li>
       <li><a href="https://github.com/vuejs/vue/projects/6" class="nav-link" target="_blank">Plans futurs (En)</a></li>
+      <li><a href="https://events.vuejs.org/" class="nav-link" target="_blank">Évènements (En)</a></li>
       <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank">Twitter (En)</a></li>
       <li><a href="https://medium.com/the-vue-point" class="nav-link" target="_blank">Blog (En)</a></li>
       <li><a href="https://vuejobs.com/?ref=vuejs" class="nav-link" target="_blank">Offres d'emploi (En)</a></li>
+      <li><a href="https://dev.to/t/vue" class="nav-link" target="_blank">Communauté DEV</a></li>
     </ul></li>
     <li><h4>Liste de ressources</h4></li>
     <li><ul>
@@ -209,7 +211,7 @@
     <li><ul>
       <li><a href="https://forum.vuejs.org/c/french" class="nav-link" target="_blank">Forum</a></li>
       <li><a href="https://discordapp.com/channels/325477692906536972/360669119948783616" class="nav-link" target="_blank">Chat</a></li>
-      <li><a href="https://www.vuemeetups.org/" class="nav-link" target="_blank">Meetups (EN)</a></li>
+      <li><a href="https://events.vuejs.org/meetups/" class="nav-link" target="_blank">Meetups (EN)</a></li>
     </ul></li>
     <li><h4>Outils</h4></li>
     <li>
@@ -229,9 +231,11 @@
     <li><ul>
       <li><a href="https://news.vuejs.org" class="nav-link" target="_blank">Actualités (En)</a></li>
       <li><a href="https://github.com/vuejs/vue/projects/6" class="nav-link" target="_blank">Plans futurs (En)</a></li>
+      <li><a href="https://events.vuejs.org/" class="nav-link" target="_blank">Évènements (En)</a></li>
       <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank">Twitter (En)</a></li>
       <li><a href="https://medium.com/the-vue-point" class="nav-link" target="_blank">Blog (En)</a></li>
       <li><a href="https://vuejobs.com/?ref=vuejs" class="nav-link" target="_blank">Offres d'emploi (En)</a></li>
+      <li><a href="https://dev.to/t/vue" class="nav-link" target="_blank">Communauté DEV</a></li>
     </ul></li>
     <li><h4>Liste de ressources</h4></li>
     <li><ul>
@@ -287,6 +291,9 @@
   <div class="main-sponsor">
     <span>Sponsors de platine</span>
     <div>
+    <a href="https://moduscreate.com/?utm_source=Vue&utm_medium=Partnership&utm_campaign=VueShip" target="_blank" class="logo">
+      <img src="/images/modus.png" alt="Modus">
+    </a>
     <a href="https://www.bitsrc.io/?utm_source=vue&utm_medium=vue&utm_campaign=vue&utm_term=vue&utm_content=vue" target="_blank" class="logo">
       <img src="/images/bit.png" alt="Bit">
     </a>
@@ -848,7 +855,7 @@
       
     
     <li>
-      <a href="/v2/guide/reactivity.html" class="sidebar-link">Réactivité dans le détail</a>
+      <a href="/v2/guide/reactivity.html" class="sidebar-link">Réactivité en détail</a>
     </li>
   
     
@@ -962,6 +969,9 @@
   <div class="main-sponsor">
     <span>Sponsors de platine</span>
     <div>
+    <a href="https://moduscreate.com/?utm_source=Vue&utm_medium=Partnership&utm_campaign=VueShip" target="_blank" class="logo">
+      <img src="/images/modus.png" alt="Modus">
+    </a>
     <a href="https://www.bitsrc.io/?utm_source=vue&utm_medium=vue&utm_campaign=vue&utm_term=vue&utm_content=vue" target="_blank" class="logo">
       <img src="/images/bit.png" alt="Bit">
     </a>
@@ -1008,9 +1018,9 @@
 <p>Cette page suppose que vous avez déjà lu les principes de base des <a href="components.html">composants</a>. Lisez-les en premier si les composants sont quelque chose de nouveau pour vous.</p>
 </blockquote>
 <h2 id="keep-alive-avec-les-composants-dynamiques"><a href="#keep-alive-avec-les-composants-dynamiques" class="headerlink" title="keep-alive avec les composants dynamiques"></a><code>keep-alive</code> avec les composants dynamiques</h2><p>Précédemment, nous avons utilisé l’attribut <code>is</code> pour basculer entre des composants dans une interface avec des onglets :</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">component</span> <span class="hljs-attr">v-bind:is</span>=<span class="hljs-string">"composantOngletActuel"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">component</span>&gt;</span></code></pre>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">component</span> <span class="hljs-attr">v-bind:is</span>=<span class="hljs-string">"currentTabComponent"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">component</span>&gt;</span></code></pre>
 <p>Toutefois, lors de la bascule d’un composant à l’autre, vous voudrez parfois maintenir leur état ou éviter de refaire leur rendu pour des raisons de performance. Par exemple, en détaillant un peu plus notre interface avec onglets :</p>
-{% raw %}
+
 <div id="dynamic-component-demo" class="demo">
   <button v-for="tab in tabs" v-bind:key="tab" v-bind:class="['dynamic-component-demo-tab-button', { 'dynamic-component-demo-active': currentTab === tab }]" v-on:click="currentTab = tab">{{ tab }}</button>
   <component v-bind:is="composantOngletActuel" class="dynamic-component-demo-tab"></component>
@@ -1133,7 +1143,7 @@ new Vue({
   padding-top: 0 !important;
 }
 </style>
-{% endraw %}
+
 <p>Vous remarquerez que si vous sélectionnez un post, puis basculez sur l’onglet <em>Archive</em>, puis rebasculer à nouveau sur <em>Posts</em>, il n’affiche plus le post que vous avez initialement sélectionné. En effet, chaque fois que vous basculez vers un nouvel onglet, Vue crée une nouvelle instance du <code>composantOngletActuel</code>.</p>
 <p>Recréer des composants dynamiques est d’habitude un comportement utile, mais dans ce cas précis, nous aimerions bien que ces instances de composants onglets soient mises en cache après qu’elles aient été créées pour la première fois. Pour résoudre ce problème, nous pouvons envelopper notre composant dynamique dans un élément <code>&lt;keep-alive&gt;</code> :</p>
 <pre><code class="hljs html"><span class="hljs-comment">&lt;!-- Les composants inactifs seront mis en cache ! --&gt;</span>
@@ -1282,7 +1292,8 @@ new Vue({
       apiKey: '85cc3221c9f23bfbaa4e3913dd7625ea',
       indexName: 'vuejs',
       inputSelector: selector,
-      algoliaOptions: { facetFilters: ["version:" + version] }
+      algoliaOptions: { facetFilters: ["version:" + version] },
+      autocompleteOptions: { hint: false, appendTo: 'body'}
       })
     })
     </script>

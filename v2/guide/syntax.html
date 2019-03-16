@@ -113,7 +113,7 @@
     <li><ul>
       <li><a href="https://forum.vuejs.org/c/french" class="nav-link" target="_blank">Forum</a></li>
       <li><a href="https://discordapp.com/channels/325477692906536972/360669119948783616" class="nav-link" target="_blank">Chat</a></li>
-      <li><a href="https://www.vuemeetups.org/" class="nav-link" target="_blank">Meetups (EN)</a></li>
+      <li><a href="https://events.vuejs.org/meetups/" class="nav-link" target="_blank">Meetups (EN)</a></li>
     </ul></li>
     <li><h4>Outils</h4></li>
     <li>
@@ -133,9 +133,11 @@
     <li><ul>
       <li><a href="https://news.vuejs.org" class="nav-link" target="_blank">Actualités (En)</a></li>
       <li><a href="https://github.com/vuejs/vue/projects/6" class="nav-link" target="_blank">Plans futurs (En)</a></li>
+      <li><a href="https://events.vuejs.org/" class="nav-link" target="_blank">Évènements (En)</a></li>
       <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank">Twitter (En)</a></li>
       <li><a href="https://medium.com/the-vue-point" class="nav-link" target="_blank">Blog (En)</a></li>
       <li><a href="https://vuejobs.com/?ref=vuejs" class="nav-link" target="_blank">Offres d'emploi (En)</a></li>
+      <li><a href="https://dev.to/t/vue" class="nav-link" target="_blank">Communauté DEV</a></li>
     </ul></li>
     <li><h4>Liste de ressources</h4></li>
     <li><ul>
@@ -209,7 +211,7 @@
     <li><ul>
       <li><a href="https://forum.vuejs.org/c/french" class="nav-link" target="_blank">Forum</a></li>
       <li><a href="https://discordapp.com/channels/325477692906536972/360669119948783616" class="nav-link" target="_blank">Chat</a></li>
-      <li><a href="https://www.vuemeetups.org/" class="nav-link" target="_blank">Meetups (EN)</a></li>
+      <li><a href="https://events.vuejs.org/meetups/" class="nav-link" target="_blank">Meetups (EN)</a></li>
     </ul></li>
     <li><h4>Outils</h4></li>
     <li>
@@ -229,9 +231,11 @@
     <li><ul>
       <li><a href="https://news.vuejs.org" class="nav-link" target="_blank">Actualités (En)</a></li>
       <li><a href="https://github.com/vuejs/vue/projects/6" class="nav-link" target="_blank">Plans futurs (En)</a></li>
+      <li><a href="https://events.vuejs.org/" class="nav-link" target="_blank">Évènements (En)</a></li>
       <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank">Twitter (En)</a></li>
       <li><a href="https://medium.com/the-vue-point" class="nav-link" target="_blank">Blog (En)</a></li>
       <li><a href="https://vuejobs.com/?ref=vuejs" class="nav-link" target="_blank">Offres d'emploi (En)</a></li>
+      <li><a href="https://dev.to/t/vue" class="nav-link" target="_blank">Communauté DEV</a></li>
     </ul></li>
     <li><h4>Liste de ressources</h4></li>
     <li><ul>
@@ -287,6 +291,9 @@
   <div class="main-sponsor">
     <span>Sponsors de platine</span>
     <div>
+    <a href="https://moduscreate.com/?utm_source=Vue&utm_medium=Partnership&utm_campaign=VueShip" target="_blank" class="logo">
+      <img src="/images/modus.png" alt="Modus">
+    </a>
     <a href="https://www.bitsrc.io/?utm_source=vue&utm_medium=vue&utm_campaign=vue&utm_term=vue&utm_content=vue" target="_blank" class="logo">
       <img src="/images/bit.png" alt="Bit">
     </a>
@@ -848,7 +855,7 @@
       
     
     <li>
-      <a href="/v2/guide/reactivity.html" class="sidebar-link">Réactivité dans le détail</a>
+      <a href="/v2/guide/reactivity.html" class="sidebar-link">Réactivité en détail</a>
     </li>
   
     
@@ -962,6 +969,9 @@
   <div class="main-sponsor">
     <span>Sponsors de platine</span>
     <div>
+    <a href="https://moduscreate.com/?utm_source=Vue&utm_medium=Partnership&utm_campaign=VueShip" target="_blank" class="logo">
+      <img src="/images/modus.png" alt="Modus">
+    </a>
     <a href="https://www.bitsrc.io/?utm_source=vue&utm_medium=vue&utm_campaign=vue&utm_term=vue&utm_content=vue" target="_blank" class="logo">
       <img src="/images/bit.png" alt="Bit">
     </a>
@@ -1008,12 +1018,13 @@
 <p>Sous le capot, Vue compile les templates en des fonctions de rendus de DOM virtuel. Combiné au système de réactivité, Vue est en mesure de déterminer intelligemment le nombre minimal de composants pour lesquels il faut redéclencher le rendu et d’appliquer le nombre minimal de manipulations au DOM quand l’état de l’application change.</p>
 <p>Si vous êtes familiers avec les concepts de DOM virtuel et que vous préférez la puissance du JavaScript pur, vous pouvez aussi <a href="render-function.html">écrire directement des fonctions de rendu</a> à la place des templates, avec un support facultatif de JSX.</p>
 <h2 id="Interpolations"><a href="#Interpolations" class="headerlink" title="Interpolations"></a>Interpolations</h2><h3 id="Texte"><a href="#Texte" class="headerlink" title="Texte"></a>Texte</h3><p>La forme la plus élémentaire de la liaison de données est l’interpolation de texte en utilisant la syntaxe “Mustache” (les doubles accolades)</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">span</span>&gt;</span>Message: &#123;&#123; msg &#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Message: &#123;&#123; msg &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></code></pre>
 <p>La balise moustache sera remplacée par la valeur de la propriété <code>msg</code> de l’objet data correspondant. Elle sera également mise à jour à chaque fois que la propriété <code>msg</code> de l’objet data changera.</p>
 <p>Vous pouvez également réaliser des interpolations à usage unique qui ne se mettront pas à jour lors de la modification des données en utilisant la <a href="../api/#v-once">directive v-once</a>, mais gardez à l’esprit que cela affectera toutes les liaisons de données présentes sur le même nœud :</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">v-once</span>&gt;</span>Ceci ne changera jamais : &#123;&#123; msg &#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">v-once</span>&gt;</span>Ceci ne changera jamais : &#123;&#123; msg &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></code></pre>
 <h3 id="Interpretation-du-HTML"><a href="#Interpretation-du-HTML" class="headerlink" title="Interprétation du HTML"></a>Interprétation du HTML</h3><p>Les doubles moustaches interprètent la donnée en tant que texte brut, pas en tant que HTML. Pour afficher réellement du HTML, vous aurez besoin d’utiliser la directive <code>v-html</code></p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Using mustaches: &#123;&#123; rawHtml &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Using v-html directive: <span class="tag">&lt;<span class="name">span</span> <span class="attr">v-html</span>=<span class="string">"rawHtml"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Using mustaches: &#123;&#123; rawHtml &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Using v-html directive: <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">v-html</span>=<span class="hljs-string">"rawHtml"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
 
 <div id="example1" class="demo">
   <p>En utilisant les moustaches : {{ rawHtml }}</p>
@@ -1023,9 +1034,9 @@
 new Vue({
   el: '#example1',
   data: function () {
-  	return {
-  	  rawHtml: '<span style="color: red">Ceci devrait être rouge.</span>'
-  	}
+    return {
+      rawHtml: '<span style="color: red">Ceci devrait être rouge.</span>'
+    }
   }
 })
 </script>
@@ -1034,31 +1045,74 @@ new Vue({
 <p class="tip">Générer dynamiquement du HTML arbitraire sur votre site peut être très dangereux car cela peut mener facilement à des <a href="https://fr.wikipedia.org/wiki/Cross-site_scripting" target="_blank" rel="noopener">vulnérabilités XSS</a>. Utilisez l’interpolation HTML uniquement sur du contenu de confiance et <strong>jamais</strong> sur du contenu fourni par l’utilisateur</p>
 
 <h3 id="Attributs"><a href="#Attributs" class="headerlink" title="Attributs"></a>Attributs</h3><p>Les moustaches ne peuvent pas être utilisées à l’intérieur des attributs HTML, à la place utilisez une <a href="../api/#v-bind">directive <code>v-bind</code></a> :</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-bind:id</span>=<span class="string">"dynamicId"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-bind:id</span>=<span class="hljs-string">"dynamicId"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
 <p>Dans le cas des attributs booléens qui impliquent la présence d’une valeur évaluée à <code>true</code>, <code>v-bind</code> fonctionne un peu différemment. Dans cet exemple :</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">v-bind:disabled</span>=<span class="string">"isButtonDisabled"</span>&gt;</span>Button<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">v-bind:disabled</span>=<span class="hljs-string">"isButtonDisabled"</span>&gt;</span>Button<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></code></pre>
 <p>Si <code>isButtonDisabled</code> a la valeur <code>null</code>, <code>undefined</code>, ou <code>false</code>, l’attribut <code>disabled</code> ne sera pas inclus dans l’élément <code>&lt;button&gt;</code> généré.</p>
 <h3 id="Utilisation-des-expressions-JavaScript"><a href="#Utilisation-des-expressions-JavaScript" class="headerlink" title="Utilisation des expressions JavaScript"></a>Utilisation des expressions JavaScript</h3><p>Jusqu’ici, nous avons seulement lié de simples clés de propriétés dans nos templates. Mais Vue.js supporte en réalité toute la puissance des expressions JavaScript à l’intérieur de toutes les liaisons de données :</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;&#123; number + 1 &#125;&#125;</span><br><span class="line"></span><br><span class="line">&#123;&#123; ok ? 'OUI' : 'NON' &#125;&#125;</span><br><span class="line"></span><br><span class="line">&#123;&#123; message.split('').reverse().join('') &#125;&#125;</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-bind:id</span>=<span class="string">"'list-' + id"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html">&#123;&#123; number + 1 &#125;&#125;
+
+&#123;&#123; ok ? 'OUI' : 'NON' &#125;&#125;
+
+&#123;&#123; message.split('').reverse().join('') &#125;&#125;
+
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-bind:id</span>=<span class="hljs-string">"'list-' + id"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
 <p>Ces expressions seront évaluées en tant que JavaScript au sein de la portée des données de l’instance de Vue propriétaire. Il y a une restriction : chacune de ces liaisons ne peut contenir <strong>qu’une seule expression</strong>, donc ce qui suit <strong>NE</strong> fonctionnera <strong>PAS</strong></p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- ceci est une déclaration, pas une expression: --&gt;</span></span><br><span class="line">&#123;&#123; var a = 1 &#125;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- le contrôle de flux ne marchera pas non plus, utilisez des expressions ternaires --&gt;</span></span><br><span class="line">&#123;&#123; if (ok) &#123; return message &#125; &#125;&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-comment">&lt;!-- ceci est une déclaration, pas une expression: --&gt;</span>
+&#123;&#123; var a = 1 &#125;&#125;
+
+<span class="hljs-comment">&lt;!-- le contrôle de flux ne marchera pas non plus, utilisez des expressions ternaires --&gt;</span>
+&#123;&#123; if (ok) &#123; return message &#125; &#125;&#125;</code></pre>
 <p class="tip">Les expressions de template sont isolées et ont seulement accès à une liste blanche de globales telles que <code>Math</code> et <code>Date</code>. Vous ne devriez pas tenter d’accéder à des variables globales définies par l’utilisateur dans les expressions de template.</p>
 
 <h2 id="Directives"><a href="#Directives" class="headerlink" title="Directives"></a>Directives</h2><p>Les directives sont des attributs spéciaux avec le préfixe <code>v-</code>. Les valeurs attendues pour les attributs de directives sont <strong>une unique expression JavaScript</strong> (à l’exception de <code>v-for</code>, qui sera expliquée plus loin). Le travail d’une directive est d’appliquer réactivement des effets secondaires au DOM quand la valeur de son expression change. Revenons à l’exemple vu dans l’introduction :</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">v-if</span>=<span class="string">"seen"</span>&gt;</span>Maintenant vous me voyez<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">"seen"</span>&gt;</span>Maintenant vous me voyez<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
 <p>Ici, la directive <code>v-if</code> retirerait / insèrerait l’élément <code>&lt;p&gt;</code> selon que l’expression <code>seen</code> soit considérée comme fausse / vraie.</p>
 <h3 id="Arguments"><a href="#Arguments" class="headerlink" title="Arguments"></a>Arguments</h3><p>Certaines directives peuvent prendre un “argument”, indiqué par un deux-points après le nom de la directive. Par exemple, la directive <code>v-bind</code> est utilisée pour mettre à jour réactivement un attribut HTML :</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">v-bind:href</span>=<span class="string">"url"</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">v-bind:href</span>=<span class="hljs-string">"url"</span>&gt;</span> ... <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
 <p>Ici <code>href</code> est un argument, qui dit à la directive <code>v-bind</code> de lier l’attribut <code>href</code> de l’élément à la valeur de l’expression <code>url</code>.</p>
 <p>Un autre exemple est la directive <code>v-on</code>, qui écoute les évènements du DOM :</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">v-on:click</span>=<span class="string">"doSomething"</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">v-on:click</span>=<span class="hljs-string">"doSomething"</span>&gt;</span> ... <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
 <p>Ici l’argument est le nom de l’évènement à écouter. Nous parlerons aussi plus en détail de la gestion des évènements.</p>
+<h3 id="Arguments-dynamiques"><a href="#Arguments-dynamiques" class="headerlink" title="Arguments dynamiques"></a>Arguments dynamiques</h3><blockquote>
+<p>Nouveau dans la 2.6.0+</p>
+</blockquote>
+<p>Introduit dans la version 2.6.0, il est aussi possible d’utiliser des expressions JavaScript dans un argument de directive inclus entre crochets :</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">v-bind:</span>[<span class="hljs-attr">attributeName</span>]=<span class="hljs-string">"url"</span>&gt;</span> ... <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
+<p>Ici <code>attributeName</code> va dynamiquement être évalué comme une expression JavaScript et cette valeur d’évaluation va être utilisée comme valeur finale pour l’argument. Par exemple, si votre instance de Vue a une propriété de donnée, <code>attributeName</code>, et que cette valeur est <code>&quot;href&quot;</code>, alors la liaison sera équivalente à <code>v-bind:href</code>.</p>
+<p>De manière similaire, vous pouvez utiliser les arguments dynamiques pour lier un gestionnaire d’évènement à un nom d’évènement dynamique :</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">v-on:</span>[<span class="hljs-attr">eventName</span>]=<span class="hljs-string">"doSomething"</span>&gt;</span> ... <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
+<p>De manière similaire, donc, quand la valeur <code>eventName</code> est <code>&quot;focus&quot;</code>, par exemple, <code>v-on:[eventName]</code> sera équivalent à <code>v-on:focus</code>.</p>
+<h4 id="Contrainte-des-valeurs-d’argument-dynamique"><a href="#Contrainte-des-valeurs-d’argument-dynamique" class="headerlink" title="Contrainte des valeurs d’argument dynamique"></a>Contrainte des valeurs d’argument dynamique</h4><p>Les arguments dynamiques sont destinés à être évalués comme des chaines de caractères à l’exception de <code>null</code>. La valeur spéciale <code>null</code> peut être utilisée pour explicitement retirer la liaison. N’importe quelle autre valeur n’étant pas une chaine de caractères lèvera un avertissement.</p>
+<h4 id="Contraintes-des-expressions-d’argument-dynamique"><a href="#Contraintes-des-expressions-d’argument-dynamique" class="headerlink" title="Contraintes des expressions d’argument dynamique"></a>Contraintes des expressions d’argument dynamique</h4><p class="tip">Les expressions d’argument dynamique ont quelques contraintes de syntaxe car certains caractères sont invalides à l’intérieur d’un nom d’attribut HTML comme les espaces et les guillemets. Vous devez également éviter les majuscules quand vous utilisez des templates dans le DOM.</p>
+
+<p>Par exemple, ce qui suit est invalide :</p>
+<pre><code class="hljs html"><span class="hljs-comment">&lt;!-- Ceci va lever un avertissement de compilation. --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">v-bind:</span>['<span class="hljs-attr">foo</span>' + <span class="hljs-attr">bar</span>]=<span class="hljs-string">"value"</span>&gt;</span> ... <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
+<p>La solution consiste à utiliser des expressions sans espaces ni guillemets, ou à remplacer l’expression complexe par une propriété calculée.</p>
+<p>De plus, si vous utilisez des templates dans le DOM (templates directement écrits dans un fichier HTML), vous devrez être attentif au navigateur qui convertit les noms d’attribut en lettre minuscule :</p>
+<pre><code class="hljs html"><span class="hljs-comment">&lt;!-- Ceci va être converti en v-bind:[someattr] dans un template dans le DOM. --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">v-bind:</span>[<span class="hljs-attr">someAttr</span>]=<span class="hljs-string">"value"</span>&gt;</span> ... <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
 <h3 id="Modificateurs"><a href="#Modificateurs" class="headerlink" title="Modificateurs"></a>Modificateurs</h3><p>Les modificateurs sont des suffixes spéciaux indiqués par un point, qui indique qu’une directive devrait être liée d’une manière spécifique. Par exemple, le modificateur <code>.prevent</code> dit à la directive <code>v-on</code> d’appeler <code>event.preventDefault()</code> lorsque l’évènement survient.</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">v-on:submit.prevent</span>=<span class="string">"onSubmit"</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">v-on:submit.prevent</span>=<span class="hljs-string">"onSubmit"</span>&gt;</span> ... <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span></code></pre>
 <p>Nous verrons plus de cas d’utilisation des modificateurs plus loin quand nous porterons un regard plus attentif sur <a href="events.html#Event-Modifiers"><code>v-on</code></a> et <a href="events.html#Modificateurs-d’evenements"><code>v-model</code></a>.</p>
 <h2 id="Abreviations"><a href="#Abreviations" class="headerlink" title="Abréviations"></a>Abréviations</h2><p>Le préfixe <code>v-</code> sert d’indicateur visuel pour identifier les attributs spécifiques à Vue dans vos templates. C’est pratique lorsque vous utilisez Vue.js pour appliquer des comportements dynamiques sur un balisage existant, mais peut sembler verbeux pour des directives utilisées fréquemment. Par ailleurs, le besoin d’un préfixe <code>v-</code>devient moins important quand vous développez une <a href="https://fr.wikipedia.org/wiki/Application_web_monopage" target="_blank" rel="noopener">application monopage</a> où Vue.js gère tous les templates. C’est pourquoi Vue.js fournit des abréviations pour deux des directives les plus utilisées, <code>v-bind</code> et <code>v-on</code> :</p>
-<h3 id="Abreviation-pour-v-bind"><a href="#Abreviation-pour-v-bind" class="headerlink" title="Abréviation pour v-bind"></a>Abréviation pour <code>v-bind</code></h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- syntaxe complète --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">v-bind:href</span>=<span class="string">"url"</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- abréviation --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">:href</span>=<span class="string">"url"</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="Abreviation-pour-v-on"><a href="#Abreviation-pour-v-on" class="headerlink" title="Abréviation pour v-on"></a>Abréviation pour <code>v-on</code></h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- syntaxe complète --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">v-on:click</span>=<span class="string">"doSomething"</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- abréviation --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> @<span class="attr">click</span>=<span class="string">"doSomething"</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="Abreviation-pour-v-bind"><a href="#Abreviation-pour-v-bind" class="headerlink" title="Abréviation pour v-bind"></a>Abréviation pour <code>v-bind</code></h3><pre><code class="hljs html"><span class="hljs-comment">&lt;!-- syntaxe complète --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">v-bind:href</span>=<span class="hljs-string">"url"</span>&gt;</span> ... <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- abréviation --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">:href</span>=<span class="hljs-string">"url"</span>&gt;</span> ... <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- abréviation avec argument dynamique (2.6.0+) --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">:</span>[<span class="hljs-attr">key</span>]=<span class="hljs-string">"url"</span>&gt;</span> ... <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
+<h3 id="Abreviation-pour-v-on"><a href="#Abreviation-pour-v-on" class="headerlink" title="Abréviation pour v-on"></a>Abréviation pour <code>v-on</code></h3><pre><code class="hljs html"><span class="hljs-comment">&lt;!-- syntaxe complète --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">v-on:click</span>=<span class="hljs-string">"doSomething"</span>&gt;</span> ... <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- abréviation --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">"doSomething"</span>&gt;</span> ... <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- abréviation avec argument dynamique (2.6.0+) --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> @[<span class="hljs-attr">event</span>]=<span class="hljs-string">"doSomething"</span>&gt;</span> ... <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
 <p>Cela peut paraitre un peu différent du HTML classique, mais <code>:</code> et <code>@</code> sont des caractères valides pour des noms d’attributs et tous les navigateurs supportés par Vue.js peuvent l’interpréter correctement. De plus, ils n’apparaissent pas dans le balisage final. La syntaxe abrégée est totalement optionnelle, mais vous allez probablement l’apprécier quand vous en apprendrez plus sur son utilisation plus loin.</p>
 
   
@@ -1124,7 +1178,8 @@ new Vue({
       apiKey: '85cc3221c9f23bfbaa4e3913dd7625ea',
       indexName: 'vuejs',
       inputSelector: selector,
-      algoliaOptions: { facetFilters: ["version:" + version] }
+      algoliaOptions: { facetFilters: ["version:" + version] },
+      autocompleteOptions: { hint: false, appendTo: 'body'}
       })
     })
     </script>

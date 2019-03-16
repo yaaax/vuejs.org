@@ -113,7 +113,7 @@
     <li><ul>
       <li><a href="https://forum.vuejs.org/c/french" class="nav-link" target="_blank">Forum</a></li>
       <li><a href="https://discordapp.com/channels/325477692906536972/360669119948783616" class="nav-link" target="_blank">Chat</a></li>
-      <li><a href="https://www.vuemeetups.org/" class="nav-link" target="_blank">Meetups (EN)</a></li>
+      <li><a href="https://events.vuejs.org/meetups/" class="nav-link" target="_blank">Meetups (EN)</a></li>
     </ul></li>
     <li><h4>Outils</h4></li>
     <li>
@@ -133,9 +133,11 @@
     <li><ul>
       <li><a href="https://news.vuejs.org" class="nav-link" target="_blank">Actualités (En)</a></li>
       <li><a href="https://github.com/vuejs/vue/projects/6" class="nav-link" target="_blank">Plans futurs (En)</a></li>
+      <li><a href="https://events.vuejs.org/" class="nav-link" target="_blank">Évènements (En)</a></li>
       <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank">Twitter (En)</a></li>
       <li><a href="https://medium.com/the-vue-point" class="nav-link" target="_blank">Blog (En)</a></li>
       <li><a href="https://vuejobs.com/?ref=vuejs" class="nav-link" target="_blank">Offres d'emploi (En)</a></li>
+      <li><a href="https://dev.to/t/vue" class="nav-link" target="_blank">Communauté DEV</a></li>
     </ul></li>
     <li><h4>Liste de ressources</h4></li>
     <li><ul>
@@ -208,7 +210,7 @@
     <li><ul>
       <li><a href="https://forum.vuejs.org/c/french" class="nav-link" target="_blank">Forum</a></li>
       <li><a href="https://discordapp.com/channels/325477692906536972/360669119948783616" class="nav-link" target="_blank">Chat</a></li>
-      <li><a href="https://www.vuemeetups.org/" class="nav-link" target="_blank">Meetups (EN)</a></li>
+      <li><a href="https://events.vuejs.org/meetups/" class="nav-link" target="_blank">Meetups (EN)</a></li>
     </ul></li>
     <li><h4>Outils</h4></li>
     <li>
@@ -228,9 +230,11 @@
     <li><ul>
       <li><a href="https://news.vuejs.org" class="nav-link" target="_blank">Actualités (En)</a></li>
       <li><a href="https://github.com/vuejs/vue/projects/6" class="nav-link" target="_blank">Plans futurs (En)</a></li>
+      <li><a href="https://events.vuejs.org/" class="nav-link" target="_blank">Évènements (En)</a></li>
       <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank">Twitter (En)</a></li>
       <li><a href="https://medium.com/the-vue-point" class="nav-link" target="_blank">Blog (En)</a></li>
       <li><a href="https://vuejobs.com/?ref=vuejs" class="nav-link" target="_blank">Offres d'emploi (En)</a></li>
+      <li><a href="https://dev.to/t/vue" class="nav-link" target="_blank">Communauté DEV</a></li>
     </ul></li>
     <li><h4>Liste de ressources</h4></li>
     <li><ul>
@@ -334,6 +338,9 @@
   <div class="inner">
     <h3>Sponsors Patreon</h3>
 
+<a href="https://moduscreate.com/?utm_source=Vue&utm_medium=Partnership&utm_campaign=VueShip" target="_blank" style="width: 160px;">
+  <img src="/images/modus.png" style="width: 160px;" alt="Modus">
+</a>
 <a href="https://www.bitsrc.io/?utm_source=vue&utm_medium=vue&utm_campaign=vue&utm_term=vue&utm_content=vue" target="_blank" style="width: 160px;">
   <img src="/images/bit.png" style="width: 160px;" alt="Bit">
 </a>
@@ -381,16 +388,10 @@
 <a href="https://vuejobs.com/?ref=vuejs" target="_blank" style="width: 120px;">
   <img src="/images/vuejobs.png" style="width: 120px;" alt="VueJobs">
 </a>
-<a href="https://www.valuecoders.com" target="_blank" style="width: 120px;">
-  <img src="/images/valuecoders.png" style="width: 120px;" alt="ValueCoders">
-</a>
 <a href="https://tidelift.com/subscription/npm/vue" target="_blank" style="width: 120px;">
   <img src="/images/tidelift.png" style="width: 120px;" alt="Tidelift">
 </a>
-<a href="https://webdock.io/en" target="_blank" style="width: 120px;">
-  <img src="/images/webdock.png" style="width: 120px;" alt="Webdock">
-</a>
-<a href="https://syncfusion.com/products/vue" target="_blank" style="width: 120px;">
+<a href="http://www.syncfusion.com/?utm_source=vuejs&utm_medium=list&utm_campaign=vuejsjslistcy19" target="_blank" style="width: 120px;">
   <img src="/images/syncfusion.png" style="width: 120px;" alt="SyncFusion">
 </a>
 <a href="https://opteo.com/vue" target="_blank" style="width: 120px;">
@@ -417,8 +418,8 @@
 <a href="https://yakaz.com/" target="_blank" style="width: 120px;">
   <img src="/images/yakaz.png" style="width: 120px;" alt="Yakaz">
 </a>
-<a href="https://www.bacancytechnology.com" target="_blank" style="width: 120px;">
-  <img src="/images/bacancy_technology.png" style="width: 120px;" alt="Bacancy Technology">
+<a href="https://passionatepeople.io/" target="_blank" style="width: 120px;">
+  <img src="/images/passionate_people.png" style="width: 120px;" alt="Passionate People">
 </a>
 <br>
 
@@ -601,7 +602,8 @@ window.addEventListener('load', function () {
       apiKey: '85cc3221c9f23bfbaa4e3913dd7625ea',
       indexName: 'vuejs',
       inputSelector: selector,
-      algoliaOptions: { facetFilters: ["version:" + version] }
+      algoliaOptions: { facetFilters: ["version:" + version] },
+      autocompleteOptions: { hint: false, appendTo: 'body'}
       })
     })
     </script>

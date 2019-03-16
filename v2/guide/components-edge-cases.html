@@ -113,7 +113,7 @@
     <li><ul>
       <li><a href="https://forum.vuejs.org/c/french" class="nav-link" target="_blank">Forum</a></li>
       <li><a href="https://discordapp.com/channels/325477692906536972/360669119948783616" class="nav-link" target="_blank">Chat</a></li>
-      <li><a href="https://www.vuemeetups.org/" class="nav-link" target="_blank">Meetups (EN)</a></li>
+      <li><a href="https://events.vuejs.org/meetups/" class="nav-link" target="_blank">Meetups (EN)</a></li>
     </ul></li>
     <li><h4>Outils</h4></li>
     <li>
@@ -133,9 +133,11 @@
     <li><ul>
       <li><a href="https://news.vuejs.org" class="nav-link" target="_blank">Actualités (En)</a></li>
       <li><a href="https://github.com/vuejs/vue/projects/6" class="nav-link" target="_blank">Plans futurs (En)</a></li>
+      <li><a href="https://events.vuejs.org/" class="nav-link" target="_blank">Évènements (En)</a></li>
       <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank">Twitter (En)</a></li>
       <li><a href="https://medium.com/the-vue-point" class="nav-link" target="_blank">Blog (En)</a></li>
       <li><a href="https://vuejobs.com/?ref=vuejs" class="nav-link" target="_blank">Offres d'emploi (En)</a></li>
+      <li><a href="https://dev.to/t/vue" class="nav-link" target="_blank">Communauté DEV</a></li>
     </ul></li>
     <li><h4>Liste de ressources</h4></li>
     <li><ul>
@@ -209,7 +211,7 @@
     <li><ul>
       <li><a href="https://forum.vuejs.org/c/french" class="nav-link" target="_blank">Forum</a></li>
       <li><a href="https://discordapp.com/channels/325477692906536972/360669119948783616" class="nav-link" target="_blank">Chat</a></li>
-      <li><a href="https://www.vuemeetups.org/" class="nav-link" target="_blank">Meetups (EN)</a></li>
+      <li><a href="https://events.vuejs.org/meetups/" class="nav-link" target="_blank">Meetups (EN)</a></li>
     </ul></li>
     <li><h4>Outils</h4></li>
     <li>
@@ -229,9 +231,11 @@
     <li><ul>
       <li><a href="https://news.vuejs.org" class="nav-link" target="_blank">Actualités (En)</a></li>
       <li><a href="https://github.com/vuejs/vue/projects/6" class="nav-link" target="_blank">Plans futurs (En)</a></li>
+      <li><a href="https://events.vuejs.org/" class="nav-link" target="_blank">Évènements (En)</a></li>
       <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank">Twitter (En)</a></li>
       <li><a href="https://medium.com/the-vue-point" class="nav-link" target="_blank">Blog (En)</a></li>
       <li><a href="https://vuejobs.com/?ref=vuejs" class="nav-link" target="_blank">Offres d'emploi (En)</a></li>
+      <li><a href="https://dev.to/t/vue" class="nav-link" target="_blank">Communauté DEV</a></li>
     </ul></li>
     <li><h4>Liste de ressources</h4></li>
     <li><ul>
@@ -287,6 +291,9 @@
   <div class="main-sponsor">
     <span>Sponsors de platine</span>
     <div>
+    <a href="https://moduscreate.com/?utm_source=Vue&utm_medium=Partnership&utm_campaign=VueShip" target="_blank" class="logo">
+      <img src="/images/modus.png" alt="Modus">
+    </a>
     <a href="https://www.bitsrc.io/?utm_source=vue&utm_medium=vue&utm_campaign=vue&utm_term=vue&utm_content=vue" target="_blank" class="logo">
       <img src="/images/bit.png" alt="Bit">
     </a>
@@ -848,7 +855,7 @@
       
     
     <li>
-      <a href="/v2/guide/reactivity.html" class="sidebar-link">Réactivité dans le détail</a>
+      <a href="/v2/guide/reactivity.html" class="sidebar-link">Réactivité en détail</a>
     </li>
   
     
@@ -962,6 +969,9 @@
   <div class="main-sponsor">
     <span>Sponsors de platine</span>
     <div>
+    <a href="https://moduscreate.com/?utm_source=Vue&utm_medium=Partnership&utm_campaign=VueShip" target="_blank" class="logo">
+      <img src="/images/modus.png" alt="Modus">
+    </a>
     <a href="https://www.bitsrc.io/?utm_source=vue&utm_medium=vue&utm_campaign=vue&utm_term=vue&utm_content=vue" target="_blank" class="logo">
       <img src="/images/bit.png" alt="Bit">
     </a>
@@ -1011,42 +1021,82 @@
 
 <h2 id="Element-et-acces-au-composant"><a href="#Element-et-acces-au-composant" class="headerlink" title="Élément et accès au composant"></a>Élément et accès au composant</h2><p>Dans la plupart des cas, il vaut mieux éviter d’accéder à d’autres instances de composant ou de manipuler manuellement des éléments du DOM. Cependant, il y a des cas où cela peut être approprié.</p>
 <h3 id="Acceder-a-l’instance-racine"><a href="#Acceder-a-l’instance-racine" class="headerlink" title="Accéder à l’instance racine"></a>Accéder à l’instance racine</h3><p>Dans chaque sous-composant d’une nouvelle instance de Vue (<code>new Vue</code>), on peut accéder à cette instance racine via la propriété <code>$root</code>. Par exemple, dans cette instance racine :</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// l'instance Vue racine</span></span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    foo: <span class="number">1</span></span><br><span class="line">  &#125;,</span><br><span class="line">  computed: &#123;</span><br><span class="line">    bar: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="comment">/* ... */</span> &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    baz: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="comment">/* ... */</span> &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-comment">// l'instance Vue racine</span>
+<span class="hljs-keyword">new</span> Vue(&#123;
+  <span class="hljs-attr">data</span>: &#123;
+    <span class="hljs-attr">foo</span>: <span class="hljs-number">1</span>
+  &#125;,
+  <span class="hljs-attr">computed</span>: &#123;
+    <span class="hljs-attr">bar</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123; <span class="hljs-comment">/* ... */</span> &#125;
+  &#125;,
+  <span class="hljs-attr">methods</span>: &#123;
+    <span class="hljs-attr">baz</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123; <span class="hljs-comment">/* ... */</span> &#125;
+  &#125;
+&#125;)</code></pre>
 <p>Tous les sous-composants pourront accéder à cette instance et l’utiliser comme un espace de stockage global :</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Récupérer une donnée de la racine</span></span><br><span class="line"><span class="keyword">this</span>.$root.foo</span><br><span class="line"></span><br><span class="line"><span class="comment">// Affecter une donnée de la racine</span></span><br><span class="line"><span class="keyword">this</span>.$root.foo = <span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Accéder aux propriétés calculées de la racine</span></span><br><span class="line"><span class="keyword">this</span>.$root.bar</span><br><span class="line"></span><br><span class="line"><span class="comment">// Appeler des méthodes de la racine</span></span><br><span class="line"><span class="keyword">this</span>.$root.baz()</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-comment">// Récupérer une donnée de la racine</span>
+<span class="hljs-keyword">this</span>.$root.foo
+
+<span class="hljs-comment">// Affecter une donnée de la racine</span>
+<span class="hljs-keyword">this</span>.$root.foo = <span class="hljs-number">2</span>
+
+<span class="hljs-comment">// Accéder aux propriétés calculées de la racine</span>
+<span class="hljs-keyword">this</span>.$root.bar
+
+<span class="hljs-comment">// Appeler des méthodes de la racine</span>
+<span class="hljs-keyword">this</span>.$root.baz()</code></pre>
 <p class="tip">Cela peut être pratique pour des démos ou des applications très petites avec une poignée de composants. Cependant, ce pattern se prête mal aux applications de moyenne à grande échelle, c’est pourquoi nous recommandons fortement d’utiliser <a href="https://github.com/vuejs/vuex" target="_blank" rel="noopener">Vuex</a> pour gérer l’état dans la plupart des cas.</p>
 
 <h3 id="Acceder-a-l’instance-de-composant-parente"><a href="#Acceder-a-l’instance-de-composant-parente" class="headerlink" title="Accéder à l’instance de composant parente"></a>Accéder à l’instance de composant parente</h3><p>Comme <code>$root</code>, la propriété <code>$parent</code> peut être utilisée pour accéder à l’instance parente à partir d’un enfant. Il peut être tentant de l’utiliser par fainéantise plutôt que de passer les données via une prop.</p>
 <p class="tip">Dans la plupart des cas, accéder au parent rend votre application plus difficile à déboguer et à comprendre, surtout si vous mutez des données dans le parent. En regardant ce composant plus tard, il sera très difficile de découvrir d’où vient cette mutation.</p>
 
 <p>Il y a des cas cependant où cela <em>pourrait</em> être approprié, notamment dans des bibliothèques de composants liés entre eux. Par exemple, dans des composants abstraits qui interagissent avec des APIs JavaScript plutôt que de produire du HTML, tels que ces composants Google Maps :</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">google-map</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">google-map-markers</span> <span class="attr">v-bind:places</span>=<span class="string">"iceCreamShops"</span>&gt;</span><span class="tag">&lt;/<span class="name">google-map-markers</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">google-map</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">google-map</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">google-map-markers</span> <span class="hljs-attr">v-bind:places</span>=<span class="hljs-string">"iceCreamShops"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">google-map-markers</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">google-map</span>&gt;</span></code></pre>
 <p>Le composant <code>&lt;google-map&gt;</code> peut définir une propriété <code>map</code> à laquelle tous les sous-composants ont besoin d’accéder. Dans ce cas, <code>&lt;google-map-markers&gt;</code> peut vouloir accéder à cette carte avec quelque-chose comme <code>this.$parent.getMap</code>, afin d’ajouter des marqueurs dessus. Vous pouvez voir ce pattern <a href="https://jsfiddle.net/chrisvfritz/ttzutdxh/" target="_blank" rel="noopener">en démonstration ici</a>.</p>
 <p>Gardez en tête, toutefois, que les composants conçus avec ce pattern sont toujours intrinsèquement fragiles. Par exemple, imaginons que nous ajoutons un nouveau composant <code>&lt;google-map-region&gt;</code> et que lorsque <code>&lt;google-map-markers&gt;</code> apparaît à l’intérieur, il affiche uniquement les marqueurs de cette région :</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">google-map</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">google-map-region</span> <span class="attr">v-bind:shape</span>=<span class="string">"cityBoundaries"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">google-map-markers</span> <span class="attr">v-bind:places</span>=<span class="string">"iceCreamShops"</span>&gt;</span><span class="tag">&lt;/<span class="name">google-map-markers</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">google-map-region</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">google-map</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">google-map</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">google-map-region</span> <span class="hljs-attr">v-bind:shape</span>=<span class="hljs-string">"cityBoundaries"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">google-map-markers</span> <span class="hljs-attr">v-bind:places</span>=<span class="hljs-string">"iceCreamShops"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">google-map-markers</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">google-map-region</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">google-map</span>&gt;</span></code></pre>
 <p>Alors, à l’intérieur de <code>&lt;google-map-markers&gt;</code>, vous pourriez vous retrouver à devoir recourir à des bricolages comme ceci:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> map = <span class="keyword">this</span>.$parent.map || <span class="keyword">this</span>.$parent.$parent.map</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> map = <span class="hljs-keyword">this</span>.$parent.map || <span class="hljs-keyword">this</span>.$parent.$parent.map</code></pre>
 <p>Cela a rapidement mal tourné. C’est pourquoi nous recommandons plutôt d’utiliser l’<a href="#Dependency-Injection">injection de dépendances</a> pour fournir des informations contextuelles à des composants enfants à un niveau de profondeur arbitraire.</p>
 <h3 id="Acceder-a-des-instances-de-composants-enfants-et-des-elements-enfants"><a href="#Acceder-a-des-instances-de-composants-enfants-et-des-elements-enfants" class="headerlink" title="Accéder à des instances de composants enfants et des éléments enfants"></a>Accéder à des instances de composants enfants et des éléments enfants</h3><p>Malgré l’existence des props et des événements, parfois vous pouvez toujours avoir besoin d’accéder directement à un composant enfant en JavaScript. Pour y parvenir, vous pouvez assigner un ID référence au composant enfant en utilisant l’attribut <code>ref</code>. Par exemple :</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">base-input</span> <span class="attr">ref</span>=<span class="string">"usernameInput"</span>&gt;</span><span class="tag">&lt;/<span class="name">base-input</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">base-input</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">"usernameInput"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">base-input</span>&gt;</span></code></pre>
 <p>Ensuite, dans le composant où vous avez défini cette <code>ref</code>, vous pouvez utiliser :</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">this</span>.$refs.usernameInput</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-keyword">this</span>.$refs.usernameInput</code></pre>
 <p>pour accéder à l’instance <code>&lt;base-input&gt;</code>. Cela peut être utile si vous voulez, par exemple, donner programmatiquement le focus à ce champ depuis le parent. Dans ce cas, le composant <code>&lt;base-input&gt;</code> peut de la même façon utiliser une <code>ref</code> pour fournir l’accès à des éléments spécifiques à l’intérieur, tels que :</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">ref</span>=<span class="string">"input"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">"input"</span>&gt;</span></code></pre>
 <p>Et même définir des méthodes à utiliser par le parent :</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">methods: &#123;</span><br><span class="line">  <span class="comment">// utilisé pour mettre le focus sur ce champ à partir du parent</span></span><br><span class="line">  focus: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.$refs.input.focus()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">methods: &#123;
+  <span class="hljs-comment">// utilisé pour mettre le focus sur ce champ à partir du parent</span>
+  focus: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-keyword">this</span>.$refs.input.focus()
+  &#125;
+&#125;</code></pre>
 <p>Et ainsi permettre au composant parent de mettre le focus sur le champ à l’intérieur de <code>&lt;base-input&gt;</code> avec :</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">this</span>.$refs.usernameInput.focus()</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-keyword">this</span>.$refs.usernameInput.focus()</code></pre>
 <p>Quand <code>ref</code> est utilisé conjointement avec <code>v-for</code>, la ref que vous obtenez sera un <code>Array</code> contenant les composants enfants reflétant les données source.</p>
 <p class="tip">Les références <code>$refs</code> sont renseignées seulement après le rendu initial du composant, et elles ne sont pas réactives. Il s’agit seulement d’une trappe de sortie pour faire de la manipulation directe d’enfants - vous devriez éviter d’accéder aux <code>$refs</code> depuis l’intérieur de templates ou depuis des propriétés calculées.</p>
 
 <h3 id="Injection-de-dependances"><a href="#Injection-de-dependances" class="headerlink" title="Injection de dépendances"></a>Injection de dépendances</h3><p>Précédemment, quand nous avons décrit l’<a href="#Acceder-a-l’instance-de-composant-parente">accès à l’instance de composant parente</a>, nous avons montré un exemple comme ceci :</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">google-map</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">google-map-region</span> <span class="attr">v-bind:shape</span>=<span class="string">"cityBoundaries"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">google-map-markers</span> <span class="attr">v-bind:places</span>=<span class="string">"iceCreamShops"</span>&gt;</span><span class="tag">&lt;/<span class="name">google-map-markers</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">google-map-region</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">google-map</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">google-map</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">google-map-region</span> <span class="hljs-attr">v-bind:shape</span>=<span class="hljs-string">"cityBoundaries"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">google-map-markers</span> <span class="hljs-attr">v-bind:places</span>=<span class="hljs-string">"iceCreamShops"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">google-map-markers</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">google-map-region</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">google-map</span>&gt;</span></code></pre>
 <p>Dans ce composant, tous les descendants de <code>&lt;google-map&gt;</code> avaient besoin d’accéder à une méthode <code>getMap</code>, afin de savoir avec quelle carte interagir. Malheusement, utiliser la propriété <code>$parent</code> s’adapte mal avec des composants imbriqués plus profondément. C’est là où l’injection de dépendances peut s’avérer utile, en utilisant deux nouvelles options d’instance : <code>provide</code> et <code>inject</code>.</p>
 <p>Les options <code>provide</code> nous permettent de spécifier quelles données/méthodes nous voulons <strong>fournir</strong> aux composants descendants. Dans ce cas, il s’agit de la méthode <code>getMap</code> à l’intérieur de <code>&lt;google-map&gt;</code>:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">provide: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    getMap: <span class="keyword">this</span>.getMap</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">provide: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+  <span class="hljs-keyword">return</span> &#123;
+    <span class="hljs-attr">getMap</span>: <span class="hljs-keyword">this</span>.getMap
+  &#125;
+&#125;</code></pre>
 <p>Ensuite, dans n’importe quel descendant, nous pouvons utiliser l’option <code>inject</code> pour récupérer des propriétés spécifiques que nous voulons ajouter à cette instance :</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">inject: [<span class="string">'getMap'</span>]</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">inject: [<span class="hljs-string">'getMap'</span>]</code></pre>
 <p>Vous pouvez voir l’<a href="https://jsfiddle.net/chrisvfritz/tdv8dt3s/" target="_blank" rel="noopener">exemple complet ici</a>. L’avantage par rapport à <code>$parent</code> est que nous pouvons accéder à <code>getMap</code> dans <em>n’importe quel</em> composant descendant, sans avoir à exposer l’instance entière de <code>&lt;google-map&gt;</code>. Cela nous permet de continuer à développer ce composant de façon plus sûre, sans crainte de devoir changer/supprimer quelque-chose sur lequel repose un composant enfant. L’interface entre ces composants reste clairement définie, tout comme avec les <code>props</code>.</p>
 <p>En fait, vous pouvez vous représenter l’injection de dépendances comme une sorte de « props à longue distance », sauf que :</p>
 <ul>
@@ -1063,47 +1113,110 @@
 <li>Arrêter d’écouter un événement avec <code>$off(eventName, eventHandler)</code></li>
 </ul>
 <p>Vous n’aurez pas à les utiliser normalement, mais ils sont disponibles dans les cas où vous avez besoin d’écouter manuellement des événements sur une instance de composant. Ils peuvent aussi être utiles comme outil d’organisation de code. Par exemple, vous pouvez souvent voir ce pattern pour intégrer une bibliothèque tierce :</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Attache un sélecteur de date à un champ</span></span><br><span class="line"><span class="comment">// une fois celui-ci monté sur le DOM.</span></span><br><span class="line">mounted: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// Pikaday est une bibliothèque tierce de sélecteur de date</span></span><br><span class="line">  <span class="keyword">this</span>.picker = <span class="keyword">new</span> Pikaday(&#123;</span><br><span class="line">    field: <span class="keyword">this</span>.$refs.input,</span><br><span class="line">    format: <span class="string">'YYYY-MM-DD'</span></span><br><span class="line">  &#125;)</span><br><span class="line">&#125;,</span><br><span class="line"><span class="comment">// Juste avant que le composant soit détruit,</span></span><br><span class="line"><span class="comment">// on détruit également le sélecteur de date.</span></span><br><span class="line">beforeDestroy: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.picker.destroy()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-comment">// Attache un sélecteur de date à un champ</span>
+<span class="hljs-comment">// une fois celui-ci monté sur le DOM.</span>
+mounted: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+  <span class="hljs-comment">// Pikaday est une bibliothèque tierce de sélecteur de date</span>
+  <span class="hljs-keyword">this</span>.picker = <span class="hljs-keyword">new</span> Pikaday(&#123;
+    <span class="hljs-attr">field</span>: <span class="hljs-keyword">this</span>.$refs.input,
+    <span class="hljs-attr">format</span>: <span class="hljs-string">'YYYY-MM-DD'</span>
+  &#125;)
+&#125;,
+<span class="hljs-comment">// Juste avant que le composant soit détruit,</span>
+<span class="hljs-comment">// on détruit également le sélecteur de date.</span>
+beforeDestroy: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+  <span class="hljs-keyword">this</span>.picker.destroy()
+&#125;</code></pre>
 <p>Il y a deux problèmes potentiels :</p>
 <ul>
 <li>Cela requiert d’enregistrer le <code>picker</code> dans l’instance de composant, alors qu’il est possible que seuls les hooks de cycle de vie aient besoin d’y accéder. Ce n’est pas très grave, mais cela peut être considéré comme de l’encombrement.</li>
 <li>Notre code de montage du composant est séparé du code de nettoyage, ce qui rend plus difficile de nettoyer programmatiquement tout ce que nous avons mis en place avant.</li>
 </ul>
 <p>Vous pouvez résoudre ces deux problèmes avec un écouteur programmatique :</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">mounted: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> picker = <span class="keyword">new</span> Pikaday(&#123;</span><br><span class="line">    field: <span class="keyword">this</span>.$refs.input,</span><br><span class="line">    format: <span class="string">'YYYY-MM-DD'</span></span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">this</span>.$once(<span class="string">'hook:beforeDestroy'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    picker.destroy()</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">mounted: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+  <span class="hljs-keyword">var</span> picker = <span class="hljs-keyword">new</span> Pikaday(&#123;
+    <span class="hljs-attr">field</span>: <span class="hljs-keyword">this</span>.$refs.input,
+    <span class="hljs-attr">format</span>: <span class="hljs-string">'YYYY-MM-DD'</span>
+  &#125;)
+
+  <span class="hljs-keyword">this</span>.$once(<span class="hljs-string">'hook:beforeDestroy'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    picker.destroy()
+  &#125;)
+&#125;</code></pre>
 <p>En utilisant cette stratégie, nous pouvons même utiliser Pikaday sur plusieurs champs, avec chaque nouvelle instance qui nettoiera automatiquement après son passage :</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">mounted: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.attachDatepicker(<span class="string">'startDateInput'</span>)</span><br><span class="line">  <span class="keyword">this</span>.attachDatepicker(<span class="string">'endDateInput'</span>)</span><br><span class="line">&#125;,</span><br><span class="line">methods: &#123;</span><br><span class="line">  attachDatepicker: <span class="function"><span class="keyword">function</span> (<span class="params">refName</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> picker = <span class="keyword">new</span> Pikaday(&#123;</span><br><span class="line">      field: <span class="keyword">this</span>.$refs[refName],</span><br><span class="line">      format: <span class="string">'YYYY-MM-DD'</span></span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">this</span>.$once(<span class="string">'hook:beforeDestroy'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      picker.destroy()</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">mounted: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+  <span class="hljs-keyword">this</span>.attachDatepicker(<span class="hljs-string">'startDateInput'</span>)
+  <span class="hljs-keyword">this</span>.attachDatepicker(<span class="hljs-string">'endDateInput'</span>)
+&#125;,
+<span class="hljs-attr">methods</span>: &#123;
+  <span class="hljs-attr">attachDatepicker</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">refName</span>) </span>&#123;
+    <span class="hljs-keyword">var</span> picker = <span class="hljs-keyword">new</span> Pikaday(&#123;
+      <span class="hljs-attr">field</span>: <span class="hljs-keyword">this</span>.$refs[refName],
+      <span class="hljs-attr">format</span>: <span class="hljs-string">'YYYY-MM-DD'</span>
+    &#125;)
+
+    <span class="hljs-keyword">this</span>.$once(<span class="hljs-string">'hook:beforeDestroy'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+      picker.destroy()
+    &#125;)
+  &#125;
+&#125;</code></pre>
 <p>Consultez <a href="https://jsfiddle.net/chrisvfritz/1Leb7up8/" target="_blank" rel="noopener">ce fiddle</a> pour le code complet. Notez cependant que si vous vous trouvez à devoir faire beaucoup de code de montage et de nettoyage au sein d’un seul composant, la meilleure solution sera souvent de créer des composants plus modulaires. Dans le cas présent, nous recommanderions de créer un composant réutilisable <code>&lt;input-datepicker&gt;</code>.</p>
 <p>Pour en apprendre plus sur les écouteurs programmatiques, allez voir l’API des <a href="https://vuejs.org/v2/api/#Instance-Methods-Events" target="_blank" rel="noopener">méthodes d’événements d’une instance</a>.</p>
 <p class="tip">Notez que le système d’événements de Vue est différent de celui de <a href="https://developer.mozilla.org/fr/docs/Web/API/EventTarget" target="_blank" rel="noopener">l’API EventTarget</a> du navigateur. Bien qu’ils fonctionnent de façon similaire, <code>$emit</code>, <code>$on</code>, et <code>$off</code> ne sont <strong>pas</strong> des alias pour <code>dispatchEvent</code>, <code>addEventListener</code>, et <code>removeEventListener</code>.</p>
 
 <h2 id="References-circulaires"><a href="#References-circulaires" class="headerlink" title="Références circulaires"></a>Références circulaires</h2><h3 id="Composants-recursifs"><a href="#Composants-recursifs" class="headerlink" title="Composants récursifs"></a>Composants récursifs</h3><p>Les composants peuvent récursivement s’invoquer eux-mêmes dans leur propre template. Cependant, ils peuvent seulement le faire avec l’option <code>name</code> :</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">name: <span class="string">'nom-unique-de-mon-composant'</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">name: <span class="hljs-string">'nom-unique-de-mon-composant'</span></code></pre>
 <p>Quand vous inscrivez globalement un composant en utilisant <code>Vue.component</code>, l’ID global est automatiquement assigné comme option <code>name</code> du composant.</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">'nom-unique-de-mon-composant'</span>, &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">Vue.component(<span class="hljs-string">'nom-unique-de-mon-composant'</span>, &#123;
+  <span class="hljs-comment">// ...</span>
+&#125;)</code></pre>
 <p>Si vous n’êtes pas prudents, les composants récursifs peuvent mener à des boucles infinies :</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">name: <span class="string">'stack-overflow'</span>,</span><br><span class="line">template: <span class="string">'&lt;div&gt;&lt;stack-overflow&gt;&lt;/stack-overflow&gt;&lt;/div&gt;'</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">name: <span class="hljs-string">'stack-overflow'</span>,
+<span class="hljs-attr">template</span>: <span class="hljs-string">'&lt;div&gt;&lt;stack-overflow&gt;&lt;/stack-overflow&gt;&lt;/div&gt;'</span></code></pre>
 <p>Un composant comme ci-dessus résultera en une erreur « Taille maximale de la pile dépassée », donc assurez-vous de rendre conditionnelle l’invocation récursive (par ex. avec un <code>v-if</code> qui sera <code>false</code> à la fin).</p>
 <h3 id="References-circulaires-entre-composants"><a href="#References-circulaires-entre-composants" class="headerlink" title="Références circulaires entre composants"></a>Références circulaires entre composants</h3><p>Supposons que vous construisez un arbre de répertoires de fichiers, comme le Finder ou l’explorateur de fichiers. Vous pourriez avoir un composant <code>tree-folder</code> avec ce template :</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span>&gt;</span>&#123;&#123; folder.name &#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">tree-folder-contents</span> <span class="attr">:children</span>=<span class="string">"folder.children"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>&#123;&#123; folder.name &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">tree-folder-contents</span> <span class="hljs-attr">:children</span>=<span class="hljs-string">"folder.children"</span>/&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
 <p>Puis un composant <code>tree-folder-contents</code> avec ce template:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"child in children"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tree-folder</span> <span class="attr">v-if</span>=<span class="string">"child.children"</span> <span class="attr">:folder</span>=<span class="string">"child"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">v-else</span>&gt;</span>&#123;&#123; child.name &#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"child in children"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">tree-folder</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">"child.children"</span> <span class="hljs-attr">:folder</span>=<span class="hljs-string">"child"</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">v-else</span>&gt;</span>&#123;&#123; child.name &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span></code></pre>
 <p>Si vous regardez de plus près, vous verrez que ces composants sont en fait les descendants <strong>et</strong> ancêtres l’un de l’autre dans l’arbre de rendu - un paradoxe ! Quand vous inscrivez des composants globalement avec <code>Vue.component</code>, ce paradoxe est résolu automatiquement pour vous. Si c’est votre cas, vous pouvez arrêter de lire ici.</p>
 <p>Cependant, si vous importez des composants en utilisant un <strong>système de modules</strong>, p.ex. via Webpack ou Browserify, vous aurez une erreur :</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Failed to mount component: template or render function not defined.</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs undefined">Failed to mount component: template or render function not defined.</code></pre>
 <p>Pour expliquer ce qui se passe, appelons nos composants A et B. Le système de modules sait qu’il a besoin de A, mais A a d’abord besoin de B, mais B a besoin de A, mais A a besoin de B, etc. Il est alors bloqué dans une boucle, ne sachant pas comment résoudre un composant sans devoir d’abord résoudre l’autre. Pour corriger cela, nous devons donner au système de modules un point où il peut dire, “A aura <em>prochainement</em> besoin de B, mais il n’y a pas besoin de résoudre B en premier.”</p>
 <p>Dans notre cas, faisons de ce point le composant <code>tree-folder</code>. Nous savons que l’enfant qui crée le paradoxe est le composant <code>tree-folder-contents</code>, donc nous allons attendre le hook de cycle de vie <code>beforeCreate</code> avant de l’inscrire :</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">beforeCreate: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.$options.components.TreeFolderContents = <span class="built_in">require</span>(<span class="string">'./tree-folder-contents.vue'</span>).default</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">beforeCreate: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+  <span class="hljs-keyword">this</span>.$options.components.TreeFolderContents = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./tree-folder-contents.vue'</span>).default
+&#125;</code></pre>
 <p>Ou comme alternative, vous pouvez utiliser l’<code>import</code> asynchrone de Webpack lorsque vous inscrivez le composant localement :</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">components: &#123;</span><br><span class="line">  TreeFolderContents: <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">import</span>(<span class="string">'./tree-folder-contents.vue'</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">components: &#123;
+  <span class="hljs-attr">TreeFolderContents</span>: <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-keyword">import</span>(<span class="hljs-string">'./tree-folder-contents.vue'</span>)
+&#125;</code></pre>
 <p>Problème résolu !</p>
 <h2 id="Definitions-alternatives-de-template"><a href="#Definitions-alternatives-de-template" class="headerlink" title="Définitions alternatives de template"></a>Définitions alternatives de template</h2><h3 id="Templates-inline"><a href="#Templates-inline" class="headerlink" title="Templates inline"></a>Templates inline</h3><p>Quand l’attribut spécial <code>inline-template</code> est présent sur un composant enfant, le composant utilisera son contenu interne comme template, plutôt que de le traiter comme contenu distribué. Cela permet plus de flexibilité dans la création de templates.</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">my-component</span> <span class="attr">inline-template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>Ces éléments sont compilés en tant que propre template du composant.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>Et non le contenu du parent par transclusion.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">my-component</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">my-component</span> <span class="hljs-attr">inline-template</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Ces éléments sont compilés en tant que propre template du composant.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Et non le contenu du parent par transclusion.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">my-component</span>&gt;</span></code></pre>
+<p>Votre template inline a besoin d’être défini à l’intérieur de l’élément du DOM pour être attaché à Vue.</p>
 <p class="tip">Cependant, <code>inline-template</code> rend la portée de vos templates plus difficile à appréhender. Une bonne pratique est de préférer la définition de templates à l’intérieur du composant en utilisant l’option <code>template</code> ou dans un élément <code>&lt;template&gt;</code> dans un fichier <code>.vue</code>.</p>
 
 <h3 id="X-Templates"><a href="#X-Templates" class="headerlink" title="X-Templates"></a>X-Templates</h3><p>Une autre façon de définir des templates est à l’intérieur d’un élément script avec le type <code>text/x-template</code>, puis en référencant le template par un id. Par exemple :</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/x-template"</span> <span class="attr">id</span>=<span class="string">"hello-world-template"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>Hello hello hello<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">'hello-world'</span>, &#123;</span><br><span class="line">  template: <span class="string">'#hello-world-template'</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/x-template"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"hello-world-template"</span>&gt;</span><span class="xml">
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Hello hello hello<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
+<pre><code class="hljs js">Vue.component(<span class="hljs-string">'hello-world'</span>, &#123;
+  <span class="hljs-attr">template</span>: <span class="hljs-string">'#hello-world-template'</span>
+&#125;)</code></pre>
+<p>Votre x-template a besoin d’être défini à l’extérieur de l’élément du DOM pour être attaché à Vue.</p>
 <p class="tip">Ce type de templates peut être utile pour des démos avec de gros templates ou dans des applications extrêmements petites, mais sinon il doit être évité, car ils séparent les templates du reste de la définition du composant.</p>
 
 <h2 id="Controler-les-mises-a-jour"><a href="#Controler-les-mises-a-jour" class="headerlink" title="Contrôler les mises à jour"></a>Contrôler les mises à jour</h2><p>Grâce au système de réactivité de Vue, le framework sait toujours quand mettre à jour la vue (si vous l’utilisez correctement). Il y a des cas particuliers, cependant, où vous pouvez vouloir forcer une mise à jour, malgré le fait qu’aucune donnée réactive n’a changé. De plus, il y a d’autres cas où vous voudrez empêcher des mises à jour non nécessaires.</p>
@@ -1112,7 +1225,14 @@
 <p>Vous n’avez peut-être pas pris en compte les avertissements pour la détection des changements <a href="https://vuejs.org/v2/guide/list.html#Caveats" target="_blank" rel="noopener">avec des <code>Array</code></a> ou <a href="https://vuejs.org/v2/guide/list.html#Object-Change-Detection-Caveats" target="_blank" rel="noopener">des objets</a>, ou alors vous vous reposez sur des propriétés d’état qui ne sont pas traquées par le système de réactivité de Vue, c-à-d. dans <code>data</code>.</p>
 <p>Cependant, si vous avez exclu toutes les options précédentes et que vous vous trouvez dans cette situation extrêmement rare où vous avez à forcer manuellement une mise à jour, vous pouvez le faire avec <a href="../api/#vm-forceUpdate"><code>$forceUpdate</code></a>.</p>
 <h3 id="Composants-statiques-economes-avec-v-once"><a href="#Composants-statiques-economes-avec-v-once" class="headerlink" title="Composants statiques économes avec v-once"></a>Composants statiques économes avec <code>v-once</code></h3><p>Faire le rendu d’éléments HTML statiques est très rapide dans Vue, mais parfois vous pouvez avoir un composant qui contient <strong>une grande quantité</strong> de contenu statique. Dans ces cas, vous pouvez vous assurer qu’il ne sera évalué qu’une seule fois puis mis en cache en ajoutant la directive <code>v-once</code> à l’élément racine, comme ceci :</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">'conditions-d-utilisation'</span>, &#123;</span><br><span class="line">  template: <span class="string">`</span></span><br><span class="line"><span class="string">    &lt;div v-once&gt;</span></span><br><span class="line"><span class="string">      &lt;h1&gt;Conditions d'utilisation&lt;/h1&gt;</span></span><br><span class="line"><span class="string">      ... un tas de contenu statique ...</span></span><br><span class="line"><span class="string">    &lt;/div&gt;</span></span><br><span class="line"><span class="string">  `</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">Vue.component(<span class="hljs-string">'conditions-d-utilisation'</span>, &#123;
+  <span class="hljs-attr">template</span>: <span class="hljs-string">`
+    &lt;div v-once&gt;
+      &lt;h1&gt;Conditions d'utilisation&lt;/h1&gt;
+      ... un tas de contenu statique ...
+    &lt;/div&gt;
+  `</span>
+&#125;)</code></pre>
 <p class="tip">Encore une fois, essayez de ne pas surutiliser ce pattern. Bien qu’il soit pratique dans les rares cas où vous avez à faire le rendu de beaucoup de contenu statique, il n’est simplement pas nécessaire à moins que vous constatez effectivement un temps de rendu plutôt long - de plus, il peut causer beaucoup de confusion plus tard. Par exemple, imaginez un autre développeur qui n’est pas familier avec <code>v-once</code> ou simplement qui ne l’a pas remarqué dans le template. Il peut passer des heures à essayer de comprendre pourquoi le template ne se met pas à jour correctement.</p>
 
   
@@ -1178,7 +1298,8 @@
       apiKey: '85cc3221c9f23bfbaa4e3913dd7625ea',
       indexName: 'vuejs',
       inputSelector: selector,
-      algoliaOptions: { facetFilters: ["version:" + version] }
+      algoliaOptions: { facetFilters: ["version:" + version] },
+      autocompleteOptions: { hint: false, appendTo: 'body'}
       })
     })
     </script>

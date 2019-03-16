@@ -113,7 +113,7 @@
     <li><ul>
       <li><a href="https://forum.vuejs.org/c/french" class="nav-link" target="_blank">Forum</a></li>
       <li><a href="https://discordapp.com/channels/325477692906536972/360669119948783616" class="nav-link" target="_blank">Chat</a></li>
-      <li><a href="https://www.vuemeetups.org/" class="nav-link" target="_blank">Meetups (EN)</a></li>
+      <li><a href="https://events.vuejs.org/meetups/" class="nav-link" target="_blank">Meetups (EN)</a></li>
     </ul></li>
     <li><h4>Outils</h4></li>
     <li>
@@ -133,9 +133,11 @@
     <li><ul>
       <li><a href="https://news.vuejs.org" class="nav-link" target="_blank">Actualités (En)</a></li>
       <li><a href="https://github.com/vuejs/vue/projects/6" class="nav-link" target="_blank">Plans futurs (En)</a></li>
+      <li><a href="https://events.vuejs.org/" class="nav-link" target="_blank">Évènements (En)</a></li>
       <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank">Twitter (En)</a></li>
       <li><a href="https://medium.com/the-vue-point" class="nav-link" target="_blank">Blog (En)</a></li>
       <li><a href="https://vuejobs.com/?ref=vuejs" class="nav-link" target="_blank">Offres d'emploi (En)</a></li>
+      <li><a href="https://dev.to/t/vue" class="nav-link" target="_blank">Communauté DEV</a></li>
     </ul></li>
     <li><h4>Liste de ressources</h4></li>
     <li><ul>
@@ -209,7 +211,7 @@
     <li><ul>
       <li><a href="https://forum.vuejs.org/c/french" class="nav-link" target="_blank">Forum</a></li>
       <li><a href="https://discordapp.com/channels/325477692906536972/360669119948783616" class="nav-link" target="_blank">Chat</a></li>
-      <li><a href="https://www.vuemeetups.org/" class="nav-link" target="_blank">Meetups (EN)</a></li>
+      <li><a href="https://events.vuejs.org/meetups/" class="nav-link" target="_blank">Meetups (EN)</a></li>
     </ul></li>
     <li><h4>Outils</h4></li>
     <li>
@@ -229,9 +231,11 @@
     <li><ul>
       <li><a href="https://news.vuejs.org" class="nav-link" target="_blank">Actualités (En)</a></li>
       <li><a href="https://github.com/vuejs/vue/projects/6" class="nav-link" target="_blank">Plans futurs (En)</a></li>
+      <li><a href="https://events.vuejs.org/" class="nav-link" target="_blank">Évènements (En)</a></li>
       <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank">Twitter (En)</a></li>
       <li><a href="https://medium.com/the-vue-point" class="nav-link" target="_blank">Blog (En)</a></li>
       <li><a href="https://vuejobs.com/?ref=vuejs" class="nav-link" target="_blank">Offres d'emploi (En)</a></li>
+      <li><a href="https://dev.to/t/vue" class="nav-link" target="_blank">Communauté DEV</a></li>
     </ul></li>
     <li><h4>Liste de ressources</h4></li>
     <li><ul>
@@ -287,6 +291,9 @@
   <div class="main-sponsor">
     <span>Sponsors de platine</span>
     <div>
+    <a href="https://moduscreate.com/?utm_source=Vue&utm_medium=Partnership&utm_campaign=VueShip" target="_blank" class="logo">
+      <img src="/images/modus.png" alt="Modus">
+    </a>
     <a href="https://www.bitsrc.io/?utm_source=vue&utm_medium=vue&utm_campaign=vue&utm_term=vue&utm_content=vue" target="_blank" class="logo">
       <img src="/images/bit.png" alt="Bit">
     </a>
@@ -336,6 +343,9 @@
   <div class="main-sponsor">
     <span>Sponsors de platine</span>
     <div>
+    <a href="https://moduscreate.com/?utm_source=Vue&utm_medium=Partnership&utm_campaign=VueShip" target="_blank" class="logo">
+      <img src="/images/modus.png" alt="Modus">
+    </a>
     <a href="https://www.bitsrc.io/?utm_source=vue&utm_medium=vue&utm_campaign=vue&utm_term=vue&utm_content=vue" target="_blank" class="logo">
       <img src="/images/bit.png" alt="Bit">
     </a>
@@ -435,7 +445,14 @@ Vue.config.devtools = <span class="hljs-literal">true</span></code></pre>
 <p>Définit un gestionnaire pour les erreurs non interceptées pendant le rendu d’un composant et les appels aux observateurs. Ce gestionnaire sera appelé avec comme arguments l’erreur et l’instance de Vue associée.</p>
 <blockquote>
 <p>En 2.2.0+, ce hook capture également les erreurs dans les hooks du cycle de vie des composants. De plus, quand ce hook est <code>undefined</code>, les erreurs capturées seront loguées avec <code>console.error</code> plutôt qu’avoir un crash de l’application.</p>
+</blockquote>
+<blockquote>
 <p>En 2.4.0+ ce hook capture également les erreurs lancées depuis un gestionnaire d’évènement Vue personnalisé.</p>
+</blockquote>
+<blockquote>
+<p>En 2.6.0+, ce hook capture également les erreurs lancées depuis les écouteurs de DOM <code>v-on</code>. De plus, si les hooks couverts ou gestionnaires retournent une chaine de Promesse (par exemple les fonctions async), l’erreur sera également remontée depuis cette Promesse.</p>
+</blockquote>
+<blockquote>
 <p><a href="https://sentry.io" target="_blank" rel="noopener">Sentry</a> et <a href="https://docs.bugsnag.com/platforms/browsers/vue/" target="_blank" rel="noopener">Bugsnag</a> fournissent une intégration officielle utilisant cette option.</p>
 </blockquote>
 </li>
@@ -585,7 +602,7 @@ Vue.nextTick()
 <p>Assigne une propriété à un objet réactif, s’assurant que la nouvelle propriété soit également réactive de manière à déclencher une nouvelle mise à jour de la vue. Ceci doit être utilisé pour les nouvelles propriétés d’objets réactifs car Vue ne peut pas détecter normalement les ajouts de propriétés (par ex. <code>this.myObject.newProperty = &#39;bonjour&#39;</code>).</p>
 <p class="tip">L’objet ne peut pas être une instance de Vue, ou l’objet de données à la racine d’une instance de Vue.</p>
 </li>
-<li><p><strong>Voir aussi :</strong> <a href="../guide/reactivity.html">Réactivité dans le détail</a></p>
+<li><p><strong>Voir aussi :</strong> <a href="../guide/reactivity.html">Réactivité en détail</a></p>
 </li>
 </ul>
 <h3 id="Vue-delete-cible-cle"><a href="#Vue-delete-cible-cle" class="headerlink" title="Vue.delete( cible, clé )"></a>Vue.delete( cible, clé )</h3><ul>
@@ -602,7 +619,7 @@ Vue.nextTick()
 <p>Supprime une propriété d’un objet cible. Si l’objet est réactif, cette méthode s’assure que la suppression déclenche les mises à jour de la vue. Ceci est principalement utilisé pour passer outre la limitation de Vue qui est de ne pas pouvoir détecter automatiquement la suppression de propriétés, mais vous devriez rarement en avoir besoin.</p>
 <p class="tip">L’objet cible ne peut pas être une instance de Vue, ou l’objet de données à la racine d’une instance de Vue.</p>
 </li>
-<li><p><strong>Voir aussi :</strong> <a href="../guide/reactivity.html">Réactivité dans le détail</a></p>
+<li><p><strong>Voir aussi :</strong> <a href="../guide/reactivity.html">Réactivité en détail</a></p>
 </li>
 </ul>
 <h3 id="Vue-directive-id-definition"><a href="#Vue-directive-id-definition" class="headerlink" title="Vue.directive( id, [définition] )"></a>Vue.directive( id, [définition] )</h3><ul>
@@ -722,6 +739,32 @@ Vue.component(<span class="hljs-string">'mon-composant'</span>, &#123; <span cla
 <li><p><strong>Voir aussi :</strong> <a href="../guide/render-function.html">Fonctions de rendu</a></p>
 </li>
 </ul>
+<h3 id="Vue-observable-object"><a href="#Vue-observable-object" class="headerlink" title="Vue.observable( object )"></a>Vue.observable( object )</h3><blockquote>
+<p>Nouveau en 2.6.0+</p>
+</blockquote>
+<ul>
+<li><p><strong>Arguments :</strong></p>
+<ul>
+<li><code>{Object} object</code></li>
+</ul>
+</li>
+<li><p><strong>Utilisation :</strong></p>
+<p>Rend un objet réactif. En interne, Vue l’utilise sur l’objet retourné par la fonction <code>data</code>.</p>
+<p>L’objet retourné peut être directement utilisé à l’intérieur des <a href="../guide/render-function.html">fonctions de rendu</a> ainsi que des <a href="../guide/computed.html">propriétés calculées</a>. Il déclenchera les mises à jour appropriées lors de mutations. Il peut également être utilisé comme un store minimal intercomposant dans des scénarios basiques :</p>
+<pre><code class="hljs js"><span class="hljs-keyword">const</span> state = Vue.observable(&#123; <span class="hljs-attr">count</span>: <span class="hljs-number">0</span> &#125;)
+
+<span class="hljs-keyword">const</span> Demo = &#123;
+  render(h) &#123;
+    <span class="hljs-keyword">return</span> h(<span class="hljs-string">'button'</span>, &#123;
+      <span class="hljs-attr">on</span>: &#123; <span class="hljs-attr">click</span>: <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &#123; state.count++ &#125;&#125;
+    &#125;, <span class="hljs-string">`le compteur est : <span class="hljs-subst">$&#123;state.count&#125;</span>`</span>)
+  &#125;
+&#125;</code></pre>
+<p class="tip">Dans Vue 2.x, <code>Vue.observable</code> mute directement l’objet qui lui est transmis, de sorte qu’il soit équivalent à l’objet renvoyé, comme <a href="../guide/instance.html#Donnees-et-methodes">démontré ici</a>. Dans Vue 3.x, un proxy réactif sera retourné à la place, laissant l’objet original non réactif s’il est muté directement. Cependant, pour de futures compatibilités, nous recommandons toujours de travailler avec l’objet retourné par <code>Vue.observable</code>, au lieu de l’objet originel.</p>
+</li>
+<li><p><strong>Voir aussi :</strong> <a href="../guide/reactivity.html">Réactivité en détail</a></p>
+</li>
+</ul>
 <h3 id="Vue-version"><a href="#Vue-version" class="headerlink" title="Vue.version"></a>Vue.version</h3><ul>
 <li><p><strong>Détails :</strong> donne la version de Vue installée sous forme de <code>String</code>. C’est particulièrement utile pour les plugins et les composants de la communauté, où vous pouvez être amenés à utiliser différentes stratégies pour différentes versions.</p>
 </li>
@@ -769,7 +812,7 @@ vm.$data === data <span class="hljs-comment">// =&gt; true</span>
 <p>Notez que si vous utilisez la fonctions fléchées avec la propriété <code>data</code>, <code>this</code> ne sera plus l’instance du composant, mais vous pouvez toujours la récupérer en tant que premier argument de la fonction :</p>
 <pre><code class="hljs js">data: <span class="hljs-function"><span class="hljs-params">vm</span> =&gt;</span> (&#123; <span class="hljs-attr">a</span>: vm.myProp &#125;)</code></pre>
 </li>
-<li><p><strong>Voir aussi :</strong> <a href="../guide/reactivity.html">Réactivité dans le détail</a></p>
+<li><p><strong>Voir aussi :</strong> <a href="../guide/reactivity.html">Réactivité en détail</a></p>
 </li>
 </ul>
 <h3 id="props"><a href="#props" class="headerlink" title="props"></a>props</h3><ul>
@@ -777,6 +820,13 @@ vm.$data === data <span class="hljs-comment">// =&gt; true</span>
 </li>
 <li><p><strong>Détails :</strong></p>
 <p>Une liste ou un objet décrivant les attributs exposés par le composant afin de passer des données depuis le composant parent. Ce paramètre a une syntaxe simple basée sur un tableau (<code>Array</code>) et une syntaxe alternative basée sur un objet (<code>Object</code>) qui permet une configuration avancée telle qu’une vérification de typage, des contrôles de validation personnalisés et des valeurs par défaut.</p>
+<p>Avec la syntaxe objet, vous pouvez passer les options suivantes :</p>
+<ul>
+<li>Le <strong>type</strong> peut être l’un des constructeurs natifs suivants : <code>String</code>, <code>Number</code>, <code>Boolean</code>, <code>Array</code>, <code>Object</code>, <code>Date</code>, <code>Function</code>, <code>Symbol</code> ainsi que n’importe quelle fonction de construction ou tableau de ces types. Les types des props seront vérifiés. Un avertissement sera fourni si une prop n’est pas du bon type. <a href="../guide/components-props.html#Types-des-props">Plus d’information</a> sur les types des props.</li>
+<li><strong>default:</strong> <code>any</code><br>Spécifie la valeur par défaut de la prop. Si la prop n’est pas passée, cette valeur sera utilisée à la place. Les objets ou tableaux par défaut doivent être retournés depuis une fonction de fabrique.</li>
+<li><strong>required:</strong> <code>Boolean</code><br>Définie si la prop est requise. Dans un environnement autre que de production, un avertissement sera affiché dans la console si cette valeur est évaluée à vrai et que la prop n’est pas passée.</li>
+<li><strong>validator:</strong> <code>Function</code><br>Une fonction de validation personnalisée qui prend la valeur de prop comme seul argument. Dans un environnement autre que de production, un avertissement sera affiché dans la console si cette fonction retourne une valeur évaluée à faux. (c.-à-d. que la validation a échoué). Vous pouvez en lire plus à propos de la validation des props <a href="../guide/components-props.html#Validation-des-props">ici</a>.</li>
+</ul>
 </li>
 <li><p><strong>Exemple :</strong></p>
 <pre><code class="hljs js"><span class="hljs-comment">// syntaxe simple</span>
@@ -801,7 +851,7 @@ Vue.component(<span class="hljs-string">'props-démo-avancée'</span>, &#123;
   &#125;
 &#125;)</code></pre>
 </li>
-<li><p><strong>Voir aussi :</strong> <a href="../guide/components.html#Props">Props</a></p>
+<li><p><strong>Voir aussi :</strong> <a href="../guide/components-props.html">Props</a></p>
 </li>
 </ul>
 <h3 id="propsData"><a href="#propsData" class="headerlink" title="propsData"></a>propsData</h3><ul>
@@ -939,7 +989,7 @@ vm.a = <span class="hljs-number">2</span> <span class="hljs-comment">// =&gt; no
 </li>
 </ul>
 <h2 id="Options-DOM"><a href="#Options-DOM" class="headerlink" title="Options / DOM"></a>Options / DOM</h2><h3 id="el"><a href="#el" class="headerlink" title="el"></a>el</h3><ul>
-<li><p><strong>Type :</strong> <code>string | HTMLElement</code></p>
+<li><p><strong>Type :</strong> <code>string | Element</code></p>
 </li>
 <li><p><strong>Restriction :</strong> uniquement respecté quand l’instance est créée via <code>new</code>.</p>
 </li>
@@ -1463,7 +1513,7 @@ vm.a = <span class="hljs-number">2</span> <span class="hljs-comment">// =&gt; no
 </li>
 </ul>
 <h3 id="vm-el"><a href="#vm-el" class="headerlink" title="vm.$el"></a>vm.$el</h3><ul>
-<li><p><strong>Type :</strong> <code>HTMLElement</code></p>
+<li><p><strong>Type :</strong> <code>Element</code></p>
 </li>
 <li><p><strong>Accessible uniquement en lecture</strong></p>
 </li>
@@ -1561,13 +1611,20 @@ vm.a = <span class="hljs-number">2</span> <span class="hljs-comment">// =&gt; no
 <p>Nouveau dans la 2.1.0+</p>
 </blockquote>
 <ul>
-<li><p><strong>Type :</strong> <code>{ [name: string]: props =&gt; VNode | Array&lt;VNode&gt; }</code></p>
+<li><p><strong>Type :</strong> <code>{ [name: string]: props =&gt; Array&lt;VNode&gt; | undefined }</code></p>
 </li>
 <li><p><strong>Accessible uniquement en lecture</strong></p>
 </li>
 <li><p><strong>Détails :</strong></p>
 <p>Utilisé pour accéder programmatiquement aux <a href="../guide/components.html#Slots-avec-portee">slots avec portée</a>. Pour chaque slot, y compris celui par défaut <code>default</code>, l’objet contient une fonction correspondante qui retourne des nœuds virtuels <code>VNode</code>.</p>
 <p>Accéder à <code>vm.$scopedSlots</code> est surtout utile lors de l’écriture d’un composant avec une <a href="../guide/render-function.html">fonction de rendu</a>.</p>
+<p><strong>Note :</strong> depuis la 2.6.0+, il y a deux changements notables pour cette propriété :</p>
+<ol>
+<li><p>Les fonctions de slot avec portée garantissent de retourner un tableau de VNodes, sauf si la valeur de retour est invalide, auquel cas la fonction retournera <code>undefined</code>.</p>
+</li>
+<li><p>Tous les <code>$slots</code> sont maintenant exposés via <code>$scopedSlots</code> en tant que fonctions. Si vous travaillez avec des fonctions de rendu, il est maintenant recommandé de toujours accéder aux slots via <code>$scopedSlots</code>, si elles utilisent actuellement une portée ou non. Cela ne va pas seulement permettre d’ajouter des scopes simplement lors de futures refactorisations, mais également de faciliter votre éventuelle migration vers Vue 3, où tous les slots seront des fonctions.</p>
+</li>
+</ol>
 </li>
 <li><p><strong>Voir aussi :</strong></p>
 <ul>
@@ -2062,7 +2119,7 @@ vm.$emit(<span class="hljs-string">'test'</span>, <span class="hljs-string">'sal
 </li>
 </ul>
 <h3 id="v-for"><a href="#v-for" class="headerlink" title="v-for"></a>v-for</h3><ul>
-<li><p><strong>Attend comme valeur :</strong> <code>Array | Object | number | string</code></p>
+<li><p><strong>Attend comme valeur :</strong> <code>Array | Object | number | string | Iterable (depuis 2.6)</code></p>
 </li>
 <li><p><strong>Utilisation :</strong></p>
 <p>Fait le rendu de l’élément ou du bloc template plusieurs fois selon les données sources. La valeur de la directive doit utiliser la syntaxe spéciale <code>alias in expression</code> pour fournir un alias à l’élément courant dans l’itération:</p>
@@ -2077,6 +2134,7 @@ vm.$emit(<span class="hljs-string">'test'</span>, <span class="hljs-string">'sal
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"item in items"</span> <span class="hljs-attr">:key</span>=<span class="hljs-string">"item.id"</span>&gt;</span>
   &#123;&#123; item.text &#125;&#125;
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+<p>En 2.6+, <code>v-for</code> peut également travailler sur des valeurs qui implémentent le <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Les_protocoles_iteration#The_iterable_protocol" target="_blank" rel="noopener">protocole Iterable</a>, incluant les natifs <code>Map</code> et <code>Set</code>. Cependant, il est à noter que Vue 2.x ne supporte pour le moment pas la réactivité sur les valeurs de <code>Map</code> et <code>Set</code> et ne pourra pas automatiquement détecter les changements.</p>
 <p class="tip">Quand utilisé conjointement avec v-if, v-for a une plus grande priorité que v-if. Consultez le <a href="../guide/list.html#v-for-with-v-if">guide de rendu de listes</a> pour plus de détails.</p>
 
 <p>L’usage détaillé pour <code>v-for</code> est expliqué dans la section du guide indiquée ci-dessous.</p>
@@ -2120,11 +2178,17 @@ vm.$emit(<span class="hljs-string">'test'</span>, <span class="hljs-string">'sal
 <pre><code class="hljs html"><span class="hljs-comment">&lt;!-- nom de méthode --&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">v-on:click</span>=<span class="hljs-string">"faireCeci"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
 
+<span class="hljs-comment">&lt;!-- évènement dynamique (2.6.0+) --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">v-on:</span>[<span class="hljs-attr">event</span>]=<span class="hljs-string">"doThis"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+
 <span class="hljs-comment">&lt;!-- ligne d'instruction --&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">v-on:click</span>=<span class="hljs-string">"faireCela('hello', $event)"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
 
 <span class="hljs-comment">&lt;!-- notation abrégée --&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">button</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">"faireCeci"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- notation abrégée d'un évènement dynamique (2.6.0+) --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">button</span> @[<span class="hljs-attr">event</span>]=<span class="hljs-string">"doThis"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
 
 <span class="hljs-comment">&lt;!-- stoppe la propagation --&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">button</span> @<span class="hljs-attr">click.stop</span>=<span class="hljs-string">"faireCeci"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
@@ -2189,8 +2253,14 @@ vm.$emit(<span class="hljs-string">'test'</span>, <span class="hljs-string">'sal
 <pre><code class="hljs html"><span class="hljs-comment">&lt;!-- lie un attribut --&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">v-bind:src</span>=<span class="hljs-string">"imageSrc"</span>&gt;</span>
 
+<span class="hljs-comment">&lt;!-- nom d'attribut dynamique (2.6.0+) --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">v-bind:</span>[<span class="hljs-attr">key</span>]=<span class="hljs-string">"value"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+
 <span class="hljs-comment">&lt;!-- notation abrégée --&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">:src</span>=<span class="hljs-string">"imageSrc"</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- notation abrégée d'un nom d'attribut dynamique (2.6.0+) --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">:</span>[<span class="hljs-attr">key</span>]=<span class="hljs-string">"value"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
 
 <span class="hljs-comment">&lt;!-- avec de la concaténation de chaines de caractères --&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">:src</span>=<span class="hljs-string">"'/path/to/images/' + fileName"</span>&gt;</span>
@@ -2258,11 +2328,63 @@ vm.$emit(<span class="hljs-string">'test'</span>, <span class="hljs-string">'sal
 </ul>
 </li>
 </ul>
+<h3 id="v-slot"><a href="#v-slot" class="headerlink" title="v-slot"></a>v-slot</h3><ul>
+<li><p><strong>Notation abrégée :</strong> <code>#</code></p>
+</li>
+<li><p><strong>Attend comme valeur :</strong> Une expression JavaScript qui est valide a une position d’argument dans une fonction (supporte la décomposition dans les <a href="../guide/components-slots.html#Décomposition-de-props-de-slot">environnements la supportant</a>). Optionnel - seulement nécessaire si le passage des props est attendu par le slot.</p>
+</li>
+<li><p><strong>Argument :</strong> nom du slot (optionel, <code>default</code> par défaut)</p>
+</li>
+<li><p><strong>Limité à :</strong></p>
+<ul>
+<li><code>&lt;template&gt;</code></li>
+<li><a href="../guide/components-slots.html#Syntaxe-abrégée-pour-les-slots-par-défault-uniques">composants</a> (pour les slot par défaut avec props)</li>
+</ul>
+</li>
+<li><p><strong>Utilisation :</strong></p>
+<p>Indiquez les slots nommés ou slots qui attendent de recevoir des props.</p>
+</li>
+<li><p><strong>Exemple :</strong></p>
+<pre><code class="hljs html"><span class="hljs-comment">&lt;!-- Slots nommés --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">base-layout</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">v-slot:header</span>&gt;</span>
+    Contenu d'en-tête
+  <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+
+  Contenu par défaut de slot
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">v-slot:footer</span>&gt;</span>
+    Contenu de pied de page
+  <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">base-layout</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- Slot nommé recevant des props --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">infinite-scroll</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">v-slot:item</span>=<span class="hljs-string">"slotProps"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"item"</span>&gt;</span>
+      &#123;&#123; slotProps.item.text &#125;&#125;
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">infinite-scroll</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- Slot par défaut recevant des props, avec décomposition --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">mouse-position</span> <span class="hljs-attr">v-slot</span>=<span class="hljs-string">"&#123; x, y &#125;"</span>&gt;</span>
+  Mouse position: &#123;&#123; x &#125;&#125;, &#123;&#123; y &#125;&#125;
+<span class="hljs-tag">&lt;/<span class="hljs-name">mouse-position</span>&gt;</span></code></pre>
+<p>Pour plus de détails, voir les liens ci-dessous.</p>
+</li>
+<li><p><strong>Voir aussi :</strong></p>
+<ul>
+<li><a href="../guide/components-slots.html">Composants - Slots</a></li>
+<li><a href="https://github.com/vuejs/rfcs/blob/master/active-rfcs/0001-new-slot-syntax.md" target="_blank" rel="noopener">RFC-0001</a></li>
+</ul>
+</li>
+</ul>
 <h3 id="v-pre"><a href="#v-pre" class="headerlink" title="v-pre"></a>v-pre</h3><ul>
 <li><p><strong>N’attend aucune valeur</strong></p>
 </li>
 <li><p><strong>Utilisation :</strong></p>
-<p>Omet la compilation pour cet élément et tous ses enfants. Vous pouvez utiliser ceci pour afficher à l’utilisateur des expressions <code>{{ moustache }}</code>. Utilisé sur un grand nombre de nœuds sans directives, cela peut aussi accélérer la compilation.</p>
+<p>Omet la compilation pour cet élément et tous ses enfants. Vous pouvez utiliser ceci pour afficher à l’utilisateur des expressions <code></code>. Utilisé sur un grand nombre de nœuds sans directives, cela peut aussi accélérer la compilation.</p>
 </li>
 <li><p><strong>Exemple :</strong></p>
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">v-pre</span>&gt;</span>&#123;&#123; ceci ne sera pas compilé &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></code></pre>
@@ -2344,33 +2466,6 @@ vm.$emit(<span class="hljs-string">'test'</span>, <span class="hljs-string">'sal
 <li><p><strong>Voir aussi :</strong> <a href="../guide/components.html#Les-refs-des-composants-enfants">Les refs des composants enfants</a></p>
 </li>
 </ul>
-<h3 id="slot"><a href="#slot" class="headerlink" title="slot"></a>slot</h3><ul>
-<li><p><strong>Attend comme valeur :</strong> <code>string</code></p>
-<p>Utilisé sur du contenu inséré dans les composants enfants afin d’indiquer à quel slot nommé le contenu doit être associé.</p>
-<p>Pour un usage détaillé, veuillez consulter la section du guide en lien ci-dessous.</p>
-</li>
-<li><p><strong>Voir aussi :</strong> <a href="../guide/components.html#Slots-nommes">Slots nommés</a></p>
-</li>
-</ul>
-<h3 id="slot-scope"><a href="#slot-scope" class="headerlink" title="slot-scope"></a>slot-scope</h3><blockquote>
-<p>Nouveau dans la 2.5.0+</p>
-</blockquote>
-<ul>
-<li><p><strong>Attend comme valeur :</strong> <code>function argument expression</code></p>
-</li>
-<li><p><strong>Utilisation :</strong></p>
-<p>Utilisé pour indiquer qu’un élément ou un composant a un slot avec portée. La valeur de l’attribut doit être une expression JavaScript valide qui apparaît à la position d’un argument dans la déclaration d’une fonction. Cela signifie que dans les environnements qui la supportent, vous pouvez utiliser une expression de destructuration dans l’expression. Remplace <a href="#scope-replaced"><code>scope</code></a> dans la 2.5.0+.</p>
-<p>Cet attribut ne supporte pas les liaisons dynamiques.</p>
-</li>
-<li><p><strong>Voir aussi :</strong> <a href="../guide/components.html#Slots-avec-portee">Slots avec portée</a></p>
-</li>
-</ul>
-<h3 id="scope-replaced"><a href="#scope-replaced" class="headerlink" title="scope replaced"></a>scope <sup>replaced</sup></h3><p>Used to denote a <code>&lt;template&gt;</code> element as a scoped slot, which is replaced by <a href="#slot-scope"><code>slot-scope</code></a> in 2.5.0+.</p>
-<ul>
-<li><p><strong>Usage:</strong></p>
-<p>Same as <a href="#slot-scope"><code>slot-scope</code></a> except that <code>scope</code> can only be used on <code>&lt;template&gt;</code> elements.</p>
-</li>
-</ul>
 <h3 id="is"><a href="#is" class="headerlink" title="is"></a>is</h3><ul>
 <li><p><strong>Attend comme valeur :</strong> <code>string | Object (un objet d&#39;options de composant)</code></p>
 <p>Utilisé pour les <a href="../guide/components.html#Composants-dynamiques">composants dynamiques</a> et pour contourner les <a href="../guide/components.html#Limitations-de-l’analyse-d’un-template-a-partir-du-DOM">limitations des templates dans le DOM</a>.</p>
@@ -2390,6 +2485,32 @@ vm.$emit(<span class="hljs-string">'test'</span>, <span class="hljs-string">'sal
 <li><a href="../guide/components.html#Composants-dynamiques">Composants dynamiques</a></li>
 <li><a href="../guide/components.html#Limitations-de-l’analyse-d’un-template-a-partir-du-DOM">Limitations de l’analyse d’un template à partir du DOM</a></li>
 </ul>
+</li>
+</ul>
+<h3 id="slot-deprecie"><a href="#slot-deprecie" class="headerlink" title="slot déprécié"></a>slot <sup style="color:#c92222">déprécié</sup></h3><p><strong>Préférez <a href="#v-slot">v-slot</a> en 2.6.0+.</strong></p>
+<ul>
+<li><p><strong>Attend comme valeur :</strong> <code>string</code></p>
+<p>Utilisez sur un contenu inséré dans un composant enfant pour indiquer à quel slot nommé le contenu appartient.</p>
+</li>
+<li><p><strong>Voir aussi :</strong> <a href="../guide/components.html#Slots-nommés-avec-slot">Slots nommés avec <code>slot</code></a></p>
+</li>
+</ul>
+<h3 id="slot-scope-deprecie"><a href="#slot-scope-deprecie" class="headerlink" title="slot-scope déprécié"></a>slot-scope <sup style="color:#c92222">déprécié</sup></h3><p><strong>Prefer <a href="#v-slot">v-slot</a> in 2.6.0+.</strong></p>
+<ul>
+<li><p><strong>Attend comme valeur :</strong> <code>function argument expression</code></p>
+</li>
+<li><p><strong>Utilisation :</strong></p>
+<p>Utilisé pour indiquer qu’un élément ou un composant a un slot avec portée. La valeur de l’attribut doit être une expression JavaScript valide qui apparaît à la position d’un argument dans la déclaration d’une fonction. Cela signifie que dans les environnements qui la supportent, vous pouvez utiliser une expression de destructuration dans l’expression. Remplace <a href="#scope-replaced"><code>scope</code></a> dans la 2.5.0+.</p>
+<p>Cet attribut ne supporte pas les liaisons dynamiques.</p>
+</li>
+<li><p><strong>Voir aussi :</strong> <a href="../guide/components.html#Slots-avec-portee">Slots avec portée with <code>slot-scope</code></a></p>
+</li>
+</ul>
+<h3 id="scope-supprime"><a href="#scope-supprime" class="headerlink" title="scope supprimé"></a>scope <sup style="color:#c92222">supprimé</sup></h3><p><strong>Remplacé par <a href="#slot-scope">slot-scope</a> dans la 2.5.0+. Préférez <a href="#v-slot">v-slot</a> dans la 2.6.0+.</strong></p>
+<p>Utilisé pour indiquer un élément <code>&lt;template&gt;</code> en tant que slot avec portée.</p>
+<ul>
+<li><p><strong>utilisation :</strong></p>
+<p>Identique à <a href="#slot-scope"><code>slot-scope</code></a> à l’exception que <code>scope</code> peut uniquement être utilisé sur des éléments <code>&lt;template&gt;</code> elements.</p>
 </li>
 </ul>
 <h2 id="Composants-integres-par-defaut"><a href="#Composants-integres-par-defaut" class="headerlink" title="Composants intégrés par défaut"></a>Composants intégrés par défaut</h2><h3 id="component"><a href="#component" class="headerlink" title="component"></a>component</h3><ul>
@@ -2571,7 +2692,7 @@ vm.$emit(<span class="hljs-string">'test'</span>, <span class="hljs-string">'sal
 <li><p><strong>Voir aussi :</strong> <a href="../guide/components.html#keep-alive">Composants dynamiques - keep-alive</a></p>
 </li>
 </ul>
-<h3 id="slot-1"><a href="#slot-1" class="headerlink" title="slot"></a>slot</h3><ul>
+<h3 id="slot"><a href="#slot" class="headerlink" title="slot"></a>slot</h3><ul>
 <li><p><strong>Props:</strong></p>
 <ul>
 <li><code>name</code> - string, utilisé pour nommer le slot.</li>
@@ -2643,7 +2764,8 @@ vm.$emit(<span class="hljs-string">'test'</span>, <span class="hljs-string">'sal
       apiKey: '85cc3221c9f23bfbaa4e3913dd7625ea',
       indexName: 'vuejs',
       inputSelector: selector,
-      algoliaOptions: { facetFilters: ["version:" + version] }
+      algoliaOptions: { facetFilters: ["version:" + version] },
+      autocompleteOptions: { hint: false, appendTo: 'body'}
       })
     })
     </script>
