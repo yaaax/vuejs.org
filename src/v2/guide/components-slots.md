@@ -6,7 +6,7 @@ order: 104
 
 > Cette page suppose que vous avez déjà lu les principes de base des [composants](components.html). Lisez-les en premier si les composants sont quelque chose de nouveau pour vous.
 
-> En 2.6.0, nous introduisons une nouvelle syntaxe unifiée (la directive `v-slot`) pour nommer vos slots avec portée. Il remplace les attributs `slot` et `slot-scope` qui sont a présent dépréciés mais _non_ retirés et toujours documentés [ici](#Syntaxe-dépréciée). La raison à l'introduction de la nouvelle syntaxe est décrite dans cette [RFC](https://github.com/vuejs/rfcs/blob/master/active-rfcs/0001-new-slot-syntax.md).
+> En 2.6.0, nous introduisons une nouvelle syntaxe unifiée (la directive `v-slot`) pour nommer vos slots avec portée. Il remplace les attributs `slot` et `slot-scope` qui sont à présent dépréciés mais _non_ retirés et toujours documentés [ici](#Syntaxe-dépréciée). La raison à l'introduction de la nouvelle syntaxe est décrite dans cette [RFC](https://github.com/vuejs/rfcs/blob/master/active-rfcs/0001-new-slot-syntax.md).
 
 ## Les contenus de slot
 
@@ -67,7 +67,7 @@ Le slot a accès à la même propriété d'instance (c.-à-d. la même « porté
 
 ``` html
 <navigation-link url="/profile">
-  Cliquer ici vous ammènera à : {{ url }}
+  Cliquer ici vous amènera à : {{ url }}
   <!--
   Ici `url` sera `undefined` car le contenu est passé
   _à l'intérieur de_ <navigation-link>, au lieu d'être défini _entre_ le composant <navigation-link>.
@@ -97,7 +97,7 @@ Nous pourrions vouloir que le texte « Envoyer » soit rendu à l'intérieur de 
 </button>
 ```
 
-Maintenant quand nous utilisons `<submit-button>` dans le composant parent, nous ne fournissont aucun contenu pour le slot :
+Maintenant quand nous utilisons `<submit-button>` dans le composant parent, nous ne fournissons aucun contenu pour le slot :
 
 ```html
 <submit-button></submit-button>
@@ -254,7 +254,7 @@ Pour rendre `user` disponible dans le contenu du slot dans le parent, nous pouvo
 </span>
 ```
 
-Les attribus liés à l'élément `<slot>` sont appelés des **props de slot**. Maintenant, dans la portée parente, nous pouvons utiliser `v-slot` avec une valeur pour définir un nom pour les props de slot qui nous ont été fournies :
+Les attributs liés à l'élément `<slot>` sont appelés des **props de slot**. Maintenant, dans la portée parente, nous pouvons utiliser `v-slot` avec une valeur pour définir un nom pour les props de slot qui nous ont été fournies :
 
 ``` html
 <current-user>
@@ -266,7 +266,7 @@ Les attribus liés à l'élément `<slot>` sont appelés des **props de slot**. 
 
 Dans cet exemple, nous avons choisi de nommer l'objet contenant tous nos props de slot `slotProps` mais vous pouvez choisir n'importe quel nom.
 
-### Syntaxe abrégée pour les slots par défault uniques
+### Syntaxe abrégée pour les slots par défaut uniques
 
 Dans les cas comme au-dessus, quand _uniquement_ le slot par défaut a un contenu fourni, la balise du composant peut utiliser le template de slot. Cela nous permet d'utiliser `v-slot` directement sur le composant :
 
@@ -284,7 +284,7 @@ Cela peut même être raccourci encore plus. Comme un contenu non spécifié est
 </current-user>
 ```
 
-Notez que la syntaxe abrégée pour le slot par défaut **ne** peut **pas** être mélangée avec les slots nommées, ce qui mênerait à une ambiguïté de portée :
+Notez que la syntaxe abrégée pour le slot par défaut **ne** peut **pas** être mélangée avec les slots nommées, ce qui mènerait à une ambigüité de portée :
 
 ``` html
 <!-- INVALIDE, résultera en un avertissement -->
@@ -320,7 +320,7 @@ function (slotProps) {
 }
 ```
 
-Cela signifie que la valeur de `v-slot` peut accepter n'importe quelle expression JavaScript valide pouvant apparaître à la position d'un argument lors de la définition d'une fonction. Également, pour les environnements qui le supportent ([composants monofichier](single-file-components.html) ou les [navigateurs modernes](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Op%C3%A9rateurs)), vous pouvez utiliser la [décomposition ES2015](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Op%C3%A9rateurs/Affecter_par_d%C3%A9composition#Object_destructuring) pour définir une collection de props de slot comme suit :
+Cela signifie que la valeur de `v-slot` peut accepter n'importe quelle expression JavaScript valide pouvant apparaitre à la position d'un argument lors de la définition d'une fonction. Également, pour les environnements qui le supportent ([composants monofichier](single-file-components.html) ou les [navigateurs modernes](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Op%C3%A9rateurs)), vous pouvez utiliser la [décomposition ES2015](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Op%C3%A9rateurs/Affecter_par_d%C3%A9composition#Object_destructuring) pour définir une collection de props de slot comme suit :
 
 ``` html
 <current-user v-slot="{ user }">

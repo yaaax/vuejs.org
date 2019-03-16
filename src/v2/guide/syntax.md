@@ -150,7 +150,7 @@ De manière similaire, donc, quand la valeur `eventName` est `"focus"`, par exem
 
 #### Contrainte des valeurs d'argument dynamique
 
-Les arguments dynamiques sont destinés à être évalués comme des chaînes de caractères à l'exception de `null`. La valeur spéciale `null` peut être utilisée pour explicitement retirer la liaison. N'importe quelle autre valeur n'étant pas une chaîne de caractères lèvera un avertissement.
+Les arguments dynamiques sont destinés à être évalués comme des chaines de caractères à l'exception de `null`. La valeur spéciale `null` peut être utilisée pour explicitement retirer la liaison. N'importe quelle autre valeur n'étant pas une chaine de caractères lèvera un avertissement.
 
 #### Contraintes des expressions d'argument dynamique
 
@@ -165,10 +165,10 @@ Par exemple, ce qui suit est invalide :
 
 La solution consiste à utiliser des expressions sans espaces ni guillemets, ou à remplacer l'expression complexe par une propriété calculée.
 
-De plus, si vous utilisez des templates dans le DOM (templates directement écrit dans un fichier HTML), vous devrez être attentif au navigateur qui convertit les noms d'attribut en lettre minuscule :
+De plus, si vous utilisez des templates dans le DOM (templates directement écrits dans un fichier HTML), vous devrez être attentif au navigateur qui convertit les noms d'attribut en lettre minuscule :
 
 ``` html
-<!-- Ceci va être converti en v-bind:[someattr] dans un templates dans le DOM. -->
+<!-- Ceci va être converti en v-bind:[someattr] dans un template dans le DOM. -->
 <a v-bind:[someAttr]="value"> ... </a>
 ```
 

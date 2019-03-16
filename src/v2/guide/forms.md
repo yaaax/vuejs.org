@@ -15,7 +15,7 @@ Vous pouvez utiliser la directive `v-model` pour créer une liaison de données 
 - Les éléments `checkboxes` et `radiobuttons` utilisent la propriété `checked` et l'évènement `change`;
 - Les éléments `select` utilisent `value` comme une prop et `change` comme un évènement.
 
-<p class="tip" id="vmodel-ime-tip">Pour les langues qui requièrent une [méthode de saisie (IME)](https://fr.wikipedia.org/wiki/M%C3%A9thode_d%27entr%C3%A9e) (chinois, japonais, coréen, etc.), vous remarquerez que `v-model` ne sera pas mise à jour durant l'exécution de la méthode de saisie. Si vous souhaitez également prendre en compte ces mises à jour, utilisez plutôt l'événement `input`.</p>
+<p class="tip" id="vmodel-ime-tip">Pour les langues qui requièrent une [méthode de saisie (IME)](https://fr.wikipedia.org/wiki/M%C3%A9thode_d%27entr%C3%A9e) (chinois, japonais, coréen, etc.), vous remarquerez que `v-model` ne sera pas mise à jour durant l'exécution de la méthode de saisie. Si vous souhaitez également prendre en compte ces mises à jour, utilisez plutôt l'évènement `input`.</p>
 
 ### Texte
 

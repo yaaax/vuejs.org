@@ -104,7 +104,7 @@ Dans le [dossier `dist/` du package npm](https://cdn.jsdelivr.net/npm/vue/dist/)
 
   - ESM pour empaqueteur : destiné à être utiliser avec des empaqueteurs modernes comme [webpack 2](https://webpack.js.org) ou [Rollup](https://rollupjs.org/). Le format ESM est conçu pour être statiquement analysable ainsi les empaqueteurs peuvent avantageusement faire du retrait de fonctionnalité inutile et éliminer ce code de votre paquetage final. Le fichier par défaut pour ces paquetages (`pkg.module`) est le Runtime seulement pour build Module ES (`vue.runtime.esm.js`).
 
-  - ESM pour navigateur (2.6+ seulement): destiné à l'import directe des modules dans les navigateurs modernes via `<script type="module">`.
+  - ESM pour navigateur (2.6+ seulement): destiné à l'import direct des modules dans les navigateurs modernes via `<script type="module">`.
 
 ### Runtime + Compiler vs. Runtime seul
 

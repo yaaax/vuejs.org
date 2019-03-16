@@ -261,7 +261,7 @@ type: api
 
   <p class="tip">L'objet ne peut pas être une instance de Vue, ou l'objet de données à la racine d'une instance de Vue.</p>
 
-- **Voir aussi :** [Réactivité dans le détail](../guide/reactivity.html)
+- **Voir aussi :** [Réactivité en détail](../guide/reactivity.html)
 
 ### Vue.delete( cible, clé )
 
@@ -277,7 +277,7 @@ type: api
 
   <p class="tip">L'objet cible ne peut pas être une instance de Vue, ou l'objet de données à la racine d'une instance de Vue.</p>
 
-- **Voir aussi :** [Réactivité dans le détail](../guide/reactivity.html)
+- **Voir aussi :** [Réactivité en détail](../guide/reactivity.html)
 
 ### Vue.directive( id, [définition] )
 
@@ -415,7 +415,7 @@ type: api
 
   Rend un objet réactif. En interne, Vue l'utilise sur l'objet retourné par la fonction `data`.
 
-  L'objet retourné peut être directement utilisé à l'intérieur des [fonctions de rendu](../guide/render-function.html) ainsi que des [propriétés calculées](../guide/computed.html). Il déclenchera les mises à jour appropriées lors de mutations. Il peut également être utilisé comme un store minimal inter-composant dans des scénarios basiques :
+  L'objet retourné peut être directement utilisé à l'intérieur des [fonctions de rendu](../guide/render-function.html) ainsi que des [propriétés calculées](../guide/computed.html). Il déclenchera les mises à jour appropriées lors de mutations. Il peut également être utilisé comme un store minimal intercomposant dans des scénarios basiques :
 
   ``` js
   const state = Vue.observable({ count: 0 })
@@ -429,9 +429,9 @@ type: api
   }
   ```
 
-  <p class="tip">Dans Vue 2.x, `Vue.observable` mute directement l'objet qui lui est transmis, de sorte qu'il soit équivalent à l'objet renvoyé, comme [démontré ici](../guide/instance.html#Donnees-et-methodes). Dans Vue 3.x, un proxy réactif sera retourné à la place, laissant l'objet original non réactif s'il est muté directement. Cependant, pour de future compatibilité, nous recommandons toujours de travailler avec l'objet retourné par `Vue.observable`, au lieu de l'objet originel.</p>
+  <p class="tip">Dans Vue 2.x, `Vue.observable` mute directement l'objet qui lui est transmis, de sorte qu'il soit équivalent à l'objet renvoyé, comme [démontré ici](../guide/instance.html#Donnees-et-methodes). Dans Vue 3.x, un proxy réactif sera retourné à la place, laissant l'objet original non réactif s'il est muté directement. Cependant, pour de futures compatibilités, nous recommandons toujours de travailler avec l'objet retourné par `Vue.observable`, au lieu de l'objet originel.</p>
 
-- **Voir aussi :** [Réactivité dans le détail](../guide/reactivity.html)
+- **Voir aussi :** [Réactivité en détail](../guide/reactivity.html)
 
 ### Vue.version
 
@@ -499,7 +499,7 @@ type: api
   data: vm => ({ a: vm.myProp })
   ```
 
-- **Voir aussi :** [Réactivité dans le détail](../guide/reactivity.html)
+- **Voir aussi :** [Réactivité en détail](../guide/reactivity.html)
 
 ### props
 
@@ -2022,7 +2022,7 @@ type: api
   </div>
   ```
 
-  En 2.6+, `v-for` peut également travailler sur des valeurs qui implémentent le [protocole Iterable](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Les_protocoles_iteration#The_iterable_protocol), incluant les natifs `Map` et `Set`. Cependant, il est a noter que Vue 2.x ne supporte pour le moment pas la réactivité sur les valeurs de `Map` et `Set` et ne pourra pas automatiquement détecter les changements.
+  En 2.6+, `v-for` peut également travailler sur des valeurs qui implémentent le [protocole Iterable](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Les_protocoles_iteration#The_iterable_protocol), incluant les natifs `Map` et `Set`. Cependant, il est à noter que Vue 2.x ne supporte pour le moment pas la réactivité sur les valeurs de `Map` et `Set` et ne pourra pas automatiquement détecter les changements.
 
   <p class="tip">Quand utilisé conjointement avec v-if, v-for a une plus grande priorité que v-if. Consultez le <a href="../guide/list.html#v-for-with-v-if">guide de rendu de listes</a> pour plus de détails.</p>
 
