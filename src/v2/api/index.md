@@ -2228,7 +2228,7 @@ type: api
 
 - **Notation abrégée :** `#`
 
-- **Attend comme valeur :** Une expression JavaScript qui est valide a une position d'argument dans une fonction (supporte la décomposition dans les [environments la supportant](../guide/components-slots.html#Décomposition-de-props-de-slot)). Optionnel - seulement nécessaire si le passage des props est attendu par le slot.
+- **Attend comme valeur :** Une expression JavaScript qui est valide a une position d'argument dans une fonction (supporte la décomposition dans les [environnements la supportant](../guide/components-slots.html#Décomposition-de-props-de-slot)). Optionnel - seulement nécessaire si le passage des props est attendu par le slot.
 
 - **Argument :** nom du slot (optionel, `default` par défaut)
 
