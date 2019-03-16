@@ -1,5 +1,5 @@
 ---
-title: Réactivité dans le détail
+title: Réactivité en détail
 type: guide
 order: 601
 ---
