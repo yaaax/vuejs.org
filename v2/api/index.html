@@ -822,10 +822,10 @@ vm.$data === data <span class="hljs-comment">// =&gt; true</span>
 <p>Une liste ou un objet décrivant les attributs exposés par le composant afin de passer des données depuis le composant parent. Ce paramètre a une syntaxe simple basée sur un tableau (<code>Array</code>) et une syntaxe alternative basée sur un objet (<code>Object</code>) qui permet une configuration avancée telle qu’une vérification de typage, des contrôles de validation personnalisés et des valeurs par défaut.</p>
 <p>Avec la syntaxe objet, vous pouvez passer les options suivantes :</p>
 <ul>
-<li>Le <strong>type</strong> peut être l’un des constructeurs natifs suivants : <code>String</code>, <code>Number</code>, <code>Boolean</code>, <code>Array</code>, <code>Object</code>, <code>Date</code>, <code>Function</code>, <code>Symbol</code> ainsi que n’importe quelle fonction de construction ou tableau de ces types. Les types des props seront vérifiés. Un avertissement sera fourni si une prop n’est pas du bon type. <a href="../guide/components-props.html#Types-des-props">Plus d’information</a> sur les types des props.</li>
-<li><strong>default:</strong> <code>any</code><br>Spécifie la valeur par défaut de la prop. Si la prop n’est pas passée, cette valeur sera utilisée à la place. Les objets ou tableaux par défaut doivent être retournés depuis une fonction de fabrique.</li>
-<li><strong>required:</strong> <code>Boolean</code><br>Définie si la prop est requise. Dans un environnement autre que de production, un avertissement sera affiché dans la console si cette valeur est évaluée à vrai et que la prop n’est pas passée.</li>
-<li><strong>validator:</strong> <code>Function</code><br>Une fonction de validation personnalisée qui prend la valeur de prop comme seul argument. Dans un environnement autre que de production, un avertissement sera affiché dans la console si cette fonction retourne une valeur évaluée à faux. (c.-à-d. que la validation a échoué). Vous pouvez en lire plus à propos de la validation des props <a href="../guide/components-props.html#Validation-des-props">ici</a>.</li>
+<li>Le <code>type</code> peut être l’un des constructeurs natifs suivants : <code>String</code>, <code>Number</code>, <code>Boolean</code>, <code>Array</code>, <code>Object</code>, <code>Date</code>, <code>Function</code>, <code>Symbol</code> ainsi que n’importe quelle fonction de construction ou tableau de ces types. Les types des props seront vérifiés. Un avertissement sera fourni si une prop n’est pas du bon type. <a href="../guide/components-props.html#Types-des-props">Plus d’information</a> sur les types des props.</li>
+<li><code>default:</code> <code>any</code><br>Spécifie la valeur par défaut de la prop. Si la prop n’est pas passée, cette valeur sera utilisée à la place. Les objets ou tableaux par défaut doivent être retournés depuis une fonction de fabrique.</li>
+<li><code>required:</code> <code>Boolean</code><br>Définie si la prop est requise. Dans un environnement autre que de production, un avertissement sera affiché dans la console si cette valeur est évaluée à vrai et que la prop n’est pas passée.</li>
+<li><code>validator:</code> <code>Function</code><br>Une fonction de validation personnalisée qui prend la valeur de prop comme seul argument. Dans un environnement autre que de production, un avertissement sera affiché dans la console si cette fonction retourne une valeur évaluée à faux. (c.-à-d. que la validation a échoué). Vous pouvez en lire plus à propos de la validation des props <a href="../guide/components-props.html#Validation-des-props">ici</a>.</li>
 </ul>
 </li>
 <li><p><strong>Exemple :</strong></p>
@@ -1569,20 +1569,21 @@ vm.a = <span class="hljs-number">2</span> <span class="hljs-comment">// =&gt; no
 <li><p><strong>Accessible uniquement en lecture</strong></p>
 </li>
 <li><p><strong>Détails :</strong></p>
-<p>Utilisé pour accéder programmatiquement à du contenu <a href="../guide/components.html#Distribution-de-contenu-avec-des-slots">distribué par slots</a>. Chaque <a href="../guide/components.html#Slots-nommes">slot nommé</a> a sa propriété correspondante (p. ex. le contenu de <code>slot=&quot;foo&quot;</code> sera trouvé dans <code>vm.$slots.foo</code>). La propriété <code>default</code> contient tous les nœuds non inclus dans un slot nommé.</p>
+<p>Utilisé pour accéder programmatiquement à du contenu <a href="../guide/components.html#Distribution-de-contenu-avec-des-slots">distribué par slots</a>. Chaque <a href="../guide/components.html#Slots-nommes">slot nommé</a> a sa propriété correspondante (p. ex. le contenu de <code>v-slot:foo</code> sera trouvé dans <code>vm.$slots.foo</code>). La propriété <code>default</code> contient tous les nœuds non inclus dans un slot nommé ou contenus de <code>v-slot:default</code>.</p>
+<p><strong>Note:</strong> <code>v-slot:foo</code> est supporté dans la v2.6+. Pour des versions plus anciennes, vous pouvez utiliser la <a href="../guide/components-slots.html#Deprecated-Syntax">syntaxe dépréciée</a>.</p>
 <p>Accéder à <code>vm.$slots</code> est plus utile lorsque vous écrivez un composant avec une <a href="../guide/render-function.html">fonction de rendu</a>.</p>
 </li>
 <li><p><strong>Exemple :</strong></p>
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">blog-post</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">"header"</span>&gt;</span>
-    À propos de moi
-  <span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">v-slot:header</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>À propos de moi<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
 
   <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Voici du contenu pour la page, qui sera inclus dans vm.$slots.default, car il n'est pas à l'intérieur d'un slot nommé.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
 
-  <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">"footer"</span>&gt;</span>
-    Copyright 2016 Evan You
-  <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">v-slot:footer</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Copyright 2016 Evan You<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
 
   <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Si j'ai du contenu ici, il sera aussi inclus dans vm.$slots.default.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">blog-post</span>&gt;</span></code></pre>
@@ -1601,7 +1602,7 @@ vm.a = <span class="hljs-number">2</span> <span class="hljs-comment">// =&gt; no
 </li>
 <li><p><strong>Voir aussi :</strong></p>
 <ul>
-<li><a href="#slot-1">Composant <code>&lt;slot&gt;</code></a></li>
+<li><a href="#slot">Composant <code>&lt;slot&gt;</code></a></li>
 <li><a href="../guide/components.html#Distribution-de-contenu-avec-des-slots">Distribution de contenu avec des slots</a></li>
 <li><a href="../guide/render-function.html#Slots">Fonctions de rendu - Slots</a></li>
 </ul>
@@ -1628,7 +1629,7 @@ vm.a = <span class="hljs-number">2</span> <span class="hljs-comment">// =&gt; no
 </li>
 <li><p><strong>Voir aussi :</strong></p>
 <ul>
-<li><a href="#slot-1">Composant <code>&lt;slot&gt;</code></a></li>
+<li><a href="#slot">Composant <code>&lt;slot&gt;</code></a></li>
 <li><a href="../guide/components.html#Slots-avec-portee">Slots avec portée</a></li>
 <li><a href="../guide/render-function.html#Slots">Fonctions de rendu - Slots</a></li>
 </ul>
@@ -2540,6 +2541,7 @@ vm.$emit(<span class="hljs-string">'test'</span>, <span class="hljs-string">'sal
 <li><code>css</code> - booléen, indique si les classes CSS de transition doivent être appliquées ou non. Valeur par défaut: <code>true</code>. Si assigné à <code>false</code>, seuls les hooks JavaScript inscrits via les évènements du composant seront déclenchés.</li>
 <li><code>type</code> - string, spécifie le type d’évènement de transition à attendre pour déterminer le timing de fin de transition. Les valeurs disponibles sont <code>&quot;transition&quot;</code> and <code>&quot;animation&quot;</code>. Par défaut, il détectera automatiquement le type ayant la durée la plus longue.</li>
 <li><code>mode</code> - string, contrôle la séquence de timing des transitions entrantes/sortantes. Les modes disponibles sont <code>&quot;out-in&quot;</code> et <code>&quot;in-out&quot;</code>; par défaut en simultané.</li>
+<li><code>duration</code> - number | { <code>enter</code>: number, <code>leave</code>: number }, spécifie la durée de la transition. Par défaut, Vue attend le premier évènement <code>transitionend</code> ou <code>animationend</code> de l’élément de transition racine.</li>
 <li><code>enter-class</code> - string</li>
 <li><code>leave-class</code> - string</li>
 <li><code>appear-class</code> - string</li>

@@ -467,37 +467,370 @@
   
     <h2 id="Exemple-de-base"><a href="#Exemple-de-base" class="headerlink" title="Exemple de base"></a>Exemple de base</h2><p>La validation des formulaires est supportée nativement par le navigateur. Parfois on va observer des différences sur la manière de gérer la validation en fonction des navigateurs ce qui fait que se reposer sur cette validation supportée nativement est des plus délicat. Même quand la validation est supportée parfaitement, il se peut que quand des validations personnalisées ou plus “manuelles” sont nécessaires, les solutions basées sur Vue soient plus appropriées. Commençons avec un exemple simple.</p>
 <p>Pour un formulaire avec trois champs, considérons que deux sont obligatoires. Regardons le HTML d’abord:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span></span></span><br><span class="line"><span class="tag">  <span class="attr">id</span>=<span class="string">"app"</span></span></span><br><span class="line"><span class="tag">  @<span class="attr">submit</span>=<span class="string">"checkForm"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">action</span>=<span class="string">"https://vuejs.org/"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">method</span>=<span class="string">"post"</span></span></span><br><span class="line"><span class="tag">&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span> <span class="attr">v-if</span>=<span class="string">"errors.length"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">b</span>&gt;</span>Please correct the following error(s):<span class="tag">&lt;/<span class="name">b</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"error in errors"</span>&gt;</span>&#123;&#123; error &#125;&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"name"</span>&gt;</span>Name<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span></span></span><br><span class="line"><span class="tag">      <span class="attr">id</span>=<span class="string">"name"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">v-model</span>=<span class="string">"name"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">type</span>=<span class="string">"text"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">name</span>=<span class="string">"name"</span></span></span><br><span class="line"><span class="tag">    &gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"age"</span>&gt;</span>Age<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span></span></span><br><span class="line"><span class="tag">      <span class="attr">id</span>=<span class="string">"age"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">v-model</span>=<span class="string">"age"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">type</span>=<span class="string">"number"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">name</span>=<span class="string">"age"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">min</span>=<span class="string">"0"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"movie"</span>&gt;</span>Favorite Movie<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">select</span></span></span><br><span class="line"><span class="tag">      <span class="attr">id</span>=<span class="string">"movie"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">v-model</span>=<span class="string">"movie"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">name</span>=<span class="string">"movie"</span></span></span><br><span class="line"><span class="tag">    &gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">option</span>&gt;</span>Star Wars<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">option</span>&gt;</span>Vanilla Sky<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">option</span>&gt;</span>Atomic Blonde<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span></span></span><br><span class="line"><span class="tag">      <span class="attr">type</span>=<span class="string">"submit"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">value</span>=<span class="string">"Submit"</span></span></span><br><span class="line"><span class="tag">    &gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">form</span>
+  <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>
+  @<span class="hljs-attr">submit</span>=<span class="hljs-string">"checkForm"</span>
+  <span class="hljs-attr">action</span>=<span class="hljs-string">"https://vuejs.org/"</span>
+  <span class="hljs-attr">method</span>=<span class="hljs-string">"post"</span>
+&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">"errors.length"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>Please correct the following error(s):<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"error in errors"</span>&gt;</span>&#123;&#123; error &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"name"</span>&gt;</span>Name<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">input</span>
+      <span class="hljs-attr">id</span>=<span class="hljs-string">"name"</span>
+      <span class="hljs-attr">v-model</span>=<span class="hljs-string">"name"</span>
+      <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span>
+      <span class="hljs-attr">name</span>=<span class="hljs-string">"name"</span>
+    &gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"age"</span>&gt;</span>Age<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">input</span>
+      <span class="hljs-attr">id</span>=<span class="hljs-string">"age"</span>
+      <span class="hljs-attr">v-model</span>=<span class="hljs-string">"age"</span>
+      <span class="hljs-attr">type</span>=<span class="hljs-string">"number"</span>
+      <span class="hljs-attr">name</span>=<span class="hljs-string">"age"</span>
+      <span class="hljs-attr">min</span>=<span class="hljs-string">"0"</span>
+    &gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"movie"</span>&gt;</span>Favorite Movie<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">select</span>
+      <span class="hljs-attr">id</span>=<span class="hljs-string">"movie"</span>
+      <span class="hljs-attr">v-model</span>=<span class="hljs-string">"movie"</span>
+      <span class="hljs-attr">name</span>=<span class="hljs-string">"movie"</span>
+    &gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">option</span>&gt;</span>Star Wars<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">option</span>&gt;</span>Vanilla Sky<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">option</span>&gt;</span>Atomic Blonde<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">input</span>
+      <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span>
+      <span class="hljs-attr">value</span>=<span class="hljs-string">"Submit"</span>
+    &gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span></code></pre>
 <p>Analysons cela à partir en partant du haut. La balise <code>&lt;form&gt;</code> a un id que nous utiliserons pour le composant Vue. Il y a un gestionnaire d’évènement à la soumission du formulaire que vous verrez dans un moment, et l’attribut <code>action</code> correspond a une URL temporaire qui devrait pointer vers quelque chose de réel sur un serveur (sur lequel vous avez une validation côté serveur bien entendu).</p>
 <p>En dessous il y a un paragraphe qui s’affiche ou non en fonction de la présence d’erreurs. C’est une simple liste d’erreurs au-dessus du formulaire. Notez aussi que l’on déclenche la validation à la soumission du formulaire plutôt qu’a la modification de chaque champ.</p>
 <p>La dernière chose à remarquer est que chacun des trois champs possède un <code>v-model</code> correspondant afin de les connecter aux valeurs sur lesquelles nous travaillerons en JavaScript.</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#app'</span>,</span><br><span class="line">  data: &#123;</span><br><span class="line">    errors: [],</span><br><span class="line">    name: <span class="literal">null</span>,</span><br><span class="line">    age: <span class="literal">null</span>,</span><br><span class="line">    movie: <span class="literal">null</span></span><br><span class="line">  &#125;,</span><br><span class="line">  methods:&#123;</span><br><span class="line">    checkForm: <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (<span class="keyword">this</span>.name &amp;&amp; <span class="keyword">this</span>.age) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">this</span>.errors = [];</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span> (!<span class="keyword">this</span>.name) &#123;</span><br><span class="line">        <span class="keyword">this</span>.errors.push(<span class="string">'Name required.'</span>);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">if</span> (!<span class="keyword">this</span>.age) &#123;</span><br><span class="line">        <span class="keyword">this</span>.errors.push(<span class="string">'Age required.'</span>);</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      e.preventDefault();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-keyword">const</span> app = <span class="hljs-keyword">new</span> Vue(&#123;
+  <span class="hljs-attr">el</span>: <span class="hljs-string">'#app'</span>,
+  <span class="hljs-attr">data</span>: &#123;
+    <span class="hljs-attr">errors</span>: [],
+    <span class="hljs-attr">name</span>: <span class="hljs-literal">null</span>,
+    <span class="hljs-attr">age</span>: <span class="hljs-literal">null</span>,
+    <span class="hljs-attr">movie</span>: <span class="hljs-literal">null</span>
+  &#125;,
+  <span class="hljs-attr">methods</span>:&#123;
+    <span class="hljs-attr">checkForm</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>&#123;
+      <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.name &amp;&amp; <span class="hljs-keyword">this</span>.age) &#123;
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+      &#125;
+
+      <span class="hljs-keyword">this</span>.errors = [];
+
+      <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>.name) &#123;
+        <span class="hljs-keyword">this</span>.errors.push(<span class="hljs-string">'Name required.'</span>);
+      &#125;
+      <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>.age) &#123;
+        <span class="hljs-keyword">this</span>.errors.push(<span class="hljs-string">'Age required.'</span>);
+      &#125;
+
+      e.preventDefault();
+    &#125;
+  &#125;
+&#125;)</code></pre>
 <p>Relativement court et simple, on définit un tableau pour contenir les erreurs et les valeurs des trois champs du formulaire sont initialisées à <code>null</code>. La logique de <code>checkForm</code> (qui est activée à la soumission du formulaire) vérifie seulement que name et age ont des valeurs puisque movie est optionnel. Si ce n’est pas le cas, on vérifie chacune d’elles et on ajoute une erreur spécifique quand elles sont nulles. Et c’est tout. Vous pouvez lancer la démo ci-dessous. N’oubliez pas que pour une soumission réussie, cela va générer une requête POST à une URL temporaire.</p>
 <p></p><p data-height="265" data-theme-id="0" data-slug-hash="GObpZM" data-default-tab="html,result" data-user="cfjedimaster" data-embed-version="2" data-pen-title="form validation 1" class="codepen">Voir le Pen <a href="https://codepen.io/cfjedimaster/pen/GObpZM/" target="_blank" rel="noopener">form validation 1</a> par Raymond Camden (<a href="https://codepen.io/cfjedimaster" target="_blank" rel="noopener">@cfjedimaster</a>) sur <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.</p><p></p>
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
 <h2 id="Utiliser-une-validation-personnalisee"><a href="#Utiliser-une-validation-personnalisee" class="headerlink" title="Utiliser une validation personnalisée."></a>Utiliser une validation personnalisée.</h2><p>Pour le second exemple, le deuxième champ de texte (age) est remplacé par un champ d’email qui sera validé par un peu de logique personnalisée. Le code vient de la question StackOverflow , <a href="https://stackoverflow.com/questions/46155/how-to-validate-email-address-in-javascript" target="_blank" rel="noopener">Comment valider une adresse email en JavaScript?</a>. C’est une très bonne question puisqu’elle fait passer votre plus intense discussion politique ou religieuse sur Facebook pour un simple désaccord sur qui fait la meilleure bière. Sérieusement, c’est délirant. Voici le HTML, même si il est très proche du premier exemple.</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span></span></span><br><span class="line"><span class="tag">  <span class="attr">id</span>=<span class="string">"app"</span></span></span><br><span class="line"><span class="tag">  @<span class="attr">submit</span>=<span class="string">"checkForm"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">action</span>=<span class="string">"https://vuejs.org/"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">method</span>=<span class="string">"post"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">novalidate</span>=<span class="string">"true"</span></span></span><br><span class="line"><span class="tag">&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span> <span class="attr">v-if</span>=<span class="string">"errors.length"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">b</span>&gt;</span>Please correct the following error(s):<span class="tag">&lt;/<span class="name">b</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"error in errors"</span>&gt;</span>&#123;&#123; error &#125;&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"name"</span>&gt;</span>Name<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span></span></span><br><span class="line"><span class="tag">      <span class="attr">id</span>=<span class="string">"name"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">v-model</span>=<span class="string">"name"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">type</span>=<span class="string">"text"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">name</span>=<span class="string">"name"</span></span></span><br><span class="line"><span class="tag">    &gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"email"</span>&gt;</span>Email<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span></span></span><br><span class="line"><span class="tag">      <span class="attr">id</span>=<span class="string">"email"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">v-model</span>=<span class="string">"email"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">type</span>=<span class="string">"email"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">name</span>=<span class="string">"email"</span></span></span><br><span class="line"><span class="tag">    &gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"movie"</span>&gt;</span>Favorite Movie<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">select</span></span></span><br><span class="line"><span class="tag">      <span class="attr">id</span>=<span class="string">"movie"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">v-model</span>=<span class="string">"movie"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">name</span>=<span class="string">"movie"</span></span></span><br><span class="line"><span class="tag">    &gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">option</span>&gt;</span>Star Wars<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">option</span>&gt;</span>Vanilla Sky<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">option</span>&gt;</span>Atomic Blonde<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span></span></span><br><span class="line"><span class="tag">      <span class="attr">type</span>=<span class="string">"submit"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">value</span>=<span class="string">"Submit"</span></span></span><br><span class="line"><span class="tag">    &gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">form</span>
+  <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>
+  @<span class="hljs-attr">submit</span>=<span class="hljs-string">"checkForm"</span>
+  <span class="hljs-attr">action</span>=<span class="hljs-string">"https://vuejs.org/"</span>
+  <span class="hljs-attr">method</span>=<span class="hljs-string">"post"</span>
+  <span class="hljs-attr">novalidate</span>=<span class="hljs-string">"true"</span>
+&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">"errors.length"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>Please correct the following error(s):<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"error in errors"</span>&gt;</span>&#123;&#123; error &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"name"</span>&gt;</span>Name<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">input</span>
+      <span class="hljs-attr">id</span>=<span class="hljs-string">"name"</span>
+      <span class="hljs-attr">v-model</span>=<span class="hljs-string">"name"</span>
+      <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span>
+      <span class="hljs-attr">name</span>=<span class="hljs-string">"name"</span>
+    &gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"email"</span>&gt;</span>Email<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">input</span>
+      <span class="hljs-attr">id</span>=<span class="hljs-string">"email"</span>
+      <span class="hljs-attr">v-model</span>=<span class="hljs-string">"email"</span>
+      <span class="hljs-attr">type</span>=<span class="hljs-string">"email"</span>
+      <span class="hljs-attr">name</span>=<span class="hljs-string">"email"</span>
+    &gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"movie"</span>&gt;</span>Favorite Movie<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">select</span>
+      <span class="hljs-attr">id</span>=<span class="hljs-string">"movie"</span>
+      <span class="hljs-attr">v-model</span>=<span class="hljs-string">"movie"</span>
+      <span class="hljs-attr">name</span>=<span class="hljs-string">"movie"</span>
+    &gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">option</span>&gt;</span>Star Wars<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">option</span>&gt;</span>Vanilla Sky<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">option</span>&gt;</span>Atomic Blonde<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">input</span>
+      <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span>
+      <span class="hljs-attr">value</span>=<span class="hljs-string">"Submit"</span>
+    &gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span></code></pre>
 <p>Bien qu’il y ait peu de différence, remarquez le <code>novalidate=&quot;true&quot;</code> au début. C’est important car le navigateur va essayer de valider l’adresse email dans le champ quand <code>type=email</code> est spécifié. Honnêtement, il est plus logique de faire confiance au navigateur dans ce cas, mais comme nous voulions un exemple personnalisé de validation, nous le désactivons. Voici le JavaScript mis à jour.</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#app'</span>,</span><br><span class="line">  data: &#123;</span><br><span class="line">    errors: [],</span><br><span class="line">    name: <span class="literal">null</span>,</span><br><span class="line">    email: <span class="literal">null</span>,</span><br><span class="line">    movie: <span class="literal">null</span></span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    checkForm: <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">this</span>.errors = [];</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span> (!<span class="keyword">this</span>.name) &#123;</span><br><span class="line">        <span class="keyword">this</span>.errors.push(<span class="string">"Name required."</span>);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">if</span> (!<span class="keyword">this</span>.email) &#123;</span><br><span class="line">        <span class="keyword">this</span>.errors.push(<span class="string">'Email required.'</span>);</span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (!<span class="keyword">this</span>.validEmail(<span class="keyword">this</span>.email)) &#123;</span><br><span class="line">        <span class="keyword">this</span>.errors.push(<span class="string">'Valid email required.'</span>);</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span> (!<span class="keyword">this</span>.errors.length) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      e.preventDefault();</span><br><span class="line">    &#125;,</span><br><span class="line">    validEmail: <span class="function"><span class="keyword">function</span> (<span class="params">email</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> re = <span class="regexp">/^(([^&lt;&gt;()\[\]\\.,;:\s@"]+(\.[^&lt;&gt;()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]&#123;1,3&#125;\.[0-9]&#123;1,3&#125;\.[0-9]&#123;1,3&#125;\.[0-9]&#123;1,3&#125;\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]&#123;2,&#125;))$/</span>;</span><br><span class="line">      <span class="keyword">return</span> re.test(email);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-keyword">const</span> app = <span class="hljs-keyword">new</span> Vue(&#123;
+  <span class="hljs-attr">el</span>: <span class="hljs-string">'#app'</span>,
+  <span class="hljs-attr">data</span>: &#123;
+    <span class="hljs-attr">errors</span>: [],
+    <span class="hljs-attr">name</span>: <span class="hljs-literal">null</span>,
+    <span class="hljs-attr">email</span>: <span class="hljs-literal">null</span>,
+    <span class="hljs-attr">movie</span>: <span class="hljs-literal">null</span>
+  &#125;,
+  <span class="hljs-attr">methods</span>: &#123;
+    <span class="hljs-attr">checkForm</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>&#123;
+      <span class="hljs-keyword">this</span>.errors = [];
+
+      <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>.name) &#123;
+        <span class="hljs-keyword">this</span>.errors.push(<span class="hljs-string">"Name required."</span>);
+      &#125;
+      <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>.email) &#123;
+        <span class="hljs-keyword">this</span>.errors.push(<span class="hljs-string">'Email required.'</span>);
+      &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>.validEmail(<span class="hljs-keyword">this</span>.email)) &#123;
+        <span class="hljs-keyword">this</span>.errors.push(<span class="hljs-string">'Valid email required.'</span>);
+      &#125;
+
+      <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>.errors.length) &#123;
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+      &#125;
+
+      e.preventDefault();
+    &#125;,
+    <span class="hljs-attr">validEmail</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">email</span>) </span>&#123;
+      <span class="hljs-keyword">var</span> re = <span class="hljs-regexp">/^(([^&lt;&gt;()\[\]\\.,;:\s@"]+(\.[^&lt;&gt;()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]&#123;1,3&#125;\.[0-9]&#123;1,3&#125;\.[0-9]&#123;1,3&#125;\.[0-9]&#123;1,3&#125;\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]&#123;2,&#125;))$/</span>;
+      <span class="hljs-keyword">return</span> re.test(email);
+    &#125;
+  &#125;
+&#125;)</code></pre>
 <p>Comme vous pouvez le voir, nous avons ajouté une nouvelle méthode <code>validEmail</code> qui est simplement appelée par <code>checkForm</code>. Vous pouvez jouer avec l’exemple ici:</p>
 <p></p><p data-height="265" data-theme-id="0" data-slug-hash="vWqNXZ" data-default-tab="html,result" data-user="cfjedimaster" data-embed-version="2" data-pen-title="form validation 2" class="codepen">Voir le Pen <a href="https://codepen.io/cfjedimaster/pen/vWqNXZ/" target="_blank" rel="noopener">form validation 2</a> par Raymond Camden (<a href="https://codepen.io/cfjedimaster" target="_blank" rel="noopener">@cfjedimaster</a>) sur <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.</p><p></p>
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
 <h2 id="Autre-exemple-de-validation-personnalisee"><a href="#Autre-exemple-de-validation-personnalisee" class="headerlink" title="Autre exemple de validation personnalisée"></a>Autre exemple de validation personnalisée</h2><p>Pour le troisième exemple, nous avons construit quelque chose que vous avez surement déjà vu dans des applications de sondage. L’utilisateur se voit demander de dépenser un budget pour un ensemble de propriétés pour un nouveau modèle de Star Destroyer. Le total doit être de 100. Tout d’abord le HTML.</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span></span></span><br><span class="line"><span class="tag">  <span class="attr">id</span>=<span class="string">"app"</span></span></span><br><span class="line"><span class="tag">  @<span class="attr">submit</span>=<span class="string">"checkForm"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">action</span>=<span class="string">"https://vuejs.org/"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">method</span>=<span class="string">"post"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">novalidate</span>=<span class="string">"true"</span></span></span><br><span class="line"><span class="tag">&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span> <span class="attr">v-if</span>=<span class="string">"errors.length"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">b</span>&gt;</span>Please correct the following error(s):<span class="tag">&lt;/<span class="name">b</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"error in errors"</span>&gt;</span>&#123;&#123; error &#125;&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">    Given a budget of 100 dollars, indicate how much</span><br><span class="line">    you would spend on the following features for the</span><br><span class="line">    next generation Star Destroyer. Your total must sum up to 100.</span><br><span class="line">  <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span></span></span><br><span class="line"><span class="tag">      <span class="attr">v-model.number</span>=<span class="string">"weapons"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">type</span>=<span class="string">"number"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">name</span>=<span class="string">"weapons"</span></span></span><br><span class="line"><span class="tag">    &gt;</span> Weapons <span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span></span></span><br><span class="line"><span class="tag">      <span class="attr">v-model.number</span>=<span class="string">"shields"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">type</span>=<span class="string">"number"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">name</span>=<span class="string">"shields"</span></span></span><br><span class="line"><span class="tag">    &gt;</span> Shields <span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span></span></span><br><span class="line"><span class="tag">      <span class="attr">v-model.number</span>=<span class="string">"coffee"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">type</span>=<span class="string">"number"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">name</span>=<span class="string">"coffee"</span></span></span><br><span class="line"><span class="tag">    &gt;</span> Coffee <span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span></span></span><br><span class="line"><span class="tag">      <span class="attr">v-model.number</span>=<span class="string">"ac"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">type</span>=<span class="string">"number"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">name</span>=<span class="string">"ac"</span></span></span><br><span class="line"><span class="tag">    &gt;</span> Air Conditioning <span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span></span></span><br><span class="line"><span class="tag">      <span class="attr">v-model.number</span>=<span class="string">"mousedroids"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">type</span>=<span class="string">"number"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">name</span>=<span class="string">"mousedroids"</span></span></span><br><span class="line"><span class="tag">    &gt;</span> Mouse Droids <span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">    Current Total: &#123;&#123;total&#125;&#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span></span></span><br><span class="line"><span class="tag">      <span class="attr">type</span>=<span class="string">"submit"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">value</span>=<span class="string">"Submit"</span></span></span><br><span class="line"><span class="tag">    &gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">form</span>
+  <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>
+  @<span class="hljs-attr">submit</span>=<span class="hljs-string">"checkForm"</span>
+  <span class="hljs-attr">action</span>=<span class="hljs-string">"https://vuejs.org/"</span>
+  <span class="hljs-attr">method</span>=<span class="hljs-string">"post"</span>
+  <span class="hljs-attr">novalidate</span>=<span class="hljs-string">"true"</span>
+&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">"errors.length"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>Please correct the following error(s):<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"error in errors"</span>&gt;</span>&#123;&#123; error &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+    Given a budget of 100 dollars, indicate how much
+    you would spend on the following features for the
+    next generation Star Destroyer. Your total must sum up to 100.
+  <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">input</span>
+      <span class="hljs-attr">v-model.number</span>=<span class="hljs-string">"weapons"</span>
+      <span class="hljs-attr">type</span>=<span class="hljs-string">"number"</span>
+      <span class="hljs-attr">name</span>=<span class="hljs-string">"weapons"</span>
+    &gt;</span> Weapons <span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">input</span>
+      <span class="hljs-attr">v-model.number</span>=<span class="hljs-string">"shields"</span>
+      <span class="hljs-attr">type</span>=<span class="hljs-string">"number"</span>
+      <span class="hljs-attr">name</span>=<span class="hljs-string">"shields"</span>
+    &gt;</span> Shields <span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">input</span>
+      <span class="hljs-attr">v-model.number</span>=<span class="hljs-string">"coffee"</span>
+      <span class="hljs-attr">type</span>=<span class="hljs-string">"number"</span>
+      <span class="hljs-attr">name</span>=<span class="hljs-string">"coffee"</span>
+    &gt;</span> Coffee <span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">input</span>
+      <span class="hljs-attr">v-model.number</span>=<span class="hljs-string">"ac"</span>
+      <span class="hljs-attr">type</span>=<span class="hljs-string">"number"</span>
+      <span class="hljs-attr">name</span>=<span class="hljs-string">"ac"</span>
+    &gt;</span> Air Conditioning <span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">input</span>
+      <span class="hljs-attr">v-model.number</span>=<span class="hljs-string">"mousedroids"</span>
+      <span class="hljs-attr">type</span>=<span class="hljs-string">"number"</span>
+      <span class="hljs-attr">name</span>=<span class="hljs-string">"mousedroids"</span>
+    &gt;</span> Mouse Droids <span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+    Current Total: &#123;&#123;total&#125;&#125;
+  <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">input</span>
+      <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span>
+      <span class="hljs-attr">value</span>=<span class="hljs-string">"Submit"</span>
+    &gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span></code></pre>
 <p>Notez l’ensemble des champs pour les cinq propriétés. Remarquez l’ajout de <code>.number</code> à la suite de l’attribut <code>v-model</code>. Cela dit à Vue de caster la valeur en un nombre quand vous l’utilisez. Il y a cependant un bug avec cette fonctionnalité qui fait que quand la valeur est nulle, cela retourne une chaine de caractère. Vous verrez comment contourner cela plus bas. Pour faciliter la tâche à l’utilisateur, nous avons ajouté le total en cours juste en bas afin qu’ils puissent le visualiser en temps réel. Maintenant regardons le JavaScript.</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#app'</span>,</span><br><span class="line">  data:&#123;</span><br><span class="line">    errors: [],</span><br><span class="line">    weapons: <span class="number">0</span>,</span><br><span class="line">    shields: <span class="number">0</span>,</span><br><span class="line">    coffee: <span class="number">0</span>,</span><br><span class="line">    ac: <span class="number">0</span>,</span><br><span class="line">    mousedroids: <span class="number">0</span></span><br><span class="line">  &#125;,</span><br><span class="line">  computed: &#123;</span><br><span class="line">     total: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">       <span class="comment">// must parse because Vue turns empty value to string</span></span><br><span class="line">       <span class="keyword">return</span> <span class="built_in">Number</span>(<span class="keyword">this</span>.weapons) +</span><br><span class="line">         <span class="built_in">Number</span>(<span class="keyword">this</span>.shields) +</span><br><span class="line">         <span class="built_in">Number</span>(<span class="keyword">this</span>.coffee) +</span><br><span class="line">         <span class="built_in">Number</span>(<span class="keyword">this</span>.ac+<span class="keyword">this</span>.mousedroids);</span><br><span class="line">     &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods:&#123;</span><br><span class="line">    checkForm: <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">this</span>.errors = [];</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span> (<span class="keyword">this</span>.total != <span class="number">100</span>) &#123;</span><br><span class="line">        <span class="keyword">this</span>.errors.push(<span class="string">'Total must be 100!'</span>);</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span> (!<span class="keyword">this</span>.errors.length) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      e.preventDefault();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-keyword">const</span> app = <span class="hljs-keyword">new</span> Vue(&#123;
+  <span class="hljs-attr">el</span>: <span class="hljs-string">'#app'</span>,
+  <span class="hljs-attr">data</span>:&#123;
+    <span class="hljs-attr">errors</span>: [],
+    <span class="hljs-attr">weapons</span>: <span class="hljs-number">0</span>,
+    <span class="hljs-attr">shields</span>: <span class="hljs-number">0</span>,
+    <span class="hljs-attr">coffee</span>: <span class="hljs-number">0</span>,
+    <span class="hljs-attr">ac</span>: <span class="hljs-number">0</span>,
+    <span class="hljs-attr">mousedroids</span>: <span class="hljs-number">0</span>
+  &#125;,
+  <span class="hljs-attr">computed</span>: &#123;
+     <span class="hljs-attr">total</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+       <span class="hljs-comment">// must parse because Vue turns empty value to string</span>
+       <span class="hljs-keyword">return</span> <span class="hljs-built_in">Number</span>(<span class="hljs-keyword">this</span>.weapons) +
+         <span class="hljs-built_in">Number</span>(<span class="hljs-keyword">this</span>.shields) +
+         <span class="hljs-built_in">Number</span>(<span class="hljs-keyword">this</span>.coffee) +
+         <span class="hljs-built_in">Number</span>(<span class="hljs-keyword">this</span>.ac+<span class="hljs-keyword">this</span>.mousedroids);
+     &#125;
+  &#125;,
+  <span class="hljs-attr">methods</span>:&#123;
+    <span class="hljs-attr">checkForm</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>&#123;
+      <span class="hljs-keyword">this</span>.errors = [];
+
+      <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.total != <span class="hljs-number">100</span>) &#123;
+        <span class="hljs-keyword">this</span>.errors.push(<span class="hljs-string">'Total must be 100!'</span>);
+      &#125;
+
+      <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>.errors.length) &#123;
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+      &#125;
+
+      e.preventDefault();
+    &#125;
+  &#125;
+&#125;)</code></pre>
 <p>Nous avons défini le total comme une valeur calculée et la méthode checkForm doit maintenant juste vérifier si le total est 100 et c’est tout. Vous pouvez jouer avec ici:</p>
 <p></p><p data-height="265" data-theme-id="0" data-slug-hash="vWqGoy" data-default-tab="html,result" data-user="cfjedimaster" data-embed-version="2" data-pen-title="form validation 3" class="codepen">Voir le Pen <a href="https://codepen.io/cfjedimaster/pen/vWqGoy/" target="_blank" rel="noopener">form validation 3</a> par Raymond Camden (<a href="https://codepen.io/cfjedimaster" target="_blank" rel="noopener">@cfjedimaster</a>) sur <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.</p><p></p>
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
 <h2 id="Validation-cote-serveur"><a href="#Validation-cote-serveur" class="headerlink" title="Validation côté serveur"></a>Validation côté serveur</h2><p>Dans mon dernier exemple, nous allons construire une application vuejs qui utilise Ajax pour valider des données via le serveur. Le formulaire va vous demander de nommer un nouveau produit et ensuite s’assurer que ce nom est unique. Nous avons écrit une rapide <a href="http://openwhisk.apache.org/" target="_blank" rel="noopener">OpenWhisk</a> action sans serveur pour gérer la validation, voici la logique de cette action.</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">main</span>(<span class="params">args</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">// bad product names: vista, empire, mbp</span></span><br><span class="line">        <span class="keyword">const</span> badNames = [<span class="string">'vista'</span>, <span class="string">'empire'</span>, <span class="string">'mbp'</span>];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (badNames.includes(args.name)) &#123;</span><br><span class="line">          reject(&#123;<span class="attr">error</span>: <span class="string">'Existing product'</span>&#125;);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        resolve(&#123;<span class="attr">status</span>: <span class="string">'ok'</span>&#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">main</span>(<span class="hljs-params">args</span>) </span>&#123;
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve, reject</span>) =&gt;</span> &#123;
+        <span class="hljs-comment">// bad product names: vista, empire, mbp</span>
+        <span class="hljs-keyword">const</span> badNames = [<span class="hljs-string">'vista'</span>, <span class="hljs-string">'empire'</span>, <span class="hljs-string">'mbp'</span>];
+
+        <span class="hljs-keyword">if</span> (badNames.includes(args.name)) &#123;
+          reject(&#123;<span class="hljs-attr">error</span>: <span class="hljs-string">'Existing product'</span>&#125;);
+        &#125;
+
+        resolve(&#123;<span class="hljs-attr">status</span>: <span class="hljs-string">'ok'</span>&#125;);
+    &#125;);
+&#125;</code></pre>
 <p>En gros, tous les noms exceptés “vista”, “empire”, and “mbp” sont valides. Bien, regardons donc le formulaire.</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span></span></span><br><span class="line"><span class="tag">  <span class="attr">id</span>=<span class="string">"app"</span></span></span><br><span class="line"><span class="tag">  @<span class="attr">submit</span>=<span class="string">"checkForm"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">method</span>=<span class="string">"post"</span></span></span><br><span class="line"><span class="tag">&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span> <span class="attr">v-if</span>=<span class="string">"errors.length"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">b</span>&gt;</span>Please correct the following error(s):<span class="tag">&lt;/<span class="name">b</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"error in errors"</span>&gt;</span>&#123;&#123; error &#125;&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"name"</span>&gt;</span>New Product Name: <span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span></span></span><br><span class="line"><span class="tag">      <span class="attr">id</span>=<span class="string">"name"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">v-model</span>=<span class="string">"name"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">type</span>=<span class="string">"text"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">name</span>=<span class="string">"name"</span></span></span><br><span class="line"><span class="tag">    &gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span></span></span><br><span class="line"><span class="tag">      <span class="attr">type</span>=<span class="string">"submit"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">value</span>=<span class="string">"Submit"</span></span></span><br><span class="line"><span class="tag">    &gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">form</span>
+  <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>
+  @<span class="hljs-attr">submit</span>=<span class="hljs-string">"checkForm"</span>
+  <span class="hljs-attr">method</span>=<span class="hljs-string">"post"</span>
+&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">"errors.length"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>Please correct the following error(s):<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"error in errors"</span>&gt;</span>&#123;&#123; error &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"name"</span>&gt;</span>New Product Name: <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">input</span>
+      <span class="hljs-attr">id</span>=<span class="hljs-string">"name"</span>
+      <span class="hljs-attr">v-model</span>=<span class="hljs-string">"name"</span>
+      <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span>
+      <span class="hljs-attr">name</span>=<span class="hljs-string">"name"</span>
+    &gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">input</span>
+      <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span>
+      <span class="hljs-attr">value</span>=<span class="hljs-string">"Submit"</span>
+    &gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span></code></pre>
 <p>Il n’y a rien de bien spécial ici. Voyons maintenant le JavaScript.</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> apiUrl = <span class="string">'https://openwhisk.ng.bluemix.net/api/v1/web/rcamden%40us.ibm.com_My%20Space/safeToDelete/productName.json?name='</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#app'</span>,</span><br><span class="line">  data: &#123;</span><br><span class="line">    errors: [],</span><br><span class="line">    name: <span class="string">''</span></span><br><span class="line">  &#125;,</span><br><span class="line">  methods:&#123;</span><br><span class="line">    checkForm: <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">      e.preventDefault();</span><br><span class="line"></span><br><span class="line">      <span class="keyword">this</span>.errors = [];</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span> (<span class="keyword">this</span>.name === <span class="string">''</span>) &#123;</span><br><span class="line">        <span class="keyword">this</span>.errors.push(<span class="string">'Product name is required.'</span>);</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        fetch(apiUrl + <span class="built_in">encodeURIComponent</span>(<span class="keyword">this</span>.name))</span><br><span class="line">        .then(<span class="function"><span class="params">res</span> =&gt;</span> res.json())</span><br><span class="line">        .then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">          <span class="keyword">if</span> (res.error) &#123;</span><br><span class="line">            <span class="keyword">this</span>.errors.push(res.error);</span><br><span class="line">          &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">// redirect to a new URL, or do something on success</span></span><br><span class="line">            alert(<span class="string">'ok!'</span>);</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-keyword">const</span> apiUrl = <span class="hljs-string">'https://openwhisk.ng.bluemix.net/api/v1/web/rcamden%40us.ibm.com_My%20Space/safeToDelete/productName.json?name='</span>;
+
+<span class="hljs-keyword">const</span> app = <span class="hljs-keyword">new</span> Vue(&#123;
+  <span class="hljs-attr">el</span>: <span class="hljs-string">'#app'</span>,
+  <span class="hljs-attr">data</span>: &#123;
+    <span class="hljs-attr">errors</span>: [],
+    <span class="hljs-attr">name</span>: <span class="hljs-string">''</span>
+  &#125;,
+  <span class="hljs-attr">methods</span>:&#123;
+    <span class="hljs-attr">checkForm</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>&#123;
+      e.preventDefault();
+
+      <span class="hljs-keyword">this</span>.errors = [];
+
+      <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.name === <span class="hljs-string">''</span>) &#123;
+        <span class="hljs-keyword">this</span>.errors.push(<span class="hljs-string">'Product name is required.'</span>);
+      &#125; <span class="hljs-keyword">else</span> &#123;
+        fetch(apiUrl + <span class="hljs-built_in">encodeURIComponent</span>(<span class="hljs-keyword">this</span>.name))
+        .then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> res.json())
+        .then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> &#123;
+          <span class="hljs-keyword">if</span> (res.error) &#123;
+            <span class="hljs-keyword">this</span>.errors.push(res.error);
+          &#125; <span class="hljs-keyword">else</span> &#123;
+            <span class="hljs-comment">// redirect to a new URL, or do something on success</span>
+            alert(<span class="hljs-string">'ok!'</span>);
+          &#125;
+        &#125;);
+      &#125;
+    &#125;
+  &#125;
+&#125;)</code></pre>
 <p>On commence par une variable pour l’URL de l’API qui est exécuté sur OpenWhisk. Maintenant, voyons <code>checkForm</code>. Dans cette version, nous empêchons le formulaire d’être soumis (ce qui, par ailleurs, pourrait être fait en HTML par Vue). Vous pouvez voir une vérification basique sur la nullité de <code>this.name</code> puis on attaque l’API. Si c’est un mauvais nom, on ajoute une erreur comme précédemment. Si c’est bon, dans cet exemple nous ne faisons rien à part une alerte JavaScript, mais vous pouvez renvoyer l’utilisateur vers une nouvelle page avec le nom du produit dans l’URL, ou effectuer d’autres actions. Vous pouvez tester la démo ci-dessous:</p>
 <p></p><p data-height="265" data-theme-id="0" data-slug-hash="BmgzeM" data-default-tab="js,result" data-user="cfjedimaster" data-embed-version="2" data-pen-title="form validation 4" class="codepen">Voir le Pen <a href="https://codepen.io/cfjedimaster/pen/BmgzeM/" target="_blank" rel="noopener">form validation 4</a> par Raymond Camden (<a href="https://codepen.io/cfjedimaster" target="_blank" rel="noopener">@cfjedimaster</a>) sur <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.</p><p></p>
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>

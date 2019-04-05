@@ -529,8 +529,8 @@ Vue.use(Router)
         <span class="hljs-tag">&lt;<span class="hljs-name">router-link</span> <span class="hljs-attr">:to</span>=<span class="hljs-string">"'/blog/' + post.slug"</span>&gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-name">article</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"media"</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">figure</span>&gt;</span>
-              <span class="hljs-comment">&lt;!-- Bind results using a `:` --&gt;</span>
-              <span class="hljs-comment">&lt;!-- Use a `v-if`/`else` if their is a `featured_image` --&gt;</span>
+              <span class="hljs-comment">&lt;!-- Lier les résultats en utilisant `:` --&gt;</span>
+              <span class="hljs-comment">&lt;!-- Utiliser un `v-if`/`else` s'il y a une `featured_image` --&gt;</span>
               <span class="hljs-tag">&lt;<span class="hljs-name">img</span>
                 <span class="hljs-attr">v-if</span>=<span class="hljs-string">"post.featured_image"</span>
                 <span class="hljs-attr">:src</span>=<span class="hljs-string">"post.featured_image"</span>
@@ -643,7 +643,7 @@ Vue.use(Router)
   getCategories() &#123;
     butter.category.list()
       .then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> &#123;
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'List of Categories:'</span>)
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Liste des catégories :'</span>)
         <span class="hljs-built_in">console</span>.log(res.data.data)
       &#125;)
   &#125;,
@@ -652,7 +652,7 @@ Vue.use(Router)
         <span class="hljs-attr">include</span>: <span class="hljs-string">'recent_posts'</span>
       &#125;)
       .then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> &#123;
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Posts with specific category:'</span>)
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Billets avec une catégorie spécifique :'</span>)
         <span class="hljs-built_in">console</span>.log(res)
       &#125;)
   &#125;
