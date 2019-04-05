@@ -42,7 +42,8 @@ Pour un formulaire avec trois champs, considérons que deux sont obligatoires. R
       v-model="age"
       type="number"
       name="age"
-      min="0">
+      min="0"
+    >
   </p>
 
   <p>

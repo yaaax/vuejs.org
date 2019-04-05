@@ -146,7 +146,7 @@ Vue est bien plus simple que AngularJS, autant en termes d'API que d'architectur
 
 AngularJS impose fortement la manière dont votre application doit être structurée, là où Vue offre une solution plus flexible, modulaire. Cela permet de rendre Vue plus adaptable à une large variété de projets, bien que nous reconnaissons également qu'il peut être utile de prendre des décisions pour vous afin que vous puissiez juste commencer à développer.
 
-C'est pourquoi nous offrons un [template webpack](https://github.com/vuejs-templates/webpack) qui peut être mis en place en en quelques minutes, tout en vous donnant accès à des fonctionnalités avancées comme le rechargement de module à chaud, l'analyse syntaxique, l'extraction CSS et bien plus.
+C'est pourquoi nous offrons un sytème complet pour du développement Vue.js rapide. [Vue CLI](https://github.com/vuejs/vue-cli) a pour but d'être l'outil standard pour l'écosystème Vue. Il assure que les différents outils de build fonctionne correctement ensemble avec les valeurs par défaut sensibles ainsi vous pouvez vous concentrer sur le développement de vos applications au lieu de passer du temps avec les configurations. En même temps, la CLI offre également la flexibilité de changer la configuration de chaque outil en fonction de vos besoins.
 
 ### Liaison de données
 

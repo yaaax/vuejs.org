@@ -130,8 +130,8 @@ Ensuite créez le fichier `components/BlogHome.vue` qui sera la page d'accueil d
         <router-link :to="'/blog/' + post.slug">
           <article class="media">
             <figure>
-              <!-- Bind results using a `:` -->
-              <!-- Use a `v-if`/`else` if their is a `featured_image` -->
+              <!-- Lier les résultats en utilisant `:` -->
+              <!-- Utiliser un `v-if`/`else` s'il y a une `featured_image` -->
               <img
                 v-if="post.featured_image"
                 :src="post.featured_image"
@@ -274,7 +274,7 @@ methods: {
   getCategories() {
     butter.category.list()
       .then(res => {
-        console.log('List of Categories:')
+        console.log('Liste des catégories :')
         console.log(res.data.data)
       })
   },
@@ -283,7 +283,7 @@ methods: {
         include: 'recent_posts'
       })
       .then(res => {
-        console.log('Posts with specific category:')
+        console.log('Billets avec une catégorie spécifique :')
         console.log(res)
       })
   }

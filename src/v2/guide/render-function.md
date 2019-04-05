@@ -82,7 +82,7 @@ Vue.component('anchored-heading', {
 })
 ```
 
-C'est bien plus simple ! Le code est plus court mais demande une plus grande familiarité avec les propriétés d'une instance de Vue. Dans ce cas, vous devez savoir que lorsque vous passez des enfants dans attribut `slot` dans un composant, comme le `Hello world !` à l'intérieur de `anchored-heading`, ces enfants sont stockés dans l'instance du composant via la propriété `$slots.default`. Si vous ne l'avez pas encore fait, **il est recommandé d'en lire plus sur les [propriétés d'instance de l'API](../api/#Proprietes-dinstance) avant d'entrer plus en profondeur dans les fonctions de rendu.**
+C'est bien plus simple ! Le code est plus court mais demande une plus grande familiarité avec les propriétés d'une instance de Vue. Dans ce cas, vous devez savoir que lorsque vous passez des enfants sans une directive `v-slot` dans un composant, comme le `Hello world !` à l'intérieur de `anchored-heading`, ces enfants sont stockés dans l'instance du composant via la propriété `$slots.default`. Si vous ne l'avez pas encore fait, **il est recommandé d'en lire plus sur les [propriétés d'instance de l'API](../api/#Proprietes-dinstance) avant d'entrer plus en profondeur dans les fonctions de rendu.**
 
 ## Nœuds, arbres, et DOM virtuel
 
@@ -626,7 +626,7 @@ Vous vous demandez peut-être l'utilité d'avoir `slot()` et `children` en même
 
 ``` html
 <my-functional-component>
-  <p slot="foo">
+  <p v-slot:foo>
     premier
   </p>
   <p>second</p>
@@ -640,80 +640,5 @@ Pour ce composant, `children` va vous donner les deux paragraphes, `slots().defa
 Vous serez peut-être intéressé de savoir que les templates Vue sont en fait compilés en fonctions de rendu. C'est un détail d'implémentation dont vous n'avez en général pas à vous soucier, mais si vous souhaitez savoir comment un template spécifique est compilé, vous pourrez trouver cela intéressant. Vous trouverez ci-dessous une petite démo utilisant `Vue.compile` pour voir en live le rendu d'une chaine de template :
 
 {% raw %}
-<div id="vue-compile-demo" class="demo">
-  <textarea v-model="templateText" rows="10"></textarea>
-  <div v-if="typeof result === 'object'">
-    <label>rendu :</label>
-    <pre><code>{{ result.render }}</code></pre>
-    <label>staticRenderFns :</label>
-    <pre v-for="(fn, index) in result.staticRenderFns"><code>_m({{ index }}): {{ fn }}</code></pre>
-    <pre v-if="!result.staticRenderFns.length"><code>{{ result.staticRenderFns }}</code></pre>
-  </div>
-  <div v-else>
-    <label>Erreur de compilation :</label>
-    <pre><code>{{ result }}</code></pre>
-  </div>
-</div>
-<script>
-new Vue({
-  el: '#vue-compile-demo',
-  data: {
-    templateText: '\
-<div>\n\
-  <header>\n\
-    <h1>Je suis un template !</h1>\n\
-  </header>\n\
-  <p v-if="message">\n\
-    {{ message }}\n\
-  </p>\n\
-  <p v-else>\n\
-    Pas de message.\n\
-  </p>\n\
-</div>\
-    ',
-  },
-  computed: {
-    result: function () {
-      if (!this.templateText) {
-        return 'Entrez ci-dessous un template valide'
-      }
-      try {
-        var result = Vue.compile(this.templateText.replace(/\s{2,}/g, ''))
-        return {
-          render: this.formatFunction(result.render),
-          staticRenderFns: result.staticRenderFns.map(this.formatFunction)
-        }
-      } catch (error) {
-        return error.message
-      }
-    }
-  },
-  methods: {
-    formatFunction: function (fn) {
-      return fn.toString().replace(/(\{\n)(\S)/, '$1  $2')
-    }
-  }
-})
-console.error = function (error) {
-  throw new Error(error)
-}
-</script>
-<style>
-#vue-compile-demo {
-  -webkit-user-select: inherit;
-  user-select: inherit;
-}
-#vue-compile-demo pre {
-  padding: 10px;
-  overflow-x: auto;
-}
-#vue-compile-demo code {
-  white-space: pre;
-  padding: 0
-}
-#vue-compile-demo textarea {
-  width: 100%;
-  font-family: monospace;
-}
-</style>
+<script async src="https://jsfiddle.net/phanan/5h0wx9np/embed/result,js,html/"></script>
 {% endraw %}

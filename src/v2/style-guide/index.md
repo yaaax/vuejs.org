@@ -331,7 +331,7 @@ Quand Vue transforme les directives, `v-for` a une priorité plus élevée que `
     :key="user.id"
   >
     {{ user.name }}
-  <li>
+  </li>
 </ul>
 ```
 
@@ -366,7 +366,7 @@ computed: {
     :key="user.id"
   >
     {{ user.name }}
-  <li>
+  </li>
 </ul>
 ```
 
@@ -386,7 +386,7 @@ Nous obtenons des bénéfices similaires en changeant :
     :key="user.id"
   >
     {{ user.name }}
-  <li>
+  </li>
 </ul>
 ```
 
@@ -399,7 +399,7 @@ par :
     :key="user.id"
   >
     {{ user.name }}
-  <li>
+  </li>
 </ul>
 ```
 
@@ -418,7 +418,7 @@ En déplaçant le `v-if` sur un élément englobant, nous ne vérifions plus `sh
     :key="user.id"
   >
     {{ user.name }}
-  <li>
+  </li>
 </ul>
 ```
 
@@ -430,7 +430,7 @@ En déplaçant le `v-if` sur un élément englobant, nous ne vérifions plus `sh
     :key="user.id"
   >
     {{ user.name }}
-  <li>
+  </li>
 </ul>
 ```
 {% raw %}</div>{% endraw %}
@@ -445,7 +445,7 @@ En déplaçant le `v-if` sur un élément englobant, nous ne vérifions plus `sh
     :key="user.id"
   >
     {{ user.name }}
-  <li>
+  </li>
 </ul>
 ```
 
@@ -456,7 +456,7 @@ En déplaçant le `v-if` sur un élément englobant, nous ne vérifions plus `sh
     :key="user.id"
   >
     {{ user.name }}
-  <li>
+  </li>
 </ul>
 ```
 {% raw %}</div>{% endraw %}
@@ -1736,15 +1736,6 @@ Par défaut, Vue met à jour le DOM aussi efficacement que possible. Cela signif
   v-else
   key="search-results"
 >
-  {{ results }}
-</div>
-```
-
-``` html
-<p v-if="error">
-  Error: {{ error }}
-</p>
-<div v-else>
   {{ results }}
 </div>
 ```

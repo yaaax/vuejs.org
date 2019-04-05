@@ -510,12 +510,12 @@ type: api
   Une liste ou un objet décrivant les attributs exposés par le composant afin de passer des données depuis le composant parent. Ce paramètre a une syntaxe simple basée sur un tableau (`Array`) et une syntaxe alternative basée sur un objet (`Object`) qui permet une configuration avancée telle qu'une vérification de typage, des contrôles de validation personnalisés et des valeurs par défaut.
 
   Avec la syntaxe objet, vous pouvez passer les options suivantes :
-    - Le **type** peut être l'un des constructeurs natifs suivants : `String`, `Number`, `Boolean`, `Array`, `Object`, `Date`, `Function`, `Symbol` ainsi que n'importe quelle fonction de construction ou tableau de ces types. Les types des props seront vérifiés. Un avertissement sera fourni si une prop n'est pas du bon type. [Plus d'information](../guide/components-props.html#Types-des-props) sur les types des props.
-    - **default:** `any`
+    - Le `type` peut être l'un des constructeurs natifs suivants : `String`, `Number`, `Boolean`, `Array`, `Object`, `Date`, `Function`, `Symbol` ainsi que n'importe quelle fonction de construction ou tableau de ces types. Les types des props seront vérifiés. Un avertissement sera fourni si une prop n'est pas du bon type. [Plus d'information](../guide/components-props.html#Types-des-props) sur les types des props.
+    - `default:` `any`
     Spécifie la valeur par défaut de la prop. Si la prop n'est pas passée, cette valeur sera utilisée à la place. Les objets ou tableaux par défaut doivent être retournés depuis une fonction de fabrique.
-    - **required:** `Boolean`
+    - `required:` `Boolean`
     Définie si la prop est requise. Dans un environnement autre que de production, un avertissement sera affiché dans la console si cette valeur est évaluée à vrai et que la prop n'est pas passée.
-    - **validator:** `Function`
+    - `validator:` `Function`
     Une fonction de validation personnalisée qui prend la valeur de prop comme seul argument. Dans un environnement autre que de production, un avertissement sera affiché dans la console si cette fonction retourne une valeur évaluée à faux. (c.-à-d. que la validation a échoué). Vous pouvez en lire plus à propos de la validation des props [ici](../guide/components-props.html#Validation-des-props).
 
 - **Exemple :**
@@ -1385,7 +1385,9 @@ type: api
 
 - **Détails :**
 
-  Utilisé pour accéder programmatiquement à du contenu [distribué par slots](../guide/components.html#Distribution-de-contenu-avec-des-slots). Chaque [slot nommé](../guide/components.html#Slots-nommes) a sa propriété correspondante (p. ex. le contenu de `slot="foo"` sera trouvé dans `vm.$slots.foo`). La propriété `default` contient tous les nœuds non inclus dans un slot nommé.
+  Utilisé pour accéder programmatiquement à du contenu [distribué par slots](../guide/components.html#Distribution-de-contenu-avec-des-slots). Chaque [slot nommé](../guide/components.html#Slots-nommes) a sa propriété correspondante (p. ex. le contenu de `v-slot:foo` sera trouvé dans `vm.$slots.foo`). La propriété `default` contient tous les nœuds non inclus dans un slot nommé ou contenus de `v-slot:default`.
+
+  **Note:** `v-slot:foo` est supporté dans la v2.6+. Pour des versions plus anciennes, vous pouvez utiliser la [syntaxe dépréciée](../guide/components-slots.html#Deprecated-Syntax).
 
   Accéder à `vm.$slots` est plus utile lorsque vous écrivez un composant avec une [fonction de rendu](../guide/render-function.html).
 
@@ -1393,15 +1395,15 @@ type: api
 
   ```html
   <blog-post>
-    <h1 slot="header">
-      À propos de moi
-    </h1>
+    <template v-slot:header>
+      <h1>À propos de moi</h1>
+    </template>
 
     <p>Voici du contenu pour la page, qui sera inclus dans vm.$slots.default, car il n'est pas à l'intérieur d'un slot nommé.</p>
 
-    <p slot="footer">
-      Copyright 2016 Evan You
-    </p>
+    <template v-slot:footer>
+      <p>Copyright 2016 Evan You</p>
+    </template>
 
     <p>Si j'ai du contenu ici, il sera aussi inclus dans vm.$slots.default.</p>
   </blog-post>
@@ -1423,7 +1425,7 @@ type: api
   ```
 
 - **Voir aussi :**
-  - [Composant `<slot>`](#slot-1)
+  - [Composant `<slot>`](#slot)
   - [Distribution de contenu avec des slots](../guide/components.html#Distribution-de-contenu-avec-des-slots)
   - [Fonctions de rendu - Slots](../guide/render-function.html#Slots)
 
@@ -1448,7 +1450,7 @@ type: api
   2. Tous les `$slots` sont maintenant exposés via `$scopedSlots` en tant que fonctions. Si vous travaillez avec des fonctions de rendu, il est maintenant recommandé de toujours accéder aux slots via `$scopedSlots`, si elles utilisent actuellement une portée ou non. Cela ne va pas seulement permettre d'ajouter des scopes simplement lors de futures refactorisations, mais également de faciliter votre éventuelle migration vers Vue 3, où tous les slots seront des fonctions.
 
 - **Voir aussi :**
-  - [Composant `<slot>`](#slot-1)
+  - [Composant `<slot>`](#slot)
   - [Slots avec portée](../guide/components.html#Slots-avec-portee)
   - [Fonctions de rendu - Slots](../guide/render-function.html#Slots)
 
@@ -2486,6 +2488,7 @@ Utilisé pour indiquer un élément `<template>` en tant que slot avec portée.
   - `css` - booléen, indique si les classes CSS de transition doivent être appliquées ou non. Valeur par défaut: `true`. Si assigné à `false`, seuls les hooks JavaScript inscrits via les évènements du composant seront déclenchés.
   - `type` - string, spécifie le type d'évènement de transition à attendre pour déterminer le timing de fin de transition. Les valeurs disponibles sont `"transition"` and `"animation"`. Par défaut, il détectera automatiquement le type ayant la durée la plus longue.
   - `mode` - string, contrôle la séquence de timing des transitions entrantes/sortantes. Les modes disponibles sont `"out-in"` et `"in-out"`; par défaut en simultané.
+  - `duration` - number | { `enter`: number, `leave`: number }, spécifie la durée de la transition. Par défaut, Vue attend le premier évènement `transitionend` ou `animationend` de l'élément de transition racine.
   - `enter-class` - string
   - `leave-class` - string
   - `appear-class` - string
