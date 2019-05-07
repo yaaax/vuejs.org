@@ -581,6 +581,8 @@ et des hooks JavaScript personnalisés :
 </transition>
 ```
 
+Dans l'exemple ci-dessus, l'attribut appear` ou le hook `v-on:appear` vont tous deux déclencher une transition d'apparition.
+
 ## Transition entre éléments
 
 Plus loin, nous parlons de [transition entre les composants](#transition-entre-les-composants), mais vous pouvez également faire une transition entre des éléments bruts en utilisant `v-if`/`v-else`.  L'une des transitions les plus courantes sur deux éléments est entre un conteneur de liste et un message décrivant une liste vide :

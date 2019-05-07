@@ -186,7 +186,7 @@ Quand vous utilisiez un `index`, l'ordre des arguments pour les tableaux était 
 
 ### Ordre des arguments de `v-for` pour les objets <sup>changé</sup>
 
-Quand vous utilisez une `key`, l'ordre des arguments pour les objets était `(key, value)`. Cet ordre est maintenant `(value, key)` pour plus de consistances avec les itérateurs d'objet communs comme lodash.
+Quand vous utilisez un·e `name/key`, l'ordre des arguments pour les objets était `(name, value)`. Cet ordre est maintenant `(value, key)` pour plus de consistances avec les itérateurs d'objet communs comme lodash.
 
 {% raw %}
 <div class="upgrade-path">

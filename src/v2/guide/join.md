@@ -18,7 +18,7 @@ Le [code de conduite](/coc) est un guide pour rendre facile l'enrichissement de 
 
 - [Forum](https://forum.vuejs.org/french) : Le meilleur endroit pour poser des questions et obtenir des réponses à propos de Vue et de son écosystème.
 - [Chat](https://discordapp.com/channels/325477692906536972/360669119948783616) | [En](https://chat.vuejs.org/) : Un endroit où les développeurs peuvent se rencontrer et discuter en temps réel.
-- [Meetups (EN)](https://www.vuemeetups.org): Envie de rencontrer des utilisateurs de Vue.js enthousiastes comme vous ? Intéressé pour devenir un leader de communauté ? Nous avons l'aide et le support qu'il vous faut juste ici !
+- [Meetups (EN)](https://events.vuejs.org/meetups): Envie de rencontrer des utilisateurs de Vue.js enthousiastes comme vous ? Intéressé pour devenir un leader de communauté ? Nous avons l'aide et le support qu'il vous faut juste ici !
 - [GitHub (EN)](https://github.com/vuejs) : Si vous avez un bogue à reporter ou une demande de nouvelle fonctionnalité à faire, les rapports de bogue (« issues ») GitHub sont là pour ça. Les propositions de fusion (« pull requests ») sont également les bienvenues !
 
 ### Explorer l'écosystème
@@ -60,7 +60,7 @@ Et si maintenir la traduction que vous êtes en train de lire vous intéresse (o
 Il y a beaucoup de choses que vous pouvez faire pour aider Vue à grandir dans votre communauté :
 
 - **Le présenter lors de vos meetup locaux.** Chaque fois que vous donnez un talk ou que vous faites un workshop, vous apportez beaucoup de valeur à la communauté en aidant aussi bien les nouveaux développeurs que les plus expérimentés.
-- **Lancez votre propre meetup.** S'il n'y a pas déjà un meetup Vue dans votre zone, vous pouvez créer le votre ! Utilisez [les outils vuemeetups.org](https://www.vuemeetups.org/resources/#introduction) pour vous aider à réussir !
+- **Lancez votre propre meetup.** S'il n'y a pas déjà un meetup Vue dans votre zone, vous pouvez créer le votre ! Utilisez [les outils events.vuejs.org](https://events.vuejs.org/resources/#getting-started) pour vous aider à réussir !
 - **Aider les organisateurs de meetup.** Il n'y a jamais assez d'aide quand il s'agit de mettre en place un évènement, donc vous pouvez donner un coup de main pour aider vos organisateurs locaux pour aider à faire de chaque évènement un succès.
 
-Si vous avez la moindre question sur comment être plus impliqué dans votre communauté Vue locale, contactez [hello@vuemeetups.org](mailto:hello@vuemeetups.org) ou [@VueMeetups](https://www.twitter.com/vuemeetups) !
+Si vous avez la moindre question sur comment être plus impliqué dans votre communauté Vue locale, contactez [@Vuejs_Events](https://www.twitter.com/vuejs_events) !

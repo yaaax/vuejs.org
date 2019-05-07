@@ -225,6 +225,7 @@ order: 803
     'Annecy, France': [45.899247, 6.129384],
     'Alicante, Spain' : [38.346543, -0.483838],
     'Amsterdam, Netherlands': [4.895168, 52.370216],
+    'Atlanta, GA, USA': [33.749051, -84.387858],
     'Bangalore, India': [12.971599, 77.594563],
     'Beijing, China': [39.904200, 116.407396],
     'Bordeaux, France': [44.837789, -0.579180],
@@ -232,8 +233,10 @@ order: 803
     'Chengdu, China': [30.572815, 104.066801],
     'Chongqing, China': [29.431586, 106.912251],
     'Denver, CO, USA': [39.739236, -104.990251],
+    'Dublin, Ireland': [53.349918, -6.260174],
     'Dubna, Russia': [56.732020, 37.166897],
     'East Lansing, MI, USA': [42.736979, -84.483865],
+    'Fort Worth, TX, USA': [32.755331, -97.325735],
     'Hangzhou, China': [30.274084, 120.155070],
     'Jersey City, NJ, USA': [40.728157, -74.558716],
     'Kingston, Jamaica': [18.017874, -76.809904],
@@ -330,18 +333,16 @@ order: 803
       github: 'posva',
       twitter: 'posva',
       work: {
-        role: 'Lead Instructor',
-        org: 'IronHack',
-        orgUrl: 'https://www.ironhack.com/'
+        role: 'Freelance Developer & Consultant',
       },
       reposOfficial: [
         'vuefire', 'vue-router'
       ],
       reposPersonal: [
-        'vuexfire', 'vue-mdc', 'vue-motion'
+        'vuex-mock-store', 'vue-promised', 'vue-motion'
       ],
       links: [
-        'https://www.codementor.io/posva'
+        'https://www.patreon.com/posva'
       ]
     },
     {
@@ -624,6 +625,25 @@ order: 803
         'https://phanan.net/'
       ]
     },
+    {
+      name: 'Natalia Tepluhina',
+      title: 'Fox Tech Guru',
+      city: 'Kyiv, Ukraine',
+      languages: ['uk', 'ru', 'en'],
+      reposOfficial: [
+        'vuejs.org'
+      ],
+      work: {
+        role: 'Senior Frontend Engineer',
+        org: 'GitLab',
+        orgUrl: 'https://gitlab.com/'
+      },
+      github: 'NataliaTepluhina',
+      twitter: 'N_Tepluhina',
+      links: [
+        'https://vuevixens.org/'
+      ]
+    }
   ]))
 
   var emeriti = shuffle([
@@ -769,13 +789,13 @@ order: 803
     {
       name: 'James McGlasson',
       title: 'Head of Marketing Communications',
-      imageUrl: 'https://media.licdn.com/dms/image/C4E03AQHxi_fy33l5Mg/profile-displayphoto-shrink_800_800/0?e=1556150400&v=beta&t=KADJ_7nuWuYFPQaKtK7QuI96iC0gPKc198GZ-_dXr_0',
       city: 'Amsterdam, Netherlands',
       languages: ['en', 'nl', 'de'],
       work: {
         role: 'Head Of Marketing Communications',
         org: 'Vue.js Amsterdam'
       },
+      twitter: 'jamesvuejs',
       linkedin: 'jdog',
       links: [
         'https://vuejs.amsterdam'
@@ -795,25 +815,6 @@ order: 803
       links: [
         'https://vuevixens.org/',
         'https://nativescript-vue.org/'
-      ]
-    },
-    {
-      name: 'Natalia Tepluhina',
-      title: 'Fox Tech Guru',
-      city: 'Kyiv, Ukraine',
-      languages: ['uk', 'ru', 'en'],
-      reposOfficial: [
-        'vuejs.org'
-      ],
-      work: {
-        role: 'Senior Frontend Engineer',
-        org: 'GitLab',
-        orgUrl: 'https://gitlab.com/'
-      },
-      github: 'NataliaTepluhina',
-      twitter: 'N_Tepluhina',
-      links: [
-        'https://vuevixens.org/'
       ]
     },
     {
@@ -1173,7 +1174,7 @@ order: 803
     {
       name: 'Gregg Pollack',
       title: '',
-      city: 'Orlando, FL',
+      city: 'Orlando, FL, USA',
       languages: ['en'],
       github: 'gregg',
       twitter: 'greggpollack',
@@ -1190,7 +1191,7 @@ order: 803
     {
       name: 'Adam Jahr',
       title: '',
-      city: 'Orlando, FL',
+      city: 'Orlando, FL, USA',
       languages: ['en'],
       github: 'atomjar',
       twitter: 'adamjahr',
@@ -1379,20 +1380,26 @@ order: 803
         if (!vm.userPosition) return vuers
         var vuersWithDistances = vuers.map(function (vuer) {
           var cityCoords = cityCoordsFor[vuer.city]
+          if (cityCoords) {
+            return Object.assign({}, vuer, {
+              distanceInKm: getDistanceFromLatLonInKm(
+                vm.userPosition.coords.latitude,
+                vm.userPosition.coords.longitude,
+                cityCoords[0],
+                cityCoords[1]
+              )
+            })
+          }
           return Object.assign({}, vuer, {
-            distanceInKm: getDistanceFromLatLonInKm(
-              vm.userPosition.coords.latitude,
-              vm.userPosition.coords.longitude,
-              cityCoords[0],
-              cityCoords[1]
-            )
+            distanceInKm: null
           })
         })
         vuersWithDistances.sort(function (a, b) {
-          return (
-            a.distanceInKm -
-            b.distanceInKm
-          )
+          if (a.distanceInKm && b.distanceInKm) return a.distanceInKm - b.distanceInKm
+          if (a.distanceInKm && !b.distanceInKm) return -1
+          if (!a.distanceInKm && b.distanceInKm) return 1
+          if (a.name < b.name) return -1
+          if (a.name > b.name) return 1
         })
         return vuersWithDistances
       },

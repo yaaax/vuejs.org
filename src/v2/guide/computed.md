@@ -229,7 +229,7 @@ var watchExampleVM = new Vue({
     this.debouncedGetAnswer = _.debounce(this.getAnswer, 500)
   },
   methods: {
-    getAnswer:  function () {
+    getAnswer: function () {
       if (this.question.indexOf('?') === -1) {
         this.answer = "Les questions contiennent généralement un point d'interrogation. ;-)"
         return
@@ -278,7 +278,7 @@ var watchExampleVM = new Vue({
     this.debouncedGetAnswer = _.debounce(this.getAnswer, 500)
   },
   methods: {
-    getAnswer:  function () {
+    getAnswer: function () {
       if (this.question.indexOf('?') === -1) {
         this.answer = "Les questions contiennent généralement un point d'interrogation. ;-)"
         return

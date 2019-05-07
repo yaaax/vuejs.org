@@ -143,6 +143,37 @@ new Vue({
 </script>
 {% endraw %}
 
+Les arguments de directive peuvent être dynamiques. Par exemple, dans `v-mydirective:argument=[dataproperty]`, `argument` est une valeur de chaine de caractère assignée à la propriété *arg* dans le paramètre de liaison (*binding*) du hook de directive et `dataproperty` est une référence à la propriété de donnée de l'instance de votre composant assignée à la valeur de propriété (*value*) pour le même paramètre de liaison (*binding*). Parce que les hooks de directive sont invoqués, la valeur de propriété (*value*) du paramètre de liaison (*binding*) va changer dynamiquement en se basant sur la valeur de `dataproperty`.
+
+Un exemple de directive personnalisée utilisant un argument dynamique :
+
+```html
+<div id="app">
+  <p>Faite défiler la page vers le bas</p>
+  <p v-tack:left="[dynamicleft]">Vous êtes maintenant décalé depuis le bord gauche au lieu du haut de page</p>
+</div>
+```
+
+```js
+Vue.directive('tack', {
+  bind(el, binding, vnode) {
+    el.style.position = 'fixed';
+    const s = (binding.arg == 'left' ? 'left' : 'top');
+    el.style[s] = binding.value + 'px';
+  }
+})
+
+// démarrer l'application
+new Vue({
+  el: '#app',
+  data() {
+    return {
+      dynamicleft: 500
+    }
+  }
+})
+```
+
 ## Fonction abrégée
 
 Dans de nombreux cas, vous pourriez vouloir le même comportement pour les hooks `bind` et `update`, sans avoir besoin des autres hooks. Par exemple :

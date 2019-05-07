@@ -43,7 +43,7 @@ Certaines fonctionnalités de Vue existent pour régler des cas exceptionnels ou
 
 ### Nom de composant à mots multiples <sup data-p="a">essentiel</sup>
 
-**Les noms de composant devraient toujours être des mots multiples, à l'exception du composant racine `App`.**
+**Les noms de composant devraient toujours être des mots multiples, à l'exception du composant racine `App` et des composants préconçus fournis par Vue comme `<transition>` ou `<component>`.**
 
 Ceci afin de [prévenir les conflits](http://w3c.github.io/webcomponents/spec/custom/#valid-custom-element-name) avec des éléments HTML futurs ou existant car toutes les balises HTML n'ont qu'un seul mot.
 
@@ -564,7 +564,7 @@ Au-delà de l'attribut `scoped`, utiliser des noms de classe uniques vous assure
 
 ### Noms de propriété privé <sup data-p="a">essentiel</sup>
 
-**Utilisez toujours le préfixe `$_` pour les propriétés privées personnalisées dans un plugin, mixin, etc. Cela permet d'éviter les conflits avec le code d'autres développeurs. Il est également possible d’inclure un nom de portée (par ex. `$_yourPluginName_`).**
+**Utilisez la portée des modules pour garder les fonctions inaccessibles de l'extérieur. Si cela n'est pas possible, utilisez le préfixe `$_` pour les propriétés privées personnalisées dans un plugin, mixin, etc car elles ne doivent pas être considérées comme des APIs publiques. Cela permet d'éviter les conflits avec le code d'autres développeurs. Il est également possible d’inclure un nom de portée (par ex. `$_yourPluginName_`).**
 
 {% raw %}
 <details>
@@ -642,6 +642,25 @@ var myGreatMixin = {
     }
   }
 }
+```
+
+``` js
+// Encore mieux !
+var myGreatMixin = {
+  // ...
+  methods: {
+    publicMethod() {
+      // ...
+      myPrivateFunction()
+    }
+  }
+}
+
+function myPrivateFunction() {
+  // ...
+}
+
+export default myGreatMixin
 ```
 {% raw %}</div>{% endraw %}
 

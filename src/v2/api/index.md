@@ -246,11 +246,11 @@ type: api
 
 - **Voir aussi :** [File d’attente de mise à jour asynchrone](../guide/reactivity.html#File-d’attente-de-mise-a-jour-asynchrone)
 
-### Vue.set( cible, clé, valeur )
+### Vue.set( cible, nomDePropriete/index, valeur )
 
 - **Arguments :**
   - `{Object | Array} cible`
-  - `{string | number} clé`
+  - `{string | number} nomDePropriete/index`
   - `{any} valeur`
 
 - **Retourne:** la valeur assignée.
@@ -263,11 +263,11 @@ type: api
 
 - **Voir aussi :** [Réactivité en détail](../guide/reactivity.html)
 
-### Vue.delete( cible, clé )
+### Vue.delete( cible, nomDePropriete/index )
 
 - **Arguments :**
   - `{Object | Array} cible`
-  - `{string | number} clé`
+  - `{string | number} nomDePropriete/index`
 
   > Seulement dans la 2.2.0+ : fonctionne aussi avec Array + index.
 
@@ -674,26 +674,26 @@ type: api
       },
       // nom d'une méthode
       b: 'uneMéthode',
-      // observateur profond (deep watcher)
+      // la fonction de rappel sera appelée quelque soit les changements des propriétés de l'objet observé indépendamment de leur profondeur
       c: {
         handler: function (valeur, ancienneValeur) { /* ... */ },
         deep: true
       },
       // la fonction de rappel va être appelée immédiatement après le début de l'observation
       d: {
-        handler: function (valeur, ancienneValeur) { /* ... */ },
+        handler: 'uneMéthode',
         immediate: true
       },
       e: [
         'handle1',
-        function handle2 (val, oldVal) { /* ... */ },
+        function handle2 (valeur, ancienneValeur) { /* ... */ },
         {
-          handler: function handle3 (val, oldVal) { /* ... */ },
+          handler: function handle3 (valeur, ancienneValeur) { /* ... */ },
           /* ... */
         }
       ],
-      // watch vm.e.f's value: {g: 5}
-      'e.f': function (val, oldVal) { /* ... */ }
+      // observe la valeur de `vm.e.f` : `{g: 5}`
+      'e.f': function (valeur, ancienneValeur) { /* ... */ }
     }
   })
   vm.a = 2 // => nouveau : 2, ancien : 1
@@ -1576,11 +1576,11 @@ type: api
   // la fonction `callback` est immédiatement déclenchée avec la valeur actuelle de `a`
   ```
 
-### vm.$set( cible, clé, valeur )
+### vm.$set( cible, nomDePropriete/index, valeur )
 
 - **Arguments :**
   - `{Object | Array} cible`
-  - `{string | number} clé`
+  - `{string | number} nomDePropriete/index`
   - `{any} valeur`
 
 - **Retourne :** la valeur assignée
@@ -1591,11 +1591,11 @@ type: api
 
 - **Voir aussi :** [Vue.set](#Vue-set)
 
-### vm.$delete( cible, clé )
+### vm.$delete( cible, nomDePropriete/index )
 
 - **Arguments :**
   - `{Object | Array} cible`
-  - `{string | number} clé`
+  - `{string | number} nomDePropriete/index`
 
 - **Utilisation :**
 
@@ -2013,7 +2013,7 @@ type: api
   ``` html
   <div v-for="(item, index) in items"></div>
   <div v-for="(val, key) in object"></div>
-  <div v-for="(val, key, index) in object"></div>
+  <div v-for="(val, name, index) in object"></div>
   ```
 
   Le comportement par défaut de `v-for` est qu'il essaiera de patcher les éléments actuellement en place sans les déplacer. Pour le forcer à réordonner les éléments, vous devez fournir un indice de tri avec l'attribut spécial `key` :

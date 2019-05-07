@@ -189,4 +189,4 @@ D'une manière générale, `v-if` a des couts à la permutation plus élevés al
 
 <p class="tip">Utiliser `v-if` et `v-for` ensemble n'est **pas recommandé**. Consultez le [guide des conventions](/v2/style-guide/#Eviter-v-if-avec-v-for-essentiel) pour plus d'informations.</p>
 
-Lorsqu'il est conjointement utilisé avec `v-for`, `v-for` a une priorité plus élevée que `v-if`. Consultez le <a href="../guide/list.html#v-for-avec-v-if">guide du rendu de liste</a> pour plus de détails.
+Lorsqu'il est conjointement utilisé avec `v-if`, `v-for` a une priorité plus élevée que `v-if`. Consultez le <a href="../guide/list.html#v-for-avec-v-if">guide du rendu de liste</a> pour plus de détails.
