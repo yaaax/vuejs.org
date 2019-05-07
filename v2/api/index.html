@@ -96,13 +96,22 @@
 <li class="nav-dropdown-container learn">
   <a class="nav-link current">Doc</a><span class="arrow"></span>
   <ul class="nav-dropdown">
-    <li><ul>
-      <li><a href="/v2/guide/" class="nav-link">Guide</a></li>
-      <li><a href="/v2/api/" class="nav-link current">API</a></li>
-      <li><a href="/v2/style-guide/" class="nav-link">Conventions</a></li>
-      <li><a href="/v2/examples/" class="nav-link">Exemples</a></li>
-      <li><a href="/v2/cookbook/" class="nav-link">Tutoriels</a></li>
-    </ul></li>
+    <li><h4>Documentations</h4></li>
+    <li>
+      <ul>
+        <li><a href="/v2/guide/" class="nav-link">Guide</a></li>
+        <li><a href="/v2/api/" class="nav-link current">API</a></li>
+        <li><a href="/v2/style-guide/" class="nav-link">Conventions</a></li>
+        <li><a href="/v2/examples/" class="nav-link">Exemples</a></li>
+        <li><a href="/v2/cookbook/" class="nav-link">Tutoriels</a></li>
+      </ul>
+    </li>
+    <li><h4>Videos</h4></li>
+    <li>
+      <ul>
+        <li><a href="https://www.vuemastery.com/courses/" class="nav-link" target="_blank">Vue Mastery (EN)</a></li>
+      </ul>
+    </li>
   </ul>
 </li>
 
@@ -194,13 +203,22 @@
 <li class="nav-dropdown-container learn">
   <a class="nav-link current">Doc</a><span class="arrow"></span>
   <ul class="nav-dropdown">
-    <li><ul>
-      <li><a href="/v2/guide/" class="nav-link">Guide</a></li>
-      <li><a href="/v2/api/" class="nav-link current">API</a></li>
-      <li><a href="/v2/style-guide/" class="nav-link">Conventions</a></li>
-      <li><a href="/v2/examples/" class="nav-link">Exemples</a></li>
-      <li><a href="/v2/cookbook/" class="nav-link">Tutoriels</a></li>
-    </ul></li>
+    <li><h4>Documentations</h4></li>
+    <li>
+      <ul>
+        <li><a href="/v2/guide/" class="nav-link">Guide</a></li>
+        <li><a href="/v2/api/" class="nav-link current">API</a></li>
+        <li><a href="/v2/style-guide/" class="nav-link">Conventions</a></li>
+        <li><a href="/v2/examples/" class="nav-link">Exemples</a></li>
+        <li><a href="/v2/cookbook/" class="nav-link">Tutoriels</a></li>
+      </ul>
+    </li>
+    <li><h4>Videos</h4></li>
+    <li>
+      <ul>
+        <li><a href="https://www.vuemastery.com/courses/" class="nav-link" target="_blank">Vue Mastery (EN)</a></li>
+      </ul>
+    </li>
   </ul>
 </li>
 
@@ -588,11 +606,11 @@ Vue.nextTick()
 <li><p><strong>Voir aussi :</strong> <a href="../guide/reactivity.html#File-d’attente-de-mise-a-jour-asynchrone">File d’attente de mise à jour asynchrone</a></p>
 </li>
 </ul>
-<h3 id="Vue-set-cible-cle-valeur"><a href="#Vue-set-cible-cle-valeur" class="headerlink" title="Vue.set( cible, clé, valeur )"></a>Vue.set( cible, clé, valeur )</h3><ul>
+<h3 id="Vue-set-cible-nomDePropriete-index-valeur"><a href="#Vue-set-cible-nomDePropriete-index-valeur" class="headerlink" title="Vue.set( cible, nomDePropriete/index, valeur )"></a>Vue.set( cible, nomDePropriete/index, valeur )</h3><ul>
 <li><p><strong>Arguments :</strong></p>
 <ul>
 <li><code>{Object | Array} cible</code></li>
-<li><code>{string | number} clé</code></li>
+<li><code>{string | number} nomDePropriete/index</code></li>
 <li><code>{any} valeur</code></li>
 </ul>
 </li>
@@ -605,11 +623,11 @@ Vue.nextTick()
 <li><p><strong>Voir aussi :</strong> <a href="../guide/reactivity.html">Réactivité en détail</a></p>
 </li>
 </ul>
-<h3 id="Vue-delete-cible-cle"><a href="#Vue-delete-cible-cle" class="headerlink" title="Vue.delete( cible, clé )"></a>Vue.delete( cible, clé )</h3><ul>
+<h3 id="Vue-delete-cible-nomDePropriete-index"><a href="#Vue-delete-cible-nomDePropriete-index" class="headerlink" title="Vue.delete( cible, nomDePropriete/index )"></a>Vue.delete( cible, nomDePropriete/index )</h3><ul>
 <li><p><strong>Arguments :</strong></p>
 <ul>
 <li><code>{Object | Array} cible</code></li>
-<li><code>{string | number} clé</code></li>
+<li><code>{string | number} nomDePropriete/index</code></li>
 </ul>
 <blockquote>
 <p>Seulement dans la 2.2.0+ : fonctionne aussi avec Array + index.</p>
@@ -960,26 +978,26 @@ vm.a <span class="hljs-comment">// 2</span></code></pre>
     &#125;,
     <span class="hljs-comment">// nom d'une méthode</span>
     b: <span class="hljs-string">'uneMéthode'</span>,
-    <span class="hljs-comment">// observateur profond (deep watcher)</span>
+    <span class="hljs-comment">// la fonction de rappel sera appelée quelque soit les changements des propriétés de l'objet observé indépendamment de leur profondeur</span>
     c: &#123;
       <span class="hljs-attr">handler</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">valeur, ancienneValeur</span>) </span>&#123; <span class="hljs-comment">/* ... */</span> &#125;,
       <span class="hljs-attr">deep</span>: <span class="hljs-literal">true</span>
     &#125;,
     <span class="hljs-comment">// la fonction de rappel va être appelée immédiatement après le début de l'observation</span>
     d: &#123;
-      <span class="hljs-attr">handler</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">valeur, ancienneValeur</span>) </span>&#123; <span class="hljs-comment">/* ... */</span> &#125;,
+      <span class="hljs-attr">handler</span>: <span class="hljs-string">'uneMéthode'</span>,
       <span class="hljs-attr">immediate</span>: <span class="hljs-literal">true</span>
     &#125;,
     <span class="hljs-attr">e</span>: [
       <span class="hljs-string">'handle1'</span>,
-      <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">handle2</span> (<span class="hljs-params">val, oldVal</span>) </span>&#123; <span class="hljs-comment">/* ... */</span> &#125;,
+      <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">handle2</span> (<span class="hljs-params">valeur, ancienneValeur</span>) </span>&#123; <span class="hljs-comment">/* ... */</span> &#125;,
       &#123;
-        <span class="hljs-attr">handler</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">handle3</span> (<span class="hljs-params">val, oldVal</span>) </span>&#123; <span class="hljs-comment">/* ... */</span> &#125;,
+        <span class="hljs-attr">handler</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">handle3</span> (<span class="hljs-params">valeur, ancienneValeur</span>) </span>&#123; <span class="hljs-comment">/* ... */</span> &#125;,
         <span class="hljs-comment">/* ... */</span>
       &#125;
     ],
-    <span class="hljs-comment">// watch vm.e.f's value: &#123;g: 5&#125;</span>
-    <span class="hljs-string">'e.f'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">val, oldVal</span>) </span>&#123; <span class="hljs-comment">/* ... */</span> &#125;
+    <span class="hljs-comment">// observe la valeur de `vm.e.f` : `&#123;g: 5&#125;`</span>
+    <span class="hljs-string">'e.f'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">valeur, ancienneValeur</span>) </span>&#123; <span class="hljs-comment">/* ... */</span> &#125;
   &#125;
 &#125;)
 vm.a = <span class="hljs-number">2</span> <span class="hljs-comment">// =&gt; nouveau : 2, ancien : 1</span></code></pre>
@@ -1745,11 +1763,11 @@ vm.monObjet.valeurImbriquée = <span class="hljs-number">123</span>
 <span class="hljs-comment">// la fonction `callback` est immédiatement déclenchée avec la valeur actuelle de `a`</span></code></pre>
 </li>
 </ul>
-<h3 id="vm-set-cible-cle-valeur"><a href="#vm-set-cible-cle-valeur" class="headerlink" title="vm.$set( cible, clé, valeur )"></a>vm.$set( cible, clé, valeur )</h3><ul>
+<h3 id="vm-set-cible-nomDePropriete-index-valeur"><a href="#vm-set-cible-nomDePropriete-index-valeur" class="headerlink" title="vm.$set( cible, nomDePropriete/index, valeur )"></a>vm.$set( cible, nomDePropriete/index, valeur )</h3><ul>
 <li><p><strong>Arguments :</strong></p>
 <ul>
 <li><code>{Object | Array} cible</code></li>
-<li><code>{string | number} clé</code></li>
+<li><code>{string | number} nomDePropriete/index</code></li>
 <li><code>{any} valeur</code></li>
 </ul>
 </li>
@@ -1761,11 +1779,11 @@ vm.monObjet.valeurImbriquée = <span class="hljs-number">123</span>
 <li><p><strong>Voir aussi :</strong> <a href="#Vue-set">Vue.set</a></p>
 </li>
 </ul>
-<h3 id="vm-delete-cible-cle"><a href="#vm-delete-cible-cle" class="headerlink" title="vm.$delete( cible, clé )"></a>vm.$delete( cible, clé )</h3><ul>
+<h3 id="vm-delete-cible-nomDePropriete-index"><a href="#vm-delete-cible-nomDePropriete-index" class="headerlink" title="vm.$delete( cible, nomDePropriete/index )"></a>vm.$delete( cible, nomDePropriete/index )</h3><ul>
 <li><p><strong>Arguments :</strong></p>
 <ul>
 <li><code>{Object | Array} cible</code></li>
-<li><code>{string | number} clé</code></li>
+<li><code>{string | number} nomDePropriete/index</code></li>
 </ul>
 </li>
 <li><p><strong>Utilisation :</strong></p>
@@ -2130,7 +2148,7 @@ vm.$emit(<span class="hljs-string">'test'</span>, <span class="hljs-string">'sal
 <p>Comme alternative, vous pouvez aussi spécifier un alias pour l’index courant dans l’itération (ou la clé si utilisée sur un <code>Object</code>):</p>
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"(item, index) in items"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"(val, key) in object"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"(val, key, index) in object"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"(val, name, index) in object"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
 <p>Le comportement par défaut de <code>v-for</code> est qu’il essaiera de patcher les éléments actuellement en place sans les déplacer. Pour le forcer à réordonner les éléments, vous devez fournir un indice de tri avec l’attribut spécial <code>key</code> :</p>
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"item in items"</span> <span class="hljs-attr">:key</span>=<span class="hljs-string">"item.id"</span>&gt;</span>
   &#123;&#123; item.text &#125;&#125;

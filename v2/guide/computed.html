@@ -96,13 +96,22 @@
 <li class="nav-dropdown-container learn">
   <a class="nav-link current">Doc</a><span class="arrow"></span>
   <ul class="nav-dropdown">
-    <li><ul>
-      <li><a href="/v2/guide/" class="nav-link current">Guide</a></li>
-      <li><a href="/v2/api/" class="nav-link">API</a></li>
-      <li><a href="/v2/style-guide/" class="nav-link">Conventions</a></li>
-      <li><a href="/v2/examples/" class="nav-link">Exemples</a></li>
-      <li><a href="/v2/cookbook/" class="nav-link">Tutoriels</a></li>
-    </ul></li>
+    <li><h4>Documentations</h4></li>
+    <li>
+      <ul>
+        <li><a href="/v2/guide/" class="nav-link current">Guide</a></li>
+        <li><a href="/v2/api/" class="nav-link">API</a></li>
+        <li><a href="/v2/style-guide/" class="nav-link">Conventions</a></li>
+        <li><a href="/v2/examples/" class="nav-link">Exemples</a></li>
+        <li><a href="/v2/cookbook/" class="nav-link">Tutoriels</a></li>
+      </ul>
+    </li>
+    <li><h4>Videos</h4></li>
+    <li>
+      <ul>
+        <li><a href="https://www.vuemastery.com/courses/" class="nav-link" target="_blank">Vue Mastery (EN)</a></li>
+      </ul>
+    </li>
   </ul>
 </li>
 
@@ -194,13 +203,22 @@
 <li class="nav-dropdown-container learn">
   <a class="nav-link current">Doc</a><span class="arrow"></span>
   <ul class="nav-dropdown">
-    <li><ul>
-      <li><a href="/v2/guide/" class="nav-link current">Guide</a></li>
-      <li><a href="/v2/api/" class="nav-link">API</a></li>
-      <li><a href="/v2/style-guide/" class="nav-link">Conventions</a></li>
-      <li><a href="/v2/examples/" class="nav-link">Exemples</a></li>
-      <li><a href="/v2/cookbook/" class="nav-link">Tutoriels</a></li>
-    </ul></li>
+    <li><h4>Documentations</h4></li>
+    <li>
+      <ul>
+        <li><a href="/v2/guide/" class="nav-link current">Guide</a></li>
+        <li><a href="/v2/api/" class="nav-link">API</a></li>
+        <li><a href="/v2/style-guide/" class="nav-link">Conventions</a></li>
+        <li><a href="/v2/examples/" class="nav-link">Exemples</a></li>
+        <li><a href="/v2/cookbook/" class="nav-link">Tutoriels</a></li>
+      </ul>
+    </li>
+    <li><h4>Videos</h4></li>
+    <li>
+      <ul>
+        <li><a href="https://www.vuemastery.com/courses/" class="nav-link" target="_blank">Vue Mastery (EN)</a></li>
+      </ul>
+    </li>
   </ul>
 </li>
 
@@ -1015,11 +1033,28 @@
   
   
     <h2 id="Proprietes-calculees"><a href="#Proprietes-calculees" class="headerlink" title="Propriétés calculées"></a>Propriétés calculées</h2><p>Les expressions dans le template sont très pratiques, mais elles sont uniquement destinées à des opérations simples. Mettre trop de logique dans vos templates peut les rendre trop verbeux et difficiles à maintenir. Par exemple :</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"example"</span>&gt;</span></span><br><span class="line">  &#123;&#123; message.split('').reverse().join('') &#125;&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"example"</span>&gt;</span>
+  &#123;&#123; message.split('').reverse().join('') &#125;&#125;
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
 <p>À ce stade, le template n’est ni simple ni déclaratif. Vous devez le regarder pendant une seconde avant de réaliser qu’il affiche <code>message</code> dans le sens inverse. Le problème s’aggrave lorsque vous souhaitez inclure le message inversé plusieurs fois dans votre template.</p>
 <p>C’est pourquoi vous devriez utiliser des <strong>propriétés calculées</strong> pour toute logique complexe.</p>
-<h3 id="Exemple-basique"><a href="#Exemple-basique" class="headerlink" title="Exemple basique"></a>Exemple basique</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"example"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>Message original : "&#123;&#123; message &#125;&#125;"<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>Message inversé calculé : "&#123;&#123; reversedMessage &#125;&#125;"<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#example'</span>,</span><br><span class="line">  data: &#123;</span><br><span class="line">    message: <span class="string">'Bonjour'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  computed: &#123;</span><br><span class="line">    <span class="comment">// un accesseur (getter) calculé</span></span><br><span class="line">    reversedMessage: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="comment">// `this` pointe sur l'instance vm</span></span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">this</span>.message.split(<span class="string">''</span>).reverse().join(<span class="string">''</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="Exemple-basique"><a href="#Exemple-basique" class="headerlink" title="Exemple basique"></a>Exemple basique</h3><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"example"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Message original : "&#123;&#123; message &#125;&#125;"<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Message inversé calculé : "&#123;&#123; reversedMessage &#125;&#125;"<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> Vue(&#123;
+  <span class="hljs-attr">el</span>: <span class="hljs-string">'#example'</span>,
+  <span class="hljs-attr">data</span>: &#123;
+    <span class="hljs-attr">message</span>: <span class="hljs-string">'Bonjour'</span>
+  &#125;,
+  <span class="hljs-attr">computed</span>: &#123;
+    <span class="hljs-comment">// un accesseur (getter) calculé</span>
+    reversedMessage: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+      <span class="hljs-comment">// `this` pointe sur l'instance vm</span>
+      <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.message.split(<span class="hljs-string">''</span>).reverse().join(<span class="hljs-string">''</span>)
+    &#125;
+  &#125;
+&#125;)</code></pre>
 <p>Résultat :</p>
 
 <div id="example" class="demo">
@@ -1041,30 +1076,136 @@ var vm = new Vue({
 </script>
 
 <p>Ici, nous avons déclaré une propriété calculée <code>reversedMessage</code>. La fonction que nous avons fournie sera utilisée comme une fonction accesseur (getter) pour la propriété <code>vm.reversedMessage</code> :</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(vm.reversedMessage) <span class="comment">// =&gt; 'ruojnoB'</span></span><br><span class="line">vm.message = <span class="string">'Au revoir'</span></span><br><span class="line"><span class="built_in">console</span>.log(vm.reversedMessage) <span class="comment">// =&gt; 'riover uA'</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-built_in">console</span>.log(vm.reversedMessage) <span class="hljs-comment">// =&gt; 'ruojnoB'</span>
+vm.message = <span class="hljs-string">'Au revoir'</span>
+<span class="hljs-built_in">console</span>.log(vm.reversedMessage) <span class="hljs-comment">// =&gt; 'riover uA'</span></code></pre>
 <p>Vous pouvez ouvrir la console et jouer vous-même avec l’exemple de vm. La valeur de <code>vm.reversedMessage</code> dépend toujours de la valeur de <code>vm.message</code>.</p>
 <p>Vous pouvez lier des données aux propriétés calculées dans les templates comme une propriété normale. Vue est au courant que <code>vm.reversedMessage</code> dépend de <code>vm.message</code>, donc il mettra à jour toutes les liaisons qui dépendent de <code>vm.reversedMessage</code> lorsque <code>vm.message</code> changera. Et le mieux dans tout cela est que nous avons créé cette relation de dépendance de façon déclarative : la fonction de l’accesseur calculé n’a pas d’effets secondaires, ce qui la rend facile à tester et à raisonner.</p>
 <h3 id="Mise-en-cache-dans-computed-vs-methods"><a href="#Mise-en-cache-dans-computed-vs-methods" class="headerlink" title="Mise en cache dans computed vs methods"></a>Mise en cache dans <code>computed</code> vs <code>methods</code></h3><p>Vous avez peut-être remarqué que nous pouvons accomplir le même résultat en invoquant une méthode dans l’expression :</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Message inversé : "&#123;&#123; reverseMessage() &#125;&#125;"<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// dans le composant</span></span><br><span class="line">methods: &#123;</span><br><span class="line">  reverseMessage: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.message.split(<span class="string">''</span>).reverse().join(<span class="string">''</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Message inversé : "&#123;&#123; reverseMessage() &#125;&#125;"<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
+<pre><code class="hljs js"><span class="hljs-comment">// dans le composant</span>
+methods: &#123;
+  <span class="hljs-attr">reverseMessage</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.message.split(<span class="hljs-string">''</span>).reverse().join(<span class="hljs-string">''</span>)
+  &#125;
+&#125;</code></pre>
 <p>Au lieu d’une propriété calculée, nous pouvons définir la même fonction en tant que méthode. Pour le résultat final, les deux approches sont en effet exactement les mêmes. Cependant, la différence est que <strong>les propriétés déclarées dans <code>computed</code> sont mises en cache selon leurs dépendances</strong>. Une propriété calculée sera réévaluée uniquement quand certaines de ses dépendances auront changé. Cela signifie que tant que <code>message</code> n’a pas changé, les multiples accès à la propriété calculée <code>reversedMessage</code> retourneront immédiatement le résultat précédemment calculé sans avoir à réexécuter la fonction.</p>
 <p>Cela signifie également que la propriété calculée suivante ne sera jamais mise à jour, parce que <code>Date.now()</code> n’est pas une dépendance réactive :</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">computed: &#123;</span><br><span class="line">  now: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Date</span>.now()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">computed: &#123;
+  <span class="hljs-attr">now</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-keyword">return</span> <span class="hljs-built_in">Date</span>.now()
+  &#125;
+&#125;</code></pre>
 <p>En comparaison, une invocation de méthode exécutera <strong>toujours</strong> la fonction à chaque fois que se produira un redéclenchement du rendu.</p>
 <p>Pourquoi avons-nous besoin de mettre en cache ? Imaginez que nous avons une propriété calculée couteuse <strong>A</strong>, qui exige une boucle dans un énorme tableau et qui fait beaucoup de calculs. Alors nous pouvons avoir d’autres propriétés calculées qui dépendent à leur tour de <strong>A</strong>. Sans la mise en cache, nous exécuterions l’accesseur de <strong>A</strong> autant de fois que nécessaire ! Dans les cas où vous ne souhaitez pas la mise en cache, utilisez une méthode à la place.</p>
 <h3 id="Proprietes-calculees-vs-observees"><a href="#Proprietes-calculees-vs-observees" class="headerlink" title="Propriétés calculées vs observées"></a>Propriétés calculées vs observées</h3><p>Vue fournit une façon plus générique d’observer et de réagir aux changements de données sur une instance de Vue : <strong>les propriétés watch</strong>. Quand vous avez des données qu’il faut changer selon d’autres données, il est tentant d’abuser de <code>watch</code> (surtout si vous venez du monde d’AngularJS). Toutefois, il est souvent préférable d’utiliser une propriété calculée et non une fonction de rappel impérative comme <code>watch</code>. Considérez cet exemple :</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"demo"</span>&gt;</span>&#123;&#123; fullName &#125;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#demo'</span>,</span><br><span class="line">  data: &#123;</span><br><span class="line">    firstName: <span class="string">'Foo'</span>,</span><br><span class="line">    lastName: <span class="string">'Bar'</span>,</span><br><span class="line">    fullName: <span class="string">'Foo Bar'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  watch: &#123;</span><br><span class="line">    firstName: <span class="function"><span class="keyword">function</span> (<span class="params">val</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">this</span>.fullName = val + <span class="string">' '</span> + <span class="keyword">this</span>.lastName</span><br><span class="line">    &#125;,</span><br><span class="line">    lastName: <span class="function"><span class="keyword">function</span> (<span class="params">val</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">this</span>.fullName = <span class="keyword">this</span>.firstName + <span class="string">' '</span> + val</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"demo"</span>&gt;</span>&#123;&#123; fullName &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> Vue(&#123;
+  <span class="hljs-attr">el</span>: <span class="hljs-string">'#demo'</span>,
+  <span class="hljs-attr">data</span>: &#123;
+    <span class="hljs-attr">firstName</span>: <span class="hljs-string">'Foo'</span>,
+    <span class="hljs-attr">lastName</span>: <span class="hljs-string">'Bar'</span>,
+    <span class="hljs-attr">fullName</span>: <span class="hljs-string">'Foo Bar'</span>
+  &#125;,
+  <span class="hljs-attr">watch</span>: &#123;
+    <span class="hljs-attr">firstName</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">val</span>) </span>&#123;
+      <span class="hljs-keyword">this</span>.fullName = val + <span class="hljs-string">' '</span> + <span class="hljs-keyword">this</span>.lastName
+    &#125;,
+    <span class="hljs-attr">lastName</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">val</span>) </span>&#123;
+      <span class="hljs-keyword">this</span>.fullName = <span class="hljs-keyword">this</span>.firstName + <span class="hljs-string">' '</span> + val
+    &#125;
+  &#125;
+&#125;)</code></pre>
 <p>Le code ci-dessus est impératif et répétitif. Comparez-le avec une version de propriété calculée :</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#demo'</span>,</span><br><span class="line">  data: &#123;</span><br><span class="line">    firstName: <span class="string">'Foo'</span>,</span><br><span class="line">    lastName: <span class="string">'Bar'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  computed: &#123;</span><br><span class="line">    fullName: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">this</span>.firstName + <span class="string">' '</span> + <span class="keyword">this</span>.lastName</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> Vue(&#123;
+  <span class="hljs-attr">el</span>: <span class="hljs-string">'#demo'</span>,
+  <span class="hljs-attr">data</span>: &#123;
+    <span class="hljs-attr">firstName</span>: <span class="hljs-string">'Foo'</span>,
+    <span class="hljs-attr">lastName</span>: <span class="hljs-string">'Bar'</span>
+  &#125;,
+  <span class="hljs-attr">computed</span>: &#123;
+    <span class="hljs-attr">fullName</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+      <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.firstName + <span class="hljs-string">' '</span> + <span class="hljs-keyword">this</span>.lastName
+    &#125;
+  &#125;
+&#125;)</code></pre>
 <p>C’est mieux, n’est-ce pas ?</p>
 <h3 id="Mutateur-calcule"><a href="#Mutateur-calcule" class="headerlink" title="Mutateur calculé"></a>Mutateur calculé</h3><p>Les propriétés calculées ont par défaut uniquement un accesseur, mais vous pouvez également fournir un mutateur (setter) quand vous en avez besoin :</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// ...</span></span><br><span class="line">computed: &#123;</span><br><span class="line">  fullName: &#123;</span><br><span class="line">    <span class="comment">// accesseur</span></span><br><span class="line">    get: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">this</span>.firstName + <span class="string">' '</span> + <span class="keyword">this</span>.lastName</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// mutateur</span></span><br><span class="line">    set: <span class="function"><span class="keyword">function</span> (<span class="params">newValue</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> names = newValue.split(<span class="string">' '</span>)</span><br><span class="line">      <span class="keyword">this</span>.firstName = names[<span class="number">0</span>]</span><br><span class="line">      <span class="keyword">this</span>.lastName = names[names.length - <span class="number">1</span>]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// ...</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-comment">// ...</span>
+computed: &#123;
+  <span class="hljs-attr">fullName</span>: &#123;
+    <span class="hljs-comment">// accesseur</span>
+    get: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+      <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.firstName + <span class="hljs-string">' '</span> + <span class="hljs-keyword">this</span>.lastName
+    &#125;,
+    <span class="hljs-comment">// mutateur</span>
+    set: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">newValue</span>) </span>&#123;
+      <span class="hljs-keyword">var</span> names = newValue.split(<span class="hljs-string">' '</span>)
+      <span class="hljs-keyword">this</span>.firstName = names[<span class="hljs-number">0</span>]
+      <span class="hljs-keyword">this</span>.lastName = names[names.length - <span class="hljs-number">1</span>]
+    &#125;
+  &#125;
+&#125;
+<span class="hljs-comment">// ...</span></code></pre>
 <p>Maintenant, lorsque vous exécutez <code>vm.fullName = &#39;John Doe&#39;</code>, le mutateur sera invoqué, <code>vm.firstName</code> et <code>vm.lastName</code> seront mis à jour en conséquence.</p>
 <h2 id="Observateurs"><a href="#Observateurs" class="headerlink" title="Observateurs"></a>Observateurs</h2><p>Bien que les propriétés calculées soient plus appropriées dans la plupart des cas, parfois un observateur personnalisé est nécessaire. C’est pour cela que Vue fournit une façon plus générique de réagir aux changements de données à travers l’option <code>watch</code>. Ceci est très utile lorsque vous souhaitez exécuter des opérations asynchrones ou couteuses en réponse à des données changeantes.</p>
 <p>Par exemple :</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"watch-example"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">    Posez votre question (réponse par Oui ou Non) :</span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">v-model</span>=<span class="string">"question"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123; answer &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- Puisqu'il y a déjà un riche écosystème de bibliothèques ajax      --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- et de collections de méthodes d'utilité générale, en ne les       --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- réinventant pas, le noyau de Vue peut rester petit. Cela vous     --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- donne aussi la liberté d'utiliser tout ce qui vous est familier. --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript"><span class="keyword">var</span> watchExampleVM = <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="javascript">  el: <span class="string">'#watch-example'</span>,</span></span><br><span class="line"><span class="undefined">  data: &#123;</span></span><br><span class="line"><span class="javascript">    question: <span class="string">''</span>,</span></span><br><span class="line"><span class="javascript">    answer: <span class="string">'Je ne peux pas vous donner une réponse avant que vous ne posiez une question !'</span></span></span><br><span class="line"><span class="undefined">  &#125;,</span></span><br><span class="line"><span class="undefined">  watch: &#123;</span></span><br><span class="line"><span class="javascript">    <span class="comment">// à chaque fois que la question change, cette fonction s'exécutera</span></span></span><br><span class="line"><span class="javascript">    question: <span class="function"><span class="keyword">function</span> (<span class="params">newQuestion, oldQuestion</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">      <span class="keyword">this</span>.answer = <span class="string">"J'attends que vous arrêtiez de taper..."</span></span></span><br><span class="line"><span class="javascript">      <span class="keyword">this</span>.debouncedGetAnswer()</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">  &#125;,</span></span><br><span class="line"><span class="javascript">  created: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">    <span class="comment">// _.debounce est une fonction fournie par lodash pour limiter la fréquence</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">// d'exécution d'une opération particulièrement couteuse.</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">// Dans ce cas, nous voulons limiter la fréquence d'accès à</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">// yesno.wtf/api, en attendant que l'utilisateur ait complètement</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">// fini de taper avant de faire la requête ajax. Pour en savoir</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">//  plus sur la fonction `_.debounce` (et sa cousine</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">// `_.throttle`), visitez : https://lodash.com/docs#debounce</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">this</span>.debouncedGetAnswer = _.debounce(<span class="keyword">this</span>.getAnswer, <span class="number">500</span>)</span></span><br><span class="line"><span class="undefined">  &#125;,</span></span><br><span class="line"><span class="undefined">  methods: &#123;</span></span><br><span class="line"><span class="javascript">    getAnswer:  <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">      <span class="keyword">if</span> (<span class="keyword">this</span>.question.indexOf(<span class="string">'?'</span>) === <span class="number">-1</span>) &#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">this</span>.answer = <span class="string">"Les questions contiennent généralement un point d'interrogation. ;-)"</span></span></span><br><span class="line"><span class="javascript">        <span class="keyword">return</span></span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="javascript">      <span class="keyword">this</span>.answer = <span class="string">'Je réfléchis...'</span></span></span><br><span class="line"><span class="javascript">      <span class="keyword">var</span> vm = <span class="keyword">this</span></span></span><br><span class="line"><span class="javascript">      axios.get(<span class="string">'https://yesno.wtf/api'</span>)</span></span><br><span class="line"><span class="javascript">        .then(<span class="function"><span class="keyword">function</span> (<span class="params">response</span>) </span>&#123;</span></span><br><span class="line"><span class="undefined">          vm.answer = _.capitalize(response.data.answer)</span></span><br><span class="line"><span class="undefined">        &#125;)</span></span><br><span class="line"><span class="javascript">        .catch(<span class="function"><span class="keyword">function</span> (<span class="params">error</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">          vm.answer = <span class="string">"Erreur ! Impossible d'accéder à l'API."</span> + error</span></span><br><span class="line"><span class="undefined">        &#125;)</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined">&#125;)</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"watch-example"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+    Posez votre question (réponse par Oui ou Non) :
+    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">"question"</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>&#123;&#123; answer &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+<pre><code class="hljs html"><span class="hljs-comment">&lt;!-- Puisqu'il y a déjà un riche écosystème de bibliothèques ajax      --&gt;</span>
+<span class="hljs-comment">&lt;!-- et de collections de méthodes d'utilité générale, en ne les       --&gt;</span>
+<span class="hljs-comment">&lt;!-- réinventant pas, le noyau de Vue peut rester petit. Cela vous     --&gt;</span>
+<span class="hljs-comment">&lt;!-- donne aussi la liberté d'utiliser tout ce qui vous est familier. --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+<span class="hljs-keyword">var</span> watchExampleVM = <span class="hljs-keyword">new</span> Vue(&#123;
+  <span class="hljs-attr">el</span>: <span class="hljs-string">'#watch-example'</span>,
+  <span class="hljs-attr">data</span>: &#123;
+    <span class="hljs-attr">question</span>: <span class="hljs-string">''</span>,
+    <span class="hljs-attr">answer</span>: <span class="hljs-string">'Je ne peux pas vous donner une réponse avant que vous ne posiez une question !'</span>
+  &#125;,
+  <span class="hljs-attr">watch</span>: &#123;
+    <span class="hljs-comment">// à chaque fois que la question change, cette fonction s'exécutera</span>
+    question: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">newQuestion, oldQuestion</span>) </span>&#123;
+      <span class="hljs-keyword">this</span>.answer = <span class="hljs-string">"J'attends que vous arrêtiez de taper..."</span>
+      <span class="hljs-keyword">this</span>.debouncedGetAnswer()
+    &#125;
+  &#125;,
+  <span class="hljs-attr">created</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-comment">// _.debounce est une fonction fournie par lodash pour limiter la fréquence</span>
+    <span class="hljs-comment">// d'exécution d'une opération particulièrement couteuse.</span>
+    <span class="hljs-comment">// Dans ce cas, nous voulons limiter la fréquence d'accès à</span>
+    <span class="hljs-comment">// yesno.wtf/api, en attendant que l'utilisateur ait complètement</span>
+    <span class="hljs-comment">// fini de taper avant de faire la requête ajax. Pour en savoir</span>
+    <span class="hljs-comment">//  plus sur la fonction `_.debounce` (et sa cousine</span>
+    <span class="hljs-comment">// `_.throttle`), visitez : https://lodash.com/docs#debounce</span>
+    <span class="hljs-keyword">this</span>.debouncedGetAnswer = _.debounce(<span class="hljs-keyword">this</span>.getAnswer, <span class="hljs-number">500</span>)
+  &#125;,
+  <span class="hljs-attr">methods</span>: &#123;
+    <span class="hljs-attr">getAnswer</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+      <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.question.indexOf(<span class="hljs-string">'?'</span>) === <span class="hljs-number">-1</span>) &#123;
+        <span class="hljs-keyword">this</span>.answer = <span class="hljs-string">"Les questions contiennent généralement un point d'interrogation. ;-)"</span>
+        <span class="hljs-keyword">return</span>
+      &#125;
+      <span class="hljs-keyword">this</span>.answer = <span class="hljs-string">'Je réfléchis...'</span>
+      <span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">this</span>
+      axios.get(<span class="hljs-string">'https://yesno.wtf/api'</span>)
+        .then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">response</span>) </span>&#123;
+          vm.answer = _.capitalize(response.data.answer)
+        &#125;)
+        .catch(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">error</span>) </span>&#123;
+          vm.answer = <span class="hljs-string">"Erreur ! Impossible d'accéder à l'API."</span> + error
+        &#125;)
+    &#125;
+  &#125;
+&#125;)
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
 <p>Résultat :</p>
 
 <div id="watch-example" class="demo">
@@ -1093,7 +1234,7 @@ var watchExampleVM = new Vue({
     this.debouncedGetAnswer = _.debounce(this.getAnswer, 500)
   },
   methods: {
-    getAnswer:  function () {
+    getAnswer: function () {
       if (this.question.indexOf('?') === -1) {
         this.answer = "Les questions contiennent généralement un point d'interrogation. ;-)"
         return

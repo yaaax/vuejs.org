@@ -96,13 +96,22 @@
 <li class="nav-dropdown-container learn">
   <a class="nav-link current">Doc</a><span class="arrow"></span>
   <ul class="nav-dropdown">
-    <li><ul>
-      <li><a href="/v2/guide/" class="nav-link current">Guide</a></li>
-      <li><a href="/v2/api/" class="nav-link">API</a></li>
-      <li><a href="/v2/style-guide/" class="nav-link">Conventions</a></li>
-      <li><a href="/v2/examples/" class="nav-link">Exemples</a></li>
-      <li><a href="/v2/cookbook/" class="nav-link">Tutoriels</a></li>
-    </ul></li>
+    <li><h4>Documentations</h4></li>
+    <li>
+      <ul>
+        <li><a href="/v2/guide/" class="nav-link current">Guide</a></li>
+        <li><a href="/v2/api/" class="nav-link">API</a></li>
+        <li><a href="/v2/style-guide/" class="nav-link">Conventions</a></li>
+        <li><a href="/v2/examples/" class="nav-link">Exemples</a></li>
+        <li><a href="/v2/cookbook/" class="nav-link">Tutoriels</a></li>
+      </ul>
+    </li>
+    <li><h4>Videos</h4></li>
+    <li>
+      <ul>
+        <li><a href="https://www.vuemastery.com/courses/" class="nav-link" target="_blank">Vue Mastery (EN)</a></li>
+      </ul>
+    </li>
   </ul>
 </li>
 
@@ -194,13 +203,22 @@
 <li class="nav-dropdown-container learn">
   <a class="nav-link current">Doc</a><span class="arrow"></span>
   <ul class="nav-dropdown">
-    <li><ul>
-      <li><a href="/v2/guide/" class="nav-link current">Guide</a></li>
-      <li><a href="/v2/api/" class="nav-link">API</a></li>
-      <li><a href="/v2/style-guide/" class="nav-link">Conventions</a></li>
-      <li><a href="/v2/examples/" class="nav-link">Exemples</a></li>
-      <li><a href="/v2/cookbook/" class="nav-link">Tutoriels</a></li>
-    </ul></li>
+    <li><h4>Documentations</h4></li>
+    <li>
+      <ul>
+        <li><a href="/v2/guide/" class="nav-link current">Guide</a></li>
+        <li><a href="/v2/api/" class="nav-link">API</a></li>
+        <li><a href="/v2/style-guide/" class="nav-link">Conventions</a></li>
+        <li><a href="/v2/examples/" class="nav-link">Exemples</a></li>
+        <li><a href="/v2/cookbook/" class="nav-link">Tutoriels</a></li>
+      </ul>
+    </li>
+    <li><h4>Videos</h4></li>
+    <li>
+      <ul>
+        <li><a href="https://www.vuemastery.com/courses/" class="nav-link" target="_blank">Vue Mastery (EN)</a></li>
+      </ul>
+    </li>
   </ul>
 </li>
 
@@ -1129,6 +1147,29 @@ new Vue({
 })
 </script>
 
+<p>Les arguments de directive peuvent être dynamiques. Par exemple, dans <code>v-mydirective:argument=[dataproperty]</code>, <code>argument</code> est une valeur de chaine de caractère assignée à la propriété <em>arg</em> dans le paramètre de liaison (<em>binding</em>) du hook de directive et <code>dataproperty</code> est une référence à la propriété de donnée de l’instance de votre composant assignée à la valeur de propriété (<em>value</em>) pour le même paramètre de liaison (<em>binding</em>). Parce que les hooks de directive sont invoqués, la valeur de propriété (<em>value</em>) du paramètre de liaison (<em>binding</em>) va changer dynamiquement en se basant sur la valeur de <code>dataproperty</code>.</p>
+<p>Un exemple de directive personnalisée utilisant un argument dynamique :</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Faite défiler la page vers le bas<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-tack:left</span>=<span class="hljs-string">"[dynamicleft]"</span>&gt;</span>Vous êtes maintenant décalé depuis le bord gauche au lieu du haut de page<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+<pre><code class="hljs js">Vue.directive(<span class="hljs-string">'tack'</span>, &#123;
+  bind(el, binding, vnode) &#123;
+    el.style.position = <span class="hljs-string">'fixed'</span>;
+    <span class="hljs-keyword">const</span> s = (binding.arg == <span class="hljs-string">'left'</span> ? <span class="hljs-string">'left'</span> : <span class="hljs-string">'top'</span>);
+    el.style[s] = binding.value + <span class="hljs-string">'px'</span>;
+  &#125;
+&#125;)
+
+<span class="hljs-comment">// démarrer l'application</span>
+<span class="hljs-keyword">new</span> Vue(&#123;
+  <span class="hljs-attr">el</span>: <span class="hljs-string">'#app'</span>,
+  data() &#123;
+    <span class="hljs-keyword">return</span> &#123;
+      <span class="hljs-attr">dynamicleft</span>: <span class="hljs-number">500</span>
+    &#125;
+  &#125;
+&#125;)</code></pre>
 <h2 id="Fonction-abregee"><a href="#Fonction-abregee" class="headerlink" title="Fonction abrégée"></a>Fonction abrégée</h2><p>Dans de nombreux cas, vous pourriez vouloir le même comportement pour les hooks <code>bind</code> et <code>update</code>, sans avoir besoin des autres hooks. Par exemple :</p>
 <pre><code class="hljs js">Vue.directive(<span class="hljs-string">'color-swatch'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">el, binding</span>) </span>&#123;
   el.style.backgroundColor = binding.value

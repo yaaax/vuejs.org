@@ -96,13 +96,22 @@
 <li class="nav-dropdown-container learn">
   <a class="nav-link current">Doc</a><span class="arrow"></span>
   <ul class="nav-dropdown">
-    <li><ul>
-      <li><a href="/v2/guide/" class="nav-link current">Guide</a></li>
-      <li><a href="/v2/api/" class="nav-link">API</a></li>
-      <li><a href="/v2/style-guide/" class="nav-link">Conventions</a></li>
-      <li><a href="/v2/examples/" class="nav-link">Exemples</a></li>
-      <li><a href="/v2/cookbook/" class="nav-link">Tutoriels</a></li>
-    </ul></li>
+    <li><h4>Documentations</h4></li>
+    <li>
+      <ul>
+        <li><a href="/v2/guide/" class="nav-link current">Guide</a></li>
+        <li><a href="/v2/api/" class="nav-link">API</a></li>
+        <li><a href="/v2/style-guide/" class="nav-link">Conventions</a></li>
+        <li><a href="/v2/examples/" class="nav-link">Exemples</a></li>
+        <li><a href="/v2/cookbook/" class="nav-link">Tutoriels</a></li>
+      </ul>
+    </li>
+    <li><h4>Videos</h4></li>
+    <li>
+      <ul>
+        <li><a href="https://www.vuemastery.com/courses/" class="nav-link" target="_blank">Vue Mastery (EN)</a></li>
+      </ul>
+    </li>
   </ul>
 </li>
 
@@ -194,13 +203,22 @@
 <li class="nav-dropdown-container learn">
   <a class="nav-link current">Doc</a><span class="arrow"></span>
   <ul class="nav-dropdown">
-    <li><ul>
-      <li><a href="/v2/guide/" class="nav-link current">Guide</a></li>
-      <li><a href="/v2/api/" class="nav-link">API</a></li>
-      <li><a href="/v2/style-guide/" class="nav-link">Conventions</a></li>
-      <li><a href="/v2/examples/" class="nav-link">Exemples</a></li>
-      <li><a href="/v2/cookbook/" class="nav-link">Tutoriels</a></li>
-    </ul></li>
+    <li><h4>Documentations</h4></li>
+    <li>
+      <ul>
+        <li><a href="/v2/guide/" class="nav-link current">Guide</a></li>
+        <li><a href="/v2/api/" class="nav-link">API</a></li>
+        <li><a href="/v2/style-guide/" class="nav-link">Conventions</a></li>
+        <li><a href="/v2/examples/" class="nav-link">Exemples</a></li>
+        <li><a href="/v2/cookbook/" class="nav-link">Tutoriels</a></li>
+      </ul>
+    </li>
+    <li><h4>Videos</h4></li>
+    <li>
+      <ul>
+        <li><a href="https://www.vuemastery.com/courses/" class="nav-link" target="_blank">Vue Mastery (EN)</a></li>
+      </ul>
+    </li>
   </ul>
 </li>
 
@@ -1480,6 +1498,7 @@ new Vue({
 &gt;</span>
   <span class="hljs-comment">&lt;!-- ... --&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">transition</span>&gt;</span></code></pre>
+<p>Dans l’exemple ci-dessus, l’attribut appear<code>ou le hook</code>v-on:appear` vont tous deux déclencher une transition d’apparition.</p>
 <h2 id="Transition-entre-elements"><a href="#Transition-entre-elements" class="headerlink" title="Transition entre éléments"></a>Transition entre éléments</h2><p>Plus loin, nous parlons de <a href="#transition-entre-les-composants">transition entre les composants</a>, mais vous pouvez également faire une transition entre des éléments bruts en utilisant <code>v-if</code>/<code>v-else</code>.  L’une des transitions les plus courantes sur deux éléments est entre un conteneur de liste et un message décrivant une liste vide :</p>
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">transition</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">"items.length &gt; 0"</span>&gt;</span>

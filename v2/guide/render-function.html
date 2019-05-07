@@ -96,13 +96,22 @@
 <li class="nav-dropdown-container learn">
   <a class="nav-link current">Doc</a><span class="arrow"></span>
   <ul class="nav-dropdown">
-    <li><ul>
-      <li><a href="/v2/guide/" class="nav-link current">Guide</a></li>
-      <li><a href="/v2/api/" class="nav-link">API</a></li>
-      <li><a href="/v2/style-guide/" class="nav-link">Conventions</a></li>
-      <li><a href="/v2/examples/" class="nav-link">Exemples</a></li>
-      <li><a href="/v2/cookbook/" class="nav-link">Tutoriels</a></li>
-    </ul></li>
+    <li><h4>Documentations</h4></li>
+    <li>
+      <ul>
+        <li><a href="/v2/guide/" class="nav-link current">Guide</a></li>
+        <li><a href="/v2/api/" class="nav-link">API</a></li>
+        <li><a href="/v2/style-guide/" class="nav-link">Conventions</a></li>
+        <li><a href="/v2/examples/" class="nav-link">Exemples</a></li>
+        <li><a href="/v2/cookbook/" class="nav-link">Tutoriels</a></li>
+      </ul>
+    </li>
+    <li><h4>Videos</h4></li>
+    <li>
+      <ul>
+        <li><a href="https://www.vuemastery.com/courses/" class="nav-link" target="_blank">Vue Mastery (EN)</a></li>
+      </ul>
+    </li>
   </ul>
 </li>
 
@@ -194,13 +203,22 @@
 <li class="nav-dropdown-container learn">
   <a class="nav-link current">Doc</a><span class="arrow"></span>
   <ul class="nav-dropdown">
-    <li><ul>
-      <li><a href="/v2/guide/" class="nav-link current">Guide</a></li>
-      <li><a href="/v2/api/" class="nav-link">API</a></li>
-      <li><a href="/v2/style-guide/" class="nav-link">Conventions</a></li>
-      <li><a href="/v2/examples/" class="nav-link">Exemples</a></li>
-      <li><a href="/v2/cookbook/" class="nav-link">Tutoriels</a></li>
-    </ul></li>
+    <li><h4>Documentations</h4></li>
+    <li>
+      <ul>
+        <li><a href="/v2/guide/" class="nav-link current">Guide</a></li>
+        <li><a href="/v2/api/" class="nav-link">API</a></li>
+        <li><a href="/v2/style-guide/" class="nav-link">Conventions</a></li>
+        <li><a href="/v2/examples/" class="nav-link">Exemples</a></li>
+        <li><a href="/v2/cookbook/" class="nav-link">Tutoriels</a></li>
+      </ul>
+    </li>
+    <li><h4>Videos</h4></li>
+    <li>
+      <ul>
+        <li><a href="https://www.vuemastery.com/courses/" class="nav-link" target="_blank">Vue Mastery (EN)</a></li>
+      </ul>
+    </li>
   </ul>
 </li>
 
@@ -1444,7 +1462,7 @@ Vue.component(<span class="hljs-string">'anchored-heading'</span>, &#123;
 <li><code>injections</code> : (2.3.0+) si vous utilisez l’option <a href="../api/#provide-inject"><code>inject</code></a>, cela va contenir les injections résolues.</li>
 </ul>
 <p>Après avoir ajouté <code>functional: true</code>, mettre à jour la fonction de rendu de notre composant de titres avec ancres va simplement nécessiter d’ajouter l’argument <code>context</code>, en remplaçant <code>this.$slots.default</code> par <code>context.children</code>, puis <code>this.level</code> par <code>context.props.level</code>.</p>
-<p>Puisque les composants fonctionnels ne sont que des fonctions, leur rendu est plus rapide. Cependant, cela signifie également que les composants fonctionnels n’apparaissent pas dans l’arbre des composants de l’outil de développement <a href="https://github.com/vuejs/vue-devtools" target="_blank" rel="noopener">Vue devtools</a>.</p>
+<p>Puisque les composants fonctionnels ne sont que des fonctions, leur rendu est plus rapide.</p>
 <p>Ils sont également très utiles en tant que composants enveloppes. Par exemple, quand vous avez besoin de :</p>
 <ul>
 <li>Programmatiquement choisir un composant parmi plusieurs autres composants pour de la délégation ou</li>

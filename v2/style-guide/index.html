@@ -96,13 +96,22 @@
 <li class="nav-dropdown-container learn">
   <a class="nav-link current">Doc</a><span class="arrow"></span>
   <ul class="nav-dropdown">
-    <li><ul>
-      <li><a href="/v2/guide/" class="nav-link">Guide</a></li>
-      <li><a href="/v2/api/" class="nav-link">API</a></li>
-      <li><a href="/v2/style-guide/" class="nav-link current">Conventions</a></li>
-      <li><a href="/v2/examples/" class="nav-link">Exemples</a></li>
-      <li><a href="/v2/cookbook/" class="nav-link">Tutoriels</a></li>
-    </ul></li>
+    <li><h4>Documentations</h4></li>
+    <li>
+      <ul>
+        <li><a href="/v2/guide/" class="nav-link">Guide</a></li>
+        <li><a href="/v2/api/" class="nav-link">API</a></li>
+        <li><a href="/v2/style-guide/" class="nav-link current">Conventions</a></li>
+        <li><a href="/v2/examples/" class="nav-link">Exemples</a></li>
+        <li><a href="/v2/cookbook/" class="nav-link">Tutoriels</a></li>
+      </ul>
+    </li>
+    <li><h4>Videos</h4></li>
+    <li>
+      <ul>
+        <li><a href="https://www.vuemastery.com/courses/" class="nav-link" target="_blank">Vue Mastery (EN)</a></li>
+      </ul>
+    </li>
   </ul>
 </li>
 
@@ -194,13 +203,22 @@
 <li class="nav-dropdown-container learn">
   <a class="nav-link current">Doc</a><span class="arrow"></span>
   <ul class="nav-dropdown">
-    <li><ul>
-      <li><a href="/v2/guide/" class="nav-link">Guide</a></li>
-      <li><a href="/v2/api/" class="nav-link">API</a></li>
-      <li><a href="/v2/style-guide/" class="nav-link current">Conventions</a></li>
-      <li><a href="/v2/examples/" class="nav-link">Exemples</a></li>
-      <li><a href="/v2/cookbook/" class="nav-link">Tutoriels</a></li>
-    </ul></li>
+    <li><h4>Documentations</h4></li>
+    <li>
+      <ul>
+        <li><a href="/v2/guide/" class="nav-link">Guide</a></li>
+        <li><a href="/v2/api/" class="nav-link">API</a></li>
+        <li><a href="/v2/style-guide/" class="nav-link current">Conventions</a></li>
+        <li><a href="/v2/examples/" class="nav-link">Exemples</a></li>
+        <li><a href="/v2/cookbook/" class="nav-link">Tutoriels</a></li>
+      </ul>
+    </li>
+    <li><h4>Videos</h4></li>
+    <li>
+      <ul>
+        <li><a href="https://www.vuemastery.com/courses/" class="nav-link" target="_blank">Vue Mastery (EN)</a></li>
+      </ul>
+    </li>
   </ul>
 </li>
 
@@ -396,7 +414,7 @@
 <li>trouverez de nouvelles recrues déjà habituées à votre style de codage préféré, au moins en ce qui concerne Vue.</li>
 </ol>
 <h3 id="Priorite-D-faire-attention"><a href="#Priorite-D-faire-attention" class="headerlink" title="Priorité D : faire attention"></a>Priorité D : faire attention</h3><p>Certaines fonctionnalités de Vue existent pour régler des cas exceptionnels ou rendre la migration d’une vieille version de code plus simple. Mais utiliser avec excès, elles rendront votre code difficile à maintenir et même deviendront une source de bogues. Ces règles mettent en lumière des fonctionnalités potentiellement risquées, décrivant quand et pourquoi elles doivent être évitées.</p>
-<h2 id="Regles-de-priorite-A-essentiel-prevenir-les-erreurs"><a href="#Regles-de-priorite-A-essentiel-prevenir-les-erreurs" class="headerlink" title="Règles de priorité A : essentiel (prévenir les erreurs)"></a>Règles de priorité A : essentiel (prévenir les erreurs)</h2><h3 id="Nom-de-composant-a-mots-multiples-essentiel"><a href="#Nom-de-composant-a-mots-multiples-essentiel" class="headerlink" title="Nom de composant à mots multiples essentiel"></a>Nom de composant à mots multiples <sup data-p="a">essentiel</sup></h3><p><strong>Les noms de composant devraient toujours être des mots multiples, à l’exception du composant racine <code>App</code>.</strong></p>
+<h2 id="Regles-de-priorite-A-essentiel-prevenir-les-erreurs"><a href="#Regles-de-priorite-A-essentiel-prevenir-les-erreurs" class="headerlink" title="Règles de priorité A : essentiel (prévenir les erreurs)"></a>Règles de priorité A : essentiel (prévenir les erreurs)</h2><h3 id="Nom-de-composant-a-mots-multiples-essentiel"><a href="#Nom-de-composant-a-mots-multiples-essentiel" class="headerlink" title="Nom de composant à mots multiples essentiel"></a>Nom de composant à mots multiples <sup data-p="a">essentiel</sup></h3><p><strong>Les noms de composant devraient toujours être des mots multiples, à l’exception du composant racine <code>App</code> et des composants préconçus fournis par Vue comme <code>&lt;transition&gt;</code> ou <code>&lt;component&gt;</code>.</strong></p>
 <p>Ceci afin de <a href="http://w3c.github.io/webcomponents/spec/custom/#valid-custom-element-name" target="_blank" rel="noopener">prévenir les conflits</a> avec des éléments HTML futurs ou existant car toutes les balises HTML n’ont qu’un seul mot.</p>
 <div class="style-example example-bad">
 <h4 id="A-eviter"><a href="#A-eviter" class="headerlink" title="À éviter"></a>À éviter</h4><pre><code class="hljs js">Vue.component(<span class="hljs-string">'todo'</span>, &#123;
@@ -687,9 +705,9 @@ props: &#123;
   <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-close"</span>&gt;</span>X<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
 
-<span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="undefined">
-.btn-close &#123;
-  background-color: red;
+<span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
+<span class="hljs-selector-class">.btn-close</span> &#123;
+  <span class="hljs-attribute">background-color</span>: red;
 &#125;
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span></code></pre>
 </div>
@@ -699,14 +717,14 @@ props: &#123;
 <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
 
 <span class="hljs-comment">&lt;!-- Utilisez l'attribut `scoped` --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">scoped</span>&gt;</span><span class="undefined">
-.button &#123;
-  border: none;
-  border-radius: 2px;
+<span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">scoped</span>&gt;</span><span class="css">
+<span class="hljs-selector-class">.button</span> &#123;
+  <span class="hljs-attribute">border</span>: none;
+  <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">2px</span>;
 &#125;
 
-.button-close &#123;
-  background-color: red;
+<span class="hljs-selector-class">.button-close</span> &#123;
+  <span class="hljs-attribute">background-color</span>: red;
 &#125;
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span></code></pre>
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
@@ -714,14 +732,14 @@ props: &#123;
 <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
 
 <span class="hljs-comment">&lt;!-- Utilisez les modules CSS --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">module</span>&gt;</span><span class="undefined">
-.button &#123;
-  border: none;
-  border-radius: 2px;
+<span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">module</span>&gt;</span><span class="css">
+<span class="hljs-selector-class">.button</span> &#123;
+  <span class="hljs-attribute">border</span>: none;
+  <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">2px</span>;
 &#125;
 
-.buttonClose &#123;
-  background-color: red;
+<span class="hljs-selector-class">.buttonClose</span> &#123;
+  <span class="hljs-attribute">background-color</span>: red;
 &#125;
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span></code></pre>
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
@@ -729,18 +747,18 @@ props: &#123;
 <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
 
 <span class="hljs-comment">&lt;!-- Utilisez des conventions BEM --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="undefined">
-.c-Button &#123;
-  border: none;
-  border-radius: 2px;
+<span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
+<span class="hljs-selector-class">.c-Button</span> &#123;
+  <span class="hljs-attribute">border</span>: none;
+  <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">2px</span>;
 &#125;
 
-.c-Button--close &#123;
-  background-color: red;
+<span class="hljs-selector-class">.c-Button--close</span> &#123;
+  <span class="hljs-attribute">background-color</span>: red;
 &#125;
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span></code></pre>
 </div>
-<h3 id="Noms-de-propriete-prive-essentiel"><a href="#Noms-de-propriete-prive-essentiel" class="headerlink" title="Noms de propriété privé essentiel"></a>Noms de propriété privé <sup data-p="a">essentiel</sup></h3><p><strong>Utilisez toujours le préfixe <code>$_</code> pour les propriétés privées personnalisées dans un plugin, mixin, etc. Cela permet d’éviter les conflits avec le code d’autres développeurs. Il est également possible d’inclure un nom de portée (par ex. <code>$_yourPluginName_</code>).</strong></p>
+<h3 id="Noms-de-propriete-prive-essentiel"><a href="#Noms-de-propriete-prive-essentiel" class="headerlink" title="Noms de propriété privé essentiel"></a>Noms de propriété privé <sup data-p="a">essentiel</sup></h3><p><strong>Utilisez la portée des modules pour garder les fonctions inaccessibles de l’extérieur. Si cela n’est pas possible, utilisez le préfixe <code>$_</code> pour les propriétés privées personnalisées dans un plugin, mixin, etc car elles ne doivent pas être considérées comme des APIs publiques. Cela permet d’éviter les conflits avec le code d’autres développeurs. Il est également possible d’inclure un nom de portée (par ex. <code>$_yourPluginName_</code>).</strong></p>
 
 <details>
 <summary>
@@ -794,6 +812,22 @@ props: &#123;
     &#125;
   &#125;
 &#125;</code></pre>
+<pre><code class="hljs js"><span class="hljs-comment">// Encore mieux !</span>
+<span class="hljs-keyword">var</span> myGreatMixin = &#123;
+  <span class="hljs-comment">// ...</span>
+  methods: &#123;
+    publicMethod() &#123;
+      <span class="hljs-comment">// ...</span>
+      myPrivateFunction()
+    &#125;
+  &#125;
+&#125;
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">myPrivateFunction</span>(<span class="hljs-params"></span>) </span>&#123;
+  <span class="hljs-comment">// ...</span>
+&#125;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> myGreatMixin</code></pre>
 </div>
 <h2 id="Regles-de-priorite-B-fortement-recommande-ameliorer-la-lisibilite"><a href="#Regles-de-priorite-B-fortement-recommande-ameliorer-la-lisibilite" class="headerlink" title="Règles de priorité B : fortement recommandé (améliorer la lisibilité)"></a>Règles de priorité B : fortement recommandé (améliorer la lisibilité)</h2><h3 id="Fichier-composants-fortement-recommande"><a href="#Fichier-composants-fortement-recommande" class="headerlink" title="Fichier composants fortement recommandé"></a>Fichier composants <sup data-p="b">fortement recommandé</sup></h3><p><strong>Chaque fois qu’un système de build est disponible pour concaténer les fichiers, chaque composant devrait être dans son propre fichier.</strong></p>
 <p>Ceci aide à trouver plus rapidement un composant quand vous avez besoin de l’éditer ou de vérifier comment il fonctionne.</p>
@@ -1424,38 +1458,38 @@ props: &#123;
 </div>
 <h3 id="Ordre-des-balises-principales-des-composants-monofichiers-recommande"><a href="#Ordre-des-balises-principales-des-composants-monofichiers-recommande" class="headerlink" title="Ordre des balises principales des composants monofichiers recommandé"></a>Ordre des balises principales des composants monofichiers <sup data-p="c">recommandé</sup></h3><p><strong><a href="../guide/single-file-components.html">Les composants monofichiers</a> devraient toujours ordonner de manière consistante les balises <code>&lt;script&gt;</code>, <code>&lt;template&gt;</code>, et <code>&lt;style&gt;</code>, avec <code>&lt;style&gt;</code> en dernier, car au moins l’un des deux autres est toujours nécessaire.</strong></p>
 <div class="style-example example-bad">
-<h4 id="A-eviter-23"><a href="#A-eviter-23" class="headerlink" title="À éviter"></a>À éviter</h4><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="undefined">/* ... */</span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+<h4 id="A-eviter-23"><a href="#A-eviter-23" class="headerlink" title="À éviter"></a>À éviter</h4><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css"><span class="hljs-comment">/* ... */</span></span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript"><span class="hljs-comment">/* ... */</span></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>...<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span></code></pre>
 <pre><code class="hljs html"><span class="hljs-comment">&lt;!-- ComponentA.vue --&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript"><span class="hljs-comment">/* ... */</span></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>...<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="undefined">/* ... */</span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css"><span class="hljs-comment">/* ... */</span></span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
 
 <span class="hljs-comment">&lt;!-- ComponentB.vue --&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>...<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript"><span class="hljs-comment">/* ... */</span></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="undefined">/* ... */</span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span></code></pre>
+<span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css"><span class="hljs-comment">/* ... */</span></span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span></code></pre>
 </div>
 <div class="style-example example-good">
 <h4 id="Recommande-24"><a href="#Recommande-24" class="headerlink" title="Recommandé"></a>Recommandé</h4><pre><code class="hljs html"><span class="hljs-comment">&lt;!-- ComponentA.vue --&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript"><span class="hljs-comment">/* ... */</span></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>...<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="undefined">/* ... */</span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css"><span class="hljs-comment">/* ... */</span></span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
 
 <span class="hljs-comment">&lt;!-- ComponentB.vue --&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript"><span class="hljs-comment">/* ... */</span></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>...<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="undefined">/* ... */</span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span></code></pre>
+<span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css"><span class="hljs-comment">/* ... */</span></span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span></code></pre>
 <pre><code class="hljs html"><span class="hljs-comment">&lt;!-- ComponentA.vue --&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>...<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript"><span class="hljs-comment">/* ... */</span></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="undefined">/* ... */</span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css"><span class="hljs-comment">/* ... */</span></span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
 
 <span class="hljs-comment">&lt;!-- ComponentB.vue --&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>...<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript"><span class="hljs-comment">/* ... */</span></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="undefined">/* ... */</span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span></code></pre>
+<span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css"><span class="hljs-comment">/* ... */</span></span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span></code></pre>
 </div>
 <h2 id="Regles-de-priorite-D-faire-attention-potentiellement-dangereux"><a href="#Regles-de-priorite-D-faire-attention-potentiellement-dangereux" class="headerlink" title="Règles de priorité D : faire attention (potentiellement dangereux)"></a>Règles de priorité D : faire attention (potentiellement dangereux)</h2><h3 id="v-if-v-else-if-v-else-sans-key-faire-attention"><a href="#v-if-v-else-if-v-else-sans-key-faire-attention" class="headerlink" title="v-if / v-else-if/ v-else sans key faire attention"></a><code>v-if</code> / <code>v-else-if</code>/ <code>v-else</code> sans <code>key</code> <sup data-p="d">faire attention</sup></h3><p><strong>Il est généralement préférable d’utiliser <code>key</code> avec <code>v-if</code> + <code>v-else</code>, si les éléments sont de même type (c.-à-d. avec deux éléments <code>&lt;div&gt;</code> par ex.).</strong></p>
 <p>Par défaut, Vue met à jour le DOM aussi efficacement que possible. Cela signifie que quand il commute entre deux éléments de même type, il va simplement modifier l’élément existant, plutôt que de l’enlever et d’en ajouter un nouveau à la place. Cela peut avoir des <a href="https://jsfiddle.net/chrisvfritz/bh8fLeds/" target="_blank" rel="noopener">effets non souhaités</a> si ces éléments ne doivent pas être considérés comme les mêmes.</p>
@@ -1497,9 +1531,9 @@ props: &#123;
   <span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>X<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
 
-<span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">scoped</span>&gt;</span><span class="undefined">
-button &#123;
-  background-color: red;
+<span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">scoped</span>&gt;</span><span class="css">
+<span class="hljs-selector-tag">button</span> &#123;
+  <span class="hljs-attribute">background-color</span>: red;
 &#125;
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span></code></pre>
 </div>
@@ -1508,9 +1542,9 @@ button &#123;
   <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-close"</span>&gt;</span>X<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
 
-<span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">scoped</span>&gt;</span><span class="undefined">
-.btn-close &#123;
-  background-color: red;
+<span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">scoped</span>&gt;</span><span class="css">
+<span class="hljs-selector-class">.btn-close</span> &#123;
+  <span class="hljs-attribute">background-color</span>: red;
 &#125;
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span></code></pre>
 </div>

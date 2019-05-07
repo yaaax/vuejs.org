@@ -96,13 +96,22 @@
 <li class="nav-dropdown-container learn">
   <a class="nav-link current">Doc</a><span class="arrow"></span>
   <ul class="nav-dropdown">
-    <li><ul>
-      <li><a href="/v2/guide/" class="nav-link current">Guide</a></li>
-      <li><a href="/v2/api/" class="nav-link">API</a></li>
-      <li><a href="/v2/style-guide/" class="nav-link">Conventions</a></li>
-      <li><a href="/v2/examples/" class="nav-link">Exemples</a></li>
-      <li><a href="/v2/cookbook/" class="nav-link">Tutoriels</a></li>
-    </ul></li>
+    <li><h4>Documentations</h4></li>
+    <li>
+      <ul>
+        <li><a href="/v2/guide/" class="nav-link current">Guide</a></li>
+        <li><a href="/v2/api/" class="nav-link">API</a></li>
+        <li><a href="/v2/style-guide/" class="nav-link">Conventions</a></li>
+        <li><a href="/v2/examples/" class="nav-link">Exemples</a></li>
+        <li><a href="/v2/cookbook/" class="nav-link">Tutoriels</a></li>
+      </ul>
+    </li>
+    <li><h4>Videos</h4></li>
+    <li>
+      <ul>
+        <li><a href="https://www.vuemastery.com/courses/" class="nav-link" target="_blank">Vue Mastery (EN)</a></li>
+      </ul>
+    </li>
   </ul>
 </li>
 
@@ -194,13 +203,22 @@
 <li class="nav-dropdown-container learn">
   <a class="nav-link current">Doc</a><span class="arrow"></span>
   <ul class="nav-dropdown">
-    <li><ul>
-      <li><a href="/v2/guide/" class="nav-link current">Guide</a></li>
-      <li><a href="/v2/api/" class="nav-link">API</a></li>
-      <li><a href="/v2/style-guide/" class="nav-link">Conventions</a></li>
-      <li><a href="/v2/examples/" class="nav-link">Exemples</a></li>
-      <li><a href="/v2/cookbook/" class="nav-link">Tutoriels</a></li>
-    </ul></li>
+    <li><h4>Documentations</h4></li>
+    <li>
+      <ul>
+        <li><a href="/v2/guide/" class="nav-link current">Guide</a></li>
+        <li><a href="/v2/api/" class="nav-link">API</a></li>
+        <li><a href="/v2/style-guide/" class="nav-link">Conventions</a></li>
+        <li><a href="/v2/examples/" class="nav-link">Exemples</a></li>
+        <li><a href="/v2/cookbook/" class="nav-link">Tutoriels</a></li>
+      </ul>
+    </li>
+    <li><h4>Videos</h4></li>
+    <li>
+      <ul>
+        <li><a href="https://www.vuemastery.com/courses/" class="nav-link" target="_blank">Vue Mastery (EN)</a></li>
+      </ul>
+    </li>
   </ul>
 </li>
 
@@ -1018,11 +1036,11 @@
 <p>Cette page suppose que vous avez déjà lu les principes de base des <a href="components.html">composants</a>. Lisez-les en premier si les composants sont quelque chose de nouveau pour vous.</p>
 </blockquote>
 <h2 id="Noms-d’evenements"><a href="#Noms-d’evenements" class="headerlink" title="Noms d’événements"></a>Noms d’événements</h2><p>Contrairement aux composants et aux props, les noms d’événements ne fournissent pas de conversion kebab-case/camelCase. Le nom de l’événement émis doit correspondre exactement au nom utilisé pour écouter cet événement. Par exemple, si l’on émet un nom d’événement en camelCase :</p>
-<pre><code class="hljs js"><span class="hljs-keyword">this</span>.$emit(<span class="hljs-string">'monEvenement'</span>)</code></pre>
+<pre><code class="hljs js"><span class="hljs-keyword">this</span>.$emit(<span class="hljs-string">'myEvent'</span>)</code></pre>
 <p>Alors écouter la version kebab-case n’aura pas d’effet :</p>
 <pre><code class="hljs html"><span class="hljs-comment">&lt;!-- Ne fonctionne pas --&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">my-component</span> <span class="hljs-attr">v-on:my-event</span>=<span class="hljs-string">"doSomething"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">my-component</span>&gt;</span></code></pre>
-<p>Contrairement aux composants et aux props, les noms d’événements ne seront jamais utilisés comme noms de variables ou de propriétés en JavaScript, donc il n’y a pas de raison d’utiliser camelCase ou PascalCase. De plus, les écouteurs d’événements  <code>v-on</code> à l’intérieur de templates DOM seront automatiquement transformées en minuscules (à cause de l’insensibilité à la casse de HTML), donc <code>v-on:monEvenement</code> deviendra <code>v-on:monevenement</code> – rendant <code>monEvenement</code> impossible à écouter.</p>
+<p>Contrairement aux composants et aux props, les noms d’événements ne seront jamais utilisés comme noms de variables ou de propriétés en JavaScript, donc il n’y a pas de raison d’utiliser camelCase ou PascalCase. De plus, les écouteurs d’événements  <code>v-on</code> à l’intérieur de templates DOM seront automatiquement transformés en minuscules (à cause de l’insensibilité à la casse de HTML), donc <code>v-on:myEvent</code> deviendra <code>v-on:myevent</code> – rendant <code>myEvent</code> impossible à écouter.</p>
 <p>Pour ces raisons, nous recommandons de <strong>toujours utiliser la kebab-case pour les noms d’événements</strong>.</p>
 <h2 id="Personnaliser-le-v-model-du-composant"><a href="#Personnaliser-le-v-model-du-composant" class="headerlink" title="Personnaliser le v-model du composant"></a>Personnaliser le <code>v-model</code> du composant</h2><blockquote>
 <p>Nouveauté de la 2.2.0+</p>
@@ -1066,7 +1084,7 @@
   <span class="hljs-attr">focus</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">event</span>) </span>&#123; <span class="hljs-comment">/* ... */</span> &#125;
   input: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">value</span>) </span>&#123; <span class="hljs-comment">/* ... */</span> &#125;,
 &#125;</code></pre>
-<p>En utilisant la propriété <code>$listeners</code>, vous pouvez renvoyer tous les écouteurs d’événements sur le composant vers un élément enfant spécifique avec <code>v-on=&quot;$listeners&quot;</code>. Pour les éléments tels que <code>&lt;input&gt;</code>, pour lesquels vous voulez aussi que <code>v-model</code> fonctionne, il est souvent utile de créer une nouvelle propriété calculée pour les écouteurs, tels que la propriété <code>inputListeners</code> ci-dessous:</p>
+<p>En utilisant la propriété <code>$listeners</code>, vous pouvez renvoyer tous les écouteurs d’événements sur le composant vers un élément enfant spécifique avec <code>v-on=&quot;$listeners&quot;</code>. Pour les éléments tels que <code>&lt;input&gt;</code>, pour lesquels vous voulez aussi que <code>v-model</code> fonctionne, il est souvent utile de créer une nouvelle propriété calculée pour les écouteurs, telle que la propriété <code>inputListeners</code> ci-dessous:</p>
 <pre><code class="hljs js">Vue.component(<span class="hljs-string">'base-input'</span>, &#123;
   <span class="hljs-attr">inheritAttrs</span>: <span class="hljs-literal">false</span>,
   <span class="hljs-attr">props</span>: [<span class="hljs-string">'label'</span>, <span class="hljs-string">'value'</span>],
@@ -1113,7 +1131,7 @@
 &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">text-document</span>&gt;</span></code></pre>
 <p>Pour plus de commodité, nous proposons un raccourci pour cette technique avec le modificateur <code>.sync</code> :</p>
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">text-document</span> <span class="hljs-attr">v-bind:title.sync</span>=<span class="hljs-string">"doc.title"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">text-document</span>&gt;</span></code></pre>
-<p class="tip">Notez que  <code>v-bind</code> avec le modificateur <code>.sync</code> <strong>ne</strong> fonctionne <strong>pas</strong> avec des expressions (par ex. <code>v-bind:title.sync=”doc.title + ‘!’”</code> est invalide). À la place, vous devez seulement fournir le nom de la propriété que vous voulez lier, similaire à <code>v-model</code>.</p>
+<p class="tip">Notez que <code>v-bind</code> avec le modificateur <code>.sync</code> <strong>ne</strong> fonctionne <strong>pas</strong> avec des expressions (par ex. <code>v-bind:title.sync=”doc.title + ‘!’”</code> est invalide). À la place, vous devez seulement fournir le nom de la propriété que vous voulez lier, similaire à <code>v-model</code>.</p>
 
 <p>Le modificateur <code>.sync</code> peut également être utilisé avec <code>v-bind</code> quand on utilise un objet pour assigner plusieurs props à la fois :</p>
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">text-document</span> <span class="hljs-attr">v-bind.sync</span>=<span class="hljs-string">"doc"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">text-document</span>&gt;</span></code></pre>
