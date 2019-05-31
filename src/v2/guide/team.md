@@ -413,16 +413,18 @@ order: 803
       github: 'kazupon',
       twitter: 'kazu_pon',
       work: {
-        role: 'CTO & Full Stack Developer'
+        role: 'Engineer',
+        org: 'PLAID, Inc.',
+        orgUrl: 'https://plaid.co.jp'
       },
       reposOfficial: [
         'vuejs.org', 'jp.vuejs.org'
       ],
       reposPersonal: [
-        'vue-i18n', 'vue-cli-plugin-i18n', 'vue-i18n-loader', 'vue-i18n-extensions'
+        'vue-i18n', 'vue-cli-plugin-i18n', 'vue-i18n-loader', 'eslint-plugin-vue-i18n', 'vue-i18n-extensions', 'vue-cli-plugin-p11n'
       ],
       links: [
-        'https://www.patreon.com/kazupon', 'https://cuusoo.com', 'http://frapwings.jp'
+        'https://www.patreon.com/kazupon'
       ]
     },
     {
@@ -513,15 +515,21 @@ order: 803
       city: 'Denver, CO, USA',
       languages: ['en'],
       work: {
-        role: 'Senior Cloud Developer Advocate',
-        org: 'Microsoft',
-        orgUrl: 'https://www.microsoft.com/'
+        role: 'Head of Developer Experience',
+        org: 'Netlify',
+        orgUrl: 'https://www.netlify.com/'
       },
       github: 'sdras',
       twitter: 'sarah_edo',
       codepen: 'sdras',
+      reposOfficial: [
+        'vuejs.org'
+      ],
       reposPersonal: [
-        'intro-to-vue', 'vue-vscode-snippets', 'vue-sublime-snippets', 'nuxt-type', 'animating-vue-workshop', 'cda-locale', 'vue-weather-notifier'
+        'intro-to-vue', 'vue-vscode-snippets', 'vue-vscode-extensionpack', 'sample-vue-shop'
+      ],
+      links: [
+        'https://sarah.dev/'
       ]
     },
     {
@@ -1160,15 +1168,16 @@ order: 803
       github: 'filrak',
       twitter: 'filrakowski',
       work: {
-        role: 'FED & Vue Storefront Co-founder',
+        role: 'Co-founder of Vue Storefront',
         org: 'Divante',
         orgUrl: 'https://divante.co/'
       },
       reposPersonal: [
-        'DivanteLtd/vue-storefront', 'filrak/vue-offline'
+        'DivanteLtd/vue-storefront', 'DivanteLtd/storefront-ui'
       ],
       links: [
-        'https://vuestorefront.io'
+        'https://vuestorefront.io',
+        'https://storefrontui.io'
       ]
     },
     {
