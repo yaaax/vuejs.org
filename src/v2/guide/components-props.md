@@ -320,7 +320,7 @@ Cela est particulièrement utile avec l'utilisation combinée de la propriété 
 }
 ```
 
-Avec `inheritAttrs: false` et `$attrs`, vous pouvez manuellement décider sur quel élément vous souhaitez déposer les attributs passés, ce qui est souvent souhaité dans le cas des [bases de composant](#Base-de-nom-de-composant-fortement-recommande) :
+Avec `inheritAttrs: false` et `$attrs`, vous pouvez manuellement décider sur quel élément vous souhaitez déposer les attributs passés, ce qui est souvent souhaité dans le cas des [bases de composant](../style-guide/#Base-de-nom-de-composant-fortement-recommande) :
 
 ```js
 Vue.component('base-input', {
